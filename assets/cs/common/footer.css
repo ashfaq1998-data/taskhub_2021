@@ -1,0 +1,49 @@
+.footer-section{
+    position: relative;
+    display: block;
+    background-color: #108882;
+    min-height: 300px;
+    padding: 80px 10vw 10px 10vw;
+    color: white;
+}
+
+.footer-section-summary{
+    display: inline-block;
+    max-width: 450px;
+    line-height: 1.5;
+    margin-right: 15%;
+}
+
+.footer-section-links{
+    position: absolute;
+    display: inline-block;
+    max-width: 450px;
+    line-height: 1.5;
+}
+
+.footer-section-links a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-section-links ul{
+    list-style: none;
+    padding-left: 0px;
+}
+
+.footer-section-links li{
+    margin-bottom: 10px;
+}
+
+.footer-section-contact{
+    display: inline-block;
+    float: right;
+    max-width: 450px;
+    line-height: 1.5;
+    margin-right: 10%;
+}
+
+.disabled-link{
+    pointer-events: none;        
+    text-decoration: none;
+}

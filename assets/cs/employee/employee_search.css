@@ -1,0 +1,108 @@
+.search-container{
+    width: 100%;
+    position: absolute;
+
+} 
+.search-container input[type=text] {
+    width: 863px;
+    height: 46px;
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    background-color:  rgba(16, 136, 130, 0.37);
+    border-radius: 30px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    
+    
+}
+
+.search-container button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.subrow{
+    box-sizing: border-box;
+    margin-top: 10%;
+}
+  
+  /* Create three equal columns that floats next to each other */
+.subcolumn1{
+    float: left;
+    width: 20%;
+    padding: 10px;
+    height: 250px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: rgba(16, 136, 130, 0.37); /* Should be removed. Only for demonstration */
+}
+
+.nameone{
+    background-color: #108882;
+    text-align: center;
+}
+
+.imageone{
+    display: block;
+    margin-left: 20%;
+}
+
+.subcolumn2{
+    float: left;
+    width: 70%;
+    padding: 10px;
+    height: 250px;
+    background-color: rgba(16, 136, 130, 0.37);  /* Should be removed. Only for demonstration */
+}
+
+.Description{
+    margin-top: 10%;
+    background: #F2F2F2;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.subcolumn3 {
+    float: left;
+    width: 10%;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    height: 250px;
+    background-color: rgba(16, 136, 130, 0.37);  /* Should be removed. Only for demonstration */
+}
+
+.subcolumn3 a{
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin-top: 95%;
+    cursor: pointer;
+    background-color: red;
+    border-radius: 5px;
+}
+
+.subrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
