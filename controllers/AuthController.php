@@ -5,6 +5,7 @@ require_once ROOT . '/models/AuthModel.php';
 require_once ROOT . '/models/EmployeeModel.php';
 require_once ROOT . '/models/UsersModel.php';
 require_once ROOT . '/models/ContractorModel.php';
+require_once ROOT . '/models/ManpowerModel.php';
 
 require_once ROOT . '/classes/Validation.php';
 
@@ -209,7 +210,6 @@ class AuthController {
 	$view = new View("auth/employee_register", $data);
   }
 
-
   public function contractorRegister(){
 	$validation = new Validation();
 	$authModel = new AuthModel();
@@ -313,6 +313,111 @@ class AuthController {
 	}
 	$view = new View("auth/contractor_register", $data);
   }
+
+  public function manpowerRegister(){
+	$validation = new Validation();
+	$authModel = new AuthModel();
+	$ManpowerModel = new ManpowerModel();
+	$usersModel = new UsersModel();
+	$data['specialization_list'] = ['Specialized For', 'Plumbing', 'Carpentry', 'Electrical', 'Mason', 'Painting', 'Gardening'];
+
+	if(!empty($_POST['manpower_register'] && $_POST['manpower_register'] == 'submitted') ){
+		$data['inputted_data'] = $_POST;
+		$firstName = $_POST['f_name'];
+		$lastName = $_POST['l_name'];
+		$nic = $_POST['nic'];
+		$phoneNum = $_POST['phone_num'];
+		$specialization = $_POST['specialization'];
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		$confirmPassword = $_POST['confirm_password'];
+		$registerError = "";
+
+		//validate input fields
+		if(empty($firstName) || empty($lastName) || empty($nic) || empty($phoneNum) || empty($specialization) 
+			|| empty($email) || empty($password) || empty($confirmPassword))
+		{
+			$registerError = "Please fill all the empty fields";
+		}
+
+		//validate phone number
+		if($registerError == ""){
+			$registerError = $validation->validatePhoneNumber($phoneNum);
+		}
+		
+		
+
+		//validate email
+		if($registerError == ""){
+			if(!$validation->validateEmail($email)){
+				$registerError = "Please enter a valid email format";
+			}else {
+				 //Check if email exists.
+				if ($usersModel->checkUserEmail($email)) {
+					$registerError = 'This Email is already taken.';
+				}
+			}
+		}
+		
+		//validate password
+		if($registerError == ""){
+			$registerError = $validation->validatePassword($password);
+		}
+
+		//validate password
+		if($registerError == ""){
+			$registerError = $validation->validateConfirmPassword($password, $confirmPassword);
+		}
+
+		//validate firstname
+		if($registerError == ""){
+			$registerError = $validation->validateName($firstName);
+		}
+
+		if($registerError == ""){
+			$registerError = $validation->validateName($lastName);
+		}
+
+		
+
+
+		//registration after validation
+		if($registerError == ""){
+			$userId = $usersModel->generateUserID();
+			$manpowerId = $manpowerModel->generateManpowerID();
+			// Hashing the password to store password in db
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
+			$userDetails = [
+				'id' => $userId,
+				'email' => $email,
+				'password' => $password,
+				'user_type_id' => 5,
+			];
+
+			$contractorDetails = [
+				'Contractor_ID' => $manpowerId,
+				'FirstName' => $firstName,
+				'LastName' => $lastName,
+				'NIC' => $nic,
+				'Contact_No' => $phoneNum,
+				'Specialized_area' => $specialization,
+				'user_id' => $userId
+			];
+
+            if ($authModel->register($userDetails)) {
+				//add new employee
+				$manpowerModel->addNewManpower($manpowerDetails);
+                header('location: ' . fullURLfront . '/auth/login');
+            } else {
+                die('Something went wrong.');
+            }
+		}
+		$data['registerError'] = $registerError;
+	}
+	$view = new View("auth/manpower_register", $data);
+  }
+
 
 
   public function forgotPassword(){
