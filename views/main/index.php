@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 ?>
     <!DOCTYPE html> 
     <html lang="en">
@@ -123,7 +123,7 @@ session_start();
                         <div class="signup-box">
                             <p>I am a Man Power Agency</p>
                             <img src="<?php echo fullURLfront; ?>/assets/images/Frame.png" alt="John" style="width:60%; height:55%;">
-                            <br><br><a href="#" class="signup-button <?php echo (!empty($_SESSION['loggedin'])) ? 'disabled-link' : ''; ?>">Sign Up</a>
+                            <br><br><a href="<?php echo fullURLfront; ?>/auth/manpower_register" class="signup-button <?php echo (!empty($_SESSION['loggedin'])) ? 'disabled-link' : ''; ?>">Sign Up</a>
                         </div>
                     </div>
                 </div>
