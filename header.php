@@ -14,6 +14,6 @@
         </ul>
     </div>
     <div class="user" >
-        <!-- <h4><i class="fa fa-user-circle-o" aria-hidden="true" ></i> <?php echo $_SESSION['loggedin']['username']; ?></h4> -->
+        <h4><i class="fa fa-user-circle-o" aria-hidden="true" ></i> <?php echo $_SESSION['loggedin']['username']; ?></h4>
     </div>
 </div>

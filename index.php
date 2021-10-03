@@ -21,8 +21,8 @@ $routes = [
     'auth/login' => 'AuthController@login',
     'auth/employee_register' => 'AuthController@employeeRegister',
     'auth/contractor_register' => 'AuthController@contractorRegister',
-    'auth/forgot_password' => 'AuthController@forgotPassword',
     'auth/manpower_register' => 'AuthController@manpowerRegister',
+    'auth/forgot_password' => 'AuthController@forgotPassword',
 
   //employee section
     'Employee/employee_dashboard' => 'EmployeeController@employeeDashboard',
@@ -34,10 +34,9 @@ $routes = [
     'Employee/employee_search' => 'EmployeeController@employeeSearch',
     'Employee/employee_viewad' => 'EmployeeController@employeeViewad',
 
-  //Manpower section
-    'Manpower/manpower_dashboard' => 'ManpowerController@manpowerDashboard',
-
-  
+  //contractor section
+  'Contractor/contractor_dashboard' => 'ContractorController@contractorDashboard',
+  'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
 
 
    

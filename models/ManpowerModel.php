@@ -6,7 +6,7 @@ class ManpowerModel extends Database {
 
   //for now for profile section
   public function getManpowerByUserID($user_id) {
-    $sql = "SELECT * FROM manpower WHERE user_id='$user_id'"; 
+    $sql = "SELECT * FROM manpowerAgency WHERE user_id='$user_id'"; 
     $query = $this->con->query($sql);
     $query->execute();
     $data = $query->fetch(PDO::FETCH_OBJ);
@@ -15,16 +15,15 @@ class ManpowerModel extends Database {
   }
 
   public function addNewManpower($manpowerDetails) {
-    $manpowerId = $manpowerDetails['Manpower_ID'];
-    $firstName = $manpowerDetails['FirstName'];
-    $lastName = $manpowerDetails['LastName'];
-    $nic = $manpowerDetails['NIC'];
+    $manpowerId = $manpowerDetails['Manpower_Agency_ID'];
+    $Company_name = $manpowerDetails['Company_Name'];
+    $Company_regno = $manpowerDetails['Company_Registration_No'];
+    $address = $manpowerDetails['Address'];
     $phoneNum = $manpowerDetails['Contact_No'];
-    $specialization = $manpowerDetails['Specialized_area'];
     $userId = $manpowerDetails['user_id'];
 
-    $sql = "INSERT INTO manpowerAgency (Contractor_ID, FirstName, LastName, NIC, phone, specialization, user_id) 
-            VALUES ('$manpowerId', '$firstName', '$lastName', '$nic', '$phoneNum', '$specialization', '$userId')";
+    $sql = "INSERT INTO manpower_agency (Manpower_Agency_ID,Company_Name,Company_Registration_No,Address,Contact_No, user_id) 
+            VALUES ('$manpowerId', '$Company_name', '$Company_regno', '$address', '$phoneNum', '$userId')";
 
     if($this->con->query($sql)){
         return true;
@@ -37,14 +36,14 @@ class ManpowerModel extends Database {
   
 
   public function generateManpowerID(){
-    $str_part = "con";
+    $str_part = "man";
     $manpower_id = "";
     
     while(true){
       $num_part = rand(100, 999);
       $manpower_id = $str_part . strval($num_part);
 
-      $sql = "SELECT * FROM manpowerAgency WHERE Manpower_ID='$manpower_id'";
+      $sql = "SELECT * FROM manpower_agency WHERE Manpower_Agency_ID='$manpower_id'";
       $query = $this->con->query($sql);
       $query->execute();
 
