@@ -18,6 +18,7 @@ class AuthController {
   public function login() {  
 	$authModel = new AuthModel();
 	$employeeModel = new EmployeeModel();
+	$contractorModel = new ContractorModel();
 
     if(!empty($_POST['login'] && $_POST['login'] == 'submitted') ){
 
@@ -83,15 +84,15 @@ class AuthController {
 					header('location: ../nutritionist/dashboard');
 
 				}else if ($loggedInUser->user_type_id == 5) {
-					
+					$loggedInContractor = $contractorModel->getContractorByUserID($loggedInUser->id);
 					$_SESSION['loggedin'] = [
 					'user_type' => 'CONTRACTOR', 
 					'user_id' => $loggedInUser->id, 
-					'username' => $loggedInUser->email, 
+					'username' => $loggedInContractor->FirstName. " ".$loggedInContractor->LastName, 
 					'email' => $loggedInUser->email
 					];
 					$loginError = "none";
-					header('location: ../nutritionist/dashboard');
+					header('location: ../Contractor/contractor_profile');
 
 				}
 				return;
@@ -210,6 +211,7 @@ class AuthController {
 	$view = new View("auth/employee_register", $data);
   }
 
+
   public function contractorRegister(){
 	$validation = new Validation();
 	$authModel = new AuthModel();
@@ -317,24 +319,23 @@ class AuthController {
   public function manpowerRegister(){
 	$validation = new Validation();
 	$authModel = new AuthModel();
-	$ManpowerModel = new ManpowerModel();
+	$manpowerModel = new ManpowerModel();
 	$usersModel = new UsersModel();
-	$data['specialization_list'] = ['Specialized For', 'Plumbing', 'Carpentry', 'Electrical', 'Mason', 'Painting', 'Gardening'];
+	
 
 	if(!empty($_POST['manpower_register'] && $_POST['manpower_register'] == 'submitted') ){
 		$data['inputted_data'] = $_POST;
-		$firstName = $_POST['f_name'];
-		$lastName = $_POST['l_name'];
-		$nic = $_POST['nic'];
+		$Company_name = $_POST['Company_name'];
+		$Company_RegNo = $_POST['Company_RegNo'];
+		$address = $_POST['address'];
 		$phoneNum = $_POST['phone_num'];
-		$specialization = $_POST['specialization'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$confirmPassword = $_POST['confirm_password'];
 		$registerError = "";
 
 		//validate input fields
-		if(empty($firstName) || empty($lastName) || empty($nic) || empty($phoneNum) || empty($specialization) 
+		if(empty($Company_name) || empty($Company_RegNo) || empty($phoneNum) 
 			|| empty($email) || empty($password) || empty($confirmPassword))
 		{
 			$registerError = "Please fill all the empty fields";
@@ -369,14 +370,7 @@ class AuthController {
 			$registerError = $validation->validateConfirmPassword($password, $confirmPassword);
 		}
 
-		//validate firstname
-		if($registerError == ""){
-			$registerError = $validation->validateName($firstName);
-		}
 
-		if($registerError == ""){
-			$registerError = $validation->validateName($lastName);
-		}
 
 		
 
@@ -395,13 +389,12 @@ class AuthController {
 				'user_type_id' => 5,
 			];
 
-			$contractorDetails = [
-				'Contractor_ID' => $manpowerId,
-				'FirstName' => $firstName,
-				'LastName' => $lastName,
-				'NIC' => $nic,
+			$manpowerDetails = [
+				'Manpower_Agency_ID' => $manpowerId,
+				'Company_Registration_No' => $Company_RegNo,
+				'Company_Name' => $Company_name,
+				'Address' => $address,
 				'Contact_No' => $phoneNum,
-				'Specialized_area' => $specialization,
 				'user_id' => $userId
 			];
 
@@ -417,7 +410,6 @@ class AuthController {
 	}
 	$view = new View("auth/manpower_register", $data);
   }
-
 
 
   public function forgotPassword(){

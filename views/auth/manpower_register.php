@@ -9,7 +9,7 @@ session_start();
         <title>Task Hub</title>
         <link href="<?php echo fullURLfront; ?>/assets/cs/common/header.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo fullURLfront; ?>/assets/cs/common/footer.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo fullURLfront; ?>/assets/cs/auth/employee_register.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo fullURLfront; ?>/assets/cs/auth/manpower_register.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <!-- END HEAD -->
@@ -27,7 +27,7 @@ session_start();
                             <input type="text" id="email" name="email" placeholder="Email" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['email'] : ''; ?>">
                             <input type="password" id="password" name="password" placeholder="Password" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['password'] : ''; ?>">
                             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['confirm_password'] : ''; ?>"><br>
-                            <button type="submit" name="employee_register" value="submitted" class="btn-submit">Register</button>
+                            <button type="submit" name="manpower_register" value="submitted" class="btn-submit">Register</button>
                         </form>
                         <br>
                         <p class="error"><?php echo $data['registerError']; ?></p>
