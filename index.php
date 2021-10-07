@@ -37,9 +37,10 @@ $routes = [
   //contractor section
   'Contractor/contractor_dashboard' => 'ContractorController@contractorDashboard',
   'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
-
-
-   
+  'Contractor/contractor_paymentgateway' =>'ContractorController@contractorPaygateway',
+  'Contractor/contractor_paymentform' =>'ContractorControllertroller@contractorPaymentform', 
+  'Contactor/contractor_confirmpayment'=> 'ContractorController@contractorConfirmpayment',
+  'Contractor/contractor_postad' =>'ContractorController@ContractorPostad',
 
 ];
 

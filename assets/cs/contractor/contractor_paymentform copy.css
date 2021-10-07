@@ -1,0 +1,116 @@
+#logoarea{
+    height:20vh;
+    width:50%;
+    margin-left: 30%;
+   
+}
+
+#formarea{
+    height:70vh;
+    width:93%;
+    background: linear-gradient(180deg, #108882 0%, rgba(94, 178, 178, 0.44) 100%);
+    margin:3%;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    padding-top:15px;
+    padding-left: 10px;
+}
+
+#cardnumberid,#expiryyearid,#expirymonthid,#holdernameid,#cvvid {
+    position: absolute;
+    background: #FFFFFF;
+    border-radius: 10px;
+    outline:none;
+    padding-left:25px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+#cardnumberid{
+    margin-left: 55px;
+    width:60%;
+    padding-top:2px; padding-bottom:2px;
+}
+   
+#expirymonthid{
+    margin-left: 55px;
+    width:8%;
+    padding-top:2px; padding-bottom:2px;
+}
+
+#expiryyearid{
+    margin-left: 70px;
+    width:8%;
+    padding-top:2px; padding-bottom:2px;
+}
+
+#holdernameid{
+    margin-left: 15px;
+    width:60%;
+    padding-top:2px; padding-bottom:2px;
+}
+
+#cvvid{
+    margin-left: 120px;
+    width:4%;
+    padding-top:2px; padding-bottom:2px;
+}
+.inform{
+    margin-left: 5%;
+    margin-top: 3%;
+    padding-left: 50px;
+   
+}
+
+.buttons{
+margin-top:1%;
+margin-left:25%;
+width: 181px;
+height: 40px;
+background: #FFFCFC;
+box-sizing: border-box;
+border-radius: 20px;
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+outline:none;
+}
+
+#confirm{
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+
+border-color: #108882;
+color: #108882;
+}
+
+#cancel{
+
+border-color: #EE0000;
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 133% */
+
+
+color: #EE0000;
+}
+
+#pricestiker{
+    padding-top:5px;
+    padding-left:30%;padding-right:30%;
+    align-items: center;
+}
+

@@ -25,4 +25,22 @@ class ContractorController {
     
   }
  
+
+
+
+  public function contractorPostad(){
+    $view = new View("contractor/contractor_postad");
+  }
+
+  public function contractorPaymentgateway(){
+    $view = new View("contractor/contractor_paymentgateway");
+  }
+
+  public function contractorPaymentform(){
+    $view = new View("contractor/contractor_paymentform");
+  }
+
+  public function contractorConfirmpayment(){
+    $view = new View("contractor/contractor_confirmpayment");
+  }
 }
