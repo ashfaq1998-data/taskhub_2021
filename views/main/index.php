@@ -108,7 +108,7 @@ session_start();
                         <div class="signup-box border-right">
                             <p>I need a help with a service</p>
                             <img src="<?php echo fullURLfront; ?>/assets/images/Frame-2.png" style="width:60%; height:55%;">
-                            <br><br><a href="#" class="signup-button <?php echo (!empty($_SESSION['loggedin'])) ? 'disabled-link' : ''; ?>">Sign Up</a>
+                            <br><br><a href="<?php echo fullURLfront; ?>/auth/customer_register" class="signup-button <?php echo (!empty($_SESSION['loggedin'])) ? 'disabled-link' : ''; ?>">Sign Up</a>
                         </div>
                         <div class="signup-box border-right">
                             <p>I am a tasker who<br>provides services</p>

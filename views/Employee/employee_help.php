@@ -58,7 +58,11 @@ session_start();
                         </div>
                     </form>
                     <br><br>
-                    <p class="error"><?php echo $data['HelpError']; ?></p>
+                    <?php if(!empty($data['HelpError']) && $data['HelpError'] != "none") {?>
+                        <p class="error"><?php echo $data['HelpError']; ?></p>
+                    <?php }else if($data['HelpError'] == "none"){?>
+                        <p class="success">Your Help Request Submitted <i class="fa fa-check" aria-hidden="true"></i></p>
+                    <?php }?>
                 </div>
             </div>
         </div>

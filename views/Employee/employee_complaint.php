@@ -29,11 +29,11 @@ session_start();
                     <img src="<?php echo fullURLfront; ?>/assets/images/complaintimage.JPG" alt="image">
                 </div>
                 <div class="subcolumn2">
-                <form action="<?php echo fullURLfront; ?>/Employee/employee_complaint" method="POST">
+                    <form action="<?php echo fullURLfront; ?>/Employee/employee_complaint" method="POST">
                         <fieldset>
                             <legend>Rate level of complains</legend>
                             <div class="rating">
-                                <input type="radio" name="rating" value="1" aria-label="1 star" required>
+                                <input type="radio" name="rating" value="1" aria-label="1 star">
                                 <input type="radio" name="rating" value="2" aria-label="2 star">
                                 <input type="radio" name="rating" value="3" aria-label="3 star">
                                 <input type="radio" name="rating" value="4" aria-label="4 star">
@@ -51,8 +51,14 @@ session_start();
                         <div class ="ratebutton">
                             <button type="reset"><i class="fa fa-ban"></i> Cancel</button>
                             <button type="submit" name="employee_complaint" value="submitted" class="btn-submit"><i class="fa fa-frown-o"></i> Complain</button>
+                            <br>
+                            <?php if(!empty($data['ComplaintError']) && $data['ComplaintError'] != "none") {?>
+                                <p class="error"><?php echo $data['ComplaintError']; ?></p>
+                            <?php }else if($data['ComplaintError'] == "none"){?>
+                                <p class="success">Your Complaint Submitted <i class="fa fa-check" aria-hidden="true"></i></p>
+                            <?php }?>
                         </div>
-                    </form> 
+                    </form>
                 </div>
             </div>
         </div>

@@ -1,20 +1,11 @@
-.column2 {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    margin-left: 30px;
-}
-
-.personal-info-section {
+.personal-info-section{
     position: relative;
     display: block;
     width: 100%;
     margin-bottom: 50px;
 }
 
-.personal-info-section a {
+.personal-info-section a{
     float: right;
     text-decoration: none;
     background-color: #ca3a1b;
@@ -25,15 +16,15 @@
     margin-right: 20%;
 }
 
-.personal-info-section span {
+.personal-info-section span{
     font-size: 18px;
     font-weight: bold;
 }
 
-.personal-info-section-content {
+.personal-info-section-content{
     position: relative;
     display: block;
-    width: 70%;
+    width: 80%;
     height: 250px;
     background-color: #e6e6e6;
     margin-top: 40px;
@@ -47,9 +38,10 @@
     width: 150px;
     height: 150px;
     float: left;
+    margin-left: 0px;
 }
 
-.details {
+.details{
     float: left;
     display: block;
     position: relative;
@@ -59,49 +51,29 @@
 table {
     width: 100%;
 }
-
-td,
-th {
+  
+td, th {
     text-align: left;
     padding-bottom: 15px;
 }
 
-.info-right-column {
+.info-right-column{
     color: #108882;
     padding-left: 30px;
 }
 
-.info-right-column-color {
+.info-right-column-color{
     color: #108882;
 }
 
-#additional-info {
+.additional-info{
     position: relative;
-    width: 40%;
-    margin-bottom: 30px;
-}
-
-.additional-info-content {
     display: block;
-    position: relative;
-    width: 80%;
-    background-color: #e6e6e6;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.subcolumn {
-    display: flex;
-    flex: 50%;
-}
-
-#billing-info {
-    position: relative;
-    width: 40%;
+    width: 100%;
     margin-bottom: 50px;
 }
 
-.billing-info-content {
+.additional-info-content{
     display: block;
     position: relative;
     width: 80%;
@@ -110,52 +82,37 @@ th {
     border-radius: 10px;
 }
 
-.seconddiv {
-    margin-top: 50px;
-    margin-left: 30px;
-    display: flex;
-}
-
-.adandbillinfo {
-    padding-left: 27px;
-}
-
-.bio-info {
-    background-color: #A1E8E3;
+.billing-info{
     position: relative;
     display: block;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.billing-info-content{
+    display: block;
+    position: relative;
     width: 80%;
-    padding-left: 10px;
-    padding: 15px;
+    background-color: #e6e6e6;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.bio-info{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bio-info-content{
+    display: block;
+    position: relative;
+    width: 80%;
+    background-color: #e6e6e6;
+    padding: 20px;
     border-radius: 10px;
 }
 
 .checked {
     color: orange;
-}
-
-.careerdetails {
-    background-color: #91dfcc;
-    width: 40%;
-    height: 250px;
-    padding-left: 110px;
-    border-radius: 10px;
-    font-family: poppins;
-    font-style: normal;
-    line-height: 42px;
-    text-align: center;
-}
-
-.careerdetailsvalues {
-    font-size: 36px;
-    color: #C21313
-}
-
-.careerdetails-table-right {
-    padding-left: 100px;
-}
-
-#careerdetails-table-right-value1,
-#careerdetails-table-right-value2 {
-    padding-left: 100px;
 }

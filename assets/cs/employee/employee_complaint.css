@@ -89,3 +89,13 @@ input[type=radio]:invalid::after{
     cursor: pointer;
     width: auto;
 }
+
+.error{
+    color: red;
+    font-weight: bold;
+}
+
+.success{
+    color: #108882;
+    font-weight: bold;
+}

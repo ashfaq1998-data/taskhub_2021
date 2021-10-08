@@ -5,8 +5,8 @@ require_once ROOT . '/models/AuthModel.php';
 require_once ROOT . '/models/EmployeeModel.php';
 require_once ROOT . '/models/UsersModel.php';
 require_once ROOT . '/models/ContractorModel.php';
+require_once ROOT . '/models/CustomerModel.php';
 require_once ROOT . '/models/ManpowerModel.php';
-
 require_once ROOT . '/classes/Validation.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -316,26 +316,28 @@ class AuthController {
 	$view = new View("auth/contractor_register", $data);
   }
 
-  public function manpowerRegister(){
+  public function customerRegister(){
 	$validation = new Validation();
 	$authModel = new AuthModel();
-	$manpowerModel = new ManpowerModel();
+	$customerModel = new CustomerModel();
 	$usersModel = new UsersModel();
-	
+	$data['gender'] = ['Male','Female'];
 
-	if(!empty($_POST['manpower_register'] && $_POST['manpower_register'] == 'submitted') ){
+	if(!empty($_POST['customer_register'] && $_POST['customer_register'] == 'submitted') ){
 		$data['inputted_data'] = $_POST;
-		$Company_name = $_POST['Company_name'];
-		$Company_RegNo = $_POST['Company_RegNo'];
-		$address = $_POST['address'];
+		$firstName = $_POST['f_name'];
+		$lastName = $_POST['l_name'];
+		$nic = $_POST['nic'];
 		$phoneNum = $_POST['phone_num'];
+		$gender = $_POST['gender'];
+		$address = $_POST['address'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$confirmPassword = $_POST['confirm_password'];
 		$registerError = "";
 
 		//validate input fields
-		if(empty($Company_name) || empty($Company_RegNo) || empty($phoneNum) 
+		if(empty($firstName) || empty($lastName) || empty($nic) || empty($phoneNum) || empty($gender) || empty($address)
 			|| empty($email) || empty($password) || empty($confirmPassword))
 		{
 			$registerError = "Please fill all the empty fields";
@@ -370,7 +372,114 @@ class AuthController {
 			$registerError = $validation->validateConfirmPassword($password, $confirmPassword);
 		}
 
+		//validate firstname
+		if($registerError == ""){
+			$registerError = $validation->validateName($firstName);
+		}
 
+		if($registerError == ""){
+			$registerError = $validation->validateName($lastName);
+		}
+
+		
+
+
+		//registration after validation
+		if($registerError == ""){
+			$userId = $usersModel->generateUserID();
+			$customerId = $customerModel->generateCustomerID();
+			// Hashing the password to store password in db
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
+			$userDetails = [
+				'id' => $userId,
+				'email' => $email,
+				'password' => $password,
+				'user_type_id' => 2,
+			];
+
+			$customerDetails = [
+				'CustomerID' => $customerId,
+				'FirstName' => $firstName,
+				'LastName' => $lastName,
+				'NIC' => $nic,
+				'Contact_No' => $phoneNum,
+				'Address' => $address,
+				'Gender' => $gender,
+				'user_id' => $userId
+			];
+
+            if ($authModel->register($userDetails)) {
+				//add new employee
+				$customerModel->addNewCustomer($customerDetails);
+                header('location: ' . fullURLfront . '/auth/login');
+            } else {
+                die('Something went wrong.');
+            }
+		}
+		$data['registerError'] = $registerError;
+	}
+	$view = new View("auth/customer_register", $data);
+  }
+
+  public function manpowerRegister(){
+	$validation = new Validation();
+	$authModel = new AuthModel();
+	$manpowerModel = new ManpowerModel();
+	$usersModel = new UsersModel();
+	
+
+	if(!empty($_POST['manpower_register'] && $_POST['manpower_register'] == 'submitted') ){
+		$data['inputted_data'] = $_POST;
+		$companyName = $_POST['company_name'];
+		$companyRegister = $_POST['company_register'];
+		$district = $_POST['district'];
+		$phoneNum = $_POST['phone_num'];
+		$address = $_POST['address'];
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		$confirmPassword = $_POST['confirm_password'];
+		$registerError = "";
+
+		//validate input fields
+		if(empty($companyName) || empty($companyRegister) || empty($district) || empty($phoneNum)  || empty($address)
+			|| empty($email) || empty($password) || empty($confirmPassword))
+		{
+			$registerError = "Please fill all the empty fields";
+		}
+
+		//validate phone number
+		if($registerError == ""){
+			$registerError = $validation->validatePhoneNumber($phoneNum);
+		}
+		
+		
+
+		//validate email
+		if($registerError == ""){
+			if(!$validation->validateEmail($email)){
+				$registerError = "Please enter a valid email format";
+			}else {
+				 //Check if email exists.
+				if ($usersModel->checkUserEmail($email)) {
+					$registerError = 'This Email is already taken.';
+				}
+			}
+		}
+		
+		//validate password
+		if($registerError == ""){
+			$registerError = $validation->validatePassword($password);
+		}
+
+		//validate password
+		if($registerError == ""){
+			$registerError = $validation->validateConfirmPassword($password, $confirmPassword);
+		}
+
+		
+
+		
 
 		
 
@@ -386,15 +495,16 @@ class AuthController {
 				'id' => $userId,
 				'email' => $email,
 				'password' => $password,
-				'user_type_id' => 5,
+				'user_type_id' => 4,
 			];
 
 			$manpowerDetails = [
 				'Manpower_Agency_ID' => $manpowerId,
-				'Company_Registration_No' => $Company_RegNo,
-				'Company_Name' => $Company_name,
-				'Address' => $address,
+				'Company_Name' => $companyName,
+				'Company_Registration_No' => $companyRegister,
+				'District' => $district,
 				'Contact_No' => $phoneNum,
+				'Address' => $address,
 				'user_id' => $userId
 			];
 

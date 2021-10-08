@@ -4,6 +4,7 @@ require_once ROOT  . '/View.php';
 require_once ROOT . '/models/HelpRequestModel.php';
 require_once ROOT . '/models/ComplaintModel.php';
 require_once ROOT . '/models/EmployeeModel.php';
+require_once ROOT . '/models/BookingModel.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -46,6 +47,7 @@ class EmployeeController {
         ];
 
         $helpRequestModel->addNewEmployeeHelp($employeeHelpDetails);
+        $HelpError = "none";
         
       }
 
@@ -71,6 +73,11 @@ class EmployeeController {
       $rating = $_POST['rating'];
       $ComplaintError = "";
 
+      if(empty($subject) || empty($complaintmessage) || empty($rating))
+      {
+          $ComplaintError = "Please fill all the empty fields";
+      }
+
       if($ComplaintError == ""){
         $complaintID = $complaintModel->generateEmployeeComplaintID();
         $currentDateTime = date('Y-m-d H:i:s');
@@ -88,6 +95,7 @@ class EmployeeController {
         ];
 
         $complaintModel-> addNewEmployeeComplaint($employeeComplaints);
+        $ComplaintError = "none";
 
       }
 
@@ -97,7 +105,30 @@ class EmployeeController {
   }
 
   public function employeeBooking() {
-    $view = new View("Employee/employee_booking");
+    $employeeModel = new EmployeeModel();
+    $bookingModel = new BookingModel();
+
+    $userID = $_SESSION['loggedin']['user_id'];
+    $employeeDetails = $employeeModel->getEmployeeByUserID($userID);
+    $bookingsDetails = $bookingModel->getEmployeeBookings($employeeDetails->EmployeeID);
+
+    $allEvents = array();
+    foreach($bookingsDetails as $booking){
+      $date = date("Y-m-d",strtotime($booking->Date));
+      $time = date("H:i:s",strtotime($booking->Date));
+      $event = [
+        'title'  => $booking->title,
+        'start'  => $date,
+        'customerName' => $booking->CusFullName,
+        'address' => $booking->Address,
+        'time' => $time,
+        'payment' => $booking->payment
+      ];
+      array_push($allEvents, $event);
+    }
+    $data['bookingEvents'] = $allEvents;
+
+    $view = new View("Employee/employee_booking", $data);
   }
 
   public function employeeProfile(){

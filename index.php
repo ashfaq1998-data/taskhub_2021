@@ -21,6 +21,7 @@ $routes = [
     'auth/login' => 'AuthController@login',
     'auth/employee_register' => 'AuthController@employeeRegister',
     'auth/contractor_register' => 'AuthController@contractorRegister',
+    'auth/customer_register' => 'AuthController@customerRegister',
     'auth/manpower_register' => 'AuthController@manpowerRegister',
     'auth/forgot_password' => 'AuthController@forgotPassword',
 
@@ -34,11 +35,10 @@ $routes = [
     'Employee/employee_search' => 'EmployeeController@employeeSearch',
     'Employee/employee_viewad' => 'EmployeeController@employeeViewad',
 
+
   //contractor section
-  'Contractor/contractor_dashboard' => 'ContractorController@contractorDashboard',
-  'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
-
-
+    'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
+    'Contractor/contractor_postad' =>'ContractorController@ContractorPostad',
    
 
 ];

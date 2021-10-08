@@ -80,7 +80,7 @@ $age = $diff->y;
             <div class="additional-info">
                 <h3>Additional Information</h3>
                 <div class="additional-info-content">
-                    <table>
+                    <table style="width: 40%;">
                         <tr>
                             <td>Address</td>
                             <td class="info-right-column-color"><?php echo $employeeDetails->Address; ?></td>

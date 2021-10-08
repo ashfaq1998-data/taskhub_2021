@@ -3,7 +3,7 @@
 session_start();
 $contractorDetails = $data['contractor_details'];
 // Create a datetime object using date of birth
-$dob = new DateTime($contractorDetails->Date_of_Birth);
+$dob = new DateTime($contractorDetails->Date_of_birth);
  
 // Get today's date
 $now = new DateTime();
@@ -39,7 +39,7 @@ $age = $diff->y;
                 <span>Personal Info</span>
                 <a href="">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
                 <div class="personal-info-section-content">
-                    <img src="<?php echo fullURLfront; ?>/assets/images/profile.jpeg" alt="Avatar" class="avatar">
+                    <img src="<?php echo fullURLfront; ?>/assets/images/thisara.jpeg" alt="Avatar" class="avatar">
                     <div class="details">
                         <table>
                             <tr>
@@ -56,7 +56,7 @@ $age = $diff->y;
                             </tr>
                             <tr>
                                 <td>Contact Number</td>
-                                <td class="info-right-column"><?php echo $contractorDetails->Contact_No; ?></td>
+                                <td class="info-right-column"><?php echo $contractorDetails->phone; ?></td>
                             </tr>
                             <tr>
                                 <td>Rating</td>
@@ -80,14 +80,14 @@ $age = $diff->y;
             <div class="additional-info">
                 <h3>Additional Information</h3>
                 <div class="additional-info-content">
-                    <table>
+                    <table style="width: 40%;">
                         <tr>
                             <td>Address</td>
                             <td class="info-right-column-color"><?php echo $contractorDetails->Address; ?></td>
                         </tr>
                         <tr>
                             <td>DOB</td>
-                            <td class="info-right-column-color"><?php echo $contractorDetails->Date_of_birth; ?></td>
+                            <td class="info-right-column-color"><?php echo $contractorDetails->Date_of_Birth; ?></td>
                         </tr>
                         <tr>
                             <td>Age</td>
@@ -122,7 +122,7 @@ $age = $diff->y;
                         </tr>
                     </table>
                 </div>
-            </div><br>
+            </div>
             <div class="bio-info">
                 <h3>Bio Information</h3>
                 <div class="bio-info-content">

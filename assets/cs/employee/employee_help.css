@@ -104,3 +104,9 @@ h2{
     color: red;
     font-weight: bold;
 }
+
+.success{
+    float: right;
+    color: #108882;
+    font-weight: bold;
+}

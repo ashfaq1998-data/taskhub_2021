@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+$JsonData = json_encode($data['bookingEvents']);
 ?>
 
 <!DOCTYPE html>
@@ -49,5 +51,8 @@ session_start();
     <?php include_once('footer.php'); ?>
 </div>
 </body>
+<script>
+    var data = <?php echo $JsonData; ?>;
+</script>
 <script src="<?php echo fullURLfront; ?>/assets/js/employee/employee_booking.js" type="text/javascript"></script>
 </html>
