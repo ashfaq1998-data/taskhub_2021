@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.accordion {
+    background-color: white;
+    color: #108882;
+    cursor: pointer;
+    padding: 18px;
+    width: 60%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    margin-left: 15%;
+  }
+
+.faq{
+    position: relative;
+    display: block;
+    border-radius: 6px;
+    border: 2px solid #108882;
+    margin: 0px;
+    padding: 30px 5px;
+}
+
+h2{
+    margin-left: 5%;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(110, 110, 110);
+}
+  
+.active, .accordion:hover {
+    background-image: linear-gradient(rgb(199, 199, 199), #ffffff);
+}
+  
+.accordion:after {
+    content: '\002B';
+    color: #108882;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+  
+.active:after {
+    content: "\2212";
+}
+  
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    margin-left: 15%;
+}
+
+.panel p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.contact-section{
+    position: relative;
+    display: block;
+    background-color: white;
+}
+
+.contact-section img{
+    position: relative;
+    margin: 0px;
+    top: 0px;
+    left: 15vh;
+}
+
+.contact-section-form{
+    display: block;
+    float: right;
+    width: 45%;
+    margin-top: 50px;
+    position: relative;
+    top: 1vh;
+}
+
+.contact-section-form input[type=text], select, textarea {
+    background-color: #c7ebf1;
+    color: black;
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #108882;
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+  
+  /* Style the submit button with a specific background color etc */
+.contact-section-form button{
+    margin-top: 5px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    border: 1px solid #108882;
+    cursor: pointer;
+    width: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+.clearbutton {
+    background-color: #ffffff;
+    color: grey;
+}
+
+.submitbutton {
+    background-color: #108882;
+    color: white;
+}
+
+.Button-section{
+  float: right;
+}
+
+#click {
+    text-decoration: underline;
+}
+
+
+
+  

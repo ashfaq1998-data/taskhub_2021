@@ -1,0 +1,75 @@
+.register-section{
+    position: relative;
+    display: flex;
+    background-color: white;
+    min-height: 600px;
+    padding: 80px 10vw 50px 10vw;
+    border-top: solid 5px #108882;
+}
+
+.register-section-form{
+    /* display: block; */
+    position: relative;
+    display: block;
+    transform: translateY(-5vh);
+    max-width: 700px;
+    max-height: 790px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    border: solid 2px #108882;
+    margin-right: 10px;
+    background-image: linear-gradient(#79ccc8, #ffffff);
+    left: 130px;
+}
+
+.register-section-form input[type=text], input[type=password], select{
+    background-color: white;
+    color: black;
+    width: 80%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #108882; 
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+.register-section-form button {
+    background-color: #108882;
+    color: white;
+    font-size: 1.3em;
+    font-family: 'Nanum Gothic';
+    padding: 15px 35px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.register-section-form a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+#close{
+    text-align: center;
+    text-decoration: none;
+    background-color: #79ccc8;
+    transform: translateX(80vh);
+    position: relative;
+    top: -47px;
+    left: 46.5%;
+    padding: 5px 10px;
+    font-weight: lighter;
+    font-size: 23px;
+    color: rgb(26, 141, 126);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  h2 {
+      margin-bottom: -5px;
+  }
+

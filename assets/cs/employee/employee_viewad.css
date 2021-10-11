@@ -1,0 +1,98 @@
+.search-container{
+    width: 100%;
+    position: absolute;
+
+}
+
+.search-container input[type=text] {
+    width: 863px;
+    height: 46px;
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    background-color:  rgba(16, 136, 130, 0.37);
+    border-radius: 30px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;  
+}
+
+.search-container button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.sortinglist{
+    margin-top: 8%;
+    margin-right: 15%;
+    width: 100%;
+}
+
+.subrow{
+    box-sizing: border-box;
+    margin-top: 5%;
+    width: 100%;
+}
+  
+  /* Create three equal columns that floats next to each other */
+.subcolumn1{
+    float: left;
+    width: 20%;
+    padding: 10px;
+    height: 250px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #B4E1E7; /* Should be removed. Only for demonstration */
+}
+
+.adimage{
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+.subcolumn2{
+    float: left;
+    width: 30%;
+    padding: 10px;
+    height: 250px;
+    background-color: #B4E1E7;  /* Should be removed. Only for demonstration */
+}
+
+.postedby{
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+
+.subcolumn3 {
+    float: left;
+    width: 50%;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    height: 250px;
+    background-color: #B4E1E7;  /* Should be removed. Only for demonstration */
+}
+
+.details{
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+
+.subrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
