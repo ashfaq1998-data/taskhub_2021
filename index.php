@@ -40,7 +40,7 @@ $routes = [
     'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
     'Contractor/contractor_postad' =>'ContractorController@ContractorPostad',
    
-
+    //manpower section
 ];
 
 $found = false;
