@@ -37,7 +37,7 @@ $age = $diff->y;
         <div class="column2">
             <div class="personal-info-section">
                 <span>Personal Info</span>
-                <a href="">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <a href="<?php echo fullURLfront; ?>/Employee/employee_editprofile">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
                 <div class="personal-info-section-content">
                     <img src="<?php echo fullURLfront; ?>/assets/images/profile.jpeg" alt="Avatar" class="avatar">
                     <div class="details">
@@ -53,6 +53,10 @@ $age = $diff->y;
                             <tr>
                                 <td>E-mail</td>
                                 <td class="info-right-column"><?php echo $_SESSION['loggedin']['email']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Specialization</td>
+                                <td class="info-right-column"><?php echo $employeeDetails->specialized_area; ?></td>
                             </tr>
                             <tr>
                                 <td>Contact Number</td>
@@ -80,7 +84,7 @@ $age = $diff->y;
             <div class="additional-info">
                 <h3>Additional Information</h3>
                 <div class="additional-info-content">
-                    <table>
+                    <table style="width: 40%;">
                         <tr>
                             <td>Address</td>
                             <td class="info-right-column-color"><?php echo $employeeDetails->Address; ?></td>
@@ -93,6 +97,10 @@ $age = $diff->y;
                             <td>Age</td>
                             <td class="info-right-column-color"><?php echo $age ?></td>
                         </tr>
+                        <tr>
+                                <td>Gender</td>
+                                <td class="info-right-column"><?php echo $employeeDetails->Gender; ?></td>
+                            </tr>
                         <tr>
                             <td>NIC</td>
                             <td class="info-right-column-color"><?php echo $employeeDetails->NIC; ?></td>

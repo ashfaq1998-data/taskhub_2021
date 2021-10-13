@@ -15,7 +15,7 @@ class CustomerModel extends Database {
   }
 
   public function addNewCustomer($customerDetails) {
-    $customerId = $customerDetails['EmployeeID'];
+    $customerId = $customerDetails['CustomerID'];
     $firstName = $customerDetails['FirstName'];
     $lastName = $customerDetails['LastName'];
     $nic = $customerDetails['NIC'];

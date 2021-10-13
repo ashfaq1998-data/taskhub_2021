@@ -18,12 +18,15 @@ session_start();
                 <?php include_once('header.php'); ?>
                 <div class="register-section">
                     <div class="register-section-form">
-                        <h2>Manpower Agency Sign Up</h2><br>
+                        <h2>Sign Up</h2><br>
                         <form action="<?php echo fullURLfront; ?>/auth/manpower_register" method="POST"> 
-                            <input type="text" id="Company_name" name="Company_name" placeholder="Company name" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['Company_name'] : ''; ?>">
-                            <input type="text" id="Company_RegNo" name="Company_RegNo" placeholder="Company Registration Number" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['Company_RegNo'] : ''; ?>">
+                            <input type="text" id="company_name" name="company_name" placeholder="Company name" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['company_name'] : ''; ?>">
+                            <input type="text" id="company_register" name="company_register" placeholder="Company Registration Number" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['company_register'] : ''; ?>">
+                            <input type="text" id="district" name="district" placeholder="District" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['district'] : ''; ?>">
                             <input type="text" id="phone_num" name="phone_num" placeholder="Phone No" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['phone_num'] : ''; ?>">
                             <input type="text" id="address" name="address" placeholder="Address" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['address'] : ''; ?>">
+                            
+
                             <input type="text" id="email" name="email" placeholder="Email" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['email'] : ''; ?>">
                             <input type="password" id="password" name="password" placeholder="Password" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['password'] : ''; ?>">
                             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['confirm_password'] : ''; ?>"><br>

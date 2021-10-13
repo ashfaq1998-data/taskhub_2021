@@ -1,0 +1,62 @@
+<?php
+session_start();
+$employeeDetails = $data['employee_details'];
+?>
+    <!DOCTYPE html> 
+    <html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Task Hub</title>
+        <link href="<?php echo fullURLfront; ?>/assets/cs/common/header.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo fullURLfront; ?>/assets/cs/common/footer.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo fullURLfront; ?>/assets/cs/employee/employee_editprofile.css" rel="stylesheet" type="text/css"/>
+        
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <!-- END HEAD -->
+        <body>
+            <div class="page-wrapper">
+                <?php include_once('header.php'); ?>
+                <div class="register-section">
+                    <div class="register-section-form">
+                        <h2>Edit your profile</h2><br>
+                        <form action="<?php echo fullURLfront; ?>/employee/employee_editprofile" method="POST"> 
+                            
+                            <input type="text" id="f_name" name="f_name" placeholder="Enter your First name" value="<?php echo $employeeDetails->FirstName; ?>">
+                            <input type="text" id="l_name" name="l_name" placeholder="Enter your Last name" value="<?php echo $employeeDetails->LastName; ?>">
+                            <input type="text" id="nic" name="nic" placeholder="Enter your NIC" value="<?php echo $employeeDetails->NIC; ?>">
+                            <input type="text" id="phone_num" name="phone_num" placeholder="Phone No" value="<?php echo $employeeDetails->Contact_No; ?>">
+                            <input type="file" id="image" name="image">
+                            <select name="specialization" id="specialization">
+                                <?php foreach ($data['specialization_list'] as $specialization) {?>
+                                    <option value="<?php echo $specialization ?>" <?php echo ($specialization == $data['inputted_data']['specialization']) ? 'selected' : ''; ?> ><?php echo $specialization ?></option>
+                                <?php }?>
+                            </select>
+                            <input type="text" id="address" name="address" placeholder="Enter your Address" value="<?php echo $employeeDetails->Address; ?>">
+                            <input type="text" id="district" name="district" placeholder="Enter your District" value="<?php echo $employeeDetails->District; ?>">
+                            <input type="date" id="dateofbirth" name="dateofbirth" placeholder="Enter your Date of birth" value="<?php echo $employeeDetails->Date_of_Birth; ?>">
+                            <input type="text" id="gender" name="gender" placeholder="Enter your Gender" value="<?php echo $employeeDetails->Gender; ?>">
+                            <input type="text" id="rateofhrs" name="rateofhrs" placeholder="Enter your your charge for 2 hours" value="<?php echo $employeeDetails->Payment_for_2hours; ?>">
+                            <input type="text" id="experience" name="experience" placeholder="Enter your total number of years of experience" value="<?php echo $employeeDetails->Year_of_experience; ?>">
+                            
+                            <input type="text" id="bank" name="bank" placeholder="Enter your Bank name" value="<?php echo $employeeDetails->Name_of_Bank; ?>">
+                            <input type="text" id="account" name="account" placeholder="Enter your Account number" value="<?php echo $employeeDetails->Account_Number; ?>">
+                            <textarea placeholder="Describe yourself here..."><?php echo $employeeDetails->bio; ?></textarea>
+
+                            <input type="text" id="email" name="email" placeholder="Enter your Email" value="<?php echo $_SESSION['loggedin']['email']; ?>">
+                            <input type="password" id="password" name="password" placeholder="Enter your new Password" value="">
+                            <input type="password" id="confirm_password" name="confirm_password" placeholder="Enter your new Confirm Password" value=""><br>
+                            <button type="submit" name="employee_update" value="submitted" class="btn-submit">Update</button>
+                        </form>
+                        <br>
+                        <p class="error"><?php echo $data['editError']; ?></p>
+                        
+                    </div>
+                    <img src="<?php echo fullURLfront; ?>/assets/images/reg page image.png" alt="image" height="50%" width="60%" style="margin-top: 50px;">
+                </div>
+                <?php include_once('footer.php'); ?>
+            </div>
+        </body>
+    </html>
