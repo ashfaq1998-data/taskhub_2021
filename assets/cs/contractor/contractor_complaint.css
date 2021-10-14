@@ -1,16 +1,16 @@
 .subcolumn1 {
     float: left;
     width: 30%;
-    padding: 10px;
+    padding: 0px;
     height: 100%;
-    
+    background-color: #B4e1e7;
 }
 
 .subcolumn2 {
     float: right;
     width: 60%;
     padding: 10px;
-    
+    background-color: #CDEAE3;
 }
 
 .subrow:after {
@@ -19,68 +19,77 @@
     clear: both;
 }
 
-
-.subcolumn2 input[type=text], select, textarea {
-    background-color: #B4e1e7;
+.subcolumn2 input[type=text],
+select,
+textarea {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    background-color: #82ccd6;
     color: black;
     width: 100%;
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #108882; 
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    padding: 12px;
+    /* Some padding */
+    border: 1px solid #108882;
+    border-radius: 4px;
+    /* Rounded borders */
+    box-sizing: border-box;
+    /* Make sure that padding and width stays in place */
+    margin-top: 6px;
+    /* Add a top margin */
+    margin-bottom: 16px;
+    /* Bottom margin */
+    resize: vertical/* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
 fieldset {
     border: 0px;
-    
 }
 
-legend{
-    font-family: Raleway;
+legend {
+    font-family: poppins;
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
 }
 
-input[type=radio]{
+input[type=radio] {
     -webkit-appearance: none;
     box-shadow: none;
     outline: none;
     cursor: pointer;
 }
 
-input[type=radio]::after{
+input[type=radio]::after {
     content: '\2605';
     font-size: 32px;
 }
 
-input[type=radio]:invalid::after{
+input[type=radio]:invalid::after {
     color: #ccc;
 }
 
-.rating:hover input[type=radio]:hover ~ input[type=radio]:invalid::after,
-.rating input[type=radio]:focus ~ input[type=radio]:invalid::after{
+.rating:hover input[type=radio]:hover~input[type=radio]:invalid::after,
+.rating input[type=radio]:focus~input[type=radio]:invalid::after {
     color: #ccc;
 }
 
-.rating input[type=radio]:valid{
+.rating input[type=radio]:valid {
     color: #108882;
 }
 
-.rating input[type=radio]:checked ~ input[type=radio]:not(:checked)::after{
+.rating input[type=radio]:checked~input[type=radio]:not(:checked)::after {
     content: '\2606';
-    color: #ccc;
+    color: rgb(8, 8, 8);
 }
 
-.ratebutton{
+.ratebutton {
     display: block;
     float: right;
 }
 
-.ratebutton button{
+.ratebutton button {
     background-color: #108882;
     color: white;
     padding: 12px 20px;
@@ -90,12 +99,28 @@ input[type=radio]:invalid::after{
     width: auto;
 }
 
-.error{
+.error {
     color: red;
     font-weight: bold;
 }
 
-.success{
+.success {
     color: #108882;
     font-weight: bold;
+}
+
+#right-column-text {
+    color: rgb(0, 0, 0);
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#right-column-text2 {
+    color: rgb(194, 18, 18);
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
 }
