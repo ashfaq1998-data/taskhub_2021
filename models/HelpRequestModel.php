@@ -43,4 +43,43 @@ class HelpRequestModel extends Database {
     }
 
   }
+
+  public function generateContractorHelpID() {
+    $str_part = "req";
+    $request_id = "";
+ 
+    while(true){
+        $num_part = rand(100,999);
+        $request_id = $str_part.strval($num_part);
+
+        $sql = "SELECT * FROM contractor_help_request WHERE RequestID='$request_id'";
+        $query = $this->con->query($sql);
+        $query->execute();
+
+        if ($query->rowCount() == 0){
+          break;
+      }
+    }
+    return $request_id;
+  }
+ 
+ 
+  public function addNewContractorHelp($contractorHelp) {
+    $RequestId = $contractorHelp['RequestID'];
+    $date = $contractorHelp['Date'];
+    $subject = $contractorHelp['Subject'];
+    $message = $contractorHelp['Content'];
+    $conID = $contractorHelp['ContractorID'];
+  
+    
+    $sql = " INSERT INTO contractor_help_request (RequestID, Date, Subject , Content, ContractorID) 
+            VALUES ('$RequestId', '$date', '$subject', '$message', '$conID')";
+ 
+    if($this->con->query($sql)){
+        return true;
+    }else{
+        return false;
+    }
+
+  }
 }

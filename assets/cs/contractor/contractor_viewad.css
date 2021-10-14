@@ -1,0 +1,201 @@
+.column2 {
+    background-image: linear-gradient( #def3ee, rgb(255, 255, 255));
+}
+
+.search-container {
+    width: 100%;
+    position: absolute;
+}
+
+.search-container input[type=text] {
+    width: 863px;
+    height: 46px;
+    padding-left: 40px;
+    padding-top: 6px;
+    margin-left: 75px;
+    margin-top: 8px;
+    font-family: poppins;
+    font-size: 17px;
+    border: none;
+    background-color: rgba(37, 180, 168, 0.418);
+    border-radius: 30px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.search-container button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+#formdesign {
+    font-size: 14px;
+    font: poppins;
+    color: black;
+}
+
+.sortinglist {
+    font-size: 12px;
+    font: poppins;
+    color: black;
+    margin-top: 120px;
+    margin-left: 220px;
+    width: 100%;
+}
+
+.subrow {
+    box-sizing: border-box;
+    margin-top: 3%;
+    width: 100%;
+    height: 539px;
+    font-family: Poppins;
+    background-image: linear-gradient(to bottom right, #67c9b2, rgb(241, 241, 241));
+}
+
+
+/* Create three equal columns that floats next to each other */
+
+.subcolumn1 {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    height: 250px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #B4E1E7;
+    /* Should be removed. Only for demonstration */
+}
+
+.adimage {
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+.subcolumn2 {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    height: 250px;
+    background-color: #B4E1E7;
+    /* Should be removed. Only for demonstration */
+}
+
+.postedby {
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+.subcolumn3 {
+    float: left;
+    width: 50%;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    height: 250px;
+    background-color: #B4E1E7;
+    /* Should be removed. Only for demonstration */
+}
+
+.details {
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+.subrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.sortinglist label {
+    font-family: Poppins;
+    font-style: normal;
+    font-size: 18px;
+    color: #108882;
+}
+
+#label-of-list {
+    font-family: Poppins;
+    font-style: normal;
+    font-size: 14px;
+    padding-right: 30px;
+}
+
+.sortinglist select {
+    background: #108882;
+    color: white;
+    width: 187px;
+    height: 38px;
+    border-radius: 5px;
+}
+
+.field {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #61687F;
+}
+
+.special-field {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 27px;
+    color: #108882;
+}
+
+#area,
+#type {
+    margin-right: 30px;
+}
+
+.advertisername {
+    padding-left: 15px;
+    padding-top: 15px;
+    color: black;
+    font-size: 16px;
+    margin: none;
+}
+
+.advertiseremail {
+    padding-left: 15px;
+    color: #046661;
+    font-size: 1p4x;
+}
+
+.description {
+    padding-left: 15px;
+    padding-top: 15px;
+    color: black;
+    font-size: 14px;
+    font-family: poppins
+}
+
+.posterimage {
+    margin-left: 250px;
+    margin-top: 40px;
+    width: 50%;
+    height: auto;
+}
+
+.updownbutton {
+    margin-left: 500px;
+    margin-top: 20px;
+}
+
+#uparrow,
+#downarrow {
+    height: 25px;
+    width: 25px;
+}

@@ -39,13 +39,22 @@ $routes = [
   //contractor section
     'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
     'Contractor/contractor_complaint' =>'ContractorController@contractorComplaint',
+    'Contractor/contractor_postad' =>'ContractorController@contractorPostad',
+    'Contractor/contractor_paymentgateway' =>'ContractorController@contractorPaymentgateway',
+    'Contractor/contractor_paymentform' =>'ContractorController@ContractorPaymentform',
+    'Contactor/contractor_confirmpayment'=> 'ContractorController@contractorConfirmpayment',
+    'Contractor/contractor_search' => 'ContractorController@contractorSearch',
+    'Contractor/contractor_viewad' => 'ContractorController@contractorViewad',
+    'Contractor/contractor_help' => 'ContractorController@contractorHelp',
+    'Contractor/contractor_history'=>'ContractorController@contractorHistory',
+    'Contractor/contractor_booking' => 'ContractorController@contractorBooking',
 
   //customer section
 
     'Customer/customer_profile' => 'CustomerController@customerProfile',
     'Customer/customer_viewad' => 'CustomerController@customerViewad',
     'Customer/customer_complaint' => 'CustomerController@customerComplaint',
-
+    
 ];
 
 $found = false;
