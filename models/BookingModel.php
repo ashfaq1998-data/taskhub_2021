@@ -24,12 +24,12 @@ class BookingModel extends Database {
     }
 
     public function getEmployeeBookings($emp_id) {
-        $sql = "SELECT EB.*, CONCAT(C.FirstName, ' ', C.LastName) AS CusFullName FROM employee_booking EB
+        $sql = "SELECT EB.*, CONCAT(C.FirstName, ' ', C.LastName) AS CusFullName, DATE(EB.Date) AS EventDate, TIME(EB.Date) AS EventTime FROM employee_booking EB
                 INNER JOIN customer C ON EB.CustomerID=C.CustomerID 
                 WHERE EB.EmployeeID='$emp_id' AND EB.Is_work_done='No'"; 
         $query = $this->con->query($sql);
         $query->execute();
-        $data = $query->fetch(PDO::FETCH_OBJ);
+        $data = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $data;
     }

@@ -34,18 +34,17 @@ $routes = [
     'Employee/employee_profile' => 'EmployeeController@employeeProfile',
     'Employee/employee_search' => 'EmployeeController@employeeSearch',
     'Employee/employee_viewad' => 'EmployeeController@employeeViewad',
-    'Employee/employee_editprofile' => 'EmployeeController@employeeEditprofile',
 
 
   //contractor section
     'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
-    'Contractor/contractor_postad' =>'ContractorController@ContractorPostad',
-    'Contractor/contractor_complaint' => 'ContractorController@contractorComplaint',
+    'Contractor/contractor_complaint' =>'ContractorController@contractorComplaint',
 
   //customer section
 
     'Customer/customer_profile' => 'CustomerController@customerProfile',
-    'Customer/customer_viewbook' => 'CustomerController@customerViewbook',
+    'Customer/customer_viewad' => 'CustomerController@customerViewad',
+    'Customer/customer_complaint' => 'CustomerController@customerComplaint',
 
 ];
 

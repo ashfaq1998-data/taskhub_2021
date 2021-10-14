@@ -34,8 +34,6 @@ class EmployeeModel extends Database {
 
   }
 
-  
-
   public function generateEmployeeID(){
     $str_part = "emp";
     $emp_id = "";
@@ -53,6 +51,27 @@ class EmployeeModel extends Database {
       }
     }
     return $emp_id;
+  }
+
+  public function getEmployeeWorkHistory($EmpID, $limit = 0, $start = 0, $count = false){
+    if($count == true){
+      $sql = "SELECT EB.* FROM employee_booking EB 
+              WHERE EB.EmployeeID='$EmpID' AND EB.Is_work_done='Yes'";
+      
+      $query = $this->con->query($sql);
+      $query->execute();
+      return $query->rowCount();
+    }
+
+    $sql = "SELECT EB.*, CONCAT(C.FirstName, ' ', C.LastName) AS CusFullName FROM employee_booking EB
+            INNER JOIN customer C ON EB.CustomerID=C.CustomerID 
+            WHERE EB.EmployeeID='$EmpID' AND EB.Is_work_done='Yes'
+            LIMIT $start,$limit"; 
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetch(PDO::FETCH_OBJ);
+
+    return $data;
   }
 
 

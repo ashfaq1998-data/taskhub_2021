@@ -37,7 +37,7 @@ $age = $diff->y;
         <div class="column2">
             <div class="personal-info-section">
                 <span>Personal Info</span>
-                <a href="<?php echo fullURLfront; ?>/Employee/employee_editprofile">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <a href="">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
                 <div class="personal-info-section-content">
                     <img src="<?php echo fullURLfront; ?>/assets/images/profile.jpeg" alt="Avatar" class="avatar">
                     <div class="details">
@@ -98,9 +98,9 @@ $age = $diff->y;
                             <td class="info-right-column-color"><?php echo $age ?></td>
                         </tr>
                         <tr>
-                                <td>Gender</td>
-                                <td class="info-right-column"><?php echo $employeeDetails->Gender; ?></td>
-                            </tr>
+                            <td>Gender</td>
+                            <td class="info-right-column-color"><?php echo $employeeDetails->Gender; ?></td>
+                        </tr>
                         <tr>
                             <td>NIC</td>
                             <td class="info-right-column-color"><?php echo $employeeDetails->NIC; ?></td>

@@ -2,13 +2,9 @@
 session_start();
 require_once ROOT  . '/View.php';
 require_once ROOT . '/models/HelpRequestModel.php';
-require_once ROOT . '/classes/Validation.php';
-require_once ROOT . '/models/AuthModel.php';
-require_once ROOT . '/models/UsersModel.php';
 require_once ROOT . '/models/ComplaintModel.php';
 require_once ROOT . '/models/EmployeeModel.php';
 require_once ROOT . '/models/BookingModel.php';
-
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -63,7 +59,27 @@ class EmployeeController {
   }
 
   public function employeeHistory() {
-    $view = new View("Employee/employee_history");
+    $employeeModel = new EmployeeModel();
+    $userID = $_SESSION['loggedin']['user_id'];
+    $employeeDetails = $employeeModel->getEmployeeByUserID($userID);
+
+    // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
+    $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+
+    // Number of results to show on each page.
+    $num_results_on_page = 10;
+    $calc_page = ($page - 1) * $num_results_on_page;
+
+    $data['work_history'] = $employeeModel->getEmployeeWorkHistory($employeeDetails->EmployeeID, $num_results_on_page, $calc_page, false);
+
+    $total_pages = $employeeModel->getEmployeeWorkHistory($employeeDetails->EmployeeID, 0, 0, true);
+    $data['pagination'] = [
+      'page' => $page, 
+      'total_pages' => $total_pages, 
+      'results_count' => $num_results_on_page
+    ];
+
+    $view = new View("Employee/employee_history", $data);
   }
 
   public function employeeComplaint() {
@@ -118,20 +134,18 @@ class EmployeeController {
 
     $allEvents = array();
     foreach($bookingsDetails as $booking){
-      $date = date("Y-m-d",strtotime($booking->Date));
-      $time = date("H:i:s",strtotime($booking->Date));
       $event = [
         'title'  => $booking->title,
-        'start'  => $date,
+        'start'  => $booking->EventDate,
         'customerName' => $booking->CusFullName,
         'address' => $booking->Address,
-        'time' => $time,
+        'time' => $booking->EventTime,
         'payment' => $booking->payment
       ];
       array_push($allEvents, $event);
     }
     $data['bookingEvents'] = $allEvents;
-
+  
     $view = new View("Employee/employee_booking", $data);
   }
 
@@ -144,13 +158,6 @@ class EmployeeController {
   }
   public function employeeSearch(){
     $view = new View("Employee/employee_search");
-  }
-
-  public function employeeEditprofile(){
-    $employeeModel = new EmployeeModel();
-    $userID = $_SESSION['loggedin']['user_id'];
-    $data['employee_details'] = $employeeModel->getEmployeeByUserID($userID);
-    $view = new View("Employee/employee_editprofile",$data);
   }
 
   public function employeeViewad(){

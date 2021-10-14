@@ -16,10 +16,6 @@ class ContractorController {
     $view = new View("Contractor/contractor_dashboard");
   }
 
-  public function contractorPostad() {
-    $view = new View("Contractor/contractor_postad");
-  }
-
   public function contractorComplaint() {
     $complaintModel = new ComplaintModel();
     $contractorModel = new ContractorModel();
@@ -37,7 +33,7 @@ class ContractorController {
       }
 
       if($ComplaintError == ""){
-        $complaintID = $complaintModel->generateEmployeeComplaintID();
+        $complaintID = $complaintModel->generateContractorComplaintID();
         $currentDateTime = date('Y-m-d H:i:s');
         $userID = $_SESSION['loggedin']['user_id'];
         $contractorDetails = $contractorModel->getContractorByUserID($userID);
@@ -61,8 +57,6 @@ class ContractorController {
     }
     $view = new View("Contractor/contractor_complaint",$data);
   }
-
-    
   
 
 

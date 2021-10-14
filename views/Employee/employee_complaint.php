@@ -55,7 +55,7 @@ session_start();
                             <?php if(!empty($data['ComplaintError']) && $data['ComplaintError'] != "none") {?>
                                 <p class="error"><?php echo $data['ComplaintError']; ?></p>
                             <?php }else if($data['ComplaintError'] == "none"){?>
-                                <p class="success">Your Complaint Submitted <i class="fa fa-check" aria-hidden="true"></i></p>
+                                <p class="success">Your Complaint Submitted SuccessFully <i class="fa fa-check" aria-hidden="true"></i></p>
                             <?php }?>
                         </div>
                     </form>

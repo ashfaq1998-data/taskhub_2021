@@ -38,15 +38,6 @@ class Validation{
         return $error;
     }
 
-    public function validateGender($gender){
-        $error = "";
-        
-        if($gender != "Male" || $gender != "Female") {
-            $error = 'Please enter the valid gender';
-        }
-        return $error;
-    }
-
     
     public function validateName($name){
         $error = "";

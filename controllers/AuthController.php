@@ -2,7 +2,6 @@
 session_start();
 require_once ROOT  . '/View.php';
 require_once ROOT . '/models/AuthModel.php';
-
 require_once ROOT . '/models/EmployeeModel.php';
 require_once ROOT . '/models/UsersModel.php';
 require_once ROOT . '/models/ContractorModel.php';
