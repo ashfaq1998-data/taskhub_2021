@@ -8,7 +8,7 @@ define('ROOT', __DIR__);
 // url => http://localhost:81/mvcp/user/add-post
 // url => user/add-post
 $url = trim(substr_replace(trim($_SERVER['REQUEST_URI'], '/'), '', 0, strlen($dir_name)), "?");
-define("fullURLfront", "/taskhubNew");
+define("fullURLfront", "/taskhub_2021");
 
 // associative arrays
 $routes = [
