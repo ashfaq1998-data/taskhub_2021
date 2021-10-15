@@ -78,6 +78,10 @@
     position: relative;
     top: 30px;
 }
+/* 
+.sortinglist a{
+    color: rgb(15, 77, 77);
+} */
 
 .sortinglist button:hover {
     background-image: linear-gradient(rgb(168, 217, 240), #ffffff);
