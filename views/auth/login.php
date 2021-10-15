@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 ?>
     <!DOCTYPE html> 
     <html lang="en">
@@ -20,14 +20,18 @@
                     <div class="login-section-form">
                         <h2 style="color: white;">Sign In</h2><br>
                         <form action="<?php echo fullURLfront; ?>/auth/login" method="POST"> 
-                            <input type="text" id="username" name="username" placeholder="Username">
-                            <input type="password" id="password" name="password" placeholder="Password"><br>
+                            <input type="text" id="email" name="email" placeholder="Email"
+                            value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['email'] : ''; ?>">
+
+                            <input type="password" id="password" name="password" placeholder="Password"
+                            value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['password'] : ''; ?>"><br>
+
                             <button type="submit" name="login" value="submitted" class="btn-submit">LOGIN</button>
                         </form>
                         <br>
+                        <p class="error"><?php echo $data['loginError']; ?></p>
                         <p>Did you forgot your password? <a href="<?php echo fullURLfront; ?>/auth/forgot_password">Forgot Password</a></p>
-                        <p>Not a member? <a href="<?php echo fullURLfront; ?>/auth/customer_register">Sign Up</a></p>
-                        <p><?php echo $data['loginError']; ?></p>
+                        <p>Not a member? <a href="<?php echo fullURLfront; ?>/main/index#signup">Sign Up</a></p>
                     </div>
                     <img src="<?php echo fullURLfront; ?>/assets/images/intro.png" alt="image" height="60%" width="50%">
                 </div>

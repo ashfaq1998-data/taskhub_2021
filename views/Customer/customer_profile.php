@@ -1,5 +1,20 @@
 <?php
-// session_start();
+
+    session_start();
+    $customerDetails = $data['customer_details'];
+    // Create a datetime object using date of birth
+    $dob = new DateTime($customerDetails->Date_of_Birth);
+    
+    // Get today's date
+    $now = new DateTime();
+    
+    // Calculate the time difference between the two dates
+    $diff = $now->diff($dob);
+    $age = $diff->y;
+    if($age == 0){
+        $age = "-";
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -26,35 +41,41 @@
         <div class="column2">
             <div class="personal-info-section">
                 <span>Personal Info</span>
-                <a href="<?php echo fullURLfront; ?>/views/Customer/customer_profileEdit.php">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <a href="<?php echo fullURLfront; ?>/Customer/customer_profileEd">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
                 <div class="personal-info-section-content">
                     <img src="<?php echo fullURLfront; ?>/assets/images/david.jpg">
                     <div class="details">
                         <table>
                             <tr>
                                 <td>First Name</td>
-                                <td class="info-right-column">David</td>
+                                <td class="info-right-column"><?php echo $customerDetails->FirstName; ?></td>
                             </tr>
                             <tr>
                                 <td>Last Name</td>
-                                <td class="info-right-column">Beckahm</td>
+                                <td class="info-right-column"><?php echo $customerDetails->LastName; ?></td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td class="info-right-column">davidb@gmail.com</td>
+                                <td class="info-right-column"><?php echo $_SESSION['loggedin']['email']; ?></td>
                             </tr>
                             <tr>
                                 <td>Contact Number</td>
-                                <td class="info-right-column">0775262544</td>
+                                <td class="info-right-column"><?php echo $customerDetails->Contact_No; ?></td>
                             </tr>
                             <tr>
                                 <td>Rating</td>
                                 <td class="info-right-column">
-                                    <span class="fa fa-star checked"></span>
+                                    <?php for($i = 1; $i <= $customerDetails->rating; $i++) {?>
+                                        <span class="fa fa-star checked"></span>
+                                    <?php }?>
+                                    <?php for($i = 1; $i <= (5-$customerDetails->rating); $i++) {?>
+                                        <span class="fa fa-star"></span>
+                                    <?php }?>
+                                    <!-- <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span> -->
                                 </td>
                             </tr>
                         </table>
@@ -69,19 +90,19 @@
                         <table>
                             <tr>
                                 <td>Address</td>
-                                <td class="info-right-column-color">No 36, Kent rd, Colombo 07</td>
+                                <td class="info-right-column-color"><?php echo $customerDetails->Address; ?></td>
                             </tr>
                             <tr>
                                 <td>DOB</td>
-                                <td class="info-right-column-color">1979/05/27</td>
+                                <td class="info-right-column-color"><?php echo $customerDetails->Date_of_Birth; ?></td>
                             </tr>
                             <tr>
                                 <td>Age</td>
-                                <td class="info-right-column-color">41</td>
+                                <td class="info-right-column-color"><?php echo $age ?></td>
                             </tr>
                             <tr>
                                 <td>NIC</td>
-                                <td class="info-right-column-color">985476587v</td>
+                                <td class="info-right-column-color"><?php echo $customerDetails->NIC; ?></td>
                             </tr>
                         </table>
                     </div>
@@ -91,12 +112,16 @@
                     <div class="billing-info-content">
                         <table style="width: 40%;">
                             <tr>
-                                <td>Name of the Bank</td>
-                                <td class="info-right-column-color">BOC</td>
+                                <td>Card Number</td>
+                                <td class="info-right-column-color"> <?php echo $customerDetails->Card_Number; ?></td>
                             </tr>
                             <tr>
-                                <td>Account Number</td>
-                                <td class="info-right-column-color">892565768</td>
+                                <td>Expiry Date</td>
+                                <td class="info-right-column-color"><?php echo $customerDetails->Expiry_Date; ?></td>
+                            </tr>
+                            <tr>
+                                <td>CVV</td>
+                                <td class="info-right-column-color"><?php echo $customerDetails->CVN; ?></td>
                             </tr>
                         </table>
                     </div>
@@ -105,7 +130,7 @@
             <div class="bio-info">
                 <h3>Bio Information</h3>
                 <div class="bio-info-content">
-                    <p>Hey!! I'm Dean from Colombo...</p>
+                    <p><?php echo $customerDetails->bio; ?></p>
                 </div>
             </div>
         </div>

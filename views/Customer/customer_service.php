@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +50,9 @@
                         <option value="customer">Employee</option>
                         <option value="contractor">Contractor</option>
                     </select><br><br><br><br>
-                <button type="submit" class="proceed">Proceed</button>
+                <!-- <button type="submit" class="proceed">Proceed</button> -->
+                <button type="submit" class="proceed"> <a href="<?php echo fullURLfront; ?>/Customer/customer_serviceLocation">Proceed</a></button>
+                <!-- <button class="btn"><a id="close" href="<?php echo fullURLfront; ?>/Customer/customer_serviceLocation"> -->
 
                 </form>
 

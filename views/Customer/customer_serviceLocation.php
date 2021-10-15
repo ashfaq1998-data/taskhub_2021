@@ -26,7 +26,7 @@
     </div>
     <div class="column2">
             <center><div class="sortinglist">
-                <form action="<?php echo fullURLfront; ?>/Customer/customer_serviceList" method="POST">
+                <form action="<?php echo fullURLfront; ?>/Customer/customer_serviceLocation" method="POST">
                     <label for="service_type">Electrical help</label><br><br><br>
                     <label for="employee_type">Employer</label><br><br><br>
                     <select name="location" id="location">
@@ -36,7 +36,7 @@
                         <option value="galle">Galle</option>
                         <option value="kandy">Kandy</option>
                     </select><br><br><br><br><br>
-                <button type="submit" class="search">Search</button>
+                <button type="submit" class="search"> <a href="<?php echo fullURLfront; ?>/Customer/customer_serviceList">Search</a> </button>
                 <div class="image">
                     <center><img src="<?php echo fullURLfront; ?>/assets/images/service_cus.png" alt="image"></center>
                 </div>
