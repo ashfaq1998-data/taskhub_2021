@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -39,30 +39,44 @@
                         <h1>Edit Profile</h1>
                         <div class="elem-group">
                             <div class="firstname">
-                                <label for="fname">First Name</label>
-                                <input type="text" id="fname" name="fname" placeholder="Jensen" required>
+                                <label for="f_name">First Name</label>
+                                <input type="text" id="f_name" name="f_name" pattern="[A-Za-z]{1,32}" title="Name must contain only A-Z & a-z characters, and shouldn't exceed no more than 32 characters" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['f_name'] : ''; ?>" >
                             </div>
                             <div class="lastname">
-                                <label for="lname">Last Name</label>
-                                <input type="text" id="lname" name="lname" placeholder="Ackles" required>  
+                                <label for="l_name">Last Name</label>
+                                <input type="text" id="l_name" name="l_name" pattern="[A-Za-z]{1,32}" title="Name must contain only A-Z & a-z characters, and shouldn't exceed no more than 32 characters" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['l_name'] : ''; ?>" >  
                             </div>
                         </div>
                         <div class="elem-group">
                             <label for="address">Permenant Address</label>
-                            <input type="text" id="address" name="address" placeholder="No 36, Reid Avenue, Colombo 10" required>
+                            <input type="text" id="address" name="address" maxlength="75" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['address'] : ''; ?>" >
                         </div>
                         <div class="elem-group">
-                            <label for="email">Your E-mail</label>
-                            <input type="email" id="email" name="email" placeholder="john.doe@email.com" required>
+                            <label for="nic">NIC</label>
+                            <input type="text" id="nic" name="nic" pattern="(^[0-9]{9}[vVxX])" title="eg: 980000000v/V/x/X" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['nic'] : ''; ?>" >
                         </div>
                         <div class="elem-group">
-                            <label for="phone">Your Contact Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="071-348-3872" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4}) required>
+                            <label for="phone_num">Contact Number</label>
+                            <input type="text" id="phone_num" name="phone_num" pattern="(^[0-9]{10})" title="eg: 0710001111" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['phone_num'] : ''; ?>" >
+                        </div>
+                        <div class="elem-group">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="eg: john98@gmail.com" value="<?php echo $_SESSION['loggedin']['email']; ?>" >
                         </div>
                         <hr>
-                        <div class="elem-group">
-                            <label for="message">Anything Else?</label>
-                            <textarea id="message" name="message" placeholder="Tell us anything else that might be important."></textarea>
+                        <div class="card-details">
+                            <div class="elem-group">
+                                <label for="card_num">Card Number</label>
+                                <input type="text" id="card_num" name="card_num" pattern="(^[0-9]{16})" title="eg: 4216000011112222" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['card_num'] : ''; ?>" >
+                            </div>
+                            <div class="elem-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" name="cvv" pattern="(^[0-9]{3})" title="eg: 555" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['cvv'] : ''; ?>" >
+                            </div>
+                            <div class="elem-group">
+                                <label for="expiry">Expiry Date</label>
+                                <input type="text" id="expiry" name="expiry" pattern="(^[0-9]{2}[/]{1}[0-9]{2})" title="eg: 01/21(MM/YY)" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['expiry'] : ''; ?>" >
+                            </div>
                         </div>
                         <button type="submit">Submit</button>
                     </form>
