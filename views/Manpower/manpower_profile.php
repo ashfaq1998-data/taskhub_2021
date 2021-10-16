@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-$contractorDetails = $data['contractor_details'];
+$employeeDetails = $data['employee_details'];
 // Create a datetime object using date of birth
-$dob = new DateTime($contractorDetails->Date_of_Birth);
+$dob = new DateTime($employeeDetails->Date_of_Birth);
  
 // Get today's date
 $now = new DateTime();
@@ -21,8 +21,8 @@ $age = $diff->y;
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/header.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/footer.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/sidebar.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo fullURLfront; ?>/assets/cs/contractor/contractor_dashboard.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo fullURLfront; ?>/assets/cs/contractor/contractor_profile.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo fullURLfront; ?>/assets/cs/employee/employee_dashboard.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo fullURLfront; ?>/assets/cs/employee/employee_profile.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -32,7 +32,7 @@ $age = $diff->y;
     <?php include_once('header.php'); ?>
     <div class="row">
         <div class="column1">
-            <?php include_once('views/Manpower/manpower_sidebar.php'); ?>
+            <?php include_once('views/Employee/employee_sidebar.php'); ?>
         </div>
         <div class="column2">
             <div class="personal-info-section">
@@ -44,27 +44,31 @@ $age = $diff->y;
                         <table>
                             <tr>
                                 <td>First Name</td>
-                                <td class="info-right-column"><?php echo $contractorDetails->FirstName; ?></td>
+                                <td class="info-right-column"><?php echo $employeeDetails->FirstName; ?></td>
                             </tr>
                             <tr>
                                 <td>Last Name</td>
-                                <td class="info-right-column"><?php echo $contractorDetails->LastName; ?></td>
+                                <td class="info-right-column"><?php echo $employeeDetails->LastName; ?></td>
                             </tr>
                             <tr>
                                 <td>E-mail</td>
                                 <td class="info-right-column"><?php echo $_SESSION['loggedin']['email']; ?></td>
                             </tr>
                             <tr>
+                                <td>Specialization</td>
+                                <td class="info-right-column"><?php echo $employeeDetails->specialized_area; ?></td>
+                            </tr>
+                            <tr>
                                 <td>Contact Number</td>
-                                <td class="info-right-column"><?php echo $contractorDetails->Contact_No; ?></td>
+                                <td class="info-right-column"><?php echo $employeeDetails->Contact_No; ?></td>
                             </tr>
                             <tr>
                                 <td>Rating</td>
                                 <td class="info-right-column">
-                                    <?php for($i = 1; $i <= $contractorDetails->rating; $i++) {?>
+                                    <?php for($i = 1; $i <= $employeeDetails->rating; $i++) {?>
                                         <span class="fa fa-star checked"></span>
                                     <?php }?>
-                                    <?php for($i = 1; $i <= (5-$contractorDetails->rating); $i++) {?>
+                                    <?php for($i = 1; $i <= (5-$employeeDetails->rating); $i++) {?>
                                         <span class="fa fa-star"></span>
                                     <?php }?>
                                     <!-- <span class="fa fa-star checked"></span>
@@ -80,30 +84,34 @@ $age = $diff->y;
             <div class="additional-info">
                 <h3>Additional Information</h3>
                 <div class="additional-info-content">
-                    <table>
+                    <table style="width: 40%;">
                         <tr>
                             <td>Address</td>
-                            <td class="info-right-column-color"><?php echo $contractorDetails->Address; ?></td>
+                            <td class="info-right-column-color"><?php echo $employeeDetails->Address; ?></td>
                         </tr>
                         <tr>
                             <td>DOB</td>
-                            <td class="info-right-column-color"><?php echo $contractorDetails->Date_of_birth; ?></td>
+                            <td class="info-right-column-color"><?php echo $employeeDetails->Date_of_Birth; ?></td>
                         </tr>
                         <tr>
                             <td>Age</td>
                             <td class="info-right-column-color"><?php echo $age ?></td>
                         </tr>
                         <tr>
+                            <td>Gender</td>
+                            <td class="info-right-column-color"><?php echo $employeeDetails->Gender; ?></td>
+                        </tr>
+                        <tr>
                             <td>NIC</td>
-                            <td class="info-right-column-color"><?php echo $contractorDetails->NIC; ?></td>
+                            <td class="info-right-column-color"><?php echo $employeeDetails->NIC; ?></td>
                         </tr>
                         <tr>
                             <td>Rate for 2 hours</td>
-                            <td class="info-right-column-color"><?php echo $contractorDetails->Payment_for_2hours; ?></td>
+                            <td class="info-right-column-color"><?php echo $employeeDetails->Payment_for_2hours; ?></td>
                         </tr>
                         <tr>
                             <td>Years of experience</td>
-                            <td class="info-right-column-color"><?php echo $contractorDetails->Year_of_experience; ?></td>
+                            <td class="info-right-column-color"><?php echo $employeeDetails->Year_of_experience; ?></td>
                         </tr>
                     </table>
                 </div>
@@ -114,19 +122,19 @@ $age = $diff->y;
                     <table style="width: 40%;">
                         <tr>
                             <td>Name of the Bank</td>
-                            <td class="info-right-column-color"> <?php echo $contractorDetails->Name_of_Bank; ?></td>
+                            <td class="info-right-column-color"> <?php echo $employeeDetails->Name_of_Bank; ?></td>
                         </tr>
                         <tr>
                             <td>Account Number</td>
-                            <td class="info-right-column-color"><?php echo $contractorDetails->Account_Number; ?></td>
+                            <td class="info-right-column-color"><?php echo $employeeDetails->Account_Number; ?></td>
                         </tr>
                     </table>
                 </div>
-            </div><br>
+            </div>
             <div class="bio-info">
                 <h3>Bio Information</h3>
                 <div class="bio-info-content">
-                    <p><?php echo $contractorDetails->bio; ?></p>
+                    <p><?php echo $employeeDetails->bio; ?></p>
                 </div>
             </div>
         </div>
