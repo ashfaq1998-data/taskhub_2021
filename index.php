@@ -38,6 +38,9 @@ $routes = [
   'Contractor/contractor_dashboard' => 'ContractorController@contractorDashboard',
   'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
 
+  //manpower section
+    'Manpower/manpower_dashboard' => 'ManpowerController@manpowerDashboard',
+    'Manpower/manpower_profile' => 'ManpowerController@manpowerProfile',
 
    
 

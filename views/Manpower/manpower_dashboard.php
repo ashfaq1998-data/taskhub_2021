@@ -20,7 +20,7 @@ session_start();
 
 <div class="row">
   <div class="column1">
-    <?php include_once('views/Employee/employee_sidebar.php'); ?>
+    <?php include_once('views/Manpower/manpower_sidebar.php'); ?>
   </div>
   <div class="column2">
     <h2>Column 2</h2>
