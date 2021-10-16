@@ -26,9 +26,9 @@ session_start();
                         <h2>Sign Up</h2><br>
                         <a id="close" href="<?php echo fullURLfront; ?>/main/index"> x </a>
                         <form action="<?php echo fullURLfront; ?>/auth/customer_register" method="POST">
-                            <input type="text" id="f_name" name="f_name" placeholder="First name" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['f_name'] : ''; ?>"required>
-                            <input type="text" id="l_name" name="l_name" placeholder="Last name" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['l_name'] : ''; ?>" required>
-                            <input type="text" id="address" name="address" placeholder="Permanent Address" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['address'] : ''; ?>" required>                         
+                            <input type="text" id="f_name" name="f_name" placeholder="First name" pattern="[A-Za-z]{1,32}" title="Name must contain only A-Z & a-z characters, and shouldn't exceed no more than 32 characters" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['f_name'] : ''; ?>"required>
+                            <input type="text" id="l_name" name="l_name" placeholder="Last name" pattern="[A-Za-z]{1,32}" title="Name must contain only A-Z & a-z characters, and shouldn't exceed no more than 32 characters" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['l_name'] : ''; ?>" required>
+                            <input type="text" id="address" name="address" placeholder="Permanent Address" maxlength="75" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['address'] : ''; ?>" required>                         
                             
                             <!-- <select name="gender" id="gender" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['gender'] : ''; ?>"required>
                                 <option value="none" selected>(Gender)</option>
@@ -42,27 +42,29 @@ session_start();
                                 <?php }?>
                             </select>
 
-                            <input type="text" id="nic" name="nic" placeholder="NIC/Passport ID" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['nic'] : ''; ?>" required>
-                            <input type="text" id="phone_num" name="phone_num" placeholder="Contact Number" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['phone_num'] : ''; ?>" required>
-                            <input type="text" id="email" name="email" placeholder="Email" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['email'] : ''; ?>" required>
-                            <input type="password" id="password" name="password" placeholder="Password" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['password'] : ''; ?>" required>
-                            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['confirm_password'] : ''; ?>" required><br> <!-- onkeyup='check();'-->
-                            <!-- <script>
+                            <input type="text" id="nic" name="nic" placeholder="NIC/Passport ID" pattern="(^[0-9]{9}[vVxX])" title="eg: 980000000v/V/x/X" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['nic'] : ''; ?>" required>
+                            <input type="text" id="phone_num" name="phone_num" placeholder="Contact Number" pattern="(^[0-9]{10})" title="eg: 0710001111" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['phone_num'] : ''; ?>" required>
+                            <input type="text" id="email" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="eg: john98@gmail.com" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['email'] : ''; ?>" required>
+                            <input type="password" id="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+                            value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['password'] : ''; ?>" required>
+                            <input type="password" id="confirm_password" name="confirm_password" onkeyup='check();' placeholder="Confirm Password" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['confirm_password'] : ''; ?>" required><br> <!-- onkeyup='check();'-->
+                            <span id='message'></span>          
+                            <script>
                                 var check = function() {
                                 if (document.getElementById('password').value ==
                                     document.getElementById('confirm_password').value) {
                                     document.getElementById('message').style.color = 'green';
-                                    document.getElementById('message').innerHTML = 'matching';
+                                    document.getElementById('message').innerHTML = 'Password Matching   ';
                                 } else {
                                     document.getElementById('message').style.color = 'red';
-                                    document.getElementById('message').innerHTML = 'not matching';
+                                    document.getElementById('message').innerHTML = 'Password not matching   ';
                                 }
                                 }
-                            </script> -->
+                            </script>
 
                             <!-- placeholder="First name" pattern="[A-Za-z]{1,32}" title="Name must contain only A-Z & a-z characters, and shouldn't exceed no more than 32 characters"
-                            placeholder="Last name"pattern="[A-Za-z]{1,32}" title="Name must contain only A-Z & a-z characters, and shouldn't exceed no more than 32 characters"
-                            placeholder="Permanent Address" maxlength="75
+                            placeholder="Last name" pattern="[A-Za-z]{1,32}" title="Name must contain only A-Z & a-z characters, and shouldn't exceed no more than 32 characters"
+                            placeholder="Permanent Address" maxlength="75"
 
                             placeholder="NIC/Passport ID" pattern="(^[0-9]{9}[vVxX])" title="eg: 980000000v/V/x/X"
                             placeholder="Contact No" pattern="(^[0-9]{10})" title="eg: 0710001111"
