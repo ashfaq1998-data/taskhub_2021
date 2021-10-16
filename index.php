@@ -35,6 +35,9 @@ $routes = [
     'Employee/employee_search' => 'EmployeeController@employeeSearch',
     'Employee/employee_viewad' => 'EmployeeController@employeeViewad',
 
+  //manpower section
+    'Manpower/manpower_dashboard' => 'ManpowerController@manpowerDashboard',
+    'Manpower/manpower_profile' => 'ManpowerController@manpowerProfile',
 
   //contractor section
     'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
