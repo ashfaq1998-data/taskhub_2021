@@ -20,4 +20,12 @@ class ManpowerController {
     
   }
   
+  public function ManpowerViewad(){
+    $view = new View("Manpower/manpower_viewad");
+  }
+
+  public function ManpowerSearch(){
+    $view = new View("Manpower/manpower_search");
+  }
+
 }
