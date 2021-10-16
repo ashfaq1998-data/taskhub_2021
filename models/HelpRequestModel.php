@@ -6,7 +6,7 @@ class HelpRequestModel extends Database {
 
   //for now for profile section
   public function generateEmployeeHelpID() {
-   $str_part = "req";
+   $str_part = "emreq";
    $request_id = "";
 
    while(true){
@@ -44,42 +44,43 @@ class HelpRequestModel extends Database {
 
   }
 
-  public function generateContractorHelpID() {
-    $str_part = "req";
+
+  public function generateCustomerHelpID() {
+    $str_part = "custreq";
     $request_id = "";
  
     while(true){
         $num_part = rand(100,999);
         $request_id = $str_part.strval($num_part);
-
-        $sql = "SELECT * FROM contractor_help_request WHERE RequestID='$request_id'";
+ 
+        $sql = "SELECT * FROM customer_help_request WHERE RequestID='$request_id'";
         $query = $this->con->query($sql);
         $query->execute();
-
+ 
         if ($query->rowCount() == 0){
           break;
-      }
+       }
     }
     return $request_id;
-  }
+   }
  
  
-  public function addNewContractorHelp($contractorHelp) {
-    $RequestId = $contractorHelp['RequestID'];
-    $date = $contractorHelp['Date'];
-    $subject = $contractorHelp['Subject'];
-    $message = $contractorHelp['Content'];
-    $conID = $contractorHelp['ContractorID'];
-  
-    
-    $sql = " INSERT INTO contractor_help_request (RequestID, Date, Subject , Content, ContractorID) 
-            VALUES ('$RequestId', '$date', '$subject', '$message', '$conID')";
+   public function addNewCustomerHelp($customerHelp) {
+     $RequestId = $customerHelp['RequestID'];
+     $date = $customerHelp['Date'];
+     $subject = $customerHelp['Subject'];
+     $message = $customerHelp['Content'];
+     $customerID = $customerHelp['CustomerID'];
+     
+     
+     $sql = " INSERT INTO customer_help_request (RequestID, Date, Subject , Content, CustomerID) 
+             VALUES ('$RequestId', '$date', '$subject', '$message', '$customerID')";
  
-    if($this->con->query($sql)){
-        return true;
-    }else{
-        return false;
-    }
-
-  }
+     if($this->con->query($sql)){
+         return true;
+     }else{
+         return false;
+     }
+ 
+   }
 }

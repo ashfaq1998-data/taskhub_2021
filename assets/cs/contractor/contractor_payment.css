@@ -1,8 +1,26 @@
+.row {
+    display: flex;
+}
+
+.columnsub1 {
+    float: left;
+    flex: 50%;
+    background-image: linear-gradient(to bottom, rgba(157, 238, 218, 0.918), rgb(232, 233, 219));
+}
+
+.left {
+    width: 50%
+}
+
+.right {
+    width: 50%;
+}
+
 #chatbox {
     position: absolute;
     width: 365px;
     height: 243px;
-    left: 40%;
+    left: 60%;
     top: 20%;
     background: linear-gradient(180deg, #108882 0%, rgba(94, 178, 178, 0.99) 100%);
     border-radius: 20px;

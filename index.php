@@ -40,21 +40,22 @@ $routes = [
     'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
     'Contractor/contractor_complaint' =>'ContractorController@contractorComplaint',
     'Contractor/contractor_postad' =>'ContractorController@contractorPostad',
-    'Contractor/contractor_paymentgateway' =>'ContractorController@contractorPaymentgateway',
-    'Contractor/contractor_paymentform' =>'ContractorController@ContractorPaymentform',
-    'Contactor/contractor_confirmpayment'=> 'ContractorController@contractorConfirmpayment',
-    'Contractor/contractor_search' => 'ContractorController@contractorSearch',
-    'Contractor/contractor_viewad' => 'ContractorController@contractorViewad',
-    'Contractor/contractor_help' => 'ContractorController@contractorHelp',
-    'Contractor/contractor_history'=>'ContractorController@contractorHistory',
-    'Contractor/contractor_booking' => 'ContractorController@contractorBooking',
+    'Contractor/contractor_help' =>'ContractorController@contractorHelp',
+    'Contractor/contractor_paymentform' =>'ContractorController@contractorPaymentform',
+    'Contractor/contractor_payment' =>'ContractorController@contractorPayment',
+    'Contractor/contractor_confirmpayment' =>'ContractorController@contractorConfirmpayment',
+    'Contractor/contractor_paymentdone' =>'ContractorController@contractorPaymentdone',
 
   //customer section
 
     'Customer/customer_profile' => 'CustomerController@customerProfile',
     'Customer/customer_viewad' => 'CustomerController@customerViewad',
     'Customer/customer_complaint' => 'CustomerController@customerComplaint',
-    
+    'Customer/customer_services' => 'CustomerController@customerService',
+    'Customer/customer_servicelist' => 'CustomerController@customerServicelist',
+    'Customer/customer_bookingform' => 'CustomerController@customerBookingform',
+    'Customer/customer_help' => 'CustomerController@customerHelp',
+
 ];
 
 $found = false;

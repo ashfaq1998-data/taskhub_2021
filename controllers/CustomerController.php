@@ -71,6 +71,61 @@ class CustomerController {
     $view = new View("Customer/customer_viewad");
   }
 
+  public function customerService(){
+    $view = new View("Customer/customer_services");
+  }
+
+  public function customerServicelist(){
+    $view = new View("Customer/customer_servicelist");
+  }
+
+  public function customerBookingform(){
+    $view = new View("Customer/customer_bookingform");
+  }
+
+  public function customerHelp() {
+    
+    $helpRequestModel = new HelpRequestModel();
+    $customerModel = new CustomerModel();
+    if(!empty($_POST['customer_help'] && $_POST['customer_help'] == 'submitted') ){
+      $data['inputted_data'] = $_POST;
+		  $subject = $_POST['subject'];
+		  $message = $_POST['message'];
+      $HelpError = "";
+
+      if(empty($subject) || empty($message))
+      {
+          $HelpError = "Please fill all the empty fields";
+      }
+
+      if($HelpError == ""){
+        $requestID = $helpRequestModel->generateCustomerHelpID();
+        $userID = $_SESSION['loggedin']['user_id'];
+        $customerDetails = $customerModel->getCustomerByUserID($userID);
+        $currentDateTime = date('Y-m-d H:i:s');
+      
+        $customerHelpDetails = [
+          'RequestID' => $requestID,
+          'Date' => $currentDateTime,
+          'Subject' => $subject,
+          'Content' => $message,
+          'CustomerID' => $customerDetails->CustomerID
+          
+        ];
+
+        $helpRequestModel->addNewCustomerHelp($customerHelpDetails);
+        $HelpError = "none";
+        
+      }
+
+      $data['HelpError'] = $HelpError;
+      
+    }
+
+    $view = new View("Customer/customer_help",$data);
+  }
+
+  
   
  
 }

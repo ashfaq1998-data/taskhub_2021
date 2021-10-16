@@ -1,7 +1,7 @@
 #chatbox {
     margin-left: 400px;
     margin-top: 80px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     width: 365px;
     height: 243px;
     top: 30%;
@@ -22,13 +22,13 @@
 }
 
 .bodywrapper {
-    background: linear-gradient(180deg, #85e2cb 0%, rgba(188, 238, 235, 0.99) 100%);
+    background-image: linear-gradient(to-bottom, rgb(162, 218, 240), rgb(171, 218, 224));
 }
 
 .confirmbutton {
     position: relative;
     margin-top: 25%;
-    margin-left: 15%;
+    margin-left: 36%;
     padding-left: 35px;
     padding-right: 35px;
     background-color: #108882;

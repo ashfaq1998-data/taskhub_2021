@@ -1,0 +1,153 @@
+body {
+    /* margin: 0 auto; */
+    margin: auto;
+    padding: 0px;
+    height: 993px;
+    /* background-image: linear-gradient(white, rgb(45, 165, 149)); */
+    position: initial;
+}
+
+  /* div.header {
+    filter: blur(3px);
+  } */
+
+h1 {
+      text-align: center;
+      margin-bottom: 3vh;
+      font-size: 3vh;
+      padding: 2px;
+      /* transform: translateY(-3vh); */
+    }
+/* 
+  .fa-info-circle {
+    background-color: #79ccc8;
+    transform: translateX(68vh);
+    padding: 0px;
+    margin: 2px;
+    margin-top: 6px;
+    width: 40px;
+    height: 35px;
+    font-weight: lighter;
+    color: rgb(26, 141, 126);
+  } */
+
+.close {
+    background-color: #79ccc8;
+    transform: translateX(71vh);
+    padding: 0px;
+    margin: 2px;
+    margin-top: 2px;
+    width: 40px;
+    height: 35px;
+    font-weight: lighter;
+    color: rgb(26, 141, 126);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+div.subcolumn1 {
+    display: flex;
+    padding: 10px;
+    position: relative;
+    left: 70%;
+    filter: blur(5px);
+}
+
+
+div.subcolumn {
+    width: 80vh;
+    height: 83vh;
+    shape-margin: 5vh;
+    padding: 20px;
+    padding-right:0em;
+    background-image: linear-gradient(#79ccc8, #ffffff);
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 0.5px;
+    border-color: rgb(6, 138, 120);
+    transform: translateX(-10vh);
+    margin: auto;
+    margin-top: 5px;
+    position: absolute;
+    left: 36.4%;
+    top: 0.5%;
+}
+
+div.elem-group {
+    margin: 0px;
+    transform: translateX(4vh);
+    transform: translateY(-1vh);
+    margin-left: 14px;
+    width: 90%;
+    padding: 4px;
+}
+
+  /* div.elem-group1 {
+    margin: 20px;
+    width: 60%;
+  } */
+  
+div.elem-group.inlined {
+    width: 40%;
+    display: inline-block;
+    float: none;
+}
+  
+label {
+    display: block;
+    font-family: 'Nanum Gothic';
+    padding-bottom: 10px;
+    font-size: 1.1em;
+    margin: 0;
+}
+  
+input, select, textarea {
+    border-radius: 3px;
+    border: 1.5px solid rgb(6, 138, 120);
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: 'Nanum Gothic';
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+}
+  
+div.elem-group.inlined input {
+    width: 95%;
+    display: inline-block;
+    margin: 0;
+}
+  
+textarea {
+    height: 110px;
+}
+  
+hr{
+    border: 1px solid #ccc;
+    opacity: 50%;
+    margin: 2vh;
+    transform: translateY(0vh);
+}
+  
+button {
+    height: 40px;
+    width: 100px;
+    background: rgb(42, 141, 120);
+    border: none;
+    color: white;
+    font-size: 1.3em;
+    font-family: 'Nanum Gothic';
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 4vh;
+    margin-bottom: 10px;
+    transform: translateX(31.5vh);
+    justify-content: center;
+    position: absolute;
+}
+  
+button:hover {
+    border: 2px solid rgb(166, 226, 236);
+}

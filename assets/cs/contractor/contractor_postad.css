@@ -7,6 +7,8 @@
     color: #108882;
     padding-top: 3%;
     padding-left: 40%;
+    
+    
 }
 
 #advertisearea {
@@ -14,11 +16,11 @@
     font-style: normal;
     font-weight: bold;
     background-color: #108882;
-    width: 1096px;
+    width: 1000px;
     height: 536px;
     position: absolute;
     margin-left: 5%;
-    margin-right: 5%;
+    margin-right: 10%;
     margin-top: 5%;
 }
 
@@ -32,6 +34,7 @@
     padding-right: 15px;
     background: #FFFCFC;
     outline: none;
+    border-radius: 10px;
 }
 
 #typeareaid {
@@ -44,6 +47,7 @@
     padding-left: 15px;
     padding-right: 15px;
     background: #FFFEFE;
+    border-radius: 10px;
 }
 
 #uploadid {
@@ -56,7 +60,8 @@
     border-radius: 30px;
     outline: none;
     border: none;
-    color: #FFFEFE
+    color: #FFFEFE;
+    cursor: pointer;
 }
 
 .confirm {
@@ -77,6 +82,7 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 #discard {
@@ -86,7 +92,8 @@
     border: 1px solid #DD2A2A;
     box-sizing: border-box;
     border-radius: 30px;
-    color: #DD2A2A
+    color: #DD2A2A;
+    cursor: pointer;
 }
 
 .column01 {
@@ -109,9 +116,7 @@
     margin-left: 100px;
 }
 
-.column03 {
-    margin-top: 600px;
-}
+
 
 .details {
     float: left;
@@ -128,6 +133,7 @@
     padding-top: 350px;
     margin-left: 30px;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 .label-input-file {
@@ -136,11 +142,10 @@
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 100px;
-    margin-left: 300px;
-    margin-right: 500px;
+    margin-top: 500px;
+    margin-left: 250px;
     width: 50px;
     font-size: 14px;
     font-style: Poppins;
+    cursor: pointer;
 }
-
-.custom-file-input::before {}

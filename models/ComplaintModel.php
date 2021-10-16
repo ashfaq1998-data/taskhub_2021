@@ -82,8 +82,9 @@ class ComplaintModel extends Database {
 
     }
 
+
     public function generateCustomerComplaintID(){
-        $str_part = "cucom";
+        $str_part = "cocom";
         $complain_id = "";
 
         while(true){
@@ -106,11 +107,11 @@ class ComplaintModel extends Database {
         $date = $customerComplaints['Date'];
         $subject = $customerComplaints['Subject'];
         $message = $customerComplaints['Content'];
-        $customerID = $customerComplaints['CustomerID'];
+        $custID = $customerComplaints['CustomerID'];
         $rating = $customerComplaints['Rates'];
 
         $sql = " INSERT INTO customer_complaint (ComplaintID, Date, Subject , Content, Rates, CustomerID) 
-            VALUES ('$ComplaintId', '$date', '$subject', '$message','$rating', '$customerID')";
+            VALUES ('$ComplaintId', '$date', '$subject', '$message','$rating', '$custID')";
 
         if($this->con->query($sql)){
             return true;
@@ -120,5 +121,7 @@ class ComplaintModel extends Database {
 
 
     }
+
+    
   
 }

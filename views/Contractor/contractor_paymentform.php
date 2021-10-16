@@ -1,6 +1,11 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/header.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/footer.css" rel="stylesheet" type="text/css"/>
@@ -12,17 +17,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-    <title>Document</title>
+<title>Document</title>
+
 </head>
 <body>
-    <?php include_once('header.php'); ?>
-   
+<div class="page-wrapper">
+<?php include_once('header.php'); ?>
+
+<div class="row">
+  <div class="column1">
+    <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
+  </div>
+  <div class="column2">
+    <div class="logoarea"><img src="<?php echo fullURLfront ; ?>/assets/images/taskhubpaypal.png"></div>
     <div id="formarea">
-        <form action="<?php echo fullURLfront; ?>/Contractor/contractor_confirmpayment">
+        <form action="<?php echo fullURLfront; ?>/Contractor/contractor_payment" method="post" >
             <div id="cardnumberdiv" class="inform">
                 <label for="cardnumberl">Card Number</label>  
                 <input type="text" id="cardnumberid" name="cardnumber" required>
             </div>
+
             <div id="expirymonthdiv" class="inform">
                 <label for="expirymonthl">Expiry month</label>  
                 <input type="text" id="expirymonthid" name="expirymonth" required>
@@ -42,8 +56,8 @@
                 <label for="cvvl">Cvv</label>  
                 <input type="text" id="cvvid" name="cvv" required>
             </div>
-
-            <div id="pricestiker"><img src="<?php fullURLfront ; ?>/assets/images/priceofad.jpg"></div>
+            <br><br>
+            <div id="pricestiker"><img src="<?php echo fullURLfront ; ?>/assets/images/priceofad.jpg"></div>
 
             <div id="buttons">
                 <button class="buttons" id="confirm" type="submit">Pay now</button>
@@ -51,8 +65,12 @@
             </div>
         </form>
     </div>
-    <div class="bottom">
-    <?php include_once('footer.php'); ?>
-    </div>
+  </div>
+</div>
+<br>
+<?php include_once('footer.php'); ?>
+
+</div>
+
 </body>
 </html>
