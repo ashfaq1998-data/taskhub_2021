@@ -101,13 +101,13 @@ class ComplaintModel extends Database {
         return  $complain_id;
     }
 
-    public function addNewCustomerComplaint($customerComplaints){
-        $ComplaintId = $customerComplaints['ComplaintID'];
-        $date = $customerComplaints['Date'];
-        $subject = $customerComplaints['Subject'];
-        $message = $customerComplaints['Content'];
-        $customerID = $customerComplaints['CustomerID'];
-        $rating = $customerComplaints['Rates'];
+    public function addNewCustomerComplaint($customerComplaint){
+        $ComplaintId = $customerComplaint['ComplaintID'];
+        $date = $customerComplaint['Date'];
+        $subject = $customerComplaint['Subject'];
+        $message = $customerComplaint['Content'];
+        $customerID = $customerComplaint['CustomerID'];
+        $rating = $customerComplaint['Rates'];
 
         $sql = " INSERT INTO customer_complaint (ComplaintID, Date, Subject , Content, Rates, CustomerID) 
             VALUES ('$ComplaintId', '$date', '$subject', '$message','$rating', '$customerID')";

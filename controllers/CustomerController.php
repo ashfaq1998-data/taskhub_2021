@@ -29,7 +29,7 @@ class CustomerController {
       $rating = $_POST['rating'];
       $ComplaintError = "";
 
-      if(empty($subject) || empty($complaintmessage) || empty($rating))
+      if(empty($subject) && empty($complaintmessage) && empty($rating))
       {
           $ComplaintError = "Please fill all the empty fields";
       }
@@ -41,7 +41,7 @@ class CustomerController {
         $customerDetails = $customerModel->getCustomerByUserID($userID);
 
 
-        $customerComplaints = [
+        $customerComplaint = [
           'ComplaintID' => $complaintID,
           'Date' => $currentDateTime,
           'Subject' => $subject,
@@ -50,14 +50,14 @@ class CustomerController {
           'CustomerID' => $customerDetails->CustomerID
         ];
 
-        $complaintModel-> addNewCustomerComplaint($customerComplaints);
+        $complaintModel-> addNewCustomerComplaint($customerComplaint);
         $ComplaintError = "none";
 
       }
 
       $data['ComplaintError'] = $ComplaintError;
     }
-    $view = new View("Customer/customer_complaint",$data);
+    $view = new View("Customer/customer_complaint", $data);
   }
 
   public function customerDashboard() {

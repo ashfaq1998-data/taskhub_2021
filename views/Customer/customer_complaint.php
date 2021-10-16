@@ -30,7 +30,7 @@
                 </div>
                 <div class="subcolumn2"></div>
                 <div class="subcolumn3">
-                    <form action="<?php echo fullURLfront; ?>/Customer/customer_complaint">
+                    <form action="<?php echo fullURLfront; ?>/Customer/customer_complaint" method="POST">
                         <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-style: normal; font-weight: bold; font-size: 17px;">Rate level of complains (Higher the stars, worse the case)</p>
                         <!-- <fieldset> -->
                             <!-- <legend>Rate level of complains (Higher the stars, worse the case)</legend> -->
