@@ -17,6 +17,7 @@ session_start();
 
 </head>
 <body>
+    
 <div class="page-wrapper">
     <?php include_once('header.php'); ?>
     <div class="row">
@@ -27,17 +28,17 @@ session_start();
             <div class = "faq">
                 <h2>Frequently Asked Questions</h2>
             
-                <button class="accordion">Help 1</button>
+                <button class="accordion">Section 1</button>
                     <div class="panel">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
 
-                <button class="accordion">Help 2</button>
+                <button class="accordion">Section 2</button>
                     <div class="panel">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
 
-                <button class="accordion">Help 3</button>
+                <button class="accordion">Section 3</button>
                     <div class="panel">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>

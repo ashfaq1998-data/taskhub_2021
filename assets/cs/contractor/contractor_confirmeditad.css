@@ -1,0 +1,21 @@
+.confirm-box {
+    margin-left: 150px;
+    margin-bottom: 150px;
+    margin-right: 150px;
+    width: 383px;
+    height: 247px;
+    background-color: #108882;
+    border-radius: 20px;
+}
+
+.top-image-column2 {
+    margin-left: 150px;
+    margin-top: 50px;
+}
+
+.image-top {
+    margin-top: 50px;
+    width: 200px;
+    height: 100px;
+    margin-left: 90px;
+}

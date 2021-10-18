@@ -16,20 +16,49 @@ class ContractorController {
     $view = new View("Contractor/contractor_dashboard");
   }
 
+  public function contractorBooking() {
+    $view = new View("Contractor/contractor_booking");
+  }
+
+  public function contractorHistory() {
+    $view = new View("Contractor/contractor_history");
+  }
+
+  public function contractorSearch(){
+    $view=new view("contractor/contractor_search");
+  }
+
   public function contractorPostad() {
     $view = new View("Contractor/contractor_postad");
+  }
+
+  public function contractorViewad() {
+    $view = new View("Contractor/contractor_viewad");
+  }
+
+  public function contractorViewadmyad() {
+    $view = new View("Contractor/contractor_viewadmyad");
   }
 
   public function contractorConfirmpayment() {
     $view = new View("Contractor/contractor_confirmpayment");
   }
 
+  public function contractorConfirmeditad() {
+    $view = new View("Contractor/contractor_confirmeditad");
+  }
+
+  public function contractorMyadedit() {
+    $view = new View("Contractor/contractor_Myadedit");
+  }
+
+
   public function contractorPaymentform() {
     $view = new View("Contractor/contractor_paymentform");
   }
 
-  public function contractorPayment() {
-    $view = new View("Contractor/contractor_payment");
+  public function contractorPaymentgateway() {
+    $view = new View("Contractor/contractor_paymentgateway");
   }
 
   public function contractorPaymentdone() {
@@ -92,6 +121,4 @@ class ContractorController {
     
   }
 
-  
- 
 }

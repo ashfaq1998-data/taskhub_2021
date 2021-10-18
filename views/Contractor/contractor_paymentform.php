@@ -31,7 +31,7 @@ session_start();
   <div class="column2">
     <div class="logoarea"><img src="<?php echo fullURLfront ; ?>/assets/images/taskhubpaypal.png"></div>
     <div id="formarea">
-        <form action="<?php echo fullURLfront; ?>/Contractor/contractor_payment" method="post" >
+        <form action="<?php echo fullURLfront; ?>/Contractor/contractor_paymentgateway" method="post" >
             <div id="cardnumberdiv" class="inform">
                 <label for="cardnumberl">Card Number</label>  
                 <input type="text" id="cardnumberid" name="cardnumber" required>

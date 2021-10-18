@@ -42,14 +42,21 @@ $routes = [
     'Manpower/manpower_search' => 'ManpowerController@manpowerSearch',
 
   //contractor section
-    'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
-    'Contractor/contractor_complaint' =>'ContractorController@contractorComplaint',
-    'Contractor/contractor_postad' =>'ContractorController@contractorPostad',
-    'Contractor/contractor_help' =>'ContractorController@contractorHelp',
-    'Contractor/contractor_paymentform' =>'ContractorController@contractorPaymentform',
-    'Contractor/contractor_payment' =>'ContractorController@contractorPayment',
-    'Contractor/contractor_confirmpayment' =>'ContractorController@contractorConfirmpayment',
-    'Contractor/contractor_paymentdone' =>'ContractorController@contractorPaymentdone',
+  'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
+  'Contractor/contractor_complaint' =>'ContractorController@contractorComplaint',
+  'Contractor/contractor_postad' =>'ContractorController@contractorPostad',
+  'Contractor/contractor_paymentgateway' =>'ContractorController@contractorPaymentgateway',
+  'Contractor/contractor_paymentform' =>'ContractorController@ContractorPaymentform',
+  'Contractor/contractor_confirmpayment'=> 'ContractorController@contractorConfirmpayment',
+  'Contractor/contractor_search' => 'ContractorController@contractorSearch',
+  'Contractor/contractor_viewad' => 'ContractorController@contractorViewad',
+  'Contractor/contractor_help' => 'ContractorController@contractorHelp',
+  'Contractor/contractor_history'=>'ContractorController@contractorHistory',
+  'Contractor/contractor_booking' => 'ContractorController@contractorBooking',
+  'Contractor/contractor_paymentdone' => 'ContractorController@contractorPaymentdone',
+  'Contractor/contractor_viewadmyad'=> 'ContractorController@contractorViewadmyad',
+  'Contractor/contractor_myadedit'=>'ContractorController@contractorMyadedit',
+  'Contractor/contractor_confirmeditad'=>'ContractorController@contractorConfirmeditad',
 
   //customer section
 

@@ -1,5 +1,11 @@
+#topic {
+    font-family: 'Lobster', cursive;
+    font-size: 55px;
+    color: rgb(25, 112, 108)
+}
+
 #chatbox {
-    margin-left: 400px;
+    margin-left: 200px;
     margin-top: 80px;
     margin-bottom: 50px;
     width: 365px;

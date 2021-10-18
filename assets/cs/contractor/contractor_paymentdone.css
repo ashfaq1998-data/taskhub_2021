@@ -1,5 +1,5 @@
 #chatbox {
-    margin-left: 400px;
+    margin-left: 200px;
     margin-top: 80px;
     margin-bottom: 20px;
     width: 365px;
@@ -7,6 +7,15 @@
     top: 30%;
     background: linear-gradient(180deg, #43c0ba 0%, rgba(188, 241, 241, 0.99) 100%);
     border-radius: 20px;
+}
+
+.btn-okay {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.btn-okay:hover {
+    color: rgb(27, 65, 59);
 }
 
 #subdiv1 {
