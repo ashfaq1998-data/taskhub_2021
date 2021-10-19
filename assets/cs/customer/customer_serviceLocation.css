@@ -67,6 +67,7 @@
 
 .image img {
     position: relative;
-    top: 50px;
-    width: 65vh;
+    top: 30px;
+    width: 60vh;
+    height: 35vh;
 }
