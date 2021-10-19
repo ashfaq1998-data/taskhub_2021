@@ -30,7 +30,7 @@
                 </div>
                 <div class="subcolumn2"></div>
                 <div class="subcolumn3">
-                    <form action="<?php echo fullURLfront; ?>/Customer/customer_complaint">
+                    <form action="<?php echo fullURLfront; ?>/Customer/customer_complaint" method="POST">
                         <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-style: normal; font-weight: bold; font-size: 17px;">Rate level of complains (Higher the stars, worse the case)</p>
                         <!-- <fieldset> -->
                             <!-- <legend>Rate level of complains (Higher the stars, worse the case)</legend> -->
@@ -53,7 +53,13 @@
                         <div class ="ratebutton">
                             <button type="reset" class="button cancel"> Cancel</button>
                             &nbsp &nbsp
-                            <button type="submit" class="button submit"> Complain</button>
+                            <button type="submit" name="customer_complaint" value="submitted" class="button submit"> Complain</button>
+                            <br>
+                            <?php if(!empty($data['ComplaintError']) && $data['ComplaintError'] != "none") {?>
+                                <p class="error"><?php echo $data['ComplaintError']; ?></p>
+                            <?php }else if($data['ComplaintError'] == "none"){?>
+                                <p class="success">Your Complaint Submitted SuccessFully <i class="fa fa-check" aria-hidden="true"></i></p>
+                            <?php }?>
                         </div>
                     </form> 
                 </div>

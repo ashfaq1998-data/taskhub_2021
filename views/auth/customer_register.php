@@ -47,8 +47,13 @@ session_start();
                             <input type="text" id="email" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="eg: john98@gmail.com" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['email'] : ''; ?>" required>
                             <input type="password" id="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
                             value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['password'] : ''; ?>" required>
+<<<<<<< HEAD
                             <input type="password" id="confirm_password" name="confirm_password" onkeyup='check();' placeholder="Confirm Password" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['confirm_password'] : ''; ?>" required> <!-- onkeyup='check();'-->
                             <br><span id='message'></span>          
+=======
+                            <input type="password" id="confirm_password" name="confirm_password" onkeyup='check();' placeholder="Confirm Password" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['confirm_password'] : ''; ?>" required><br> <!-- onkeyup='check();'-->
+                            <span id='message'></span>          
+>>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
                             <script>
                                 var check = function() {
                                 if (document.getElementById('password').value ==
