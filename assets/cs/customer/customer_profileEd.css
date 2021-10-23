@@ -55,12 +55,9 @@ div.subcolumn1 {
 
 div.subcolumn {
   width: 80vh;
-<<<<<<< HEAD
   max-height: 88vh;
   min-height: fit-content;
-=======
   height: 83vh;
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
   shape-margin: 5vh;
   padding: 20px;
   padding-right:0em;
@@ -98,17 +95,14 @@ div.elem-group.inlined {
 }
 
 label {
-<<<<<<< HEAD
   display: inline-block;
   font-family: 'Nanum Gothic';
   padding-bottom: 10px;
   font-size: 0.95em;
-=======
   display: block;
   font-family: 'Nanum Gothic';
   padding-bottom: 10px;
   font-size: 1em;
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
   margin: 0;
 }
 
@@ -116,107 +110,78 @@ label {
   margin-bottom: 8px;
 }
 
-<<<<<<< HEAD
-input, select, textarea {
-=======
 input, select {
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
   border-radius: 3px;
   border: 1.5px solid rgb(6, 138, 120);
   box-sizing: border-box;
   font-size: 0.9em;
   font-family: 'Nanum Gothic';
   width: 100%;
-<<<<<<< HEAD
-  height: 30px;
-=======
   height: 35px;
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
   padding: 10px;
   margin: 0;
 }
 
-<<<<<<< HEAD
 label[for=bio] {
   position: relative;
-  display: flex;
-  margin-top: 30px;
-  top: 40px;
-  right: 35vh;
+  display: block;
+  float: left;
+  bottom: 142px;
 }
 
 #bio {
   position: relative;
-  display: flex;
-  top: 40px;
+  display: block;
   margin-bottom: 10px;
-  min-width: 730%;
+  min-width: 168%;
   min-width: fit-content;
   height: 65px;
-  right: 35vh;
+  float: left;
+  padding: 10px;
+  bottom: 142px;
 }
 
-=======
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
 .card-details {
-  display: flex;
+  display: inline-block;
   width: 60%;
 }
 
 label[for=card_num] {
-  width: 180%;
-  padding-right: 0px;
-<<<<<<< HEAD
-  margin-right: 20px;
-=======
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
+  width: 50%;
+  position: relative;
 }
 
 #card_num {
-  width: 190%;
-  padding-right: 0px;
-<<<<<<< HEAD
-  margin-right: 20px;
-=======
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
+  width: 50%;
+  position: relative;
 }
 
 label[for=cvv] {
   position: relative;
-<<<<<<< HEAD
-  left: 90px;
-  margin-right: 10px;
-=======
-  left: 160px;
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
+  width: 20%;
+  bottom: 71px;
+  left: 35vh;
 }
 
 #cvv {
   position: relative;
-<<<<<<< HEAD
-  left: 90px;
-  margin-right: 10px;
-=======
-  left: 160px;
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
+  width: 20%;
+  bottom: 71px;
+  left: 35vh;
 }
 
 label[for=expiry] {
   position: relative;
-<<<<<<< HEAD
-  left: 95px;
-=======
-  left: 218px;
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
+  width: 20%;
+  bottom: 142px;
+  left: 60.9vh;
 }
 
 #expiry {
   position: relative;
-<<<<<<< HEAD
-  left: 95px;
-=======
-  left: 218px;
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
+  width: 20%;
+  bottom: 142px;
+  left: 60.9vh;
 }
 
 div.elem-group.inlined input {
@@ -252,17 +217,14 @@ button {
   position: absolute;
 }
 
-<<<<<<< HEAD
 .sub {
   position: relative;
-  top: 2vh;
   padding: 10px;
   margin-bottom: 30px;
+  bottom: 160px;
 
 }
 
-=======
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
 button:hover {
   border: 2px solid rgb(166, 226, 236);
 }

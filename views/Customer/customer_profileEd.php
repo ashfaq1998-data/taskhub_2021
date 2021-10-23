@@ -77,13 +77,10 @@ session_start();
                                 <label for="expiry">Expiry Date</label>
                                 <input type="text" id="expiry" name="expiry" pattern="(^[0-9]{2}[/]{1}[0-9]{2})" title="eg: 01/21(MM/YY)" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['expiry'] : ''; ?>" >
                             </div>
-<<<<<<< HEAD
                             <div class="elem-group">
                                 <label for="bio">Bio</label>
                                 <textarea id="bio" name="bio" placeholder="Tell us about you..."></textarea>
                             </div>
-=======
->>>>>>> 7e0c3392b29cb0cfde460c2cc989df60e8c6279a
                         </div>
                         <button type="submit" class="sub">Submit</button>
                     </form>
