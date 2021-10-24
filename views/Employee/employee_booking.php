@@ -3,7 +3,7 @@ session_start();
 
 $JsonData = json_encode($data['bookingEvents']);
 ?>
-
+<!-- added backend of booking too -->
 <!DOCTYPE html>
 <html>
 <head>
