@@ -527,6 +527,12 @@ class AuthController {
     $view = new View("auth/forgot_password");
   }
 
+  public function logout(){
+	unset($_SESSION['loggedin']);
+	header('Location: ' . fullURLfront . '/main/index');
+	die();
+  }
+
   
   
 }

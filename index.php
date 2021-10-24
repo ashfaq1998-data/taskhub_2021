@@ -24,6 +24,7 @@ $routes = [
     'auth/customer_register' => 'AuthController@customerRegister',
     'auth/manpower_register' => 'AuthController@manpowerRegister',
     'auth/forgot_password' => 'AuthController@forgotPassword',
+    'auth/logout' => 'AuthController@logout',
 
   //employee section
     'Employee/employee_dashboard' => 'EmployeeController@employeeDashboard',
