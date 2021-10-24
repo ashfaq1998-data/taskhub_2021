@@ -394,13 +394,26 @@ class AuthController {
 			$registerError = "Please fill all the empty fields";
 		}
 
+		//validate firstname
+		if($registerError == ""){
+			$registerError = $validation->validateName($firstName);
+		}
+
+		//validate last name
+		if($registerError == ""){
+			$registerError = $validation->validateName($lastName);
+		}
+
+		//validate NIC
+		if($registerError == ""){
+			$registerError = $validation->validateNIC($nic);
+		}
+
 		//validate phone number
 		if($registerError == ""){
 			$registerError = $validation->validatePhoneNumber($phoneNum);
 		}
 		
-		
-
 		//validate email
 		if($registerError == ""){
 			if(!$validation->validateEmail($email)){
@@ -412,28 +425,16 @@ class AuthController {
 				}
 			}
 		}
-		
-		//validate password
-		if($registerError == ""){
-			$registerError = $validation->validatePassword($password);
-		}
 
 		//validate password
 		if($registerError == ""){
 			$registerError = $validation->validateConfirmPassword($password, $confirmPassword);
 		}
-
-		//validate firstname
-		if($registerError == ""){
-			$registerError = $validation->validateName($firstName);
-		}
-
-		if($registerError == ""){
-			$registerError = $validation->validateName($lastName);
-		}
-
 		
-
+		//validate password
+		if($registerError == ""){
+			$registerError = $validation->validatePassword($password);
+		}
 
 		//registration after validation
 		if($registerError == ""){

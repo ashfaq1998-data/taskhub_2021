@@ -34,7 +34,7 @@
 
                 <button class="accordion">How can I book a service provider?</button>
                     <div class="panel">
-                        <p>You can book a service provider by simply <a id="click" href="<?php echo fullURLfront; ?>/Customer/customer_booking">clicking here</a></p>
+                        <p>You can book a service provider by simply <a id="click" href="<?php echo fullURLfront; ?>/Customer/customer_service">clicking here</a></p>
                     </div>
 
                 <button class="accordion">Are these service providers well-experienced??</button>
