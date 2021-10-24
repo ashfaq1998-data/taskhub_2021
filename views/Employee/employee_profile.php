@@ -14,6 +14,7 @@ $age = $diff->y;
 ?>
 <!-- calculate age done -->
 <!-- blob datatype used for database -->
+
 <!DOCTYPE html>
 <html>
 <head>
