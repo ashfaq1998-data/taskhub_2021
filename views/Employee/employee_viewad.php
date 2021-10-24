@@ -6,7 +6,9 @@ session_start();
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<!-- view ad backend done -->
+<!-- search too done -->
+<!-- one sorting too done -->
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/header.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/footer.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/sidebar.css" rel="stylesheet" type="text/css"/>
