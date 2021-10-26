@@ -1,108 +1,178 @@
-.search-container {
-    width: 100%;
-    position: absolute;
-    margin-bottom: 5%;
-}
-
-.search-container input[type=text] {
-    width: 753px;
-    height: 46px;
-    padding: 6px;
-    margin-top: 8px;
-    font-size: 17px;
-    border: none;
-    background-color: rgba(96, 202, 170, 0.37);
-    border-radius: 30px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 22px;
-    margin-bottom: 5%;
-}
-
-.search-container button {
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: white;
-    font-size: 24px;
-    border: none;
-    cursor: pointer;
-}
-
-.subrow {
-    box-sizing: border-box;
-    margin-top: 1%;
-}
-
-#formdesign {
-    padding: 30px;
-    font-size: 14px;
-    font: poppins;
-    color: black;
-}
-
-.sortinglist {
-    font-size: 12px;
-    font: poppins;
-    color: black;
-    margin-top: 10px;
-    margin-left: 220px;
-    width: 100%;
-}
-
-.sortinglist label {
-    font-family: Poppins;
-    font-style: normal;
-    font-size: 18px;
-    color: #deecec;
-}
-
-#label-of-list {
-    font-family: Poppins;
-    font-style: normal;
-    font-size: 14px;
-    padding-right: 30px;
-}
-
-.sortinglist select {
-    background: #108882;
-    color: white;
-    width: 187px;
-    height: 38px;
-    border-radius: 5px;
-}
-
-#area,
-#type {
-    margin-right: 130px;
-    font-family: Poppins;
-    font-style: normal;
-    font-size: 14px;
-    padding-left: 20px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    padding-right: 30px;
-    background-color: rgb(95, 189, 164);
-    border-radius: 10px;
-}
-
-
-/* Create three equal columns that floats next to each other */
-
-.filters-row {
-    width: 100%;
-    height: 80px;
-    background-color: rgb(0, 179, 164);
-    padding-top: 0px;
-    margin-top: 60px;
-    margin-bottom: 20px;
-    margin-bottom: 20px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
+    .search-container {
+        width: 100%;
+        position: absolute;
+        margin-bottom: 5%;
+    }
+    
+    .search-container input[type=text] {
+        width: 753px;
+        height: 46px;
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+        background-color: rgba(96, 202, 170, 0.37);
+        border-radius: 30px;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 22px;
+        margin-bottom: 5%;
+    }
+    
+    .search-container button {
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: white;
+        font-size: 24px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .subrow {
+        box-sizing: border-box;
+        margin-top: 1%;
+    }
+    
+    #formdesign {
+        padding: 30px;
+        font-size: 14px;
+        font: poppins;
+        color: black;
+    }
+    
+    .sortinglist {
+        font-size: 12px;
+        font: poppins;
+        color: black;
+        margin-top: 10px;
+        margin-left: 220px;
+        width: 100%;
+    }
+    
+    .sortinglist label {
+        font-family: Poppins;
+        font-style: normal;
+        font-size: 18px;
+        color: #deecec;
+    }
+    
+    #label-of-list {
+        font-family: Poppins;
+        font-style: normal;
+        font-size: 14px;
+        padding-right: 30px;
+    }
+    
+    .sortinglist select {
+        background: #108882;
+        color: white;
+        width: 187px;
+        height: 38px;
+        border-radius: 5px;
+    }
+    
+    #area,
+    #type {
+        margin-right: 130px;
+        font-family: Poppins;
+        font-style: normal;
+        font-size: 14px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-right: 30px;
+        background-color: rgb(95, 189, 164);
+        border-radius: 10px;
+    }
+    /* Create three equal columns that floats next to each other */
+    
+    .filters-row {
+        width: 100%;
+        height: 80px;
+        background-color: rgb(0, 179, 164);
+        padding-top: 0px;
+        margin-top: 60px;
+        margin-bottom: 20px;
+        margin-bottom: 20px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    
+    #myTable {
+        margin-top: 50px;
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid rgb(10, 117, 108);
+        font-weight: bold;
+        display: block;
+        height: 490px;
+        overflow-y: auto;
+    }
+    
+    .header-topics {
+        width: 20%;
+    }
+    
+    #myTable th {
+        background-color: #0b927c;
+        color: #060706;
+        width: 23%;
+        text-align: left;
+        font-size: 18px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-right: 12px;
+        padding-left: 15px;
+    }
+    
+    #myTable td {
+        width: 23%;
+        text-align: left;
+        font-size: 14px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        padding-right: 12px;
+        padding-left: 15px;
+    }
+    
+    #myTable tr {
+        font-size: 14px;
+        width: 100%;
+        background-color: rgba(96, 202, 170, 0.37);
+        border-bottom: 1px solid rgb(11, 37, 31);
+    }
+    
+    #myTable tr.header {
+        background-color: #0b927c;
+        color: #91a79d;
+        width: 800px;
+    }
+    
+    #myTable tr:hover {
+        background-color: rgb(208, 253, 246);
+        color: #0a0a0a;
+        width: 800px;
+    }
+    
+    #profilephoto {
+        border-radius: 30px;
+        width: 60px;
+        height: 60px;
+    }
+    /*#myTable .vertical{
+    display: block;
+    height: 600px;
+    overflow-y: auto;
+    }
+  */
+    
+    #myTable.vertical tr {
+        display: block;
+    }
+    /*
 .subcolumn1 {
     float: left;
     width: 20%;
@@ -111,9 +181,7 @@
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: rgba(86, 201, 209, 0.37);
-    /* Should be removed. Only for demonstration */
-}
-
+    
 .nameone {
     text-align: center;
     font-size: 12px;
@@ -135,8 +203,8 @@
     padding-left: 30px;
     height: 150px;
     background-color: rgba(86, 201, 209, 0.37);
-    ;
-    /* Should be removed. Only for demonstration */
+    
+    
 }
 
 .subcolumn3 {
@@ -147,7 +215,7 @@
     padding: 10px;
     height: 150px;
     background-color: rgba(86, 201, 209, 0.37);
-    /* Should be removed. Only for demonstration */
+   
 }
 
 .subcolumn3 a {
@@ -168,29 +236,28 @@
     font-size: 16px;
 }
 
-.subrow:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.view-profile-btn {
-    font-size: 12px;
-    width: 80px;
-    height: 30px;
-}
-
-.bottom-row {
-    margin-left: 300px;
-}
-
-.favorite-btn {
-    margin-left: 40px;
-    font: size 14px;
-    font-family: Poppins;
-    font-weight: bold;
-    border-radius: 5px;
-    padding: 20px;
-    background-color: rgb(161, 10, 167);
-    color: white;
-}
+    .subrow:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .view-profile-btn {
+        font-size: 12px;
+        width: 80px;
+        height: 30px;
+    }
+    .bottom-row {
+        margin-left: 300px;
+    }*/
+    
+    .favorite-btn {
+        margin-top: 60px;
+        margin-left: 320px;
+        font: size 14px;
+        font-family: Poppins;
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 20px;
+        background-color: #108882;
+        color: white;
+    }

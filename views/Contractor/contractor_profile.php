@@ -43,7 +43,7 @@ $age = $diff->y;
                 <span>Personal Info</span>
                 <a href="">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
                 <div class="personal-info-section-content">
-                    <img src="<?php echo fullURLfront; ?>/assets/images/thisara.jpeg" alt="Avatar" class="avatar">
+                    <img src="<?php echo fullURLfront; ?>/assets/images/thisara.jpg" alt="Avatar" class="avatar">
                     <div class="details">
                         <table>
                             <tr>

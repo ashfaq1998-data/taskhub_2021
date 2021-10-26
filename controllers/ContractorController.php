@@ -17,15 +17,81 @@ class ContractorController {
   }
 
   public function contractorBooking() {
-    $view = new View("Contractor/contractor_booking");
+
+    $contractorModel = new ContractorModel();
+    $bookingModel = new BookingModel();
+
+    $userID = $_SESSION['loggedin']['user_id'];
+  
+    $contractorDetails = $contractorModel->getContractorByUserID($userID);
+    $bookingsDetails = $bookingModel->getContractorBookings($contractorDetails->Contractor_ID);
+
+    $allEvents = array();
+    foreach($bookingsDetails as $booking){
+      $event = [
+        'title'  => $booking->title,
+        'start'  => $booking->EventDate,
+        'customerName' => $booking->CusFullName,
+        'address' => $booking->Address,
+        'time' => $booking->EventTime,
+        'payment' => $booking->payment
+      ];
+      
+      array_push($allEvents, $event);
+    
+    }
+    
+    $data['bookingEvents'] = $allEvents;
+    $view = new View("Contractor/contractor_booking",$data);
   }
 
   public function contractorHistory() {
-    $view = new View("Contractor/contractor_history");
+    $contractorModel = new ContractorModel();
+    $userID = $_SESSION['loggedin']['user_id'];
+  
+    
+    $contractorDetails = $contractorModel->getContractorByUserID($userID);
+    // print($contractorDetails->Contractor_ID);
+    // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
+    $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+    
+    // Number of results to show on each page.
+    $num_results_on_page = 10;
+    $calc_page = ($page - 1) * $num_results_on_page;
+    
+    $data['work_history'] = $contractorModel->getContractorWorkHistory($contractorDetails->Contractor_ID, $num_results_on_page, $calc_page, false);
+    
+    $total_pages = $contractorModel->getContractorWorkHistory($contractorDetails->Contractor_ID, 0, 0, true);
+    
+    $data['pagination'] = [
+      'page' => $page, 
+      'total_pages' => $total_pages, 
+      'results_count' => $num_results_on_page
+    ];
+  
+    $view = new View("Contractor/contractor_history", $data);
+    
   }
 
   public function contractorSearch(){
-    $view=new view("contractor/contractor_search");
+    // $contractorModel = new ContractorModel();
+    // $userID = $_SESSION['loggedin']['user_id'];
+    // $contractorDetails=$contractorModel->getContractorByUserID($userID);
+    // $resultdetails=$this->$contractorModel->availableListTable();
+    // $allEvents = array();
+    // foreach($resultdetails as $result){
+    //   $event = [
+    //     'ename'  => $result->e_name,
+    //     'email'  => $result->email,
+    //     'District' => $result->district,
+    //     'type' => $result->type
+        
+    //   ];
+    // } 
+    // array_push($allEvents, $event);
+    // $data['searchworkers']=$allEvents;
+    //$this->view->render("Contractor/contractor_search",$data);
+    $view = new View("Contractor/contractor_search");
   }
 
   public function contractorPostad() {
@@ -89,6 +155,7 @@ class ContractorController {
         $complaintID = $complaintModel->generateContractorComplaintID();
         $currentDateTime = date('Y-m-d H:i:s');
         $userID = $_SESSION['loggedin']['user_id'];
+        
         $contractorDetails = $contractorModel->getContractorByUserID($userID);
 
 

@@ -1,23 +1,51 @@
 .calender-section {
+    background-color: #c1ebf1;
     position: relative;
     display: block;
     float: left;
-    width: 65%;
-    margin-right: 30px;
-    height: 700px;
+    width: 60%;
+    margin-right: 20px;
+    height: 600px;
+    padding-left: 50px;
+}
+
+.column2 {
+    padding-top: 5px;
+    background-color: #ffffff;
+}
+
+#column2-header1 {
+    font-family: 'lobster', cursive;
+    color: #007a83;
+    font-size: 24px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+}
+
+#column2-header2 {
+    font-family: 'lobster', cursive;
+    color: #053b44;
+    font-size: 24px;
+    margin-top: 0px;
+    margin-left: 300px;
+    margin-bottom: 100px;
 }
 
 .booking-details-section {
     position: relative;
     display: block;
     float: left;
-    background-color: #B4e1e7;
-    width: 30%;
+    background-image: linear-gradient(to right, #80dfd7, #8ae9f0);
+    width: 35%;
     margin: 0;
     padding: 5px 20px 50px 20px;
     text-align: center;
     border-radius: 15px;
-    border: 1px solid #108882;
+    border: 1px solid #036b66;
+}
+
+.booking-details-section h3 {
+    font-family: poppins;
 }
 
 .booking-details-section-content {
@@ -30,12 +58,18 @@
     padding: 10px 20px 10px 20px;
 }
 
+.booking-details-section-content label {
+    font-family: 'Indie Flower', cursive;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .booking-details-section-content input[type=text] {
-    background-color: white;
+    background-color: rgb(228, 247, 242);
     color: black;
     width: 100%;
     /* Full width */
-    padding: 12px;
+    padding: 6px;
     /* Some padding */
     border: 1px solid #108882;
     border-radius: 4px;
@@ -53,4 +87,8 @@
     position: relative;
     z-index: 2;
     cursor: pointer;
+}
+
+#address {
+    height: 65px;
 }

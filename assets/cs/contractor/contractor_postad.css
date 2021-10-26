@@ -4,16 +4,24 @@
     font-weight: bold;
     font-size: 24px;
     line-height: 36px;
-    color: #108882;
+    color: #ffffff;
     padding-top: 3%;
     padding-left: 25%;
+}
+
+#topdiv-bottom {
+    font-family: 'lobster', cursive;
+    font-size: 20px;
+    color: #ffffff;
+    margin-left: 250px;
 }
 
 #advertisearea {
     font-family: Poppins;
     font-style: normal;
     font-weight: bold;
-    background-color: #108882;
+    border-radius: 30px;
+    background-image: linear-gradient(to right, #108882, #c6eee9);
     width: 860px;
     height: 436px;
     position: absolute;
