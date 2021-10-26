@@ -69,6 +69,12 @@ $routes = [
     'Customer/customer_bookingform' => 'CustomerController@customerBookingform',
     'Customer/customer_help' => 'CustomerController@customerHelp',
 
+  //manpower
+  'Manpower/manpower_profile' => 'ManpowerController@manpowerProfile',
+  'Manpower/manpower_complaint' => 'ManpowerController@manpowerComplaint',
+  'Manpower/manpower_help' => 'ManpowerController@manpowerHelp',
+  'Manpower/manpower_booking' => 'ManpowerController@manpowerBooking',
+
 ];
 
 $found = false;
