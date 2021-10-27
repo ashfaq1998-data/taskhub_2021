@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+// session_start();
 $employeeDetails = $data['employee_details'];
 // Create a datetime object using date of birth
 $dob = new DateTime($employeeDetails->Date_of_Birth);
@@ -32,7 +32,7 @@ $age = $diff->y;
     <?php include_once('header.php'); ?>
     <div class="row">
         <div class="column1">
-            <?php include_once('views/Employee/employee_sidebar.php'); ?>
+            <?php include_once('views/Manpower/manpower_sidebar.php'); ?>
         </div>
         <div class="column2">
             <div class="personal-info-section">
@@ -44,23 +44,23 @@ $age = $diff->y;
                         <table>
                             <tr>
                                 <td>First Name</td>
-                                <td class="info-right-column"><?php echo $employeeDetails->FirstName; ?></td>
+                                <!-- <td class="info-right-column"><?php echo $employeeDetails->FirstName; ?></td> -->
                             </tr>
                             <tr>
                                 <td>Last Name</td>
-                                <td class="info-right-column"><?php echo $employeeDetails->LastName; ?></td>
+                                <!-- <td class="info-right-column"><?php echo $employeeDetails->LastName; ?></td> -->
                             </tr>
                             <tr>
                                 <td>E-mail</td>
-                                <td class="info-right-column"><?php echo $_SESSION['loggedin']['email']; ?></td>
+                                <!-- <td class="info-right-column"><?php echo $_SESSION['loggedin']['email']; ?></td> -->
                             </tr>
                             <tr>
                                 <td>Specialization</td>
-                                <td class="info-right-column"><?php echo $employeeDetails->specialized_area; ?></td>
+                                <!-- <td class="info-right-column"><?php echo $employeeDetails->specialized_area; ?></td> -->
                             </tr>
                             <tr>
                                 <td>Contact Number</td>
-                                <td class="info-right-column"><?php echo $employeeDetails->Contact_No; ?></td>
+                                <!-- <td class="info-right-column"><?php echo $employeeDetails->Contact_No; ?></td> -->
                             </tr>
                             <tr>
                                 <td>Rating</td>
@@ -87,31 +87,31 @@ $age = $diff->y;
                     <table style="width: 40%;">
                         <tr>
                             <td>Address</td>
-                            <td class="info-right-column-color"><?php echo $employeeDetails->Address; ?></td>
+                            <!-- <td class="info-right-column-color"><?php echo $employeeDetails->Address; ?></td> -->
                         </tr>
                         <tr>
                             <td>DOB</td>
-                            <td class="info-right-column-color"><?php echo $employeeDetails->Date_of_Birth; ?></td>
+                            <!-- <td class="info-right-column-color"><?php echo $employeeDetails->Date_of_Birth; ?></td> -->
                         </tr>
                         <tr>
                             <td>Age</td>
-                            <td class="info-right-column-color"><?php echo $age ?></td>
+                            <!-- <td class="info-right-column-color"><?php echo $age ?></td> -->
                         </tr>
                         <tr>
                             <td>Gender</td>
-                            <td class="info-right-column-color"><?php echo $employeeDetails->Gender; ?></td>
+                            <!-- <td class="info-right-column-color"><?php echo $employeeDetails->Gender; ?></td> -->
                         </tr>
                         <tr>
                             <td>NIC</td>
-                            <td class="info-right-column-color"><?php echo $employeeDetails->NIC; ?></td>
+                            <!-- <td class="info-right-column-color"><?php echo $employeeDetails->NIC; ?></td> -->
                         </tr>
                         <tr>
                             <td>Rate for 2 hours</td>
-                            <td class="info-right-column-color"><?php echo $employeeDetails->Payment_for_2hours; ?></td>
+                            <!-- <td class="info-right-column-color"><?php echo $employeeDetails->Payment_for_2hours; ?></td> -->
                         </tr>
                         <tr>
                             <td>Years of experience</td>
-                            <td class="info-right-column-color"><?php echo $employeeDetails->Year_of_experience; ?></td>
+                            <!-- <td class="info-right-column-color"><?php echo $employeeDetails->Year_of_experience; ?></td> -->
                         </tr>
                     </table>
                 </div>
@@ -122,11 +122,11 @@ $age = $diff->y;
                     <table style="width: 40%;">
                         <tr>
                             <td>Name of the Bank</td>
-                            <td class="info-right-column-color"> <?php echo $employeeDetails->Name_of_Bank; ?></td>
+                            <!-- <td class="info-right-column-color"> <?php echo $employeeDetails->Name_of_Bank; ?></td> -->
                         </tr>
                         <tr>
                             <td>Account Number</td>
-                            <td class="info-right-column-color"><?php echo $employeeDetails->Account_Number; ?></td>
+                            <!-- <td class="info-right-column-color"><?php echo $employeeDetails->Account_Number; ?></td> -->
                         </tr>
                     </table>
                 </div>

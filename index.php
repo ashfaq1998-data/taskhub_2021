@@ -40,6 +40,9 @@ $routes = [
     'Manpower/manpower_profile' => 'ManpowerController@manpowerProfile',
     'Manpower/manpower_viewad' => 'ManpowerController@manpowerViewad',
     'Manpower/manpower_search' => 'ManpowerController@manpowerSearch',
+    'Manpower/manpower_worker' => 'ManpowerController@manpowerWorker',
+    'Manpower/manpower_addworker' => 'ManpowerController@manpowerAddWorker',
+    'Manpower/manpower_booking' => 'ManpowerController@manpowerBooking',
 
   //contractor section
     'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
