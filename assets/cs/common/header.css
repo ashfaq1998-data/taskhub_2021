@@ -5,7 +5,7 @@ body {
     overflow-x: hidden;
     width: 100%;
 }
-  
+
 .container {
     height: 60px;
     width: 100%;
@@ -88,7 +88,7 @@ body {
     border: solid 1px #108882;
 }
 
-.container .user{
+.container .user {
     max-width: 250px;
     overflow: hidden;
     margin-right: 10%;
@@ -96,7 +96,11 @@ body {
     font-size: 14px;
 }
 
-.disabled-link{
-    pointer-events: none;        
+.disabled-link {
+    pointer-events: none;
     text-decoration: none;
+}
+
+.dropdown {
+    color: #108882;
 }

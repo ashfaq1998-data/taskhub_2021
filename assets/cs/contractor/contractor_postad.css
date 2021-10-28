@@ -4,64 +4,67 @@
     font-weight: bold;
     font-size: 24px;
     line-height: 36px;
-    color: #108882;
+    color: #ffffff;
     padding-top: 3%;
-    padding-left: 40%;
-    
-    
+    padding-left: 25%;
+}
+
+#topdiv-bottom {
+    font-family: 'lobster', cursive;
+    font-size: 20px;
+    color: #ffffff;
+    margin-left: 250px;
 }
 
 #advertisearea {
     font-family: Poppins;
     font-style: normal;
     font-weight: bold;
-    background-color: #108882;
-    width: 1000px;
-    height: 536px;
+    border-radius: 30px;
+    background-image: linear-gradient(to right, #108882, #c6eee9);
+    width: 860px;
+    height: 436px;
     position: absolute;
-    margin-left: 5%;
-    margin-right: 10%;
+    margin-left: 1%;
+    margin-right: 5%;
     margin-top: 5%;
 }
 
 #subjectid {
     position: absolute;
-    width: 832px;
+    width: 600px;
     height: 73px;
     left: 117px;
-    top: 41px;
+    top: 21px;
     padding-left: 15px;
     padding-right: 15px;
     background: #FFFCFC;
     outline: none;
-    border-radius: 10px;
 }
 
 #typeareaid {
     position: absolute;
-    width: 832px;
-    height: 145px;
+    width: 600px;
+    height: 105px;
     left: 117px;
-    top: 156px;
+    top: 109px;
     outline: none;
     padding-left: 15px;
     padding-right: 15px;
     background: #FFFEFE;
-    border-radius: 10px;
 }
 
 #uploadid {
     position: absolute;
-    width: 505px;
+    width: 123px;
     height: 60px;
-    left: 282px;
-    top: 338px;
+    left: 110px;
+    top: 96px;
     background: #C92929;
     border-radius: 30px;
     outline: none;
     border: none;
-    color: #FFFEFE;
-    cursor: pointer;
+    color: #FFFEFE
 }
 
 .confirm {
@@ -76,24 +79,22 @@
 }
 
 #save {
-    left: 282px;
-    top: 440px;
+    left: 142px;
+    top: 360px;
     background: #EAE9E9;
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 30px;
-    cursor: pointer;
 }
 
 #discard {
-    left: 614px;
-    top: 440px;
+    left: 514px;
+    top: 360px;
     background: #EAE9E9;
     border: 1px solid #DD2A2A;
     box-sizing: border-box;
     border-radius: 30px;
-    color: #DD2A2A;
-    cursor: pointer;
+    color: #DD2A2A
 }
 
 .column01 {
@@ -116,7 +117,9 @@
     margin-left: 100px;
 }
 
-
+.column03 {
+    margin-top: 600px;
+}
 
 .details {
     float: left;
@@ -130,10 +133,9 @@
 }
 
 .custom-file-input {
-    padding-top: 350px;
+    padding-top: 250px;
     margin-left: 30px;
     border-radius: 30px;
-    cursor: pointer;
 }
 
 .label-input-file {
@@ -142,10 +144,9 @@
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 100px;
-    margin-top: 500px;
-    margin-left: 250px;
+    margin-top: 380px;
+    margin-left: 130px;
     width: 50px;
     font-size: 14px;
     font-style: Poppins;
-    cursor: pointer;
 }

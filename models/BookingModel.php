@@ -35,5 +35,36 @@ class BookingModel extends Database {
     }
 
     
-  
+    public function generateContractorBookingID(){
+        $str_part = "cbook";
+        $con_booking_id = "";
+
+        while(true){
+            $num_part = rand(100,999);
+            $con_booking_id = $str_part . strval($num_part);
+
+            $sql = "SELECT * FROM contractor_booking WHERE BookingID='$con_booking_id'";
+            $query = $this->con->query($sql);
+            $query->execute();
+
+            if($query->rowCount() == 0){
+                break;
+            }
+        }
+        return $con_booking_id;
+    }
+
+    public function getContractorBookings($con_id) {
+    
+        $sql = "SELECT CB.*, CONCAT(C.FirstName, ' ', C.LastName) AS CusFullName, DATE(CB.Date) AS EventDate, TIME(CB.Date) AS EventTime FROM contractor_booking CB
+                INNER JOIN customer C ON CB.CustomerID=C.CustomerID 
+                WHERE CB.Contractor_ID='$con_id' AND CB.Is_work_done='No'"; 
+
+        $query = $this->con->query($sql);
+        $query->execute();
+        $data = $query->fetchAll(PDO::FETCH_OBJ);
+        
+        return $data;
+    }
+
 }

@@ -13,6 +13,11 @@ session_start();
 <link href="<?php echo fullURLfront; ?>/assets/cs/contractor/contractor_dashboard.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
 <link href="<?php echo fullURLfront; ?>/assets/cs/contractor/contractor_confirmpayment.css" rel="stylesheet" type="text/css"/>  
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +34,7 @@ session_start();
     <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
   </div>
   <div class="column2">
+    <p id = "topic">We are almost finished Transaction</p>
     <div id ="chatbox">
         <form action="<?php echo fullURLfront; ?>/Contractor/contractor_paymentdone">
             <div id ="subdiv1">confirm payment?</div>

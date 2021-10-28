@@ -1,0 +1,105 @@
+    .column2-top-row {
+        margin-left: 80px;
+        font-family: 'Lobster', cursive;
+        font-size: 32px;
+        color: rgb(4, 138, 127);
+    }
+    
+    .subrow-sub1-advertiser {
+        font-weight: bold;
+        font-family: Poppins;
+        background-color: rgb(147, 231, 199);
+        padding-left: 10px;
+        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        border-radius: 10px;
+    }
+    
+    .advertisername {
+        font-size: 12px;
+        color: rgb(13, 66, 49);
+    }
+    
+    .advertiseremail {
+        color: rgb(27, 145, 109);
+        font-size: 10px;
+    }
+    
+    .post-area {
+        font-size: 12px;
+        color: rgb(6, 59, 55);
+        font-family: Poppins;
+        background-color: rgb(129, 247, 211);
+        padding-left: 10px;
+        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 10px;
+    }
+    
+    .Poster {
+        margin-left: 50px;
+        background-image: linear-gradient(rgb(133, 235, 204), rgb(212, 230, 225));
+        padding-left: 30px;
+        padding-bottom: 30px;
+        width: 600px;
+        height: 330px;
+    }
+    
+    .posterimage {
+        margin: 20px;
+        padding: 2px;
+        height: 270px;
+        width: auto;
+    }
+    
+    .subrow {
+        margin-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 50px;
+        padding-left: 20px;
+        background-image: linear-gradient(rgb(205, 247, 234), rgb(184, 211, 206));
+    }
+    
+    .topof-poster {
+        width: 655px;
+        margin-bottom: 5px;
+        padding-left: 50px;
+    }
+    
+    .arrows {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 350px;
+        height: 25px;
+        width: 25px;
+    }
+    
+    #editbtn,
+    #delbtn {
+        margin-top: 10px;
+        margin-left: 140px;
+        border-radius: 30px;
+        font-family: Poppins;
+        font-size: 12px;
+        font-weight: bold;
+        width: 130px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    
+    #editbtn {
+        border: 2px solid #108882;
+        color: #108882;
+        background-color: rgb(179, 235, 216);
+    }
+    
+    #delbtn {
+        border: 2px solid #881010;
+        color: #881010;
+        background-color: rgb(236, 0, 51);
+    }

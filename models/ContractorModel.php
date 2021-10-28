@@ -55,7 +55,30 @@ class ContractorModel extends Database {
     return $contractor_id;
   }
 
+  
+  public function getContractorWorkHistory($conID, $limit = 0, $start = 0, $count = false){
+    
+    if($count == true){
+      $sql = "SELECT CB.* FROM contractor_booking CB 
+              WHERE CB.Contractor_ID='$conID' AND CB.Is_work_done='Yes'";
+      
+      $query = $this->con->query($sql);
+      $query->execute();
+      return $query->rowCount();
+    }
+    
+    $sql = "SELECT CB.*, CONCAT(C.FirstName, ' ', C.LastName) AS CusFullName FROM contractor_booking CB
+            INNER JOIN customer C ON CB.CustomerID=C.CustomerID 
+            WHERE CB.Contractor_ID='$conID' AND CB.Is_work_done='Yes'
+            LIMIT $start,$limit"; 
+    
+    $query = $this->con->query($sql);
 
+    $query->execute();
+  
+    $data = $query->fetch(PDO::FETCH_OBJ);
+    return $data;
+  }
   
 
   

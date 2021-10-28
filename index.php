@@ -24,6 +24,7 @@ $routes = [
     'auth/customer_register' => 'AuthController@customerRegister',
     'auth/manpower_register' => 'AuthController@manpowerRegister',
     'auth/forgot_password' => 'AuthController@forgotPassword',
+    'auth/logout' => 'AuthController@logout',
 
   //employee section
     'Employee/employee_dashboard' => 'EmployeeController@employeeDashboard',
@@ -45,14 +46,21 @@ $routes = [
     'Manpower/manpower_booking' => 'ManpowerController@manpowerBooking',
 
   //contractor section
-    'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
-    'Contractor/contractor_complaint' =>'ContractorController@contractorComplaint',
-    'Contractor/contractor_postad' =>'ContractorController@contractorPostad',
-    'Contractor/contractor_help' =>'ContractorController@contractorHelp',
-    'Contractor/contractor_paymentform' =>'ContractorController@contractorPaymentform',
-    'Contractor/contractor_payment' =>'ContractorController@contractorPayment',
-    'Contractor/contractor_confirmpayment' =>'ContractorController@contractorConfirmpayment',
-    'Contractor/contractor_paymentdone' =>'ContractorController@contractorPaymentdone',
+  'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
+  'Contractor/contractor_complaint' =>'ContractorController@contractorComplaint',
+  'Contractor/contractor_postad' =>'ContractorController@contractorPostad',
+  'Contractor/contractor_paymentgateway' =>'ContractorController@contractorPaymentgateway',
+  'Contractor/contractor_paymentform' =>'ContractorController@ContractorPaymentform',
+  'Contractor/contractor_confirmpayment'=> 'ContractorController@contractorConfirmpayment',
+  'Contractor/contractor_search' => 'ContractorController@contractorSearch',
+  'Contractor/contractor_viewad' => 'ContractorController@contractorViewad',
+  'Contractor/contractor_help' => 'ContractorController@contractorHelp',
+  'Contractor/contractor_history'=>'ContractorController@contractorHistory',
+  'Contractor/contractor_booking' => 'ContractorController@contractorBooking',
+  'Contractor/contractor_paymentdone' => 'ContractorController@contractorPaymentdone',
+  'Contractor/contractor_viewadmyad'=> 'ContractorController@contractorViewadmyad',
+  'Contractor/contractor_myadedit'=>'ContractorController@contractorMyadedit',
+  'Contractor/contractor_confirmeditad'=>'ContractorController@contractorConfirmeditad',
 
   //customer section
 
@@ -63,6 +71,12 @@ $routes = [
     'Customer/customer_servicelist' => 'CustomerController@customerServicelist',
     'Customer/customer_bookingform' => 'CustomerController@customerBookingform',
     'Customer/customer_help' => 'CustomerController@customerHelp',
+
+  //manpower
+  'Manpower/manpower_profile' => 'ManpowerController@manpowerProfile',
+  'Manpower/manpower_complaint' => 'ManpowerController@manpowerComplaint',
+  'Manpower/manpower_help' => 'ManpowerController@manpowerHelp',
+  'Manpower/manpower_booking' => 'ManpowerController@manpowerBooking',
 
 ];
 

@@ -13,7 +13,11 @@ session_start();
 <link href="<?php echo fullURLfront; ?>/assets/cs/contractor/contractor_dashboard.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link href="<?php echo fullURLfront; ?> /assets/cs/contractor/contractor_payment.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+<link href="<?php echo fullURLfront; ?> /assets/cs/contractor/contractor_paymentgateway.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -25,12 +29,13 @@ session_start();
 <?php include_once('header.php'); ?>
 
 <div class="row">
-  <div class="column1">
-    <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
-  </div>
-  <div class="column2">
+    <div class="column1">
+        <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
+    </div>
+    <div class="column2">
+        <p id ="topic">We need to know it is you</p> 
     <div class="columnsub1">
-        <img src="<?php echo fullURLfront; ?>/assets/images/twolabors.jpg">
+        <img class="img-left" src="<?php echo fullURLfront; ?>/assets/images/twolabors.jpg">
     </div>
 
     <div class="columnsub1">

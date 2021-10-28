@@ -13,6 +13,10 @@ session_start();
 <link href="<?php echo fullURLfront; ?>/assets/cs/contractor/contractor_dashboard.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
 <link href="<?php echo fullURLfront; ?>/assets/cs/contractor/contractor_postad.css" rel="stylesheet" type="text/css"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +37,7 @@ session_start();
   </div>
   <div class="column2">
     <div id="topdiv">Post Advertisement</div>
+    <div id=topdiv-bottom>Post an advertisement!!! Take others eye on you</div>
         <div id ="advertisearea">
             <form action="<?php echo fullURLfront; ?>/Contractor/contractor_paymentform" method="post" required>
                 <input type="text" id="subjectid" name="subject" placeholder="Type subject" >

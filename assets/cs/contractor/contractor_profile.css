@@ -1,11 +1,12 @@
-.personal-info-section{
+.personal-info-section {
+    font-family: poppins;
     position: relative;
     display: block;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
-.personal-info-section a{
+.personal-info-section a {
     float: right;
     text-decoration: none;
     background-color: #ca3a1b;
@@ -16,20 +17,27 @@
     margin-right: 20%;
 }
 
-.personal-info-section span{
-    font-size: 18px;
+.column2 {
+    padding-left: 40px;
+    padding-bottom: 20px;
+    background-image: linear-gradient(#faffff, #ffffff);
+}
+
+.personal-info-section span {
+    font-size: 14px;
+    font-family: poppins;
     font-weight: bold;
 }
 
-.personal-info-section-content{
+.personal-info-section-content {
     position: relative;
     display: block;
     width: 80%;
     height: 250px;
-    background-color: #e6e6e6;
+    background-color: #9ae0dc;
     margin-top: 40px;
     border-radius: 10px;
-    padding: 30px 30px 10px 100px;
+    padding: 30px 30px 10px 20px;
 }
 
 .avatar {
@@ -41,7 +49,7 @@
     margin-left: 0px;
 }
 
-.details{
+.details {
     float: left;
     display: block;
     position: relative;
@@ -51,68 +59,97 @@
 table {
     width: 100%;
 }
-  
-td, th {
+
+td,
+th {
     text-align: left;
     padding-bottom: 15px;
 }
 
-.info-right-column{
-    color: #108882;
+.info-right-column {
+    font-size: 14px;
+    font-family: poppins;
+    color: #007973;
     padding-left: 30px;
 }
 
-.info-right-column-color{
+.info-left-column {
+    font-size: 14px;
+    font-family: poppins;
+    color: black;
+    padding-left: 30px;
+}
+
+.info-right-column-color {
+    font-size: 12px;
+    font-family: poppins;
     color: #108882;
 }
 
-.additional-info{
+.info-left-column-color {
+    font-size: 12px;
+    font-family: poppins;
+    color: black;
+    padding-left: 30px;
+}
+
+.additional-info {
     position: relative;
     display: block;
     width: 100%;
     margin-bottom: 50px;
 }
 
-.additional-info-content{
+.additional-info-content {
     display: block;
     position: relative;
     width: 80%;
-    background-color: #e6e6e6;
+    background-color: #b7dfe4;
     padding: 20px;
     border-radius: 10px;
 }
 
-.billing-info{
+.billing-info {
+    font-size: 14px;
+    font-family: poppins;
     position: relative;
     display: block;
     width: 100%;
     margin-bottom: 50px;
 }
 
-.billing-info-content{
+.billing-info-content {
+    font-size: 12px;
+    font-family: poppins;
     display: block;
     position: relative;
     width: 80%;
-    background-color: #e6e6e6;
+    background-color: #aecac8;
     padding: 20px;
     border-radius: 10px;
 }
 
-.bio-info{
+.bio-info {
+    font-size: 12px;
+    font-family: poppins;
     position: relative;
     display: block;
     width: 100%;
 }
 
-.bio-info-content{
+.bio-info-content {
+    font-size: 12px;
+    font-family: poppins;
     display: block;
     position: relative;
     width: 80%;
-    background-color: #e6e6e6;
+    background-color: #50b4ac;
     padding: 20px;
     border-radius: 10px;
 }
 
 .checked {
+    font-size: 14px;
+    font-family: poppins;
     color: orange;
 }

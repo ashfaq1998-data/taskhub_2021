@@ -1,34 +1,41 @@
-.sidebar ul li{
+.sidebar ul li {
+    text-decoration: none;
+    list-style-type: none;
     padding: 15px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     border-top: 1px solid rgba(225, 225, 225, 0.05);
 }
 
-.sidebar ul li a{
+.sidebar.ul.a {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    list-style-type: none;
     color: white;
-    display:block;
-    
+    display: block;
 }
 
-.sidebar ul li a .fas{
+.sidebar ul li a .fas {
     width: 25px;
 }
 
-.far{
+.far {
     width: 25px;
 }
 
-.sidebar ul li:hover{
+.sidebar ul li:hover {
     background: white;
     border-radius: 12px 0px 0px 12px;
     width: 100%;
 }
 
-.sidebar ul li:hover a{
+.sidebar ul li:hover a {
     color: #108882;
-   
 }
 
-.top{
+.top {
     margin-top: 90px;
 }
