@@ -135,6 +135,10 @@ class ContractorController {
     $view = new View("Contractor/contractor_help");
   }
 
+  public function contractorEditprofile() {
+    $view = new View("Contractor/contractor_editprofile");
+  }
+
   public function contractorComplaint() {
     $complaintModel = new ComplaintModel();
     $contractorModel = new ContractorModel();

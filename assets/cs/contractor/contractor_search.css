@@ -141,19 +141,20 @@
     #myTable tr {
         font-size: 14px;
         width: 100%;
-        background-color: rgba(96, 202, 170, 0.37);
-        border-bottom: 1px solid rgb(11, 37, 31);
+        background-color: rgba(255, 255, 255, 0.37);
+        border-bottom: 2px solid #108882;
+        border: 2px solid #108882;
     }
     
     #myTable tr.header {
-        background-color: #0b927c;
+        background-color: #78dcee;
         color: #91a79d;
         width: 800px;
     }
     
     #myTable tr:hover {
-        background-color: rgb(208, 253, 246);
-        color: #0a0a0a;
+        background-color: #0b927c;
+        color: #ffffff;
         width: 800px;
     }
     

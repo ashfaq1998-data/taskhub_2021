@@ -43,7 +43,29 @@ session_start();
             </div>
 
             <div class="subrow">
-                <div class="scroll-btn">
+
+            <div class="subcolumn1" style="background-color: #B4E1E7;">
+                <div class ="adimage">
+                    <img src="<?php echo fullURLfront; ?>/assets/images/pipe.jpg" alt="image1" width="180px" height="180px">
+                </div> 
+            </div>
+            <div class="subcolumn2" style="background-color: #B4E1E7;">
+                <div class="postedby">
+                    <p class="special-field">Posted By:</p>
+                    <p class="field">Name : James</p>
+                    <p class="field">Email : abc@gmail.com</p>
+                
+                    <p class="field">Location : 36, Reid avenue, Colombo 3</p>
+                </div>
+            </div>
+            <div class="subcolumn3" style="background-color: #B4E1E7;">
+                <div class="details">
+                    <p class="special-field">Task Description</p>
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum justo condimentum, ullamcorper sapien sed, condimentum augue. Nullam non turpis vitae urna vestibulum dapibus. Duis scelerisque quis purus nec cursus.</p>
+                </div>
+            </div>
+
+                <!-- <div class="scroll-btn">
                         <img class="arrows" src="<?php echo fullURLfront; ?>/assets/images/up-arrow.png">
                     </a>
                 </div>
@@ -58,7 +80,7 @@ session_start();
                         Should be close to matara area and knowledge on good Bathroom works is an additional qualification.</p>
                     </div>
                 </div>
-                <div class="Poster"><img class="posterimage" src="<?php echo fullURLfront; ?>/assets/images/viewad-photo.jpg"></div>
+                <div class="Poster"><img class="posterimage" src="<?php echo fullURLfront; ?>/assets/images/viewad-photo.jpg"></div> -->
 
                 <div class="poster-options-menu">
                     <a href="<?php echo fullURLfront; ?>/Contractor/contractor_myadedit">
@@ -69,11 +91,11 @@ session_start();
                     
                 </div>
 
-                <div class="scroll-btn">
+                <!-- <div class="scroll-btn">
                     <a href="#">
                         <img class="arrows" src="<?php echo fullURLfront; ?>/assets/images/down-arrow.jpg">
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
     </body>

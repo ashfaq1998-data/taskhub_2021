@@ -17,6 +17,48 @@
         border-radius: 10px;
     }
     
+    .subcolumn1 {
+        font-family: Poppins;
+        font-size: 16px;
+        float: left;
+        width: 20%;
+        padding: 10px;
+        height: 250px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background-color: #B4E1E7;
+        /* Should be removed. Only for demonstration */
+    }
+    
+    .subcolumn2 {
+        font-family: Poppins;
+        font-size: 16px;
+        float: left;
+        width: 30%;
+        padding: 10px;
+        height: 250px;
+        background-color: #B4E1E7;
+        /* Should be removed. Only for demonstration */
+    }
+    
+    .postedby {
+        margin-top: 30px;
+        margin-left: 5px;
+    }
+    
+    .subcolumn3 {
+        font-family: Poppins;
+        font-size: 16px;
+        float: left;
+        width: 50%;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 10px;
+        height: 250px;
+        background-color: #B4E1E7;
+        /* Should be removed. Only for demonstration */
+    }
+    
     .advertisername {
         font-size: 12px;
         color: rgb(13, 66, 49);
@@ -31,7 +73,6 @@
         font-size: 12px;
         color: rgb(6, 59, 55);
         font-family: Poppins;
-        background-color: rgb(129, 247, 211);
         padding-left: 10px;
         padding-right: 5px;
         padding-top: 5px;
@@ -41,7 +82,6 @@
     
     .Poster {
         margin-left: 50px;
-        background-image: linear-gradient(rgb(133, 235, 204), rgb(212, 230, 225));
         padding-left: 30px;
         padding-bottom: 30px;
         width: 600px;
@@ -60,7 +100,6 @@
         padding-top: 5px;
         padding-bottom: 50px;
         padding-left: 20px;
-        background-image: linear-gradient(rgb(205, 247, 234), rgb(184, 211, 206));
     }
     
     .topof-poster {

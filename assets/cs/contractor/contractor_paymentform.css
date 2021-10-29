@@ -1,135 +1,112 @@
-.column2 {
-    background-image: linear-gradient(to bottom, #5ac9bf, rgb(229, 243, 242));
-}
-
-.logoarea {
-    height: 20vh;
-    width: 50%;
-    margin-left: 30%;
-}
-
-#formarea {
-    height: 80vh;
-    width: 93%;
-    background: linear-gradient(180deg, #108882 0%, rgba(157, 212, 212, 0.44) 100%);
-    border-radius: 30px;
-    margin: 3%;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    padding-top: 15px;
-    padding-left: 10px;
-}
-
-#cardnumberid,
-#expiryyearid,
-#expirymonthid,
-#holdernameid {
-    position: absolute;
-    background: #FFFFFF;
-    border-radius: 10px;
-    outline: none;
-    padding-left: 25px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-}
-
-#cvvid {
-    position: absolute;
-    background: #FFFFFF;
-    border-radius: 10px;
-    outline: none;
-    padding-left: 5px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-}
-
-#cardnumberid {
-    margin-left: 35px;
-    width: 40%;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-
-#expirymonthid {
-    margin-left: 35px;
-    width: 8%;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-
-#expiryyearid {
-    margin-left: 50px;
-    width: 8%;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-
-#holdernameid {
-    margin-left: 15px;
-    width: 40%;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-
-#cvvid {
-    margin-left: 120px;
-    width: 4%;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-
-.inform {
-    margin-left: 5%;
-    margin-top: 3%;
-    padding-left: 50px;
-}
-
-.buttons {
-    margin-top: 1%;
-    margin-left: 15%;
-    width: 181px;
-    height: 40px;
-    background: #FFFCFC;
-    box-sizing: border-box;
+.sub-column02 {
+    border: 8px solid #108882;
     border-radius: 20px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    float: left;
+    flex: 50%;
+    height: 390px;
+    width: 1750px;
+}
+
+.sub-column01 {
+    width: 440px;
+}
+
+.sub-column02 {
+    width: 440px;
+    background-color: rgb(255, 255, 255);
+}
+
+.image-left {
+    margin-top: 230px;
+    width: 420px;
+    height: 390px;
+}
+
+.logoimage {
+    margin-top: 50px;
+    margin-left: 30px;
+    width: 370px;
+    height: 120px;
+}
+
+#topic-area {
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+}
+
+.cardnumber {
+    padding: 10px;
+    width: 210px;
+    background-color: rgb(148, 223, 241);
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    margin-left: 20px;
+}
+
+.date {
+    margin-right: 15px;
+    width: 150px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: rgb(148, 223, 241);
+    border: none;
+    outline: none;
+    margin-left: 20px;
+}
+
+.name {
+    width: 290px;
+    padding: 10px;
+    background-color: rgb(148, 223, 241);
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    margin-left: 20px;
+}
+
+.cvv {
+    margin-top: 20px;
+    width: 70px;
+    padding: 10px;
+    background-color: rgb(148, 223, 241);
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    margin-left: 20px;
+}
+
+.postad-confirm,
+.postad-cancel {
+    float: right;
+    color: #108882;
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 120px;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid #108882;
     outline: none;
 }
 
-#confirm {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    /* identical to box height, or 133% */
-    border-color: #108882;
-    color: #108882;
+.pricead {
+    margin-top: 10px;
+    margin-left: 90px;
+    width: 270px;
+    height: 60px;
 }
 
-#cancel {
-    border-color: #EE0000;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    /* identical to box height, or 133% */
-    color: #EE0000;
-}
-
-#pricestiker {
-    padding-left: 20%;
-    padding-right: 10%;
-    align-items: center;
+.postad-cancel:hover,
+.postad-confirm:hover {
+    background-color: #108882;
+    color: #ffffff;
 }

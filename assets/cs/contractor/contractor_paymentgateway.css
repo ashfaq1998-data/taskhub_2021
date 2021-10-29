@@ -25,10 +25,11 @@
     margin-top: 80px;
     position: absolute;
     width: 365px;
-    height: 243px;
+    height: 283px;
     left: 60%;
     top: 20%;
-    background: linear-gradient(180deg, #108882 0%, rgba(94, 178, 178, 0.99) 100%);
+    border: 6px solid #108882;
+    /* background: linear-gradient(180deg, #108882 0%, rgba(94, 178, 178, 0.99) 100%); */
     border-radius: 20px;
 }
 
@@ -42,12 +43,12 @@
     padding-top: 40px;
     font-family: Poppins;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 18px;
     line-height: 24px;
     text-align: center;
     /*identical to box height, or 171% */
-    color: #ffffff;
+    color: #108882;
 }
 
 .confirmbutton {
@@ -56,10 +57,11 @@
     margin-left: 12%;
     padding-left: 15px;
     padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: #108882;
     border: 1px solid #000000;
     box-sizing: border-box;
-    border-radius: 20px;
     border-color: #000000;
     font-family: poppins;
     font-style: normal;
@@ -76,15 +78,14 @@
     cursor: pointer;
 }
 
-.input1 {
+#username {
     position: absolute;
     width: 242px;
     height: 30px;
     padding: 10px;
     margin-top: 5%;
     margin-left: 10%;
-    background: #ffffff;
-    border-radius: 10px;
+    background-color: #96c0ae;
     border: none;
     font-weight: bold;
     color: #000000;
@@ -98,8 +99,7 @@
     padding: 10px;
     margin-top: 18%;
     margin-left: 10%;
-    background: #ffffff;
-    border-radius: 10px;
+    background: #96c0ae;
     border: none;
     font-weight: bold;
     color: #000000;

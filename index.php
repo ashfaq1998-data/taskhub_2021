@@ -58,6 +58,8 @@ $routes = [
   'Contractor/contractor_viewadmyad'=> 'ContractorController@contractorViewadmyad',
   'Contractor/contractor_myadedit'=>'ContractorController@contractorMyadedit',
   'Contractor/contractor_confirmeditad'=>'ContractorController@contractorConfirmeditad',
+  'Contractor/contractor_editprofile'=>'ContractorController@contractorEditprofile',
+
 
   //customer section
 
