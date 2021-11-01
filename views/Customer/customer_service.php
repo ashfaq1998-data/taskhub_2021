@@ -26,14 +26,14 @@ session_start();
     </div>
     <div class="column2">
             <div class="search-container">
-                <form action="/action_page.php">
+                <form action="<?php echo fullURLfront; ?>/Customer/customer_service" method="POST">
                     <input type="search" placeholder="Search for services, workers, contractors or manpower agencies" name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
         
             <center><div class="sortinglist">
-                <form action="<?php echo fullURLfront; ?>/Customer/customer_serviceLocation" method="POST">
+                <form action="<?php echo fullURLfront; ?>/Customer/customer_serviceList" method="POST">
                     <select name="service_type" id="service_type">
                         <option value="none" selected>Select the service type</option>
                         <option value="plumb">Plumbing</option>
@@ -50,17 +50,26 @@ session_start();
                         <option value="customer">Employee</option>
                         <option value="contractor">Contractor</option>
                     </select><br><br><br><br>
+
+                    <select name="location" id="location">
+                        <option value="none" selected>Location</option>
+                        <option value="manpower">Matara</option>
+                        <option value="customer">Colombo</option>
+                        <option value="contractor">Galle</option>
+                        <option value="contractor">Kandy</option>
+                    </select><br><br><br><br>
+
                 <!-- <button type="submit" class="proceed">Proceed</button> -->
-                <button type="submit" class="proceed"> <a href="<?php echo fullURLfront; ?>/Customer/customer_serviceLocation">Proceed</a></button>
+                <button type="submit" class="proceed"> <a style="color: black;" href="<?php echo fullURLfront; ?>/Customer/customer_serviceList">Proceed</a></button>
                 <!-- <button class="btn"><a id="close" href="<?php echo fullURLfront; ?>/Customer/customer_serviceLocation"> -->
+
+                <div class="image">
+                    <center><img src="<?php echo fullURLfront; ?>/assets/images/service_cus.png" alt="image"></center>
+                </div>
 
                 </form>
 
             </div></center>
-            <br><br>
-            <div class="image">
-                <center><img src="<?php echo fullURLfront; ?>/assets/images/service_cus.png" alt="image"></center>
-            </div>
     </div>
 </div>
 <br>

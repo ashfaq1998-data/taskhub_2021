@@ -34,7 +34,7 @@ class Validation{
         $error = "";
         $phone_length = strlen($phoneNum);
         if($phone_length != 10 || !(is_numeric($phoneNum))) {
-            $error = 'Please enter a valid phone number (ex: 0712233444)';
+            $error = 'Please enter a valid phone number (eg: 0712233444)';
         }
         return $error;
     }
@@ -46,7 +46,7 @@ class Validation{
         $newNicValidation =  "/^([0-9]{12})/";
         if(!($nic_length <= 10) || !(preg_match($oldNicValidation, $nic))) {
             if(($nic_length > 12) || !(preg_match($newNicValidation, $nic))) {
-                $error = 'Please enter a valid NIC (ex: 199800111222 or 980011222v/V/x/X)';
+                $error = 'Please enter a valid NIC (eg: 199800111222 or 980011222v/V/x/X)';
             }  
         }
         return $error;
@@ -66,7 +66,7 @@ class Validation{
         $error = "";
         $nameValidation =  "/^[a-zA-z]*$/";
         if (!preg_match($nameValidation, $name)) {
-            $error = 'Names should contain only alphabets (ex: John)';
+            $error = 'Names should contain only alphabets (eg: John)';
         }
         
         return $error;

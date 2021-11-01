@@ -168,7 +168,9 @@ input[type=radio]:invalid::after{
 }
 
 .btn .price {
-  transform: translateX(-10%); padding-right: 15px;
+  transform: translateX(-10%);
+  padding-right: 15px;
+  padding-left: 30px;
 }
 
 /* the Icon */
@@ -179,14 +181,22 @@ input[type=radio]:invalid::after{
   z-index: 1;
   left: 0;
   top: 0;
+  width: 35%;
 }
 
 /* buy */
-.btn .buy {z-index: 3; font-weight: bolder;}
+.btn .buy {
+  z-index: 3;
+  font-weight: bolder;
+}
 
-.btn:hover .price {transform: translateX(-110%);}
+.btn:hover .price {
+  transform: translateX(-110%);
+}
 
-.btn:hover .shopping-cart {transform: translateX(0%);}
+.btn:hover .shopping-cart {
+  transform: translateX(0%);
+}
 
 
 

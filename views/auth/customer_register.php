@@ -26,9 +26,9 @@ session_start();
                         <a id="close" href="<?php echo fullURLfront; ?>/main/index"> x </a>
                         <form action="<?php echo fullURLfront; ?>/auth/customer_register" method="POST">
                             
-                            <input type="text" id="f_name" name="f_name" maxlength="20" placeholder="First name"  value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['f_name'] : ''; ?>">
-                            <input type="text" id="l_name" name="l_name" maxlength="20" placeholder="Last name" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['l_name'] : ''; ?>" >
-                            <input type="text" id="address" name="address" maxlength="50" placeholder="Permanent Address" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['address'] : ''; ?>">
+                            <input type="text" id="f_name" name="f_name" maxlength="20" placeholder="First name" title="Names should contain only alphabets (eg: John)" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['f_name'] : ''; ?>">
+                            <input type="text" id="l_name" name="l_name" maxlength="20" placeholder="Last name" title="Names should contain only alphabets (eg: Player)" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['l_name'] : ''; ?>" >
+                            <input type="text" id="address" name="address" maxlength="50" placeholder="Permanent Address" title="eg: No 35, Reid avenur, Colombo 07" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['address'] : ''; ?>">
 
                             <select name="gender" id="gender" required>
                                 <?php foreach ($data['gender'] as $gender) {?>
@@ -36,9 +36,9 @@ session_start();
                                 <?php }?>
                             </select>
 
-                            <input type="text" id="nic" name="nic" placeholder="NIC/Passport ID"  value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['nic'] : ''; ?>" >
-                            <input type="text" id="phone_num" name="phone_num" placeholder="Contact Number" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['phone_num'] : ''; ?>" >
-                            <input type="text" id="email" name="email" placeholder="Email" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['email'] : ''; ?>" >
+                            <input type="text" id="nic" name="nic" placeholder="NIC/Passport ID" title="eg: 199800111222 or 980011222v/V/x/X" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['nic'] : ''; ?>" >
+                            <input type="text" id="phone_num" name="phone_num" placeholder="Contact Number" title="eg: 0712233444" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['phone_num'] : ''; ?>" >
+                            <input type="text" id="email" name="email" placeholder="Email" title="eg: john99@gmail.com" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['email'] : ''; ?>" >
                             <input type="password" id="password" name="password" placeholder="Password"
                             value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['password'] : ''; ?>" >                           
                             <input type="password" id="confirm_password" name="confirm_password" onkeyup='check();' placeholder="Confirm Password" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['confirm_password'] : ''; ?>" >

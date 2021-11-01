@@ -10,6 +10,6 @@
         <li><a href="<?php echo fullURLfront; ?>/Customer/customer_history"><i class="fa fa-history"></i> History</a></li>
         <li><a href="<?php echo fullURLfront; ?>/Customer/customer_help"><i class="fa fa-info-circle"></i> Help</a></li>
         <li><a href="<?php echo fullURLfront; ?>/Customer/customer_viewad"><i class="fa fa-audio-description"></i> View Advertsiment</a></li>
-        <li><a href="<?php echo fullURLfront; ?>/Customer/Customer_postad"><i class="fa fa-audio-description"></i> Post Advertsiment</a></li>
+        <li><a href="<?php echo fullURLfront; ?>/Customer/customer_postad"><i class="fa fa-audio-description"></i> Post Advertsiment</a></li>
     </ul>
 </div>

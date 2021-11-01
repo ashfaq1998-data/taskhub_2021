@@ -58,7 +58,8 @@
                             <?php if(!empty($data['ComplaintError']) && $data['ComplaintError'] != "none") {?>
                                 <p class="error"><?php echo $data['ComplaintError']; ?></p>
                             <?php }else if($data['ComplaintError'] == "none"){?>
-                                <p class="success">Your Complaint Submitted SuccessFully <i class="fa fa-check" aria-hidden="true"></i></p>
+                                <p class="success">Your Complaint Submitted Successfully <i style="color: green;" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
+                                style="font-weight: bold;" class="fa fa-check" aria-hidden="true"></i></p>
                             <?php }?>
                         </div>
                     </form> 

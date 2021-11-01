@@ -55,8 +55,7 @@ div.subcolumn1 {
 
 div.subcolumn {
   width: 80vh;
-  min-height: 73vh;
-  min-height: fit-content;
+  max-height: 90vh;
   shape-margin: 5vh;
   padding: 20px;
   padding-right:0em;
@@ -67,7 +66,7 @@ div.subcolumn {
   border-color: rgb(6, 138, 120);
   transform: translateX(-10vh);
   margin: auto;
-  margin-top: 5px;
+  margin-top: 5px;margin-bottom: 5px;
   position: absolute;
   left: 36.4%;
   top: 0.5%;
@@ -140,13 +139,13 @@ button {
   border-radius: 4px;
   cursor: pointer;
   padding: 10px;
-  display: flex;
   align-items: center;
   margin-top: 3vh;
   margin-bottom: 10px;
   transform: translateX(31.5vh);
   justify-content: center;
-  position: absolute;
+  position: relative;
+  display: flex;
 }
 
 button:hover {

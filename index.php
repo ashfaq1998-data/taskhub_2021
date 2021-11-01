@@ -41,6 +41,7 @@ $routes = [
     'Customer/customer_calender' => 'CustomerController@customerCalender',
     'Customer/customer_history' => 'CustomerController@customerHistory',
     'Customer/customer_viewad' => 'CustomerController@customerViewad',
+    'Customer/customer_postad' => 'CustomerController@customerPostad',
     'Customer/customer_profile' => 'CustomerController@customerProfile',
     'Customer/customer_profileEd' => 'CustomerController@customerProfileEd',
     // 'Customer/customer_profileEdit' => 'CustomerController@customerProfileEdit',

@@ -80,7 +80,7 @@ class AuthController {
 
 		//validate input fields
 		if(empty($email)){
-			$loginError = "Please enter a email.";
+			$loginError = "Please enter an email.";
 		}else if(empty($password)){
 			$loginError = "Please enter a password.";
 		}

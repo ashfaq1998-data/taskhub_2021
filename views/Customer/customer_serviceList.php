@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +61,7 @@
                     <!-- Start Button buying -->
                         <button class="btn"><a id="close" href="<?php echo fullURLfront; ?>/Customer/customer_booking">
                     <!--    the Price -->
-                        <span class="price">60 $</span>
+                        <span class="price">LKR 6000</span>
                     <!--    shopping cart icon-->
                         <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
                     <!--    Buy Now / ADD to Cart-->

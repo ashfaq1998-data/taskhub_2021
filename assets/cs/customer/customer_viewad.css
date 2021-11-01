@@ -124,5 +124,30 @@ style="background: #108882; color: white; width: 187px; height: 38px; border-rad
     clear: both;
 }
 
+.proceed {
+    display: block;
+    background-image: linear-gradient(#B4E1E7, #B4E1E7);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    font-weight: 100;
+    padding: 10px 18px;
+    border-radius: 4px;
+    text-align: center;
+    border: 2px solid #20524f73;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    bottom: 60px;
+    right: 15px;
+}
+
+.proceed:hover {
+    /* background-image: linear-gradient(#e66666, #ffffff); */
+    background-image: linear-gradient(#ff4040, #ff4040);
+    text-align: center;
+    padding: 12px 24px 12px 24px;
+    transition: 0.2s;
+    border: 1px;
+}
+
 
 

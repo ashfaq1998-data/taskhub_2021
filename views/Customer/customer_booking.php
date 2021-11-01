@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -39,26 +39,26 @@
                         <h1>Booking Form</h1>
                         <div class="elem-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Jensen Ackles" required>
+                            <input type="text" id="name" name="name" pattern="[A-Za-z]{1,32}[ ]{1,1}[A-Za-z]{1,32}" title="Name should contains only alphabets (eg: John Player)" placeholder="Jensen Ackles" required>
                         </div>
                         <div class="elem-group">
                             <label for="name">Permenant Address</label>
-                            <input type="text" id="address" name="address" placeholder="No 36, Reid Avenue, Colombo 10" required>
+                            <input type="text" id="address" name="address" maxlength="75" placeholder="No 36, Reid Avenue, Colombo 10" required>
                         </div>
                         <div class="elem-group">
                             <label for="email">Your E-mail</label>
-                            <input type="email" id="email" name="email" placeholder="john.doe@email.com" required>
+                            <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="eg: john98@gmail.com" value="<?php echo $_SESSION['loggedin']['email']; ?>"  placeholder="john.doe@email.com" required>
                         </div>
                         <div class="elem-group">
                             <label for="phone">Your Contact Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="071-348-3872" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4}) required>
+                            <input type="tel" id="phone" name="phone" pattern="(^[0-9]{10})" title="eg: 0710001111" placeholder="0710001111" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4}) required>
                         </div>
                         <hr>
                         <div class="elem-group">
                             <label for="message">Anything Else?</label>
                             <textarea id="message" name="message" placeholder="Tell us anything else that might be important."></textarea>
                         </div>
-                        <button type="submit">Submit</button>
+                    <button id="submit" type="submit" name="submit">Submit</button>
                     </form>
                 </div>
             </div>

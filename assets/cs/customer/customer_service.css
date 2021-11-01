@@ -1,6 +1,7 @@
 .search-container{
     width: 100%;
-    position: absolute;
+    position: relative;
+    left: 60px;
 
 }
 
@@ -38,10 +39,10 @@
 }
 
 .sortinglist{
-    margin-top: 8%;
+    margin-top: 1%;
     margin-right: 15%;
-    width: 50%;
-    height: 300px;
+    width: 75%;
+    max-height: 300%;
     position: relative;
     display: block;
     border-style: solid;
@@ -49,14 +50,15 @@
     border-width: 2px;
     border-color: rgb(40, 170, 163);
     text-align: center;
-    top: 30px;
+    
     padding: 10px;
+    padding-bottom: 20px;
 }
 
 .sortinglist select {
-    background-image: linear-gradient(#79ccc8, #ffffff);
+    background-image: linear-gradient(#ffffff, #79ccc8);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     padding: 10px 20px;
     border-radius: 10px;
     text-align: left;
@@ -66,8 +68,22 @@
     width: 50vh;
 }
 
+#location {
+    color: #1a948e;
+    text-align: center;
+    font-size: 24px;
+    font-weight: lighter;
+    padding: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image:linear-gradient(#b6e7e5b0, #b6e7e5b0);
+    border: 2px solid #2f8d8873;
+    width: 70%;
+    position: relative;
+    top: 0px;
+}
+
 .sortinglist button {
-    background-image: linear-gradient(#5aaca8, #d6eeec);
+    background-image: linear-gradient(rgb(168, 217, 240), #ffffff);
     color: rgb(0, 0, 0);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 22px;
@@ -76,7 +92,8 @@
     text-align: center;
     border: 1px solid #2f8d8873;
     position: relative;
-    top: 30px;
+    top: 5px;
+    margin-bottom: 30px;
 }
 /* 
 .sortinglist a{
@@ -84,14 +101,14 @@
 } */
 
 .sortinglist button:hover {
-    background-image: linear-gradient(rgb(168, 217, 240), #ffffff);
+    background-image: linear-gradient(#e66666, #ffffff);
     color: rgb(43, 51, 51);
-    padding: 15px 60px;
+    padding: 20px 65px;
+    transition: 0.2s;
 }
 
 .image img {
+    width: 55%;
     position: relative;
-    top: 20px;
-    width: 70vh;
-    right: 90px;
+    top: 0px;
 }

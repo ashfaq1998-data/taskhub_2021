@@ -2,19 +2,22 @@
     position: relative;
     display: flex;
     background-color: white;
-    min-height: 600px;
+    min-height: 500px;
     padding: 80px 10vw 10px 10vw;
     border-top: solid 5px #108882;
 }
 
 .login-section-form{
     display: block;
-    height: 400px;
+    max-height: 400px;
     background: linear-gradient( #108882, #18cdc4);
     text-align: center;
     padding: 50px;
     border-radius: 20px;
-    margin-right: 50px;
+    position: relative;
+    margin-right: 190px;
+    left: 120px;
+    top: 60px;
 }
 
 .login-section-form input[type=text], input[type=password] {

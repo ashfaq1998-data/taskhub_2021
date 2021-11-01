@@ -80,6 +80,10 @@ class CustomerController {
     $view = new View("Customer/customer_viewad");
   }
 
+  public function customerPostad(){
+    $view = new View("Customer/customer_postad");
+  }
+
   public function customerProfile(){
     $customerModel = new CustomerModel();
     $userID = $_SESSION['loggedin']['user_id'];

@@ -1,0 +1,96 @@
+.subcolumn1 {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    height: 100%;
+    margin-top: 150px;
+    position: relative;
+    margin-right: 25vh;
+}
+
+.subcolumn2 {
+    border-left: 1px solid rgb(3, 165, 143);
+    height: 550px;
+    margin-left: 120px;
+    margin-top: 40px;
+    margin-right: 70px;
+    position: relative;
+    top: 80px;
+}
+
+.subcolumn3 {
+    display: block;
+    float: right;
+    width: 50%;
+    padding: 20px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.subrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.subrow {
+    display: flex;
+}
+
+.subcolumn3 input[type=text], input[type=file], select, textarea {
+    background-color: #c7ebf1;
+    color: black;
+    width: 100%;
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #108882; 
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+.postbutton{
+    display: block;
+    float: right;
+}
+
+.postbutton button{
+    margin-top: 5px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    border: 1px solid #108882;
+    cursor: pointer;
+    width: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+.cancel {
+    background-color: #ffffff;
+    color: grey;
+}
+
+.cancel:hover {
+    color: black;
+    font-size: 18px;
+    font-weight: lighter;
+    transition: 0.15s;
+    cursor: pointer;
+    border: 2px solid rgb(166, 226, 236);
+}
+
+.submit {
+    background-color: #108882;
+    color: white;
+}
+
+.submit:hover {
+    background-color: rgb(255, 66, 66);
+    color: black;
+    font-size: 18px;
+    font-weight: lighter;
+    transition: 0.15s;
+    cursor: pointer;
+}
