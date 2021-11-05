@@ -44,6 +44,10 @@ $routes = [
     'Manpower/manpower_worker' => 'ManpowerController@manpowerWorker',
     'Manpower/manpower_addworker' => 'ManpowerController@manpowerAddWorker',
     'Manpower/manpower_booking' => 'ManpowerController@manpowerBooking',
+    'Manpower/manpower_complaint' => 'ManpowerController@manpowerComplaint',
+    'Manpower/manpower_help' => 'ManpowerController@manpowerHelp',
+    'Manpower/manpower_workerprofile' => 'ManpowerController@ManpowerWorkerProfile',
+    'Manpower/manpower_history' => 'ManpowerController@manpowerHistory',
 
   //contractor section
   'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
@@ -72,11 +76,6 @@ $routes = [
     'Customer/customer_bookingform' => 'CustomerController@customerBookingform',
     'Customer/customer_help' => 'CustomerController@customerHelp',
 
-  //manpower
-  'Manpower/manpower_profile' => 'ManpowerController@manpowerProfile',
-  'Manpower/manpower_complaint' => 'ManpowerController@manpowerComplaint',
-  'Manpower/manpower_help' => 'ManpowerController@manpowerHelp',
-  'Manpower/manpower_booking' => 'ManpowerController@manpowerBooking',
 
 ];
 
