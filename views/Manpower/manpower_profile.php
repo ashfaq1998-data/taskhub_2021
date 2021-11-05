@@ -29,7 +29,7 @@ $manpowerDetails = $data['manpower_details'];
         </div>
         <div class="column2">
             <div class="personal-info-section">
-                <span>Personal Info</span>
+                <span>Company Info</span>
                 <a href="#">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
                 <div class="personal-info-section-content">
                     <img src="data:image/jpg;base64,<?php echo base64_encode($manpowerDetails->image); ?>" alt="Avatar" class="avatar">
@@ -45,7 +45,7 @@ $manpowerDetails = $data['manpower_details'];
                             </tr>
                             <tr>
                                 <td>E-mail</td>
-                                <!-- <td class="info-right-column"><?php echo $_SESSION['loggedin']['email']; ?></td> -->
+                                <td class="info-right-column"><?php echo $_SESSION['loggedin']['email']; ?></td>
                             </tr>
                             <tr>
                                 <td>Owner</td>
