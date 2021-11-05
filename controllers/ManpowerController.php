@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once ROOT  . '/View.php';
 require_once ROOT . '/models/HelpRequestModel.php';
 require_once ROOT . '/models/ComplaintModel.php';
@@ -26,6 +26,18 @@ class ManpowerController {
 
   public function ManpowerSearch(){
     $view = new View("Manpower/manpower_search");
+  }
+
+  public function ManpowerWorker(){
+    $view = new View("Manpower/manpower_worker");
+  }
+
+  public function ManpowerAddWorker(){
+    $view = new View("Manpower/manpower_addworker");
+  }
+
+  public function ManpowerBooking(){
+    $view = new View("Manpower/manpower_booking");
   }
 
   public function ManpowerHelp(){

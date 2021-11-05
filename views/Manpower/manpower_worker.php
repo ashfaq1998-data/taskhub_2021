@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -22,33 +22,61 @@
             <?php include_once('views/Manpower/manpower_sidebar.php'); ?>
         </div>
         <div class="column2">
+            <div class ="nameone" >
+                <p>Worker List</p>
+            </div>
             <div class="search-container">
                 <form action="/action_page.php">
                     <input type="text" placeholder="Search.." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
-                
-
-
             </div>
+
+            
 
             <div class="subrow">
                 <div class="subcolumn1">
                     <div class ="nameone">
-                        <p>Harish Kalyaan<p>
+                        <p>John Smith<p>
                     </div>
-                    <div class ="imageone">
+                    <!-- <div class ="imageone">
                         <img src="<?php echo fullURLfront; ?>/assets/images/plumber.png" alt="image1" width="100" height="100">
-                    </div> 
+                    </div>  -->
                 </div>
                 <div class="subcolumn2">
                     <div class="Description">
-                        <p>"An employee is someone who gets paid to work for a person or company. Workers don't need to work full time to be considered employees"</p>
+                        <p>Number Of Jobs - </p>
+                        <p>Job Type - </p>
+                    </div>
+                    <div class="Description">
+                        
                     </div>
                 </div>
                 <div class="subcolumn3">
                      <a href="" class="view-profile-btn">View Profile</a>
                 </div>
+
+                <div class="subcolumn1">
+                    <div class ="nameone">
+                        <p>John Smith<p>
+                    </div>
+                    <!-- <div class ="imageone">
+                        <img src="<?php echo fullURLfront; ?>/assets/images/plumber.png" alt="image1" width="100" height="100">
+                    </div>  -->
+                </div>
+                <div class="subcolumn2">
+                    <div class="Description">
+                        <p>Number Of Jobs - </p>
+                        <p>Job Type - </p>
+                    </div>
+                    <div class="Description">
+                        
+                    </div>
+                </div>
+                <div class="subcolumn3">
+                     <a href="" class="view-profile-btn">View Profile</a>
+                </div>
+            </div>
             </div>
         </div>
     </div>

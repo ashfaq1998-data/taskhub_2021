@@ -23,9 +23,33 @@ session_start();
     <?php include_once('views/Manpower/manpower_sidebar.php'); ?>
   </div>
   <div class="column2">
-    <h2>Column 2</h2>
-    <p>Some text..</p>
+    <h2>Manpower Agency Dashboard</h2>
+    
   </div>
+
+  <div class="subrow">
+            <div class="subcolumn1" style="background-color: #B4E1E7;">
+                <div class ="adimage">
+                    <img src="<?php echo fullURLfront; ?>/assets/images/pipe.jpg" alt="image1" width="180px" height="180px">
+                </div> 
+            </div>
+            <div class="subcolumn2" style="background-color: #B4E1E7;">
+                <div class="postedby">
+                    <p class="special-field"></p>
+                    <p class="field"> </p>
+                    <p class="field"> </p>
+                    <p class="field"> </p>
+                    <p class="field"> </p>
+                </div>
+            </div>
+            <div class="subcolumn3" style="background-color: #B4E1E7;">
+                <div class="details">
+                    <p class="special-field">Task Description</p>
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum justo condimentum, ullamcorper sapien sed, condimentum augue. Nullam non turpis vitae urna vestibulum dapibus. Duis scelerisque quis purus nec cursus.</p>
+                </div>
+            </div>
+        </div>
+
 </div>
 <br>
 <?php include_once('footer.php'); ?>

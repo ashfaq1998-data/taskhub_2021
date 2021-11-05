@@ -45,7 +45,7 @@ $manpowerDetails = $data['manpower_details'];
                             </tr>
                             <tr>
                                 <td>E-mail</td>
-                                <td class="info-right-column"><?php echo $_SESSION['loggedin']['email']; ?></td>
+                                <!-- <td class="info-right-column"><?php echo $_SESSION['loggedin']['email']; ?></td> -->
                             </tr>
                             <tr>
                                 <td>Owner</td>
