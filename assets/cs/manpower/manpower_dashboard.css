@@ -37,3 +37,82 @@
   clear: both;
 }
 
+h1 {
+  color: black;
+  font-size: 20px;
+}
+
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 10px;
+  text-align: center;
+  background: #FFFFFF;
+  color: black;
+  font-size: 20px;
+}
+
+/* Page Content */
+.content {
+  padding: 20px;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  height: 600px;
+
+  /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#Requests_Customer {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 25px;
+}
+
+#Requests_Customer td,
+#Requests_Customer th {
+  border: 1px solid #aaa;
+  padding: 8px;
+}
+
+#Requests_Customer tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+#Requests_Customer tr:nth-child(odd) {
+  background-color: #ccc;
+}
+
+#Requests_Customer tr:hover {
+  background-color: #bbb;
+}
+
+#Requests_Customer th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+#rcorners1 {
+  border-radius: 25px;
+  
+}
