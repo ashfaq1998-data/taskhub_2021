@@ -66,7 +66,7 @@ session_start();
             <div class="subcolumn3" style="background-color: #B4E1E7;">
                 <div class="details">
                     <p class="special-field">Task Description</p>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum justo condimentum, ullamcorper sapien sed, condimentum augue. Nullam non turpis vitae urna vestibulum dapibus. Duis scelerisque quis purus nec cursus.</p>
+                    <p class="description">This is a task discription that defines what tas has to be dione by the worker in the customer or the contractor advertiesment.</p>
                 </div>
             </div>
         </div>

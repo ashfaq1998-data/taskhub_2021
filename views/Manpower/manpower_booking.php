@@ -33,7 +33,7 @@ $JsonData = json_encode($data['bookingEvents']);
         <div class="column2">
 
         <div class ="nameone">
-            <p>Worker Booking Schedule<p>
+            <p>Company Booking Schedule<p>
         </div>
 
             <div id='calendar' class="calender-section"></div>
