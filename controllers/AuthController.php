@@ -82,7 +82,7 @@ class AuthController {
 					'email' => $loggedInUser->email
 					];
 					$loginError = "none";
-					header('location: ../nutritionist/dashboard');
+					header('location: ../Manpower/manpower_profile');
 
 				}else if ($loggedInUser->user_type_id == 5) {
 					$loggedInContractor = $contractorModel->getContractorByUserID($loggedInUser->id);

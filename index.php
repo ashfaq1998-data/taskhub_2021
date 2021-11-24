@@ -41,6 +41,13 @@ $routes = [
     'Manpower/manpower_profile' => 'ManpowerController@manpowerProfile',
     'Manpower/manpower_viewad' => 'ManpowerController@manpowerViewad',
     'Manpower/manpower_search' => 'ManpowerController@manpowerSearch',
+    'Manpower/manpower_worker' => 'ManpowerController@manpowerWorker',
+    'Manpower/manpower_addworker' => 'ManpowerController@manpowerAddWorker',
+    'Manpower/manpower_booking' => 'ManpowerController@manpowerBooking',
+    'Manpower/manpower_complaint' => 'ManpowerController@manpowerComplaint',
+    'Manpower/manpower_help' => 'ManpowerController@manpowerHelp',
+    'Manpower/manpower_workerprofile' => 'ManpowerController@ManpowerWorkerProfile',
+    'Manpower/manpower_history' => 'ManpowerController@manpowerHistory',
 
   //contractor section
   'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
@@ -70,30 +77,13 @@ $routes = [
     'Customer/customer_bookingform' => 'CustomerController@customerBookingform',
     'Customer/customer_help' => 'CustomerController@customerHelp',
 
-  //manpower
-  'Manpower/manpower_profile' => 'ManpowerController@manpowerProfile',
-  'Manpower/manpower_complaint' => 'ManpowerController@manpowerComplaint',
-  'Manpower/manpower_help' => 'ManpowerController@manpowerHelp',
-  'Manpower/manpower_booking' => 'ManpowerController@manpowerBooking',
 
 ];
 
 $found = false;
 $request_path_only = explode("?", $url)[0];
 
-foreach($routes as $route => $name) {
-  if ($route === $request_path_only) {
-    $found = true;
-    // UserController@addPost
-    $split = explode("@", $name);
-    // [UserController, addPost]
-    $controller_file = $split[0];
-    $method = $split[1];
 
-    require_once __DIR__ . "/controllers/" . $controller_file . ".php";
-    $controller = new $controller_file();
-    call_user_func([$controller, $method]);
-  }
 }
 
 

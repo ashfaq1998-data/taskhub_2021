@@ -29,28 +29,29 @@ $manpowerDetails = $data['manpower_details'];
         </div>
         <div class="column2">
             <div class="personal-info-section">
-                <span>Company Info</span>
+                <span>Worker Info</span>
                 <a href="#">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
                 <div class="personal-info-section-content">
-                    <img src="data:image/jpg;base64,<?php echo base64_encode($manpowerDetails->image); ?>" alt="Avatar" class="avatar">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($manpowerDetails->image); ?>" alt="Worker Avatar" class="avatar">
                     <div class="details">
                         <table>
                             <tr>
-                                <td>Company Name</td>
+                                <td>First Name</td>
                                 <td class="info-right-column"><?php echo $manpowerDetails->Company_Name; ?></td>
                             </tr>
                             <tr>
-                                <td>Registration No</td>
+                                <td>Last Name</td>
+                                <td class="info-right-column"><?php echo $manpowerDetails->Company_Name; ?></td>
+                            </tr>
+                            <tr>
+                                <td>NIC No</td>
                                 <td class="info-right-column"><?php echo $manpowerDetails->Company_Registration_No; ?></td>
                             </tr>
                             <tr>
                                 <td>E-mail</td>
-                                <td class="info-right-column"><?php echo $_SESSION['loggedin']['email']; ?></td>
+                                <!-- <td class="info-right-column"><?php echo $_SESSION['loggedin']['email']; ?></td> -->
                             </tr>
-                            <tr>
-                                <td>Owner</td>
-                                <td class="info-right-column"><?php echo $manpowerDetails->owner; ?></td>
-                            </tr>
+                            
                             <tr>
                                 <td>Contact Number</td>
                                 <td class="info-right-column"><?php echo $manpowerDetails->Contact_No; ?></td>
@@ -87,7 +88,7 @@ $manpowerDetails = $data['manpower_details'];
                             <td class="info-right-column-color"><?php echo $manpowerDetails->District; ?></td>
                         </tr>
                         <tr>
-                            <td>No of Workers</td>
+                            <td>Employee No</td>
                             <td class="info-right-column-color"><?php echo $manpowerDetails->No_of_workers; ?></td>
                         </tr>
                         <tr>
@@ -112,12 +113,7 @@ $manpowerDetails = $data['manpower_details'];
                     </table>
                 </div>
             </div>
-            <div class="bio-info">
-                <h3>Bio Information</h3>
-                <div class="bio-info-content">
-                    <p><?php echo $manpowerDetails->bio; ?></p>
-                </div>
-            </div>
+            
         </div>
     </div>
     <?php include_once('footer.php'); ?>
