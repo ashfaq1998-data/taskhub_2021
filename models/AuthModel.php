@@ -33,4 +33,48 @@ class AuthModel extends Database {
     }
   } 
 
+  public function findUserByEmail($email){
+    $sql = "SELECT * FROM users WHERE email='$email'";
+    $query = $this->con->query($sql);
+    $query->execute();
+
+    if ($query->rowCount() > 0){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function updateVerificationCode($code, $email){
+    $sql = "UPDATE users
+            SET verification_code = '$code'
+            WHERE email = '$email'";
+    if($this->con->query($sql)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function getUserByEmail($email) {
+    $sql = "SELECT * FROM users WHERE email='$email'"; 
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetch(PDO::FETCH_OBJ);
+
+    return $data;
+  }
+
+  public function resetPassword($password,$email){
+    $sql = "UPDATE users 
+            SET password='$password' 
+            WHERE email='$email'";
+
+    if($this->con->query($sql)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
 }

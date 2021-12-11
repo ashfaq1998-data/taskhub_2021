@@ -65,6 +65,7 @@ $routes = [
   'Contractor/contractor_viewadmyad'=> 'ContractorController@contractorViewadmyad',
   'Contractor/contractor_myadedit'=>'ContractorController@contractorMyadedit',
   'Contractor/contractor_confirmeditad'=>'ContractorController@contractorConfirmeditad',
+  'Contractor/contractor_editprofile'=>'ContractorController@contractorEditprofile',
 
   //customer section
 
@@ -82,19 +83,7 @@ $routes = [
 $found = false;
 $request_path_only = explode("?", $url)[0];
 
-foreach($routes as $route => $name) {
-  if ($route === $request_path_only) {
-    $found = true;
-    // UserController@addPost
-    $split = explode("@", $name);
-    // [UserController, addPost]
-    $controller_file = $split[0];
-    $method = $split[1];
 
-    require_once __DIR__ . "/controllers/" . $controller_file . ".php";
-    $controller = new $controller_file();
-    call_user_func([$controller, $method]);
-  }
 }
 
 

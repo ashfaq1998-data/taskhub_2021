@@ -2,13 +2,7 @@
 
 class Validation{
 
-    public function validateEmail($email){
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return true;
-        }else{
-            return false;
-        }
-    }
+    
 
     public function validatePassword($password){
         $error = "";
@@ -29,25 +23,6 @@ class Validation{
         return $error;
     }
 
-    public function validatePhoneNumber($phoneNum){
-        $error = "";
-        $phone_length = strlen($phoneNum);
-        if($phone_length != 10 || !(is_numeric($phoneNum))) {
-            $error = 'Please enter the valid phone number';
-        }
-        return $error;
-    }
-
-    
-    public function validateName($name){
-        $error = "";
-        $nameValidation =  "/^[a-zA-z]*$/";
-        if (!preg_match($nameValidation, $name)) {
-            $error = 'Names should contain only alphabets';
-        }
-        
-        return $error;
-    }
 
 }
 
