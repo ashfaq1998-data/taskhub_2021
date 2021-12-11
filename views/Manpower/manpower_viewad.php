@@ -51,16 +51,38 @@ session_start();
         <div class="subrow">
             <div class="subcolumn1" style="background-color: #B4E1E7;">
                 <div class ="adimage">
-                    <img src="<?php echo fullURLfront; ?>/assets/images/pipe.jpg" alt="image1" width="180px" height="180px">
+                    <img src="<?php echo fullURLfront; ?>/assets/images/pipes.jpg" alt="image1" width="180px" height="180px">
                 </div> 
             </div>
             <div class="subcolumn2" style="background-color: #B4E1E7;">
                 <div class="postedby">
                     <p class="special-field">Posted By:</p>
-                    <p class="field">Name : James</p>
-                    <p class="field">Email : abc@gmail.com</p>
-                    <p class="field">BID : Rs 5000</p>
+                    <p class="field">Name : Nihal</p>
+                    <p class="field">Email : example@gmail.com</p>
+                    <p class="field">BID : Rs 15000</p>
                     <p class="field">Location : 36, Reid avenue, Colombo 3</p>
+                </div>
+            </div>
+            <div class="subcolumn3" style="background-color: #B4E1E7;">
+                <div class="details">
+                    <p class="special-field">Task Description</p>
+                    <p class="description">This is a task discription that defines what tas has to be dione by the worker in the customer or the contractor advertiesment.</p>
+                </div>
+            </div>
+        </div>
+        <div class="subrow">
+            <div class="subcolumn1" style="background-color: #B4E1E7;">
+                <div class ="adimage">
+                    <img src="<?php echo fullURLfront; ?>/assets/images/pipe2.jpg" alt="image1" width="180px" height="180px">
+                </div> 
+            </div>
+            <div class="subcolumn2" style="background-color: #B4E1E7;">
+                <div class="postedby">
+                    <p class="special-field">Posted By:</p>
+                    <p class="field">Name : Kumara</p>
+                    <p class="field">Email : example2@gmail.com</p>
+                    <p class="field">BID : Rs 20000</p>
+                    <p class="field">Location : No 1, First Lane, Gampaha</p>
                 </div>
             </div>
             <div class="subcolumn3" style="background-color: #B4E1E7;">

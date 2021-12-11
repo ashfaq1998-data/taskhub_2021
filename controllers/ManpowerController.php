@@ -16,7 +16,14 @@ class ManpowerController {
   }
 
   public function ManpowerProfile(){
-    $view = new View("Manpower/manpower_profile");
+    $manpowerModel = new ManpowerModel();
+
+    $userID = $_SESSION['loggedin']['user_id'];
+
+    $manpowerDetails = $manpowerModel->getManpowerByUserID($userID);
+    $data['manpower_details'] = $manpowerDetails;
+
+    $view = new View("Manpower/manpower_profile",$data);
     
   }
   
@@ -33,6 +40,103 @@ class ManpowerController {
   }
 
   public function ManpowerAddWorker(){
+
+    // $validation = new Validation();
+    // $authModel = new AuthModel();
+    // $manpowerModel = new ManpowerModel();
+    // $usersModel = new UsersModel();
+
+
+    // if (!empty($_POST['manpower_register'] && $_POST['manpower_register'] == 'submitted')) {
+    //   $data['inputted_data'] = $_POST;
+    //   $companyName = $_POST['company_name'];
+    //   $companyRegister = $_POST['company_register'];
+    //   $district = $_POST['district'];
+    //   $phoneNum = $_POST['phone_num'];
+    //   $address = $_POST['address'];
+    //   $email = $_POST['email'];
+    //   $password = $_POST['password'];
+    //   $confirmPassword = $_POST['confirm_password'];
+    //   $registerError = "";
+
+    //   //validate input fields
+    //   if (
+    //     empty($companyName) || empty($companyRegister) || empty($district) || empty($phoneNum)  || empty($address)
+    //     || empty($email) || empty($password) || empty($confirmPassword)
+    //   ) {
+    //     $registerError = "Please fill all the empty fields";
+    //   }
+
+    //   //validate phone number
+    //   if ($registerError == "") {
+    //     $registerError = $validation->validatePhoneNumber($phoneNum);
+    //   }
+
+
+
+    //   //validate email
+    //   if ($registerError == "") {
+    //     if (!$validation->validateEmail($email)) {
+    //       $registerError = "Please enter a valid email format";
+    //     } else {
+    //       //Check if email exists.
+    //       if ($usersModel->checkUserEmail($email)) {
+    //         $registerError = 'This Email is already taken.';
+    //       }
+    //     }
+    //   }
+
+    //   //validate password
+    //   if ($registerError == "") {
+    //     $registerError = $validation->validatePassword($password);
+    //   }
+
+    //   //validate password
+    //   if ($registerError == "") {
+    //     $registerError = $validation->validateConfirmPassword($password, $confirmPassword);
+    //   }
+
+
+
+
+
+
+
+
+    //   //registration after validation
+    //   if ($registerError == "") {
+    //     $userId = $usersModel->generateUserID();
+    //     $manpowerId = $manpowerModel->generateManpowerID();
+    //     // Hashing the password to store password in db
+    //     $password = password_hash($password, PASSWORD_DEFAULT);
+
+    //     $userDetails = [
+    //       'id' => $userId,
+    //       'email' => $email,
+    //       'password' => $password,
+    //       'user_type_id' => 4,
+    //     ];
+
+    //     $manpowerDetails = [
+    //       'Manpower_Agency_ID' => $manpowerId,
+    //       'Company_Name' => $companyName,
+    //       'Company_Registration_No' => $companyRegister,
+    //       'District' => $district,
+    //       'Contact_No' => $phoneNum,
+    //       'Address' => $address,
+    //       'user_id' => $userId
+    //     ];
+
+    //     if ($authModel->register($userDetails)) {
+    //       //add new employee
+    //       $manpowerModel->addNewManpower($manpowerDetails);
+    //       header('location: ' . fullURLfront . '/auth/login');
+    //     } else {
+    //       die('Something went wrong.');
+    //     }
+    //   }
+    //   $data['registerError'] = $registerError;
+    // }
     $view = new View("Manpower/manpower_addworker");
   }
 
