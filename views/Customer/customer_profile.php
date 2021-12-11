@@ -11,9 +11,6 @@
     // Calculate the time difference between the two dates
     $diff = $now->diff($dob);
     $age = $diff->y;
-    if($age == 0){
-        $age = "-";
-    }
 
 ?>
 
@@ -110,7 +107,7 @@
                 <div class="billing-info">
                     <h3>Billing Information</h3>
                     <div class="billing-info-content">
-                        <table style="width: 40%;">
+                        <table>
                             <tr>
                                 <td>Card Number</td>
                                 <td class="info-right-column-color"> <?php echo $customerDetails->Card_Number; ?></td>

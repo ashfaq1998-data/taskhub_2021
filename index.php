@@ -20,8 +20,9 @@ $routes = [
     'auth/login' => 'AuthController@login',
     'auth/logout' => 'AuthController@logout',
     'auth/employee_register' => 'AuthController@employeeRegister',
-    'auth/customer_register' => 'AuthController@customerRegister',    //new
+    'auth/customer_register' => 'AuthController@customerRegister',
     'auth/forgot_password' => 'AuthController@forgotPassword',
+    'auth/logout' => 'AuthController@logout',
 
   //employee section
     'Employee/employee_dashboard' => 'EmployeeController@employeeDashboard',
@@ -41,13 +42,20 @@ $routes = [
     'Customer/customer_calender' => 'CustomerController@customerCalender',
     'Customer/customer_history' => 'CustomerController@customerHistory',
     'Customer/customer_viewad' => 'CustomerController@customerViewad',
+    'Customer/customer_viewmyad' => 'CustomerController@customerViewmyad',
     'Customer/customer_postad' => 'CustomerController@customerPostad',
+    'Customer/customer_payment' => 'CustomerController@customerPayment',
     'Customer/customer_profile' => 'CustomerController@customerProfile',
     'Customer/customer_profileEd' => 'CustomerController@customerProfileEd',
+
+
+    'Customer/customer_profileEdUp' => 'CustomerController@customerProfileEdUp',
+    // 'Customer/customer_serviceList' => 'CustomerController@customerSearch',
+    'Customer/customer_search' => 'CustomerController@customerSearch',
+
     // 'Customer/customer_profileEdit' => 'CustomerController@customerProfileEdit',
     'Customer/customer_service' => 'CustomerController@customerService',
     'Customer/customer_serviceLocation' => 'CustomerController@customerServiceLocation',
-    'Customer/customer_serviceList' => 'CustomerController@customerServiceList',
 
 ];
 

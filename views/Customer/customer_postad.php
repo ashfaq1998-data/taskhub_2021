@@ -52,13 +52,14 @@ session_start();
                         <div class ="postbutton">
                             <button type="reset" class="button cancel"> Cancel</button>
                             &nbsp &nbsp
-                            <button type="submit" name="customer_postad" value="submitted" class="button submit"> Post Advertisement</button>
+                            <button type="submit" name="customer_postad" value="submitted" class="button submit"> 
+                            <a href="<?php echo fullURLfront; ?>/Customer/customer_postad">Post Advertisement</a></button>
                             <br>
-                            <?php if(!empty($data['ComplaintError']) && $data['ComplaintError'] != "none") {?>
+                            <!-- <?php if(!empty($data['ComplaintError']) && $data['ComplaintError'] != "none") {?>
                                 <p class="error"><?php echo $data['ComplaintError']; ?></p>
                             <?php }else if($data['ComplaintError'] == "none"){?>
                                 <p class="success">Your advertisement posted successFully <i style="color: green;" class="fa fa-check" aria-hidden="true"></i></p>
-                            <?php }?>
+                            <?php }?> -->
                         </div>
                     </form> 
                 </div>

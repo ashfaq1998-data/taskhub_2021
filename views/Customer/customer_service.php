@@ -26,16 +26,16 @@ session_start();
     </div>
     <div class="column2">
             <div class="search-container">
-                <form action="<?php echo fullURLfront; ?>/Customer/customer_service" method="POST">
-                    <input type="search" placeholder="Search for services, workers, contractors or manpower agencies" name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                <form action="<?php echo fullURLfront; ?>/Customer/customer_search" method="post">
+                    <input type="search" placeholder="Search for services, workers, contractors or manpower agencies" name="search" id="search">
+                    <button type="submit" name="customer_search" value="submitted"><i class="fa fa-search"></i></button>
                 </form>
             </div>
         
             <center><div class="sortinglist">
                 <form action="<?php echo fullURLfront; ?>/Customer/customer_serviceList" method="POST">
                     <select name="service_type" id="service_type">
-                        <option value="none" selected>Select the service type</option>
+                        <option value="none" value disabled selected>Select the service type</option>
                         <option value="plumb">Plumbing</option>
                         <option value="carpen">Carpentry</option>
                         <option value="elec">Electrical help</option>
@@ -45,14 +45,14 @@ session_start();
                     </select><br><br>
 
                     <select name="employee_type" id="employee_type">
-                        <option value="none" selected>Select the employee type</option>
+                        <option value="none" value disabled selected>Select the employee type</option>
                         <option value="manpower">Manpower Agency</option>
                         <option value="customer">Employee</option>
                         <option value="contractor">Contractor</option>
                     </select><br><br><br><br>
 
                     <select name="location" id="location">
-                        <option value="none" selected>Location</option>
+                        <option value="none" value disabled selected>Location</option>
                         <option value="manpower">Matara</option>
                         <option value="customer">Colombo</option>
                         <option value="contractor">Galle</option>

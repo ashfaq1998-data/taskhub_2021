@@ -6,6 +6,7 @@ require_once ROOT . '/model/HelpRequestModel.php';
 require_once ROOT . '/model/ComplaintModel.php';
 require_once ROOT . '/model/CustomerModel.php';
 require_once ROOT . '/model/BookingModel.php';
+require_once ROOT . '/model/CustomerProfileModel.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -80,8 +81,16 @@ class CustomerController {
     $view = new View("Customer/customer_viewad");
   }
 
+  public function customerViewmyad(){
+    $view = new View("Customer/customer_viewmyad");
+  }
+
   public function customerPostad(){
     $view = new View("Customer/customer_postad");
+  }
+
+  public function customerPayment(){
+    $view = new View("Customer/customer_payment");
   }
 
   public function customerProfile(){
@@ -91,13 +100,64 @@ class CustomerController {
     $view = new View("Customer/customer_profile",$data);
   }
 
+
+
   public function customerProfileEd(){
-    $view = new View("Customer/customer_profileEd");
+    $customerModel = new CustomerModel();
+    $userID = $_SESSION['loggedin']['user_id'];
+    $data['customer_details'] = $customerModel->getCustomerByUserID($userID);
+
+    $view = new View("Customer/customer_profileEd",$data);
+
+     
+       
+  } 
+  
+  public function customerProfileEdUp(){
+    $dataEdit = $_POST['customer_edit'];
+    $fn = $_POST['f_name'];
+    $ln = $_POST['l_name'];
+    $nic = $_POST['nic'];
+    $addr = $_POST['address'];
+    $cont = $_POST['phone_num'];
+    $bio = $_POST['bio'];
+    $dob = $_POST['dob'];
+    $cardno = $_POST['card_num'];
+    $cvv = $_POST['cvv'];
+    $exp = $_POST['expiry'];
+    
+    $edit = new CustomerProfileModel();
+
+    if ($edit->customerProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit)) {
+      $edit->customerProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit);
+      header('location: ' . fullURLfront . '/Customer/customer_profile');
+    } 
+    else {
+      die('Something went wrong dsghjgdsahjdga.');
+    }
+
+
+    $view = new View("Customer/customer_profile");
   }
 
-  // public function customerProfileEdit(){
-  //   $view = new View("Customer/customer_profileEdit");
-  // }
+
+  public function customerSearch(){
+    $dataEdit = $_POST['customer_search'];
+    $search = new CustomerModel();
+
+    if (true) {
+      $data = $search->search($dataEdit);
+      $view = new View("Customer/customer_search");
+      // header('location: ' . fullURLfront . '/Customer/customer_search' . $search);
+    } 
+    else {
+      die('Something went wrong dsghjgdsahjdga.');
+    }
+  }
+
+
+
+
 
   public function customerService(){
     $view = new View("Customer/customer_service");

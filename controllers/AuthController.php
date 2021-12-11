@@ -462,7 +462,7 @@ class AuthController {
 			];
 
             if ($authModel->register($userDetails)) {
-				//add new employee
+				//add new customer
 				$customerModel->addNewCustomer($customerDetails);
                 header('location: ' . fullURLfront . '/auth/login');
             } else {
@@ -576,6 +576,12 @@ class AuthController {
 
   public function forgotPassword(){
     $view = new View("auth/forgot_password");
+  }
+
+  public function logout(){
+	unset($_SESSION['loggedin']);
+	header('Location: ' . fullURLfront . '/main/index');
+	die();
   }
 
   

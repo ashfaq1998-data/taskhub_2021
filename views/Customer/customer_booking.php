@@ -58,7 +58,11 @@ session_start();
                             <label for="message">Anything Else?</label>
                             <textarea id="message" name="message" placeholder="Tell us anything else that might be important."></textarea>
                         </div>
-                    <button id="submit" type="submit" name="submit">Submit</button>
+                        <center><div class="submit">
+                            <!-- <button id="submit" type="submit" name="submit" class="sub">Submit</button> -->
+                            <button id="submit" type="submit" name="submit" value="submitted" class="sub"> 
+                            <a href="<?php echo fullURLfront; ?>/Customer/customer_payment">Submit</a></button>
+                        </div></center>
                     </form>
                 </div>
             </div>

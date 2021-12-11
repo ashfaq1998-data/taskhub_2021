@@ -1,6 +1,4 @@
-<?php
-// session_start();
-?>
+<?php ?>
 <div class="sidebar">
     <ul>
         <li class="top"><a href="<?php echo fullURLfront; ?>/Customer/customer_service"><i class="fa fa-search"></i> Services</a></li>

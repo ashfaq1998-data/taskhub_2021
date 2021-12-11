@@ -96,7 +96,20 @@ h2{
 }
   
   /* Style the submit button with a specific background color etc */
-.contact-section-form button{
+
+
+#click {
+    text-decoration: underline;
+}
+
+
+
+.button_section{
+    display: block;
+    float: right;
+}
+
+.button_section button{
     margin-top: 5px;
     padding: 12px 20px;
     border: none;
@@ -108,22 +121,31 @@ h2{
     font-size: 16px;
 }
 
-.clearbutton {
+.cancel {
     background-color: #ffffff;
     color: grey;
 }
 
-.submitbutton {
+.cancel:hover {
+    color: black;
+    font-size: 18px;
+    font-weight: lighter;
+    transition: 0.15s;
+    cursor: pointer;
+    border: 2px solid rgb(166, 226, 236);
+}
+
+.submit {
     background-color: #108882;
     color: white;
 }
 
-.Button-section{
-  float: right;
-}
-
-#click {
-    text-decoration: underline;
+.submit:hover {
+    background-color: rgb(255, 83, 83);
+    color: black;
+    font-size: 18px;
+    transition: 0.15s;
+    cursor: pointer;
 }
 
 

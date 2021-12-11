@@ -90,6 +90,7 @@ input[type=radio]:invalid::after{
     color: #ccc;
 }
 
+
 .ratebutton{
     display: block;
     float: right;
@@ -112,7 +113,24 @@ input[type=radio]:invalid::after{
     color: grey;
 }
 
+.cancel:hover {
+    color: black;
+    font-size: 18px;
+    font-weight: lighter;
+    transition: 0.15s;
+    cursor: pointer;
+    border: 2px solid rgb(166, 226, 236);
+}
+
 .submit {
     background-color: #108882;
     color: white;
+}
+
+.submit:hover {
+    background-color: rgb(255, 83, 83);
+    color: black;
+    font-size: 18px;
+    transition: 0.15s;
+    cursor: pointer;
 }

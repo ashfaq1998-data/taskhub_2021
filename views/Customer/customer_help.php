@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -53,9 +53,9 @@
                         <textarea id="message" name="message" placeholder="Write something.." style="height:200px"
                         required></textarea>
 
-                        <div class = "Button-section">
-                            <button type="reset" class="clearbutton">Clear</button> &nbsp &nbsp
-                            <button type="submit" class="submitbutton">Request Help <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                        <div class = "button_section">
+                            <button type="reset" class="cancel">Cancel</button> &nbsp &nbsp
+                            <button type="submit" class="submit">Request Help <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         </div>
                     </form>
                 </div>

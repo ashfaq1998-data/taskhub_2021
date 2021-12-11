@@ -129,25 +129,60 @@ hr {
 }
 
 button {
-  height: 40px;
-  width: 100px;
   background: rgb(42, 141, 120);
   border: none;
   color: white;
-  font-size: 1.3em;
+  font-size: 1em;
   font-family: 'Nanum Gothic';
-  border-radius: 4px;
+  /* border-radius: 4px; */
   cursor: pointer;
-  padding: 10px;
-  align-items: center;
-  margin-top: 3vh;
-  margin-bottom: 10px;
-  transform: translateX(31.5vh);
-  justify-content: center;
-  position: relative;
-  display: flex;
+  padding: 0px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 18px;
 }
 
 button:hover {
-  border: 2px solid rgb(166, 226, 236);
+  color: black;
+  background-color: rgb(255, 38, 38);
+}
+
+/* .submit {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.sub:hover {
+  border: 3px solid rgb(187, 255, 252);
+  border-radius: 6px;
+  padding: 12px 17px 12px 17px;
+  text-align: center;
+  background: rgb(255, 83, 83);
+  color: black;
+} */
+
+.submit a {
+  background-color: #108882;
+  color: white;
+  margin-top: 30px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid #a7e9e6;
+  cursor: pointer;
+  width: auto;
+  font-family: 'Nanum Gothic';
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.submit a:hover {
+  background-color: rgb(255, 83, 83);
+  color: black;
+  font-size: 1.45em;
+  transition: 0.15s;
+  cursor: pointer;
 }

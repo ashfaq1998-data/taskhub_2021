@@ -33,6 +33,12 @@ session_start();
         </div>
        
         <div class="sortinglist">
+
+            <div class="view" style="float: left; padding: 14px;">
+                <button style="position: relative; float: left;" type="submit" class="proceed"> <a style="color: black;"
+                href="<?php echo fullURLfront; ?>/Customer/customer_viewmyad">My Ads</a></button>
+            </div>
+
             <form action="/action_page.php" style="float: right;">
                 <label for="area">Living area:</label>
                 <select name="area" id="area">
@@ -61,42 +67,40 @@ session_start();
                     <option value="customer">Employee</option>
                     <option value="contractor">Contractor</option>
                 </select>
-
-
             </form>
 
         </div>
         <br><br>
         
         <div class="subrow" >
-                <div class="subcolumn1">
-                    <div class ="adimage">
-                        <img src="<?php echo fullURLfront; ?>/assets/images/pipe.jpg" alt="image1" width="180px" height="180px">
-                    </div> 
-                </div>
-                <div class="subcolumn2">
-                    <div class="postedby">
-                        <p style="font-family: Poppins; font-style: normal; font-weight: 500; font-size: 18px; line-height: 27px; color:#108882;">Posted By:</p>
-                        <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Name : James</p>
-                        <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Email : abc@gmail.com</p>
-                        <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Start from : LKR 5000</p>
-                        <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Location : 36, Reid avenue, Colombo 3</p>
-                    </div>
-                </div>
-                <div class="subcolumn3">
-                    <div class="details">
-                        <p style="font-family: Poppins; font-style: normal; font-weight: 500; font-size: 18px; line-height: 27px; color:#108882;">Task Description</p>
-                        <p style="color:#61687F; font-family: Roboto; font-style: normal; font-size: 18px; line-height: 21px; ">
-                        I have experience in plumbing for nearly 10 years.
-                        Replacing washing machine and dryer machine Hoses, and pipe lines minimum charge 2 hours
-                        Willing to give the best service. Best regards!!</p>
-                    </div>
-                </div>
-                <div class="view">
-                    <button style="float: right;" type="submit" class="proceed"> <a style="color: black;" href="<?php echo fullURLfront; ?>/Customer/customer_viewad">View Profile</a></button>
+            <div class="subcolumn1">
+                <div class ="adimage">
+                    <img src="<?php echo fullURLfront; ?>/assets/images/pipe.jpg" alt="image1" width="180px" height="180px">
+                </div> 
+            </div>
+            <div class="subcolumn2">
+                <div class="postedby">
+                    <p style="font-family: Poppins; font-style: normal; font-weight: 500; font-size: 18px; line-height: 27px; color:#108882;">Posted By:</p>
+                    <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Name : James</p>
+                    <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Email : abc@gmail.com</p>
+                    <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Start from : LKR 5000</p>
+                    <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Location : 36, Reid avenue, Colombo 3</p>
                 </div>
             </div>
-
+            <div class="subcolumn3">
+                <div class="details">
+                    <p style="font-family: Poppins; font-style: normal; font-weight: 500; font-size: 18px; line-height: 27px; color:#108882;">Task Description</p>
+                    <p style="color:#61687F; font-family: Roboto; font-style: normal; font-size: 18px; line-height: 21px; ">
+                    I have experience in plumbing for nearly 10 years.
+                    Replacing washing machine and dryer machine Hoses, and pipe lines minimum charge 2 hours
+                    Willing to give the best service. Best regards!!</p>
+                </div>
+            </div>
+            <div class="view">
+                <button style="float: right;" type="submit" class="proceed"> <a style="color: black;"
+                href="<?php echo fullURLfront; ?>/Customer/customer_viewad">Request</a></button>
+            </div>
+        </div>
    </div>
 </div>
 <br>

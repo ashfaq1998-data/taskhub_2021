@@ -1,5 +1,7 @@
 <?php
-session_start();
+    session_start();
+
+    $details = $data['customer_search'];
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +30,7 @@ session_start();
                 <div class="product-details">
                 
                     <!--  Product Name -->
-                    <h1>Avril Lavigne</h1>
+                    <h1>Avril</h1>
                     <!--    <span class="hint new">New</span> -->
                     <!--    <span class="hint free-shipping">Free Shipping</span> -->
                     <!--    the Product rating -->
@@ -92,7 +94,6 @@ session_start();
                         <li><strong>Employer type </stron>&nbsp&nbsp&nbsp&nbspEmployee</li>
                         <li><strong>Experience </strong>&nbsp&nbsp&nbsp&nbsp2 Years</li>
                         <li><strong>Contact Me </strong>&nbsp&nbsp&nbsp&nbsp0717773445</li>
-                        <li><strong>Reliability </strong>&nbsp&nbsp&nbsp&nbsp100%</li>
                         </ul>
                     </div>
                 </div>
