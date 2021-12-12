@@ -1,9 +1,6 @@
 <?php
-session_start();
+
 require_once ROOT  . '/View.php';
-require_once ROOT . '/models/HelpRequestModel.php';
-require_once ROOT . '/models/ComplaintModel.php';
-require_once ROOT . '/models/EmployeeModel.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -16,44 +13,7 @@ class EmployeeController {
   }
 
   public function employeeHelp() {
-    
-    $helpRequestModel = new HelpRequestModel();
-    $employeeModel = new EmployeeModel();
-    if(!empty($_POST['employee_help'] && $_POST['employee_help'] == 'submitted') ){
-      $data['inputted_data'] = $_POST;
-		  $subject = $_POST['subject'];
-		  $message = $_POST['message'];
-      $HelpError = "";
-
-      if(empty($subject) || empty($message))
-      {
-          $HelpError = "Please fill all the empty fields";
-      }
-
-      if($HelpError == ""){
-        $requestID = $helpRequestModel->generateEmployeeHelpID();
-        $userID = $_SESSION['loggedin']['user_id'];
-        $empDetails = $employeeModel->getEmployeeByUserID($userID);
-        $currentDateTime = date('Y-m-d H:i:s');
-      
-        $employeeHelpDetails = [
-          'RequestID' => $requestID,
-          'Date' => $currentDateTime,
-          'Subject' => $subject,
-          'Content' => $message,
-          'EmployeeID' => $empDetails->EmployeeID
-          
-        ];
-
-        $helpRequestModel->addNewEmployeeHelp($employeeHelpDetails);
-        
-      }
-
-      $data['HelpError'] = $HelpError;
-      
-    }
-
-    $view = new View("Employee/employee_help",$data);
+    $view = new View("Employee/employee_help");
   }
 
   public function employeeHistory() {
@@ -61,39 +21,7 @@ class EmployeeController {
   }
 
   public function employeeComplaint() {
-    $complaintModel = new ComplaintModel();
-    $employeeModel = new EmployeeModel();
-
-    if(!empty($_POST['employee_complaint'] && $_POST['employee_complaint'] == 'submitted')){
-      $data['inputted_data'] = $_POST;
-		  $subject = $_POST['subject'];
-		  $complaintmessage = $_POST['complaintmessage'];
-      $rating = $_POST['rating'];
-      $ComplaintError = "";
-
-      if($ComplaintError == ""){
-        $complaintID = $complaintModel->generateEmployeeComplaintID();
-        $currentDateTime = date('Y-m-d H:i:s');
-        $userID = $_SESSION['loggedin']['user_id'];
-        $employeeDetails = $employeeModel->getEmployeeByUserID($userID);
-
-
-        $employeeComplaints = [
-          'ComplaintID' => $complaintID,
-          'Date' => $currentDateTime,
-          'Subject' => $subject,
-          'Content' => $complaintmessage,
-          'Rates' => $rating,
-          'EmployeeID' => $employeeDetails->EmployeeID
-        ];
-
-        $complaintModel-> addNewEmployeeComplaint($employeeComplaints);
-
-      }
-
-      $data['ComplaintError'] = $ComplaintError;
-    }
-    $view = new View("Employee/employee_complaint",$data);
+    $view = new View("Employee/employee_complaint");
   }
 
   public function employeeBooking() {
@@ -101,11 +29,7 @@ class EmployeeController {
   }
 
   public function employeeProfile(){
-    $employeeModel = new EmployeeModel();
-    $userID = $_SESSION['loggedin']['user_id'];
-    $data['employee_details'] = $employeeModel->getEmployeeByUserID($userID);
-    $view = new View("Employee/employee_profile",$data);
-    
+    $view = new View("Employee/employee_profile");
   }
   public function employeeSearch(){
     $view = new View("Employee/employee_search");
@@ -113,6 +37,58 @@ class EmployeeController {
 
   public function employeeViewad(){
     $view = new View("Employee/employee_viewad");
+  }
+
+
+
+
+  //customer functions
+  public function customerBooking() {
+    $view = new View("Customer/customer_booking");
+  }
+
+  public function customerComplaint() {
+    $view = new View("Customer/customer_complaint");
+  }
+
+  public function customerDashboard() {
+    $view = new View("Customer/customer_dashboard");
+  }
+
+  public function customerHelp() {
+    $view = new View("Customer/customer_help");
+  }
+
+  public function customerCalender() {
+    $view = new View("Customer/customer_calender");
+  }
+
+  public function customerHistory() {
+    $view = new View("Customer/customer_history");
+  }
+
+  public function customerViewad(){
+    $view = new View("Customer/customer_viewad");
+  }
+
+  public function customerProfile(){
+    $view = new View("Customer/customer_profile");
+  }
+
+  public function customerProfileEdit(){
+    $view = new View("Customer/customer_profileEdit");
+  }
+
+  public function customerService(){
+    $view = new View("Customer/customer_service");
+  }
+
+  public function customerServiceLocation(){
+    $view = new View("Customer/customer_serviceLocation");
+  }
+
+  public function customerServiceList(){
+    $view = new View("Customer/customer_serviceList");
   }
  
 }

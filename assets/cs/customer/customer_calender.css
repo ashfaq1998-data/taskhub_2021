@@ -1,0 +1,70 @@
+
+.calender-section{
+    position: relative;
+    display: block;
+    float: left;
+    width: 65%;
+    margin-right: 30px;
+    height: 700px;
+    top: 50px;
+    left: 10px;
+}
+
+.booking-details-section{
+    position: relative;
+    display: block;
+    float: right;
+    background-color: #B4e1e7;
+    width: 32%;
+    height: 70vh;
+    margin: 0;
+    padding: 5px 20px 50px 20px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #108882;
+    top: 50px;
+    left: 25px;
+}
+
+.booking-details-section h3 {
+    position: relative;
+    top: 20px;
+}
+
+.booking-details-section-content{
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0;
+    border-radius: 10px;
+    text-align: left;
+    padding: 10px 20px 20px 20px;
+    bottom: 100px;
+}
+
+.booking-details-section-content img {
+    position: relative;
+    width: 40%;
+    height: 50%;
+    top: 53vh;
+    transform: translateX(90px);
+}
+
+.booking-details-section-content input[type=text]{
+    background-color: white;
+    color: black;
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #108882; 
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+.fc-event .fc-event-main {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}

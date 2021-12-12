@@ -6,7 +6,7 @@ class ManpowerModel extends Database {
 
   //for now for profile section
   public function getManpowerByUserID($user_id) {
-    $sql = "SELECT * FROM manpowerAgency WHERE user_id='$user_id'"; 
+    $sql = "SELECT * FROM manpower_agency WHERE user_id='$user_id'"; 
     $query = $this->con->query($sql);
     $query->execute();
     $data = $query->fetch(PDO::FETCH_OBJ);
@@ -16,14 +16,15 @@ class ManpowerModel extends Database {
 
   public function addNewManpower($manpowerDetails) {
     $manpowerId = $manpowerDetails['Manpower_Agency_ID'];
-    $Company_name = $manpowerDetails['Company_Name'];
-    $Company_regno = $manpowerDetails['Company_Registration_No'];
+    $companyName = $manpowerDetails['Company_Name'];
+    $companyRegister = $manpowerDetails['Company_Registration_No'];
+    $district = $manpowerDetails['District'];
     $address = $manpowerDetails['Address'];
     $phoneNum = $manpowerDetails['Contact_No'];
     $userId = $manpowerDetails['user_id'];
 
-    $sql = "INSERT INTO manpower_agency (Manpower_Agency_ID,Company_Name,Company_Registration_No,Address,Contact_No, user_id) 
-            VALUES ('$manpowerId', '$Company_name', '$Company_regno', '$address', '$phoneNum', '$userId')";
+    $sql = "INSERT INTO manpower_agency (Manpower_Agency_ID, Company_Name, Company_Registration_No, District, Address, Contact_No, user_id) 
+            VALUES ('$manpowerId', '$companyName', '$companyRegister', '$district', '$address', '$phoneNum', '$userId')";
 
     if($this->con->query($sql)){
         return true;

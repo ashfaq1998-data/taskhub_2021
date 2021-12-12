@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 ?>
     <!DOCTYPE html> 
     <html lang="en">
@@ -20,10 +20,10 @@ session_start();
                     <div class="login-section-form">
                         <h2 style="color: white;">Sign In</h2><br>
                         <form action="<?php echo fullURLfront; ?>/auth/login" method="POST"> 
-                            <input type="text" id="email" name="email" placeholder="Email" 
+                            <input type="text" id="email" name="email" placeholder="Email"
                             value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['email'] : ''; ?>">
 
-                            <input type="password" id="password" name="password" placeholder="Password" 
+                            <input type="password" id="password" name="password" placeholder="Password"
                             value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['password'] : ''; ?>"><br>
 
                             <button type="submit" name="login" value="submitted" class="btn-submit">LOGIN</button>

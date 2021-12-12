@@ -11,7 +11,7 @@ session_start();
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/footer.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/sidebar.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/employee/employee_dashboard.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo fullURLfront; ?>/assets/cs/employee/employee_complaint.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo fullURLfront; ?>/assets/cs/employee/customer_complaint.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -29,7 +29,7 @@ session_start();
                     <img src="<?php echo fullURLfront; ?>/assets/images/complaintimage.JPG" alt="image">
                 </div>
                 <div class="subcolumn2">
-                <form action="<?php echo fullURLfront; ?>/Employee/employee_complaint" method="POST">
+                    <form action="<?php echo fullURLfront; ?>/Employee/employee_complaint">
                         <fieldset>
                             <legend>Rate level of complains</legend>
                             <div class="rating">
@@ -50,7 +50,7 @@ session_start();
                         
                         <div class ="ratebutton">
                             <button type="reset"><i class="fa fa-ban"></i> Cancel</button>
-                            <button type="submit" name="employee_complaint" value="submitted" class="btn-submit"><i class="fa fa-frown-o"></i> Complain</button>
+                            <button type="submit"><i class="fa fa-frown-o"></i> Complain</button>
                         </div>
                     </form> 
                 </div>

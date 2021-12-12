@@ -15,7 +15,7 @@
         <h3>Task Hub Links</h3>
         <ul>
             <li><a href="<?php echo fullURLfront; ?>/main/index">Home</a></li>
-            <li><a href="<?php echo fullURLfront; ?>/Employee/employee_dashboard" class="<?php echo (empty($_SESSION['loggedin'])) ? 'disabled-link' : ''; ?>">Dashboard</a></li>
+            <li><a href="<?php echo fullURLfront; ?>/Customer/customer_dashboard" class="<?php echo (empty($_SESSION['loggedin'])) ? 'disabled-link' : ''; ?>">Dashboard</a></li>
             <li><a href="<?php echo fullURLfront; ?>/auth/login" class="<?php echo (!empty($_SESSION['loggedin'])) ? 'disabled-link' : ''; ?>">Login</a></li>
             <li><a href="<?php echo fullURLfront; ?>/main/index#about-us">About Us</a></li>
             <li><a href="<?php echo fullURLfront; ?>/main/index#contact-us">Contact Us</a></li>

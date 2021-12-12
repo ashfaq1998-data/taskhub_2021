@@ -46,19 +46,17 @@ session_start();
                 <img src="<?php echo fullURLfront; ?>/assets/images/callback_image.png" alt="image">
                 <div class="contact-section-form">
                     <form action="<?php echo fullURLfront; ?>/Employee/employee_help" method="POST">
-                        
+                        <input type="text" id="name" name="name" placeholder="Name">
 
-                        <input type="text" id="subject" name="subject" placeholder="Subject">
+                        <input type="text" id="email" name="email" placeholder="Email">
 
                         <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
 
                         <div class = "Button-section">
                             <button type="reset" class="clearbutton">Clear</button>
-                            <button type="submit" name="employee_help" value="submitted" class="btn-submit">Request Help <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                            <button type="submit">Request Help <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         </div>
                     </form>
-                    <br><br>
-                    <p class="error"><?php echo $data['HelpError']; ?></p>
                 </div>
             </div>
         </div>

@@ -1,6 +1,5 @@
 <?php
 ini_set('session.gc_maxlifetime', 60 * 2);
-date_default_timezone_set('Asia/Colombo'); //Asia/Colombo
 session_start();
 $dir_name = dirname($_SERVER['SCRIPT_NAME']);
 
@@ -9,7 +8,7 @@ define('ROOT', __DIR__);
 // url => http://localhost:81/mvcp/user/add-post
 // url => user/add-post
 $url = trim(substr_replace(trim($_SERVER['REQUEST_URI'], '/'), '', 0, strlen($dir_name)), "?");
-define("fullURLfront", "/taskhub");
+define("fullURLfront", "/taskhub_2021");
 
 // associative arrays
 $routes = [
@@ -19,10 +18,11 @@ $routes = [
 
   //authentication controller
     'auth/login' => 'AuthController@login',
+    'auth/logout' => 'AuthController@logout',
     'auth/employee_register' => 'AuthController@employeeRegister',
-    'auth/contractor_register' => 'AuthController@contractorRegister',
-    'auth/manpower_register' => 'AuthController@manpowerRegister',
+    'auth/customer_register' => 'AuthController@customerRegister',
     'auth/forgot_password' => 'AuthController@forgotPassword',
+    'auth/logout' => 'AuthController@logout',
 
   //employee section
     'Employee/employee_dashboard' => 'EmployeeController@employeeDashboard',
@@ -34,12 +34,28 @@ $routes = [
     'Employee/employee_search' => 'EmployeeController@employeeSearch',
     'Employee/employee_viewad' => 'EmployeeController@employeeViewad',
 
-  //contractor section
-  'Contractor/contractor_dashboard' => 'ContractorController@contractorDashboard',
-  'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
+  //customer section
+    'Customer/customer_booking' => 'CustomerController@customerBooking',
+    'Customer/customer_complaint' => 'CustomerController@customerComplaint',
+    'Customer/customer_dashboard' => 'CustomerController@customerDashboard',
+    'Customer/customer_help' => 'CustomerController@customerHelp',
+    'Customer/customer_calender' => 'CustomerController@customerCalender',
+    'Customer/customer_history' => 'CustomerController@customerHistory',
+    'Customer/customer_viewad' => 'CustomerController@customerViewad',
+    'Customer/customer_viewmyad' => 'CustomerController@customerViewmyad',
+    'Customer/customer_postad' => 'CustomerController@customerPostad',
+    'Customer/customer_payment' => 'CustomerController@customerPayment',
+    'Customer/customer_profile' => 'CustomerController@customerProfile',
+    'Customer/customer_profileEd' => 'CustomerController@customerProfileEd',
 
 
-   
+    'Customer/customer_profileEdUp' => 'CustomerController@customerProfileEdUp',
+    // 'Customer/customer_serviceList' => 'CustomerController@customerSearch',
+    'Customer/customer_search' => 'CustomerController@customerSearch',
+
+    // 'Customer/customer_profileEdit' => 'CustomerController@customerProfileEdit',
+    'Customer/customer_service' => 'CustomerController@customerService',
+    'Customer/customer_serviceLocation' => 'CustomerController@customerServiceLocation',
 
 ];
 

@@ -31,6 +31,6 @@ class AuthModel extends Database {
     }else{
         return false;
     }
-  } 
+  }
 
 }

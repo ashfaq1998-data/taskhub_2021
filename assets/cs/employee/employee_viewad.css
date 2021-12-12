@@ -94,43 +94,5 @@
     clear: both;
 }
 
-.sortinglist label{
-    font-family: Poppins; 
-    font-style: normal; 
-    font-size: 18px; 
-    color:#108882;
-}
 
-.sortinglist select{
-    background: #108882; 
-    color: white; 
-    width: 187px; 
-    height: 38px; 
-    border-radius: 5px;
-}
 
-.field{
-    font-family: Roboto; 
-    font-style: normal; 
-    font-weight: 500; 
-    font-size: 18px; 
-    line-height: 21px; 
-    color:#61687F;
-}
-
-.special-field{
-    font-family: Poppins; 
-    font-style: normal; 
-    font-weight: 500; 
-    font-size: 18px; 
-    line-height: 27px; 
-    color:#108882;
-}
-
-.description{
-    color:#61687F; 
-    font-family: Roboto; 
-    font-style: normal; 
-    font-size: 18px; 
-    line-height: 21px;
-}

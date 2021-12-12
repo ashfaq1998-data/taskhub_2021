@@ -1,4 +1,6 @@
 <?php
+ini_set('session.gc_maxlifetime', 60 * 480);
+/*date_default_timezone_set('Australia/Melbourne');*/
 session_start();
 ?>
     <!DOCTYPE html> 
@@ -20,14 +22,14 @@ session_start();
                     <div class="forgotpassword-section-form">
                         <h2>Forgot Password</h2><br>
                         <p>Please enter your mail address below</p>
-                        <form action="<?php echo fullURLfront; ?>/auth/forgotpassword" method="POST"> 
+                        <form action="<?php echo fullURLfront; ?>/auth/forgot_password" method="POST"> 
                             <input type="text" id="email" name="email" placeholder="Email">
                             <button type="submit" class="btn-submit">Submit</button>
                         </form>
                         <br>
                        
                     </div>
-                    <img src="<?php echo fullURLfront; ?>/assets/images/reg page image.png" alt="image" height="50%" width="60%" style="margin-top: 50px;">
+                    <!-- <img src="<?php //echo fullURLfront; ?>/assets/images/reg_image.png" alt="image" height="20%" width="30%" style="margin-top: 40px;"> -->
                 </div>
                 <?php include_once('footer.php'); ?>
             </div>

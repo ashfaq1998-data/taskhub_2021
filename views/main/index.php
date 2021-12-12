@@ -12,7 +12,6 @@ session_start();
         <link href="<?php echo fullURLfront; ?>/assets/cs/common/homepage.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-    <!-- END HEAD -->
         <body>
             <div class="page-wrapper">
                 <?php include_once('header.php'); ?>
@@ -104,26 +103,26 @@ session_start();
                         </svg>
                     </div>
                     <h1>Sign up based on your role!</h1>
-                    <div class="signup-section-options" id="signup">
+                    <div class="signup-section-options">
                         <div class="signup-box border-right">
                             <p>I need a help with a service</p>
                             <img src="<?php echo fullURLfront; ?>/assets/images/Frame-2.png" style="width:60%; height:55%;">
-                            <br><br><a href="#" class="signup-button <?php echo (!empty($_SESSION['loggedin'])) ? 'disabled-link' : ''; ?>">Sign Up</a>
+                            <br><br><a href="<?php echo fullURLfront; ?>/auth/customer_register" class="signup-button">Sign Up</a>
                         </div>
                         <div class="signup-box border-right">
                             <p>I am a tasker who<br>provides services</p>
                             <img src="<?php echo fullURLfront; ?>/assets/images/Frame.png" alt="John" style="width:70%; height:50%;">
-                            <br><br><a href="<?php echo fullURLfront; ?>/auth/employee_register" class="signup-button <?php echo (!empty($_SESSION['loggedin'])) ? 'disabled-link' : ''; ?>">Sign Up</a>
+                            <br><br><a href="<?php echo fullURLfront; ?>/auth/employee_register" class="signup-button">Sign Up</a>
                         </div>
                         <div class="signup-box border-right">
                             <p>I am a Contractor</p>
                             <img src="<?php echo fullURLfront; ?>/assets/images/Frame-2.png" alt="John" style="width:60%; height:55%;">
-                            <br><br><a href="<?php echo fullURLfront; ?>/auth/contractor_register" class="signup-button <?php echo (!empty($_SESSION['loggedin'])) ? 'disabled-link' : ''; ?>">Sign Up</a>
+                            <br><br><a href="#" class="signup-button">Sign Up</a>
                         </div>
                         <div class="signup-box">
                             <p>I am a Man Power Agency</p>
                             <img src="<?php echo fullURLfront; ?>/assets/images/Frame.png" alt="John" style="width:60%; height:55%;">
-                            <br><br><a href="<?php echo fullURLfront; ?>/auth/manpower_register" class="signup-button <?php echo (!empty($_SESSION['loggedin'])) ? 'disabled-link' : ''; ?>">Sign Up</a>
+                            <br><br><a href="#" class="signup-button">Sign Up</a>
                         </div>
                     </div>
                 </div>

@@ -1,17 +1,67 @@
 <?php
 session_start();
 require_once ROOT  . '/View.php';
-require_once ROOT . '/models/AuthModel.php';
-require_once ROOT . '/models/EmployeeModel.php';
-require_once ROOT . '/models/UsersModel.php';
-require_once ROOT . '/models/ContractorModel.php';
-require_once ROOT . '/models/ManpowerModel.php';
+require_once ROOT . '/model/AuthModel.php';
 
+require_once ROOT . '/model/EmployeeModel.php';
+require_once ROOT . '/model/UsersModel.php';
+require_once ROOT . '/model/ContractorModel.php';
+require_once ROOT . '/model/CustomerModel.php';
+require_once ROOT . '/model/ManpowerModel.php';
 require_once ROOT . '/classes/Validation.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+
+// class AuthController {
+
+//   public function login() {  
+//     if(!empty($_POST['login'] && $_POST['login'] == 'submitted') ){
+
+//       $username = $_POST['username'];
+//       $password = $_POST['password'];
+// 	    $loginError = "";
+
+//       //validate input fields
+//       if(empty($username)){
+//         $loginError = "Please enter a username.";
+//       }else if(empty($password)){
+//         $loginError = "Please enter a password.";
+//       }
+
+//       //checking inputs
+//       if($loginError == ""){
+//         if($username == "udesh" && $password == "udesh123"){
+//           $_SESSION['loggedin'] = ['user_type' => 'Customer','username' => $username];
+//           $loginError = "none";
+//           header('location: ' . fullURLfront . '/Customer/customer_dashboard');
+//         }else{
+//           $loginError = "Incorrect username or password";
+//         }
+//       }
+//       $data['loginError'] = $loginError;
+//     }
+//     $view = new View("auth/login", $data);
+//   }
+  
+
+
+//   public function employeeRegister(){
+//     $view = new View("auth/employee_register");
+//   }
+
+//   public function customerRegister(){
+//     $view = new View("auth/customer_register");
+//   }
+
+//   public function forgotPassword(){
+//     $view = new View("auth/forgot_password");
+//   }
+  
+// }
+
+
 
 class AuthController {
 
@@ -19,6 +69,7 @@ class AuthController {
 	$authModel = new AuthModel();
 	$employeeModel = new EmployeeModel();
 	$contractorModel = new ContractorModel();
+	$customerModel = new CustomerModel();
 
     if(!empty($_POST['login'] && $_POST['login'] == 'submitted') ){
 
@@ -29,7 +80,7 @@ class AuthController {
 
 		//validate input fields
 		if(empty($email)){
-			$loginError = "Please enter a email.";
+			$loginError = "Please enter an email.";
 		}else if(empty($password)){
 			$loginError = "Please enter a password.";
 		}
@@ -50,15 +101,15 @@ class AuthController {
 					header('location: ../nutritionist/dashboard');
 
 				}else if ($loggedInUser->user_type_id == 2) {
-					
+					$loggedInCustomer = $customerModel->getCustomerByUserID($loggedInUser->id);
 					$_SESSION['loggedin'] = [
 					'user_type' => 'CUSTOMER', 
 					'user_id' => $loggedInUser->id, 
-					'username' => $loggedInUser->email, 
+					'username' => $loggedInCustomer->FirstName." ".$loggedInCustomer->LastName, 
 					'email' => $loggedInUser->email
 					];
 					$loginError = "none";
-					header('location: ../nutritionist/dashboard');
+					header('location: ' . fullURLfront . '/Customer/customer_profile');
 
 				}else if ($loggedInUser->user_type_id == 3) {
 					$loggedInEmployee = $employeeModel->getEmployeeByUserID($loggedInUser->id);
@@ -316,6 +367,113 @@ class AuthController {
 	$view = new View("auth/contractor_register", $data);
   }
 
+  public function customerRegister(){
+	$validation = new Validation();
+	$authModel = new AuthModel();
+	$customerModel = new CustomerModel();
+	$usersModel = new UsersModel();
+	$data['gender'] = ['Male','Female'];
+
+	if(!empty($_POST['customer_register'] && $_POST['customer_register'] == 'submitted') ){
+		$data['inputted_data'] = $_POST;
+		$firstName = $_POST['f_name'];
+		$lastName = $_POST['l_name'];
+		$nic = $_POST['nic'];
+		$phoneNum = $_POST['phone_num'];
+		$gender = $_POST['gender'];
+		$address = $_POST['address'];
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		$confirmPassword = $_POST['confirm_password'];
+		$registerError = "";
+
+		//validate input fields
+		if(empty($firstName) || empty($lastName) || empty($nic) || empty($phoneNum) || empty($gender) || empty($address)
+			|| empty($email) || empty($password) || empty($confirmPassword))
+		{
+			$registerError = "Please fill all the empty fields";
+		}
+
+		//validate firstname
+		if($registerError == ""){
+			$registerError = $validation->validateName($firstName);
+		}
+
+		//validate last name
+		if($registerError == ""){
+			$registerError = $validation->validateName($lastName);
+		}
+
+		//validate NIC
+		if($registerError == ""){
+			$registerError = $validation->validateNIC($nic);
+		}
+
+		//validate phone number
+		if($registerError == ""){
+			$registerError = $validation->validatePhoneNumber($phoneNum);
+		}
+		
+		//validate email
+		if($registerError == ""){
+			if(!$validation->validateEmail($email)){
+				$registerError = "Please enter a valid email format";
+			}else {
+				 //Check if email exists.
+				if ($usersModel->checkUserEmail($email)) {
+					$registerError = 'This Email is already taken.';
+				}
+			}
+		}
+
+		//validate password
+		if($registerError == ""){
+			$registerError = $validation->validateConfirmPassword($password, $confirmPassword);
+		}
+		
+		//validate password
+		if($registerError == ""){
+			$registerError = $validation->validatePassword($password);
+		}
+
+		//registration after validation
+		if($registerError == ""){
+			$userId = $usersModel->generateUserID();
+			$customerId = $customerModel->generateCustomerID();
+			// Hashing the password to store password in db
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
+			$userDetails = [
+				'id' => $userId,
+				'email' => $email,
+				'password' => $password,
+				'user_type_id' => 2,
+			];
+
+			$customerDetails = [
+				'CustomerID' => $customerId,
+				'FirstName' => $firstName,
+				'LastName' => $lastName,
+				'NIC' => $nic,
+				'Contact_No' => $phoneNum,
+				'Address' => $address,
+				'Gender' => $gender,
+				'user_id' => $userId
+			];
+
+            if ($authModel->register($userDetails)) {
+				//add new customer
+				$customerModel->addNewCustomer($customerDetails);
+                header('location: ' . fullURLfront . '/auth/login');
+            } else {
+                die('Something went wrong.');
+            }
+		}
+		$data['registerError'] = $registerError;
+	}
+	$view = new View("auth/customer_register", $data);
+  }
+
   public function manpowerRegister(){
 	$validation = new Validation();
 	$authModel = new AuthModel();
@@ -325,17 +483,18 @@ class AuthController {
 
 	if(!empty($_POST['manpower_register'] && $_POST['manpower_register'] == 'submitted') ){
 		$data['inputted_data'] = $_POST;
-		$Company_name = $_POST['Company_name'];
-		$Company_RegNo = $_POST['Company_RegNo'];
-		$address = $_POST['address'];
+		$companyName = $_POST['company_name'];
+		$companyRegister = $_POST['company_register'];
+		$district = $_POST['district'];
 		$phoneNum = $_POST['phone_num'];
+		$address = $_POST['address'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$confirmPassword = $_POST['confirm_password'];
 		$registerError = "";
 
 		//validate input fields
-		if(empty($Company_name) || empty($Company_RegNo) || empty($phoneNum) 
+		if(empty($companyName) || empty($companyRegister) || empty($district) || empty($phoneNum)  || empty($address)
 			|| empty($email) || empty($password) || empty($confirmPassword))
 		{
 			$registerError = "Please fill all the empty fields";
@@ -370,7 +529,9 @@ class AuthController {
 			$registerError = $validation->validateConfirmPassword($password, $confirmPassword);
 		}
 
+		
 
+		
 
 		
 
@@ -386,15 +547,16 @@ class AuthController {
 				'id' => $userId,
 				'email' => $email,
 				'password' => $password,
-				'user_type_id' => 5,
+				'user_type_id' => 4,
 			];
 
 			$manpowerDetails = [
 				'Manpower_Agency_ID' => $manpowerId,
-				'Company_Registration_No' => $Company_RegNo,
-				'Company_Name' => $Company_name,
-				'Address' => $address,
+				'Company_Name' => $companyName,
+				'Company_Registration_No' => $companyRegister,
+				'District' => $district,
 				'Contact_No' => $phoneNum,
+				'Address' => $address,
 				'user_id' => $userId
 			];
 
@@ -414,6 +576,12 @@ class AuthController {
 
   public function forgotPassword(){
     $view = new View("auth/forgot_password");
+  }
+
+  public function logout(){
+	unset($_SESSION['loggedin']);
+	header('Location: ' . fullURLfront . '/main/index');
+	die();
   }
 
   
