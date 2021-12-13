@@ -54,7 +54,7 @@ session_start();
                     <p style="font-family: Poppins; font-style: normal; font-weight: 500; font-size: 18px; line-height: 27px; color:#108882;">Service Description</p>
                     <p style="color:#61687F; font-family: Roboto; font-style: normal; font-size: 18px; line-height: 21px; ">
                     I need to fix my washing machine as soon as possible.. Looking for
-                    an experienced and reliable worker for the service...</p>
+                    an experienced and reliable worker for the service... I'm Udesh...</p>
                 </div>
             </div>
             <div class="view">
