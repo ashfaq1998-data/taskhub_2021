@@ -1,5 +1,7 @@
 <?php
-// session_start();
+    session_start();
+
+    $details = $data['customer_search'];
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +14,7 @@
     <link href="<?php echo fullURLfront; ?>/assets/cs/common/sidebar.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo fullURLfront; ?>/assets/cs/common/footer.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo fullURLfront; ?>/assets/cs/customer/customer_dashboard.css" rel="stylesheet" type="text/css"/>
-    <link href="<?php echo fullURLfront; ?>/assets/cs/customer/customer_servicelist.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo fullURLfront; ?>/assets/cs/customer/customer_serviceList.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -28,8 +30,7 @@
                 <div class="product-details">
                 
                     <!--  Product Name -->
-                    <h1>Avril Lavigne</h1>
-                    <br><br>
+                    <h1>Avril</h1>
                     <!--    <span class="hint new">New</span> -->
                     <!--    <span class="hint free-shipping">Free Shipping</span> -->
                     <!--    the Product rating -->
@@ -41,11 +42,11 @@
                     <i class="fa fa-star-o" aria-hidden="true"></i>
                     </span> -->
                     <div class="rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                        <input type="radio" name="rating" value="1" aria-label="1 star" required>
+                        <input type="radio" name="rating" value="2" aria-label="2 star">
+                        <input type="radio" name="rating" value="3" aria-label="3 star">
+                        <input type="radio" name="rating" value="4" aria-label="4 star">
+                        <input type="radio" name="rating" value="5" aria-label="5 star">
                     </div>                
                 
                     <!-- The most important information about the product -->
@@ -60,9 +61,9 @@
                     <div class="control">
                         
                     <!-- Start Button buying -->
-                        <button class="btn"><a id="close" href="<?php echo fullURLfront; ?>/Customer/customer_bookingform">
+                        <button class="btn"><a id="close" href="<?php echo fullURLfront; ?>/Customer/customer_booking">
                     <!--    the Price -->
-                        <span class="price">LKR 500</span>
+                        <span class="price">LKR 6000</span>
                     <!--    shopping cart icon-->
                         <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
                     <!--    Buy Now / ADD to Cart-->
@@ -82,7 +83,7 @@
                 
                 <div class="product-image">
                     
-                    <img src="<?php echo fullURLfront; ?>/assets/images/udesh.jpeg" alt="image">
+                    <img src="<?php echo fullURLfront; ?>/assets/images/avril.jpeg" alt="image">
                     
                     <!--  product Information-->
                     <div class="info">
@@ -93,7 +94,6 @@
                         <li><strong>Employer type </stron>&nbsp&nbsp&nbsp&nbspEmployee</li>
                         <li><strong>Experience </strong>&nbsp&nbsp&nbsp&nbsp2 Years</li>
                         <li><strong>Contact Me </strong>&nbsp&nbsp&nbsp&nbsp0717773445</li>
-                        <li><strong>Reliability </strong>&nbsp&nbsp&nbsp&nbsp100%</li>
                         </ul>
                     </div>
                 </div>
