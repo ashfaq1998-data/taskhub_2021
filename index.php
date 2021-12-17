@@ -41,6 +41,7 @@ $routes = [
     'Manpower/manpower_profile' => 'ManpowerController@manpowerProfile',
     'Manpower/manpower_viewad' => 'ManpowerController@manpowerViewad',
     'Manpower/manpower_search' => 'ManpowerController@manpowerSearch',
+<<<<<<< HEAD
 
   //contractor section
   'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
@@ -65,17 +66,57 @@ $routes = [
 
     'Customer/customer_profile' => 'CustomerController@customerProfile',
     'Customer/customer_viewad' => 'CustomerController@customerViewad',
-    'Customer/customer_complaint' => 'CustomerController@customerComplaint',
-    'Customer/customer_services' => 'CustomerController@customerService',
-    'Customer/customer_servicelist' => 'CustomerController@customerServicelist',
-    'Customer/customer_bookingform' => 'CustomerController@customerBookingform',
-    'Customer/customer_help' => 'CustomerController@customerHelp',
+=======
+    'Manpower/manpower_worker' => 'ManpowerController@manpowerWorker',
+    'Manpower/manpower_addworker' => 'ManpowerController@manpowerAddWorker',
+    'Manpower/manpower_booking' => 'ManpowerController@manpowerBooking',
+    'Manpower/manpower_complaint' => 'ManpowerController@manpowerComplaint',
+    'Manpower/manpower_help' => 'ManpowerController@manpowerHelp',
+    'Manpower/manpower_workerprofile' => 'ManpowerController@ManpowerWorkerProfile',
+    'Manpower/manpower_history' => 'ManpowerController@manpowerHistory',
 
-  //manpower
-  'Manpower/manpower_profile' => 'ManpowerController@manpowerProfile',
-  'Manpower/manpower_complaint' => 'ManpowerController@manpowerComplaint',
-  'Manpower/manpower_help' => 'ManpowerController@manpowerHelp',
-  'Manpower/manpower_booking' => 'ManpowerController@manpowerBooking',
+    //contractor section
+    'Contractor/contractor_profile' => 'ContractorController@contractorProfile',
+    'Contractor/contractor_complaint' =>'ContractorController@contractorComplaint',
+    'Contractor/contractor_postad' =>'ContractorController@contractorPostad',
+    'Contractor/contractor_paymentgateway' =>'ContractorController@contractorPaymentgateway',
+    'Contractor/contractor_paymentform' =>'ContractorController@ContractorPaymentform',
+    'Contractor/contractor_confirmpayment'=> 'ContractorController@contractorConfirmpayment',
+    'Contractor/contractor_search' => 'ContractorController@contractorSearch',
+    'Contractor/contractor_viewad' => 'ContractorController@contractorViewad',
+    'Contractor/contractor_help' => 'ContractorController@contractorHelp',
+    'Contractor/contractor_history'=>'ContractorController@contractorHistory',
+    'Contractor/contractor_booking' => 'ContractorController@contractorBooking',
+    'Contractor/contractor_paymentdone' => 'ContractorController@contractorPaymentdone',
+    'Contractor/contractor_viewadmyad'=> 'ContractorController@contractorViewadmyad',
+    'Contractor/contractor_myadedit'=>'ContractorController@contractorMyadedit',
+    'Contractor/contractor_confirmeditad'=>'ContractorController@contractorConfirmeditad',
+    'Contractor/contractor_editprofile'=>'ContractorController@contractorEditprofile',
+
+    //customer section
+    'Customer/customer_booking' => 'CustomerController@customerBooking',
+>>>>>>> cbb599b6e06158ac1cd2c27188a3f98469961e03
+    'Customer/customer_complaint' => 'CustomerController@customerComplaint',
+    'Customer/customer_dashboard' => 'CustomerController@customerDashboard',
+    'Customer/customer_help' => 'CustomerController@customerHelp',
+    'Customer/customer_calender' => 'CustomerController@customerCalender',
+    'Customer/customer_history' => 'CustomerController@customerHistory',
+    'Customer/customer_viewad' => 'CustomerController@customerViewad',
+    'Customer/customer_viewmyad' => 'CustomerController@customerViewmyad',
+    'Customer/customer_postad' => 'CustomerController@customerPostad',
+    'Customer/customer_payment' => 'CustomerController@customerPayment',
+    'Customer/customer_profile' => 'CustomerController@customerProfile',
+    'Customer/customer_profileEd' => 'CustomerController@customerProfileEd',
+
+
+    'Customer/customer_profileEdUp' => 'CustomerController@customerProfileEdUp',
+    // 'Customer/customer_serviceList' => 'CustomerController@customerSearch',
+    'Customer/customer_search' => 'CustomerController@customerSearch',
+
+    // 'Customer/customer_profileEdit' => 'CustomerController@customerProfileEdit',
+    'Customer/customer_service' => 'CustomerController@customerService',
+    'Customer/customer_serviceLocation' => 'CustomerController@customerServiceLocation',
+
 
 ];
 

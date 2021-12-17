@@ -1,4 +1,7 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+
 session_start();
 require_once ROOT  . '/View.php';
 require_once ROOT . '/models/AuthModel.php';
@@ -8,11 +11,6 @@ require_once ROOT . '/models/ContractorModel.php';
 require_once ROOT . '/models/CustomerModel.php';
 require_once ROOT . '/models/ManpowerModel.php';
 require_once ROOT . '/classes/Validation.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
 class AuthController {
 
   public function login() {  
@@ -20,8 +18,9 @@ class AuthController {
 	$employeeModel = new EmployeeModel();
 	$contractorModel = new ContractorModel();
 	$customerModel = new CustomerModel();
+	$manpowerModel = new ManpowerModel();
 
-    if(!empty($_POST['login'] && $_POST['login'] == 'submitted') ){
+    if(!empty($_POST['login']) && $_POST['login'] == 'submitted' ){
 
 		$data['inputted_data'] = $_POST;
     	$email = $_POST['email'];
@@ -40,15 +39,18 @@ class AuthController {
 			$loggedInUser = $authModel->login($email, $password);			
 			if($loggedInUser){
 				if ($loggedInUser->user_type_id == 1) { 
+					$split = explode("@", $loggedInUser->email);
+					$username = $split[0];
 					
 					$_SESSION['loggedin'] = [
 					'user_type' => 'ADMIN', 
 					'user_id' => $loggedInUser->id, 
-					'username' => '', 
-					'email' => $loggedInUser->email
+					'username' => $username, 
+					'email' => $loggedInUser->email,
+					'dashboard_link' => fullURLfront . '/Admin/admin_dashboard'
 					];
 					$loginError = "none";
-					header('location: ../nutritionist/dashboard');
+					header('location: ' . fullURLfront . '/Admin/admin_dashboard');
 
 				}else if ($loggedInUser->user_type_id == 2) {
 					$loggedInCustomer = $customerModel->getCustomerByUserID($loggedInUser->id);
@@ -56,10 +58,11 @@ class AuthController {
 					'user_type' => 'CUSTOMER', 
 					'user_id' => $loggedInUser->id, 
 					'username' => $loggedInCustomer->FirstName." ".$loggedInCustomer->LastName, 
-					'email' => $loggedInUser->email
+					'email' => $loggedInUser->email,
+					'dashboard_link' => fullURLfront . '/Customer/customer_profile'
 					];
 					$loginError = "none";
-					header('location: ../Customer/customer_profile');
+					header('location: ' . fullURLfront . '/Customer/customer_profile');
 
 				}else if ($loggedInUser->user_type_id == 3) {
 					$loggedInEmployee = $employeeModel->getEmployeeByUserID($loggedInUser->id);
@@ -68,21 +71,23 @@ class AuthController {
 					'user_type' => 'EMPLOYEE', 
 					'user_id' => $loggedInUser->id, 
 					'username' => $loggedInEmployee->FirstName. " ".$loggedInEmployee->LastName, 
-					'email' => $loggedInUser->email
+					'email' => $loggedInUser->email,
+					'dashboard_link' => fullURLfront . '/Employee/employee_profile'
 					];
 					$loginError = "none";
 					header('location: ' . fullURLfront . '/Employee/employee_profile');
 
 				}else if ($loggedInUser->user_type_id == 4) {
-					
+					$loggedInManpower = $manpowerModel->getManpowerByUserID($loggedInUser->id);
 					$_SESSION['loggedin'] = [
 					'user_type' => 'MANPOWER', 
 					'user_id' => $loggedInUser->id, 
-					'username' => $loggedInUser->email, 
-					'email' => $loggedInUser->email
+					'username' => $loggedInManpower->Company_Name,  
+					'email' => $loggedInUser->email,
+					'dashboard_link' => fullURLfront . '/Manpower/manpower_profile'
 					];
 					$loginError = "none";
-					header('location: ../nutritionist/dashboard');
+					header('location: ' . fullURLfront . '/Manpower/manpower_profile');
 
 				}else if ($loggedInUser->user_type_id == 5) {
 					$loggedInContractor = $contractorModel->getContractorByUserID($loggedInUser->id);
@@ -90,10 +95,11 @@ class AuthController {
 					'user_type' => 'CONTRACTOR', 
 					'user_id' => $loggedInUser->id, 
 					'username' => $loggedInContractor->FirstName. " ".$loggedInContractor->LastName, 
-					'email' => $loggedInUser->email
+					'email' => $loggedInUser->email,
+					'dashboard_link' => fullURLfront . '/Contractor/contractor_profile'
 					];
 					$loginError = "none";
-					header('location: ../Contractor/contractor_profile');
+					header('location: ' . fullURLfront . '/Contractor/contractor_profile');
 
 				}
 				return;
@@ -115,7 +121,7 @@ class AuthController {
 	$usersModel = new UsersModel();
 	$data['specialization_list'] = ['Specialized For', 'Plumbing', 'Carpentry', 'Electrical', 'Mason', 'Painting', 'Gardening'];
 
-	if(!empty($_POST['employee_register'] && $_POST['employee_register'] == 'submitted') ){
+	if(!empty($_POST['employee_register']) && $_POST['employee_register'] == 'submitted' ){
 		$data['inputted_data'] = $_POST;
 		$firstName = $_POST['f_name'];
 		$lastName = $_POST['l_name'];
@@ -157,6 +163,8 @@ class AuthController {
 		if($registerError == ""){
 			$registerError = $validation->validatePassword($password);
 		}
+
+		
 
 		//validate password
 		if($registerError == ""){
@@ -220,7 +228,7 @@ class AuthController {
 	$usersModel = new UsersModel();
 	$data['specialization_list'] = ['Specialized For', 'Plumbing', 'Carpentry', 'Electrical', 'Mason', 'Painting', 'Gardening'];
 
-	if(!empty($_POST['contractor_register'] && $_POST['contractor_register'] == 'submitted') ){
+	if(!empty($_POST['contractor_register']) && $_POST['contractor_register'] == 'submitted' ){
 		$data['inputted_data'] = $_POST;
 		$firstName = $_POST['f_name'];
 		$lastName = $_POST['l_name'];
@@ -267,6 +275,8 @@ class AuthController {
 		if($registerError == ""){
 			$registerError = $validation->validateConfirmPassword($password, $confirmPassword);
 		}
+
+		
 
 		//validate firstname
 		if($registerError == ""){
@@ -324,7 +334,7 @@ class AuthController {
 	$usersModel = new UsersModel();
 	$data['gender'] = ['Male','Female'];
 
-	if(!empty($_POST['customer_register'] && $_POST['customer_register'] == 'submitted') ){
+	if(!empty($_POST['customer_register']) && $_POST['customer_register'] == 'submitted' ){
 		$data['inputted_data'] = $_POST;
 		$firstName = $_POST['f_name'];
 		$lastName = $_POST['l_name'];
@@ -384,6 +394,8 @@ class AuthController {
 
 		
 
+		
+
 
 		//registration after validation
 		if($registerError == ""){
@@ -430,7 +442,7 @@ class AuthController {
 	$usersModel = new UsersModel();
 	
 
-	if(!empty($_POST['manpower_register'] && $_POST['manpower_register'] == 'submitted') ){
+	if(!empty($_POST['manpower_register']) && $_POST['manpower_register'] == 'submitted'){
 		$data['inputted_data'] = $_POST;
 		$companyName = $_POST['company_name'];
 		$companyRegister = $_POST['company_register'];
@@ -455,6 +467,7 @@ class AuthController {
 		}
 		
 		
+		
 
 		//validate email
 		if($registerError == ""){
@@ -477,13 +490,6 @@ class AuthController {
 		if($registerError == ""){
 			$registerError = $validation->validateConfirmPassword($password, $confirmPassword);
 		}
-
-		
-
-		
-
-		
-
 
 		//registration after validation
 		if($registerError == ""){
@@ -524,7 +530,73 @@ class AuthController {
 
 
   public function forgotPassword(){
-    $view = new View("auth/forgot_password");
+	require './PHPMailer/src/Exception.php';
+    require './PHPMailer/src/PHPMailer.php';
+    require './PHPMailer/src/SMTP.php';
+
+	$authModel = new AuthModel();
+
+	if(!empty($_POST['forgot_password']) && $_POST['forgot_password'] == 'submitted'){
+
+		$data['inputted_data'] = $_POST;
+    	$email = $_POST['email'];
+	    $error = "";
+
+		//validate input fields
+		if(empty($email)){
+			$error = "Please enter an email";
+		}else if(!$authModel->findUserByEmail($email)){
+			$error = "Email not found";
+		}
+
+		if($error == ""){
+        	$code = uniqid(true);
+
+			if($authModel->updateVerificationCode($code,$email)){
+				//Instantiation and passing `true` enables exceptions
+				$mail = new PHPMailer(true);
+				try {
+					//Server settings
+					$mail->isSMTP();                                            //Send using SMTP
+					$mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+					$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+					$mail->Username   = 'taskhub21@gmail.com';                     //SMTP username
+					$mail->Password   = 'Zahiracollege98@';                               //SMTP password
+					$mail->SMTPSecure = 'tls';         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+					$mail->Port       = 587;
+					$mail->SMTPOptions = array(
+						'ssl' => array(
+							'verify_peer' => false,
+							'verify_peer_name' => false,
+							'allow_self_signed' => true
+						)
+					);
+					
+                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+					//Recipients
+					$mail->setFrom('taskhub21@gmail.com', 'Taskhub');
+					$mail->addAddress("$email");     //Add a recipient             
+
+					//Content
+					$url = "http://".$_SERVER["HTTP_HOST"].dirname($_SERVER["PHP_SELF"])."/auth/reset_password?code=$code&email=$email";
+					$mail->isHTML(true);                                  //Set email format to HTML
+					$mail->Subject = 'Your Password reset link';
+					$mail->Body    = "<h1>You requested the password reset</h1>
+										Click <a href=$url>this link</a> to reset password";
+					$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+					$mail->send();
+					$data['success'] = 'Reset link is successfully send to your email.Please Check!';
+				}catch (Exception $e){
+						echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+				}           
+			}
+			
+		}
+		$data['error'] = $error;
+	}
+    $view = new View("auth/forgot_password", $data);
   }
 
   public function logout(){
@@ -533,6 +605,56 @@ class AuthController {
 	die();
   }
 
+  public function resetPassword(){
+	
+	$authModel = new AuthModel();
+	$validation = new Validation();
+	
+	if(!isset($_GET['code'])){
+		exit("Cant Find Page");
+	}
   
-  
+	$code = $_GET['code'];
+	$email = $_GET['email'];
+
+	$user = $authModel->getUserByEmail($email);
+	if($user->verification_code != $code){
+		exit("Cant Find Page");
+	}
+	
+	if(!empty($_POST['reset_password']) && $_POST['reset_password'] == 'submitted'){
+
+		$password = $_POST['password'];
+		$confirmPassword = $_POST['confirm_password'];
+		$error = "";
+
+		//validate password
+		if($error == ""){
+			$error = $validation->validatePassword($password);
+		}
+
+		//validate password
+		if($error == ""){
+			$error = $validation->validateConfirmPassword($password, $confirmPassword);
+		}
+
+		if($error == ""){
+			// Hashing the password to store password in db
+            $password = password_hash($password, PASSWORD_DEFAULT);
+			if($authModel->resetPassword($password,$email)){
+				header('Location: ' . fullURLfront . '/main/index');
+			}else {
+				die('Something went wrong.');
+			}
+		}
+		$data['error'] = $error;
+	}
+
+	$data['details'] = [
+		'code' => $code,
+		'email' => $email,
+	];  
+
+	$view = new View("auth/reset_password", $data);
+  }
 }
