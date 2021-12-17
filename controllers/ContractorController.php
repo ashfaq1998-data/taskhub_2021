@@ -250,17 +250,13 @@ class ContractorController {
     $view = new View("Contractor/contractor_help");
   }
 
-<<<<<<< HEAD
   public function contractorEditprofile() {
     $view = new View("Contractor/contractor_editprofile");
   }
 
+
   public function contractorFavouritelist() {
     $view = new View("Contractor/contractor_favouritelist");
-=======
-  public function contractorEditprofile(){
-    $view =new view("Contractor/contractor_editprofile");
->>>>>>> cbb599b6e06158ac1cd2c27188a3f98469961e03
   }
 
   public function contractorComplaint() {

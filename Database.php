@@ -7,7 +7,7 @@ class Database {
     $host = "localhost:3306";
     $dbname = "taskhub";
     $username = "root";
-    $password = "888";
+    $password = "";
 
     try {
       $this->con = new PDO('mysql:host=' . $host . ';dbname=' . $dbname, $username, $password);

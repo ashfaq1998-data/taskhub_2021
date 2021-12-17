@@ -29,7 +29,7 @@ $email = $data['details']['email'];
                             </form>
                             <br>
                             <p class="error"><?php echo $data['error']; ?></p>
-                       
+                    
                     </div>
                     <img src="<?php echo fullURLfront; ?>/assets/images/reg page image.png" alt="image" height="50%" width="60%" style="margin-top: 50px;">
                 </div>
