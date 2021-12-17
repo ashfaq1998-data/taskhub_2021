@@ -64,7 +64,7 @@ $age = $diff->y;
                             </tr>
                             <tr>
                                 <td class="info-left-column">Rating</td>
-                                <td class="info-right-column">
+                                <!-- <td class="info-right-column">
                                     <?php for($i = 1; $i <= $contractorDetails->rating; $i++) {?>
                                         <span class="fa fa-star checked"></span>
                                     <?php }?>
@@ -75,7 +75,7 @@ $age = $diff->y;
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span> 
-                                </td>
+                                </td> -->
                             </tr>
                         </table>
                     </div>

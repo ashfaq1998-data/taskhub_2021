@@ -151,23 +151,23 @@
     font-style: Poppins;
 } */
     
+    .column1 {
+        width: 44.5%;
+    }
+    
     .row {
         display: flex;
     }
     
     .column {
+        flex: 40%;
+    }
+    
+    .left {
         float: left;
-        flex: 50%;
-        height: 390px;
-        width: 1750px;
     }
     
-    .sub-column01 {
-        width: 440px;
-    }
-    
-    .sub-column02 {
-        width: 440px;
+    .right {
         background-color: rgb(255, 255, 255);
     }
     
@@ -186,7 +186,7 @@
     .title {
         padding: 10px;
         width: 440px;
-        background-color: rgb(148, 223, 241);
+        background-color: #B4e1e7;
         margin-bottom: 20px;
         border: none;
         outline: none;
@@ -196,7 +196,7 @@
         margin-right: 15px;
         width: 190px;
         padding: 10px;
-        background-color: rgb(148, 223, 241);
+        background-color: #B4e1e7;
         border: none;
         outline: none;
     }
@@ -204,7 +204,7 @@
     .Email {
         width: 230px;
         padding: 10px;
-        background-color: rgb(148, 223, 241);
+        background-color: #B4e1e7;
         border: none;
         outline: none;
     }
@@ -214,7 +214,7 @@
         margin-right: 15px;
         width: 350px;
         padding: 10px;
-        background-color: rgb(148, 223, 241);
+        background-color: #B4e1e7;
         border: none;
         outline: none;
     }
@@ -223,7 +223,7 @@
         margin-top: 20px;
         width: 70px;
         padding: 10px;
-        background-color: rgb(148, 223, 241);
+        background-color: #B4e1e7;
         border: none;
         outline: none;
     }
@@ -242,7 +242,7 @@
         margin-top: 20px;
         width: 150px;
         padding: 10px;
-        background-color: rgb(148, 223, 241);
+        background-color: #B4e1e7;
         border: none;
         outline: none;
     }
@@ -252,21 +252,39 @@
         width: 440px;
         height: 220px;
         padding: 10px;
-        background-color: rgb(148, 223, 241);
+        background-color: #B4e1e7;
         border: none;
         outline: none;
     }
     
-    .postad-confirm,
-    .postad-cancel {
-        float: right;
+    .postad-confirm {
         color: #108882;
-        margin-top: 40px;
-        margin-right: 20px;
+        margin-top: 20px;
+        margin-right: 0px;
         width: 120px;
         padding: 10px;
         background-color: white;
         border: 2px solid #108882;
+        outline: none;
+    }
+    
+    .postad-cancel {
+        color: #108882;
+        margin-top: 20px;
+        margin-right: 40px;
+        width: 120px;
+        padding: 10px;
+        background-color: white;
+        border: 2px solid #108882;
+        outline: none;
+    }
+    
+    .buttons {
+        margin-top: 20px;
+        width: 440px;
+        height: 220px;
+        padding: 10px;
+        border: none;
         outline: none;
     }
     

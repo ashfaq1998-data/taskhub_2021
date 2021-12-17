@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 $('#time').val(info.event.extendedProps.time);
                 $('#payment').val(info.event.extendedProps.payment);
                 $('#address').val(info.event.extendedProps.address);
+                $('#title').val(info.event.extendprops.title);
             });
         },
 

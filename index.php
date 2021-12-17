@@ -59,7 +59,7 @@ $routes = [
   'Contractor/contractor_myadedit'=>'ContractorController@contractorMyadedit',
   'Contractor/contractor_confirmeditad'=>'ContractorController@contractorConfirmeditad',
   'Contractor/contractor_editprofile'=>'ContractorController@contractorEditprofile',
-
+  'Contractor/contractor_favouritelist'=>'ContractorController@contractorFavouritelist',
 
   //customer section
 

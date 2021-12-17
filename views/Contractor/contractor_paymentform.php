@@ -41,21 +41,22 @@ session_start();
                         <div id="topic-area">Enter your Payment details below:</div>
 
                         <div class="form-area">
-                            <form action="<?php echo fullURLfront; ?>/Contractor/contractor_paymentgateway" method="POST" autocomplete="off">
-                                <input type="text" placeholder="cardnumber" name="cardnumber" class="cardnumber">
-                                <input type="date" placeholder="Expiry date" name="date" class="date">
-                                <input type="name" placeholder="Card Holder name" name="name" class="name">
-                                <input type="number" placeholder="CVV" name="cvv" class="cvv">
+                            <form action="<?php echo fullURLfront; ?>/Contractor/contractor_paymentform" method="POST" autocomplete="off">
+                                <input type="text" placeholder="cardnumber" name="cardnumber" class="cardnumber" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['cardnumber'] : ''; ?>">
+                                <input type="date" placeholder="Expiry date" name="date" class="date" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['date'] : ''; ?>">
+                                <input type="name" placeholder="Card Holder name" name="name" class="name" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['name'] : ''; ?>">
+                                <input type="number" placeholder="CVV" name="cvv" class="cvv" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['cvv'] : ''; ?>">
                         
                                 <img class="pricead" src="<?php echo fullURLfront; ?>/assets/images/priceofad.jpg" alt="image"><br>
                                 <button type="reset" class="postad-cancel"><i class="fa fa-ban"></i> Cancel</button>
-                                <button type="submit" name="postad-confirm" value="submitted" class="postad-confirm"><i class="fa fa-frown-o"></i> Confirm</button>
+                                <button type="submit" name="contractor_paymentform" value="submitted" class="postad-confirm"><i class="fa fa-frown-o"></i> Confirm</button>
                             </form>
                         </div>
-
+                    
                     </div>
                 </div>
             <?php include_once('footer.php'); ?>
-
+            </div>
+        
         </body>
     </html>

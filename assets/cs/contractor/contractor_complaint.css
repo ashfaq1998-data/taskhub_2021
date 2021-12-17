@@ -62,7 +62,7 @@ input[type=radio] {
 }
 
 input[type=radio]::after {
-    content: '\2605';
+    content: '\2639';
     font-size: 32px;
 }
 
@@ -80,7 +80,7 @@ input[type=radio]:invalid::after {
 }
 
 .rating input[type=radio]:checked~input[type=radio]:not(:checked)::after {
-    content: '\2606';
+    content: '\2639';
     color: rgb(8, 8, 8);
 }
 

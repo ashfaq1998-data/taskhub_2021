@@ -16,6 +16,7 @@
 
 .sub-column01 {
     width: 440px;
+    height: 800px;
 }
 
 .sub-column02 {
@@ -46,7 +47,7 @@
 .cardnumber {
     padding: 10px;
     width: 210px;
-    background-color: rgb(148, 223, 241);
+    background-color: #B4e1e7;
     margin-bottom: 20px;
     border: none;
     outline: none;
@@ -58,7 +59,7 @@
     width: 150px;
     padding: 10px;
     margin-bottom: 20px;
-    background-color: rgb(148, 223, 241);
+    background-color: #B4e1e7;
     border: none;
     outline: none;
     margin-left: 20px;
@@ -67,7 +68,7 @@
 .name {
     width: 290px;
     padding: 10px;
-    background-color: rgb(148, 223, 241);
+    background-color: #B4e1e7;
     margin-bottom: 20px;
     border: none;
     outline: none;
@@ -78,7 +79,7 @@
     margin-top: 20px;
     width: 70px;
     padding: 10px;
-    background-color: rgb(148, 223, 241);
+    background-color: #B4e1e7;
     margin-bottom: 20px;
     border: none;
     outline: none;

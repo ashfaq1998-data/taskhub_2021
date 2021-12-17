@@ -40,22 +40,25 @@ session_start();
 
     <div class="columnsub1">
         <div id ="chatbox">
-            <form action="<?php echo fullURLfront; ?>/Contractor/contractor_confirmpayment" autocomplete="off" method="post">
+            <form action="<?php echo fullURLfront; ?>/Contractor/contractor_paymentgateway" autocomplete="off" method="post">
                 <div id ="subdiv1">Payment Gateway</div>
                 <div id ="subdiv2">
-                    <input type="text" id="username" class="input1" placeholder="Enter Username"  required >
+                    <input type="text" id="username" name="username" class="input1" placeholder="Enter Username"  required >
                 </div>
                 <div id ="subdiv3">   
-                    <input type="password" id="password" class="input2" placeholder="Enter password"  required>
+                    <input type="password" id="password" name="password" class="input2" placeholder="Enter password"  required>
                 </div>
                 <div id ="subdiv4">
-                    <button class="confirmbutton" type="Submit">confirm</button>
+                    <button class="confirmbutton"  name="contractor_paymentgateway"  value="submitted" type="Submit">confirm</button>
                     <button class="confirmbutton" type ="reset">cancel</button>
                 </div>
+                <?php if(!empty($data['paymentgatewayError']) && $data['paymentgatewayError'] && $data['paymentgatewayError'] != "none"){?>
+                <P class="error"><?php echo $data['paymentgatewayError']?></p>
+                <?php }?>
             </form>
         </div>
     </div>
-  </div>
+</div>
 </div>
 <br>
 <?php include_once('footer.php'); ?>

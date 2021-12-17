@@ -1,10 +1,10 @@
 .calender-section {
-    background-color: #c1ebf1;
+    background-color: #fbffff;
     position: relative;
     display: block;
     float: left;
-    width: 60%;
-    margin-right: 20px;
+    width: 62%;
+    margin-right: 10px;
     height: 600px;
     padding-left: 50px;
 }
@@ -36,10 +36,10 @@
     display: block;
     float: left;
     /* background-image: linear-gradient(to right, #80dfd7, #8ae9f0); */
-    background-color: #108882;
+    background-color: #63bdc9;
     width: 35%;
     margin: 0;
-    padding: 5px 20px 50px 20px;
+    padding: 5px 10px 20px 10px;
     text-align: center;
     border-radius: 15px;
     border: 1px solid #036b66;

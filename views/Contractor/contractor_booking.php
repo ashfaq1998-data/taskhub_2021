@@ -57,6 +57,8 @@ $JsonData = json_encode($data['bookingEvents']);
                         <input type="text" id="payment" name="payment" value="" readonly>
                         <label for="lname">Address:</label><br>
                         <input type="text" id="address" name="address" value="" readonly>
+                        <!-- <label for="lname">Title:</label><br>
+                        <input type="text" id="title" name="title" value="" readonly> -->
                     </form>
                 </div>
             </div>

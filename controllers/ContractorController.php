@@ -5,7 +5,8 @@ require_once ROOT . '/models/HelpRequestModel.php';
 require_once ROOT . '/models/ComplaintModel.php';
 require_once ROOT . '/models/ContractorModel.php';
 require_once ROOT . '/models/BookingModel.php';
-
+require_once ROOT . '/models/PaymentModel.php';
+require_once ROOT . '/models/PostadModel.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -34,7 +35,8 @@ class ContractorController {
         'customerName' => $booking->CusFullName,
         'address' => $booking->Address,
         'time' => $booking->EventTime,
-        'payment' => $booking->payment
+        'payment' => $booking->payment,
+        'title'  => $booking->title,
       ];
       
       array_push($allEvents, $event);
@@ -95,6 +97,55 @@ class ContractorController {
   }
 
   public function contractorPostad() {
+    $contractorModel=new ContractorModel();
+    $postadModel=new PostadModel(); 
+    $userID = $_SESSION['loggedin']['user_id'];
+  
+    if(!empty($_POST['contractor_postad'] && $_POST['contractor_postad'] == 'submitted') ){
+    
+      $data['inputted_data'] = $_POST;
+      $title= $_POST['title'];
+      $name = $_POST['name'];
+      $email = $_POST['Email'];
+      $address = $_POST['address'];
+      $zipcode = $_POST['zipcode'];
+      $image = $_POST['image'];
+      $district = $_POST['district'];
+      $description = $_POST['description'];
+      $postadError="";
+      
+      if($postadError==""){
+    
+        $postadID=$postadModel->generateContractorPostadID();
+    
+        $currentDateTime = date('Y-m-d H:i:s');
+        $userID = $_SESSION['loggedin']['user_id'];
+        
+        $contractorDetails = $contractorModel->getContractorByUserID($userID);
+      
+        $contractorPostad = [
+          'postadID'=> $postadID,
+          'Date' => $currentDateTime,
+          'title' => $title,
+          'name' => $name,
+          'email'=> $email,
+          'address'=> $address,
+          'zipcode'=>$zipcode,
+          'image'=>$image,
+          'district'=>$district,
+          'description'=>$description,
+          'Contractor_ID'=>$contractorDetails->Contractor_ID
+        ];
+      
+        $postadModel->addNewContractorPostAd($contractorPostad);
+        
+        $postadError="none";
+        header('location: ' . fullURLfront . '/Contractor/contractor_paymentform');
+      }
+      
+      $data['postadError'] = $postadError;
+    
+    }
     $view = new View("Contractor/contractor_postad");
   }
 
@@ -120,10 +171,74 @@ class ContractorController {
 
 
   public function contractorPaymentform() {
+    $contractorModel = new ContractorModel();
+    $paymentmodel=new PaymentModel();
+    $userID = $_SESSION['loggedin']['user_id'];
+    $payment=1000;
+
+    if(!empty($_POST['contractor_paymentform'] && $_POST['contractor_paymentform']=='submitted')){
+        $data['inputted_data']= $_POST;
+        $cardnumber = $_POST['cardnumber'];
+        $date= $_POST['date'];
+        $name= $_POST['name'];
+        $cvv= $_POST['cvv'];
+        $paymentformError= "";
+      
+      if($paymentformError == ""){
+        
+        $paymentformID=$paymentmodel->generateContractorPaymentformID();
+      
+      
+        $currentdatetime= date('Y-m-d H:i:s');
+        $contractorDetails = $contractorModel->getContractorByUserID($userID);
+        
+
+        $contractorPaymentform = [
+          'paymentID'=> $paymentformID,
+          'cardnumber'=> $cardnumber,
+          'paymentdate' => $currentdatetime,
+          'cvv' => $cvv,
+          'name' => $name,
+          'expiredate'=> $date,
+          'paymentamount'=> $payment,
+          'Contractor_ID'=>$contractorDetails->Contractor_ID
+        ];
+
+      }
+    
+      $paymentmodel->addNewContractorPaymentForm($contractorPaymentform);
+    
+      $postadError="none";
+      header('location: ' . fullURLfront . '/Contractor/contractor_paymentgateway');
+    }
     $view = new View("Contractor/contractor_paymentform");
   }
 
   public function contractorPaymentgateway() {
+    $contractorModel= new ContractorModel();
+    $paymentModel=new PaymentModel();
+    $userID= $_SESSION['loggedin']['user_id'];
+    
+    if(!empty($_POST['contractor_paymentgateway'] && $_POST['contractor_paymentgateway'] == 'submitted')){
+
+      $data['inputted_data']=$_POST;
+      $username= $_POST['username'];
+      $password = $_POST['password'];
+      $paymentgatewayError="";
+      if($paymentgatewayError == ""){
+      
+        $userdetails= $paymentModel->getContractorLoginDetails($userID);
+      
+        if($username == $userdetails->email && password_verify($password,$userdetails->password)){
+          header('location: ' . fullURLfront . '/Contractor/contractor_confirmpayment');
+        }
+        else{
+          $paymentgatewayError="Invalid username or password";
+        }
+      }
+        
+      $data['paymentgatewayError'] = $paymentgatewayError;
+    }
     $view = new View("Contractor/contractor_paymentgateway");
   }
 
@@ -137,6 +252,10 @@ class ContractorController {
 
   public function contractorEditprofile() {
     $view = new View("Contractor/contractor_editprofile");
+  }
+
+  public function contractorFavouritelist() {
+    $view = new View("Contractor/contractor_favouritelist");
   }
 
   public function contractorComplaint() {
