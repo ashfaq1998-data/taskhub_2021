@@ -7,6 +7,7 @@ require_once ROOT . '/models/ContractorModel.php';
 require_once ROOT . '/models/BookingModel.php';
 require_once ROOT . '/models/PaymentModel.php';
 require_once ROOT . '/models/PostadModel.php';
+require_once ROOT . '/models/AdvertisementModel.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -150,7 +151,33 @@ class ContractorController {
   }
 
   public function contractorViewad() {
-    $view = new View("Contractor/contractor_viewad");
+    print("any issue1");
+    $contractorModel = new ContractorModel();
+    print("any issue2");
+
+    $advertisementModel = new AdvertisementModel();
+    $userID = $_SESSION['loggedin']['user_id'];
+    print("any issue3");
+    
+    
+    // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
+    $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+
+    // Number of results to show on each page.
+    $num_results_on_page = 3;
+    $calc_page = ($page - 1) * $num_results_on_page;
+
+    
+
+      $total_pages = $advertisementModel->getCustomerAd(0, 0, true);
+      $data['pagination'] = [
+        'page' => $page, 
+        'total_pages' => $total_pages, 
+        'results_count' => $num_results_on_page
+      ];
+
+      $data['advertisements'] = $advertisementModel->getCustomerAd($num_results_on_page, $calc_page, false);
+    $view = new View("Contractor/contractor_viewad",$data);
   }
 
   public function contractorViewadmyad() {
