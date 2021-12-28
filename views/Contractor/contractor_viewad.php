@@ -44,6 +44,10 @@ $total_pages = $data['pagination']['total_pages'];
                     <option value="colombo" <?php echo ($area == "colombo") ? 'selected' : ''; ?>>Colombo</option>
                     <option value="gampaha" <?php echo ($area == "gampaha") ? 'selected' : ''; ?>>Gampaha</option>
                     <option value="kaluthara" <?php echo ($area == "kaluthara") ? 'selected' : ''; ?>>Kaluthara</option>
+                    <option value="kaluthara" <?php echo ($area == "Hambanthota") ? 'selected' : ''; ?>>Hambanthota</option>
+                    <option value="kaluthara" <?php echo ($area == "Matara") ? 'selected' : ''; ?>>Matara</option>
+                    <option value="kaluthara" <?php echo ($area == "Rathnapura") ? 'selected' : ''; ?>>Rathnapura</option>
+                    <option value="kaluthara" <?php echo ($area == "kegalle") ? 'selected' : ''; ?>>Kegalle</option>
                     <option value="galle" <?php echo ($area == "galle") ? 'selected' : ''; ?>>Galle</option>
                 </select>
 
