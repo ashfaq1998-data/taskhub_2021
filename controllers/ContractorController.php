@@ -49,30 +49,50 @@ class ContractorController {
   }
 
   public function contractorHistory() {
-    $contractorModel = new ContractorModel();
-    $userID = $_SESSION['loggedin']['user_id'];
+    // $contractorModel = new ContractorModel();
+    // $userID = $_SESSION['loggedin']['user_id'];
   
     
+    // $contractorDetails = $contractorModel->getContractorByUserID($userID);
+    // // print($contractorDetails->Contractor_ID);
+    // // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
+    // $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+    
+    // // Number of results to show on each page.
+    // $num_results_on_page = 10;
+    // $calc_page = ($page - 1) * $num_results_on_page;
+    
+    // $data['work_history'] = $contractorModel->getContractorWorkHistory($contractorDetails->Contractor_ID, $num_results_on_page, $calc_page, false);
+    
+    // $total_pages = $contractorModel->getContractorWorkHistory($contractorDetails->Contractor_ID, 0, 0, true);
+    
+    // $data['pagination'] = [
+    //   'page' => $page, 
+    //   'total_pages' => $total_pages, 
+    //   'results_count' => $num_results_on_page
+    // ];
+  
+    // $view = new View("Contractor/contractor_history", $data);
+    $contractorModel = new ContractorModel();
+    $userID = $_SESSION['loggedin']['user_id'];
     $contractorDetails = $contractorModel->getContractorByUserID($userID);
-    // print($contractorDetails->Contractor_ID);
+
     // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
     $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
-    
+
     // Number of results to show on each page.
     $num_results_on_page = 10;
     $calc_page = ($page - 1) * $num_results_on_page;
-    
     $data['work_history'] = $contractorModel->getContractorWorkHistory($contractorDetails->Contractor_ID, $num_results_on_page, $calc_page, false);
     
     $total_pages = $contractorModel->getContractorWorkHistory($contractorDetails->Contractor_ID, 0, 0, true);
-    
     $data['pagination'] = [
-      'page' => $page, 
-      'total_pages' => $total_pages, 
-      'results_count' => $num_results_on_page
-    ];
-  
-    $view = new View("Contractor/contractor_history", $data);
+        'page' => $page, 
+        'total_pages' => $total_pages, 
+        'results_count' => $num_results_on_page
+      ];
+    
+    $view = new View("Contractor/contractor_history",$data);
     
   }
 
