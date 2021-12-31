@@ -35,8 +35,9 @@ $num_results_on_page = $data['pagination']['results_count'];
                     <th>Is_Job_Done</th>
                     <th>Description</th>
                 </tr>
-               
-                <?php foreach($workHistoryDetails as $record) { ?>
+             
+                <?php foreach($workHistoryDetails as $record) { 
+                    ?> -->
                     <tr>
                         
                         <td><?php echo date("Y-m-d",strtotime($record->Date)); ?></td>
@@ -47,7 +48,7 @@ $num_results_on_page = $data['pagination']['results_count'];
                         <td><?php echo $record->Is_work_done; ?></td>
                         <td><?php echo $record->Description; ?></td>
                     </tr>
-                <?php } ?>
+                <?php } ?> 
             </table>
             <div>
                 <?php if (ceil($total_pages / $num_results_on_page) < 0){ ?>

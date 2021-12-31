@@ -36,6 +36,14 @@ $total_pages = $data['pagination']['total_pages'];
                 <input type="text" placeholder="Search advertisement by title" name="search" value="">
                 <button type="submit"><i class="fa fa-search"></i></button>
         </div>
+
+        <div class= "column2-top">
+            <a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewadmyad"?>
+                <button type="button" class="btn-viewmyads">see my Ads</button>
+            </a>
+        </div>
+        
+    
         <div class="sortinglist">
             <div style="float:center ; margin-top:10%">
                 <label for="area">Choose the area:</label>

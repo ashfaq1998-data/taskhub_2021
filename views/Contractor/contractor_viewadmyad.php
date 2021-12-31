@@ -1,5 +1,8 @@
 <?php
 session_start();
+$page = $data['pagination']['page'];
+$total_pages = $data['pagination']['total_pages'];
+
 ?>
 <!DOCTYPE html>
 
@@ -32,71 +35,90 @@ session_start();
         <div class="page-wrapper">
             <?php include_once('header.php'); ?>
 
-        <div class="row">
-        <div class="column1">
-            <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
-        </div>
-        <div class="column2">
+            <div class="row">
+                <div class="column1">
+                    <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
+                </div>
+                <div class="column2">
             
-            <div class="column2-top-row">
-                See Your Past Advertisemnts Here
-            </div>
-
-            <div class="subrow">
-
-            <div class="subcolumn1" style="background-color: #B4E1E7;">
-                <div class ="adimage">
-                    <img src="<?php echo fullURLfront; ?>/assets/images/pipe.jpg" alt="image1" width="180px" height="180px">
-                </div> 
-            </div>
-            <div class="subcolumn2" style="background-color: #B4E1E7;">
-                <div class="postedby">
-                    <p class="special-field">Posted By:</p>
-                    <p class="field">Name : James</p>
-                    <p class="field">Email : abc@gmail.com</p>
-                
-                    <p class="field">Location : 36, Reid avenue, Colombo 3</p>
-                </div>
-            </div>
-            <div class="subcolumn3" style="background-color: #B4E1E7;">
-                <div class="details">
-                    <p class="special-field">Task Description</p>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum justo condimentum, ullamcorper sapien sed, condimentum augue. Nullam non turpis vitae urna vestibulum dapibus. Duis scelerisque quis purus nec cursus.</p>
-                </div>
-            </div>
-
-                <!-- <div class="scroll-btn">
-                        <img class="arrows" src="<?php echo fullURLfront; ?>/assets/images/up-arrow.png">
-                    </a>
-                </div>
-                <div class="topof-poster">
-                    <div class="subrow-sub1-advertiser">
-                        <p class="advertisername">Thisara Dilshan</p>
-                        <p class="advertiseremail">thisarad582@gmail.com@gmail.com</p>
+                    <div class="column2-top-row">
+                        See Your Past Advertisemnts Here
                     </div>
-                    <div class="post-area">
-                        <p class="description">I am looking for workers to work with me at "Thisarad Contractors". You should have a 
-                    minimum 3 years experience in Masonary and Knowledge of working with machines. 
-                        Should be close to matara area and knowledge on good Bathroom works is an additional qualification.</p>
-                    </div>
-                </div>
-                <div class="Poster"><img class="posterimage" src="<?php echo fullURLfront; ?>/assets/images/viewad-photo.jpg"></div> -->
+                    <?php if(empty($data['response'])){?>
+                        <?php foreach($data['advertisements'] as $record) { ?>
+                            <div class="subrow">
+                                <div class="subcolumn1" style="background-color: #B4E1E7;">
+                                    <div class ="adimage">
+                                        <img src="<?php echo fullURLfront; ?>/assets/images/pipe.jpg" alt="image1" width="180px" height="180px">
+                                    </div> 
+                                </div>
+                                <div class="subcolumn2" style="background-color: #B4E1E7;">
+                                    <div class="postedby">
+                                        <p class="special-field">Posted By:</p>
+                                        <p class="field">Name : <?php echo $record->name; ?></p>
+                                        <p class="field">Email : <?php echo $record->email; ?> </p>
+                                        <p class="field">Location : <?php echo $record->address; ?></p>
+                                        <p class="field">Date : <?php echo $record->date; ?></p>
+                            
+                                    </div>
+                                </div>
+                                <div class="subcolumn3" style="background-color: #B4E1E7;">
+                                    <div class="details">
+                                        <p class="special-field">Task Description</p>
+                                        <p class="description"><?php echo $record->description; ?></p><br>
+                        
+                                    </div>
+                                </div>
 
-                <div class="poster-options-menu">
-                    <a href="<?php echo fullURLfront; ?>/Contractor/contractor_myadedit">
-                    <button id="editbtn">EDIT</button>
-                    </a>
-                    <button id="delbtn">DELETE</button>
+                                <div class="poster-options-menu">
+                                    <a href="<?php echo fullURLfront; ?>/Contractor/contractor_myadedit">
+                                        <button id="editbtn">EDIT</button>
+                                    </a>
+                                    <button id="delbtn">DELETE</button>
                         
                     
+                                </div>
+                            </div>
+            
+                        <?php } ?>
+                    <?php } ?>
+      
                 </div>
-
-                <!-- <div class="scroll-btn">
-                    <a href="#">
-                        <img class="arrows" src="<?php echo fullURLfront; ?>/assets/images/down-arrow.jpg">
-                    </a>
-                </div> -->
             </div>
+            <?php include_once('footer.php'); ?>   
+            <!-- <div>
+                <?php if (ceil($total_pages / $num_results_on_page) > 0 && $total_pages > $num_results_on_page){ ?>
+                <ul class="pagination">
+                        <?php if ($page > 1){ ?>
+                        <li class="prev"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewadmyadmyad?page=<?php echo $page-1 ?>">Prev</a></li>
+                        <?php } ?>
+
+                        <?php if ($page > 3){ ?>
+                        <li class="start"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewadmyadmyad?page=1">1</a></li>
+                        <li class="dots">...</li>
+                        <?php } ?>
+
+                        <?php if ($page-2 > 0){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewadmyad?page=<?php echo $page-2 ?>"><?php echo $page-2 ?></a></li><?php } ?>
+                        <?php if ($page-1 > 0){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewadmyad?page=<?php echo $page-1 ?>"><?php echo $page-1 ?></a></li><?php } ?>
+
+                        <li class="currentpage"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewadmyad?page=<?php echo $page ?>"><?php echo $page ?></a></li>
+
+                        <?php if ($page+1 < ceil($total_pages / $num_results_on_page)+1){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Contractor/Contractor_viewadmyad?page=<?php echo $page+1 ?>"><?php echo $page+1 ?></a></li><?php } ?>
+                        <?php if ($page+2 < ceil($total_pages / $num_results_on_page)+1){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Contractor/Contractor_viewadmyad?page=<?php echo $page+2 ?>"><?php echo $page+2 ?></a></li><?php } ?>
+
+                        <?php if ($page < ceil($total_pages / $num_results_on_page)-2){ ?>
+                        <li class="dots">...</li>
+                        <li class="end"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewadmyad?page=<?php echo ceil($total_pages / $num_results_on_page) ?>"><?php echo ceil($total_pages / $num_results_on_page) ?></a></li>
+                        <?php } ?>
+
+                        <?php if ($page < ceil($total_pages / $num_results_on_page)){ ?>
+                        <li class="next"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewadmyad?page=<?php echo $page+1 ?>">Next</a></li>
+                        <?php } ?>
+                </ul>
+                <?php } ?>
+            </div> -->
+        
         </div>
+        
     </body>
 </html>

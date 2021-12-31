@@ -84,14 +84,15 @@ class ContractorController {
     $num_results_on_page = 10;
     $calc_page = ($page - 1) * $num_results_on_page;
     $data['work_history'] = $contractorModel->getContractorWorkHistory($contractorDetails->Contractor_ID, $num_results_on_page, $calc_page, false);
-    
+      
     $total_pages = $contractorModel->getContractorWorkHistory($contractorDetails->Contractor_ID, 0, 0, true);
+  
     $data['pagination'] = [
         'page' => $page, 
         'total_pages' => $total_pages, 
         'results_count' => $num_results_on_page
       ];
-    
+  
     $view = new View("Contractor/contractor_history",$data);
     
   }
@@ -171,13 +172,13 @@ class ContractorController {
   }
 
   public function contractorViewad() {
-    print("any issue1");
+
     $contractorModel = new ContractorModel();
-    print("any issue2");
+  
 
     $advertisementModel = new AdvertisementModel();
     $userID = $_SESSION['loggedin']['user_id'];
-    print("any issue3");
+   
     
     
     // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
@@ -201,7 +202,30 @@ class ContractorController {
   }
 
   public function contractorViewadmyad() {
-    $view = new View("Contractor/contractor_viewadmyad");
+  
+    $contractorModel = new ContractorModel();
+    $advertisementModel=new AdvertisementModel();
+    $userID=$_SESSION['loggedin']['user_id'];
+
+     // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
+    $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+
+     // Number of results to show on each page.
+    $num_results_on_page = 3;
+    $calc_page = ($page - 1) * $num_results_on_page;
+    $contractorDetails = $contractorModel->getContractorByUserID($userID);
+    
+    $total_pages = $advertisementModel->getcontractormyadvertisements($contractorDetails->Contractor_ID,0, 0, true);
+    $data['pagination'] = [
+        'page' => $page, 
+        'total_pages' => $total_pages, 
+        'results_count' => $num_results_on_page
+    ];
+    
+    $data['advertisements']=$advertisementModel->getcontractormyadvertisements($contractorDetails->Contractor_ID,$num_results_on_page,$calc_page,false);
+    
+    $view = new View("Contractor/contractor_viewadmyad",$data);
+    
   }
 
   public function contractorConfirmpayment() {
