@@ -154,6 +154,10 @@
     line-height: 21px;
 }
 
+.columnads {
+    overflow: scroll;
+}
+
 
 /* .column2 {
     background-image: linear-gradient( #def3ee, rgb(255, 255, 255));
@@ -161,7 +165,7 @@
 
 .search-container {
     width: 100%;
-    position: absolute;
+    position: absolute; overflow: scroll;
 }
 
 .search-container input[type=text] {

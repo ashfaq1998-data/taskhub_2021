@@ -1,3 +1,7 @@
+    .column2 {
+        overflow: scroll;
+    }
+    
     .column2-top-row {
         margin-left: 80px;
         font-family: 'Lobster', cursive;

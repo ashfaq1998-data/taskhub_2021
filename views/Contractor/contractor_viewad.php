@@ -2,9 +2,7 @@
 session_start();
 $page = $data['pagination']['page'];
 $total_pages = $data['pagination']['total_pages'];
-
-
-
+// 
 
 ?>
 
@@ -70,48 +68,51 @@ $total_pages = $data['pagination']['total_pages'];
         </div>
         <br><br>
 
-        
-
-        <?php if(empty($data['response'])) {?>
-            <?php foreach($data['advertisements'] as $record) { ?>
-            <div class="subrow">
-                <div class="subcolumn1" style="background-color: #B4E1E7;">
-                    <span class="ad-title"><?php echo $record->Title; ?></span>
-                    <div class ="adimage">
-                        <img src="data:image/jpg;base64,<?php echo base64_encode($record->images); ?>" alt="image" width="190px" height="190px">
-                    </div> 
-                </div>
-                <div class="subcolumn2" style="background-color: #B4E1E7;">
-                    <div class="postedby">
-                        <p class="special-field">Posted By:</p>
-                        <p class="field">Name : <?php echo $record->CusFullName; ?></p>
-                        <p class="field">Email : <?php echo $record->Email; ?></p>
-                        <p class="field">Location : <?php echo $record->Address; ?></p>
-                        <p class="field">Date : <?php echo $record->Date; ?></p>
-                    </div>
-                </div>
-                <div class="subcolumn3" style="background-color: #B4E1E7;">
-                    <div class="details">
-                        <p class="special-field">Task Description</p>
-                        <p class="description"><?php echo $record->Description; ?></p><br>
+        <div class="columnads">
+            
+            <?php if(empty($data['response'])) {?>
+                <?php foreach($data['advertisements'] as $record) { ?>
+                    <div class="subrow">
+                        <div class="subcolumn1" style="background-color: #B4E1E7;">
+                            <span class="ad-title"><?php echo $record->Title; ?></span>
+                            <div class ="adimage">
+                                <img src="data:image/jpg;base64,<?php echo base64_encode($record->images); ?>" alt="image" width="190px" height="190px">
+                            </div> 
+                        </div>
+                        <div class="subcolumn2" style="background-color: #B4E1E7;">
+                            <div class="postedby">
+                                <p class="special-field">Posted By:</p>
+                                <p class="field">Name : <?php echo $record->CusFullName; ?></p>
+                                <p class="field">Email : <?php echo $record->Email; ?></p>
+                                <p class="field">Location : <?php echo $record->Address; ?></p>
+                                <p class="field">Date : <?php echo $record->Date; ?></p>
+                            </div>
+                        </div>
+                        <div class="subcolumn3" style="background-color: #B4E1E7;">
+                            <div class="details">
+                                <p class="special-field">Task Description</p>
+                                <p class="description"><?php echo $record->Description; ?></p><br>
                         
-                    </div>
-                </div>        
-            </div><br><br>
+                            </div>
+                        </div>        
+                    </div><br><br>
+                <?php } ?>   
             <?php } ?>
+        </div>
 
-        
 
-            <div>
-                <?php if (ceil($total_pages / $num_results_on_page) > 0 && $total_pages > $num_results_on_page){ ?>
-                <ul class="pagination">
+            
+            <!-- try{
+                <div>
+                    <?php if (ceil($total_pages / $num_results_on_page) > 0 && $total_pages > $num_results_on_page){ ?>
+                        <ul class="pagination">
                         <?php if ($page > 1){ ?>
-                        <li class="prev"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewad?page=<?php echo $page-1 ?>">Prev</a></li>
+                            <li class="prev"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewad?page=<?php echo $page-1 ?>">Prev</a></li>
                         <?php } ?>
 
                         <?php if ($page > 3){ ?>
-                        <li class="start"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewad?page=1">1</a></li>
-                        <li class="dots">...</li>
+                        <   li class="start"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewad?page=1">1</a></li>
+                            <li class="dots">...</li>
                         <?php } ?>
 
                         <?php if ($page-2 > 0){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewad?page=<?php echo $page-2 ?>"><?php echo $page-2 ?></a></li><?php } ?>
@@ -130,11 +131,15 @@ $total_pages = $data['pagination']['total_pages'];
                         <?php if ($page < ceil($total_pages / $num_results_on_page)){ ?>
                         <li class="next"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewad?page=<?php echo $page+1 ?>">Next</a></li>
                         <?php } ?>
-                </ul>
-                <?php } ?>
-            </div>
+                        </ul>
+                    <?php } ?>
+                </div>
+            }
+
+            catch(Error Exception $e){
+                echo "got $e";
+            }  -->
             
-        <?php } ?>
         
     </div>
 </div>
