@@ -5,7 +5,7 @@
 
 .btn-viewmyads {
     margin-left: 700px;
-    margin-top: 80px;
+    margin-top: 60px;
     height: 40px;
     width: 100px;
     background-color: #108882;
@@ -44,9 +44,14 @@
     cursor: pointer;
 }
 
+.column2-top {
+    height: 50px;
+    margin-bottom: 0px;
+}
+
 .sortinglist {
     font-size: 12px;
-    margin-top: 2%;
+    margin-top: 0px;
     margin-left: 2%;
     width: 90%;
 }
@@ -155,6 +160,7 @@
 }
 
 .columnads {
+    height: 600px;
     overflow: scroll;
 }
 
