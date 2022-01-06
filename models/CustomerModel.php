@@ -88,8 +88,8 @@ class CustomerModel extends Database {
 		// $search = mysql_real_escape_string($search);
 		// makes sure nobody uses SQL injection
 		
-		$row_results = "SELECT * FROM employee WHERE ((`FirstName` LIKE '%".$search."%') OR (`LastName` LIKE '%".$search."%') 
-                    OR (`Specialized_area` LIKE '%".$search."%'))";
+		$row_results = "SELECT * FROM employee WHERE ((`FirstName` LIKE '%".$dataEdit."%') OR (`LastName` LIKE '%".$dataEdit."%') 
+                    OR (`Specialized_area` LIKE '%".$dataEdit."%'))";
                     // "SELECT * FROM contractors WHERE ((`FirstName` LIKE '%".$search."%') OR (`LastName` LIKE '%".$search."%'))".
                     // "SELECT * FROM manpower_agency WHERE ((`Company_Name` LIKE '%".$search."%') OR (`owner` LIKE '%".$search."%'))"];
     $query = $this->con->query($row_results);
