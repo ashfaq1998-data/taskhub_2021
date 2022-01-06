@@ -142,7 +142,7 @@ class CustomerController {
 
 
   public function customerSearch(){
-    $dataEdit = $_POST['customer_search'];
+    $dataEdit = $_POST['search'];
     $search = new CustomerModel();
 
     if (true) {
@@ -153,6 +153,9 @@ class CustomerController {
     else {
       die('Something went wrong dsghjgdsahjdga.');
     }
+
+
+
   }
 
 
