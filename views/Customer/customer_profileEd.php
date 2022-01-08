@@ -36,7 +36,7 @@
                     <!-- <form action = "<?php echo fullURLfront; ?>/Customer/customer_profileEdUp" method="post">
                         <button class="button close">x</button>
                     </form> -->
-                    <form action="<?php echo fullURLfront; ?>/Customer/customer_profileEdUp" method="post">
+                    <form action="<?php echo fullURLfront; ?>/Customer/customer_profileEd" method="post">
                         <h1>Edit Profile</h1>
                         <div class="elem-group">
                             <div class="firstname">

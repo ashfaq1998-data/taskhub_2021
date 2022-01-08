@@ -322,8 +322,20 @@ class ContractorController {
     $view = new View("Contractor/contractor_help");
   }
 
-  public function contractorEditprofile() {
-    print("Are we there");
+  public function contractorEditprofile(){
+    $contractorModel = new ContractorModel();
+    $userID = $_SESSION['loggedin']['user_id'];
+    $data['contractor_details'] = $contractorModel->getContractorByUserID($userID);
+
+    $view = new View("Contractor/contractor_editprofile",$data);
+
+    
+    
+  } 
+  
+
+  public function contractorEditprofileup() {
+    
     $dataEdit = $_POST['contractor_edit'];
     $fn = $_POST['f_name'];
     $ln = $_POST['l_name'];
@@ -335,15 +347,15 @@ class ContractorController {
     $cardno = $_POST['accnum'];
     $cvv = $_POST['cvv'];
     $exp = $_POST['expiry'];
-    print("Are we there 2");
+    
     $contractoredit = new ContractorProfileModel();
-   
+  
     // if ($edit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit)) {
     //   $edit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit);
     //   header('location: ' . fullURLfront . '/Contractor/contractor_profile');
     // } 
     if($contractoredit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit)){
-      print("last step");
+  
       $contractoredit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit);
         header('location: ' . fullURLfront . '/Contractor/contractor_profile');
     }

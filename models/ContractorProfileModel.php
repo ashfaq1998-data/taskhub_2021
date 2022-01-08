@@ -4,10 +4,10 @@ require_once ROOT . "/Database.php";
 class ContractorProfileModel extends Database {
 
     public function contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit){
-        print("Are we there 22");
+    
         if(!empty($dataEdit) && $dataEdit=='submitted'){
 
-            echo('Hello.');
+            
 
             $userID = $_SESSION['loggedin']['user_id'];
         

@@ -109,8 +109,8 @@ class CustomerController {
 
     $view = new View("Customer/customer_profileEd",$data);
 
-     
-       
+    
+    
   } 
   
   public function customerProfileEdUp(){

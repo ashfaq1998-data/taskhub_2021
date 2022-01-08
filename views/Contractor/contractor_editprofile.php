@@ -21,7 +21,7 @@ $contractorDetails = $data['contractor_details'];
                 <div class="register-section">
                     <div class="register-section-form">
                         <h2>Edit your Profile</h2><br>
-                        <form action="<?php echo fullURLfront; ?>/Contractor/contractor_editprofile" method="POST"> 
+                        <form action="<?php echo fullURLfront; ?>/Contractor/contractor_editprofileUp" method="POST"> 
                             <input type="text" id="f_name" name="f_name" placeholder="First name" value="<?php echo $contractorDetails->FirstName; ?>">
                             <input type="text" id="l_name" name="l_name" placeholder="Last name" value="<?php echo $contractorDetails->LastName; ?>">
                             <input type="text" id="nic" name="nic" placeholder="NIC" value="<?php echo $contractorDetails->NIC; ?>">
@@ -33,21 +33,23 @@ $contractorDetails = $data['contractor_details'];
                             </select>
                             <div class="gender">
                                 <p>Please select your Gender:</p>
-                                <input type="radio" id="male" name="gender" value="male">
-                                <label for="male">Male</label><br>
-                                <input type="radio" id="female" name="gender" value="female">
+                                <input type="radio" id="male" name="gender" value="<?php echo $contractorDetails->gender; ?>">
+                                <label for="css">Male</label><br><br>
+                                <input type="radio" id="female" name="gender" value="<?php echo $contractorDetails->gender; ?>">
                                 <label for="css">Female</label><br><br>
                             </div>
 
                             <input type="file" id="image" name="Image" placeholder="Upload the image" value="">
-                            <input type="date" id="dob" name="dob">
+                            <input type="text" id="dob" name="dob" class="dob" name="dob" placeholder="Birth Day"  value="<?php echo $customerDetails->Date_of_Birth; ?>">
                             <input type="text" id="address" name="address" placeholder="Address" value="<?php echo $contractorDetails->Address; ?>">
                             <input type="text" id="ratehrs" name="ratehrs" placeholder="Rate for 2 hours" value="<?php echo $contractorDetails->Payment_for_2hours; ?>">
 
                             <input type="text" id="experience" name="experience" placeholder="Years of experience" value="<?php echo $contractorDetails->Year_of_experience; ?>">
                             <input type="text" id="bank" name="bank" placeholder="Name of the bank" value="<?php echo $contractorDetails->Name_of_Bank; ?>">
                             <input type="text" id="accnum" name="accnum" placeholder="Account Number" value="<?php echo $contractorDetails->Account_Number; ?>">
-                            <textarea rows="4" cols="50" placeholder="Enter yor bio"><?php echo $contractorDetails->bio; ?></textarea>
+                            <input type="text" id="cvv" name="cvv" placeholder="cvv" value="<?php echo $contractorDetails->cvv; ?>">
+                            <input type="text" id="expiry" name="expiry" placeholder="expiry" value="<?php echo $contractorDetails->expiry; ?>">
+                            <input type="text"rows="4" id="bio" name="bio" cols="50"  placeholder="Enter yor bio" value="<?php echo $contractorDetails->bio; ?>"></textarea>
                             <input type="text" id="email" name="email" placeholder="Email" value="<?php echo $_SESSION['loggedin']['email']; ?>">
                             <input type="password" id="password" name="password" placeholder="Password" value="">
                             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" value=""><br>
