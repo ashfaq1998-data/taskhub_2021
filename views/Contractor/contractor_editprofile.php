@@ -26,11 +26,7 @@ $contractorDetails = $data['contractor_details'];
                             <input type="text" id="l_name" name="l_name" placeholder="Last name" value="<?php echo $contractorDetails->LastName; ?>">
                             <input type="text" id="nic" name="nic" placeholder="NIC" value="<?php echo $contractorDetails->NIC; ?>">
                             <input type="text" id="phone_num" name="phone_num" placeholder="Phone No" value="<?php echo $contractorDetails->Contact_No; ?>">
-<<<<<<< HEAD
-                            <select name="specialization" id="specialization">Specialization
-=======
                             <select name="specialization" id="specialization">
->>>>>>> cbb599b6e06158ac1cd2c27188a3f98469961e03
                                 <?php foreach ($data['specialization_list'] as $specialization) {?>
                                     <option value="<?php echo $specialization ?>" <?php echo ($specialization == $data['inputted_data']['specialization']) ? 'selected' : ''; ?> ><?php echo $specialization ?></option>
                                 <?php }?>
@@ -46,10 +42,8 @@ $contractorDetails = $data['contractor_details'];
                             <input type="file" id="image" name="Image" placeholder="Upload the image" value="">
                             <input type="date" id="dob" name="dob">
                             <input type="text" id="address" name="address" placeholder="Address" value="<?php echo $contractorDetails->Address; ?>">
-<<<<<<< HEAD
-=======
                             <input type="text" id="ratehrs" name="ratehrs" placeholder="Rate for 2 hours" value="<?php echo $contractorDetails->Payment_for_2hours; ?>">
->>>>>>> cbb599b6e06158ac1cd2c27188a3f98469961e03
+
                             <input type="text" id="experience" name="experience" placeholder="Years of experience" value="<?php echo $contractorDetails->Year_of_experience; ?>">
                             <input type="text" id="bank" name="bank" placeholder="Name of the bank" value="<?php echo $contractorDetails->Name_of_Bank; ?>">
                             <input type="text" id="accnum" name="accnum" placeholder="Account Number" value="<?php echo $contractorDetails->Account_Number; ?>">
@@ -57,7 +51,7 @@ $contractorDetails = $data['contractor_details'];
                             <input type="text" id="email" name="email" placeholder="Email" value="<?php echo $_SESSION['loggedin']['email']; ?>">
                             <input type="password" id="password" name="password" placeholder="Password" value="">
                             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" value=""><br>
-                            <button type="submit" name="employee_edit" value="submitted" class="btn-submit">Update</button>
+                            <button type="submit" name="contractor_edit" value="submitted" class="btn-submit">Update</button>
                         </form>
                         <br>
                         <p class="error"><?php echo $data['editError']; ?></p>

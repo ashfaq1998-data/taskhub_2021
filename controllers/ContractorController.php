@@ -8,6 +8,7 @@ require_once ROOT . '/models/BookingModel.php';
 require_once ROOT . '/models/PaymentModel.php';
 require_once ROOT . '/models/PostadModel.php';
 require_once ROOT . '/models/AdvertisementModel.php';
+require_once ROOT . '/models/ContractorProfileModel.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -322,7 +323,37 @@ class ContractorController {
   }
 
   public function contractorEditprofile() {
-    $view = new View("Contractor/contractor_editprofile");
+    print("Are we there");
+    $dataEdit = $_POST['contractor_edit'];
+    $fn = $_POST['f_name'];
+    $ln = $_POST['l_name'];
+    $nic = $_POST['nic'];
+    $addr = $_POST['address'];
+    $cont = $_POST['phone_num'];
+    $bio = $_POST['bio'];
+    $dob = $_POST['dob'];
+    $cardno = $_POST['accnum'];
+    $cvv = $_POST['cvv'];
+    $exp = $_POST['expiry'];
+    print("Are we there 2");
+    $contractoredit = new ContractorProfileModel();
+   
+    // if ($edit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit)) {
+    //   $edit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit);
+    //   header('location: ' . fullURLfront . '/Contractor/contractor_profile');
+    // } 
+    if($contractoredit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit)){
+      print("last step");
+      $contractoredit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit);
+        header('location: ' . fullURLfront . '/Contractor/contractor_profile');
+    }
+ 
+    else {
+      die('Something went wrong dsghjgdsahjdga.');
+    }
+
+
+    $view = new View("Contractor/contractor_profile");
   }
 
 
