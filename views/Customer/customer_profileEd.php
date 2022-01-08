@@ -36,7 +36,7 @@
                     <!-- <form action = "<?php echo fullURLfront; ?>/Customer/customer_profileEdUp" method="post">
                         <button class="button close">x</button>
                     </form> -->
-                    <form action="<?php echo fullURLfront; ?>/Customer/customer_profileEd" method="post">
+                    <form action="<?php echo fullURLfront; ?>/Customer/customer_profileEdUp" method="post">
                         <h1>Edit Profile</h1>
                         <div class="elem-group">
                             <div class="firstname">
@@ -99,7 +99,7 @@
                         <div class="elem-group">
                             <label for="bio">Bio</label>
                             <textarea id="bio" name="bio" 
-                           style="height: 80px;" placeholder="Tell us about you..."> <?php echo $customerDetails->bio; ?> </textarea>
+                            style="height: 80px;" placeholder="Tell us about you..."> <?php echo $customerDetails->bio; ?> </textarea>
                         </div>
                         <div class="submit">
                             <button type="submit" name="customer_edit" value="submitted" class="sub">Submit</button>

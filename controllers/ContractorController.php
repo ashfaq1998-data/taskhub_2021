@@ -347,16 +347,16 @@ class ContractorController {
     $cardno = $_POST['accnum'];
     $cvv = $_POST['cvv'];
     $exp = $_POST['expiry'];
-    
+    $yearsexp=$_POST['experience'];
     $contractoredit = new ContractorProfileModel();
   
     // if ($edit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit)) {
     //   $edit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit);
     //   header('location: ' . fullURLfront . '/Contractor/contractor_profile');
     // } 
-    if($contractoredit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit)){
+    if($contractoredit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp, $yearsexp,$dataEdit)){
   
-      $contractoredit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit);
+      $contractoredit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$yearsexp,$dataEdit);
         header('location: ' . fullURLfront . '/Contractor/contractor_profile');
     }
  

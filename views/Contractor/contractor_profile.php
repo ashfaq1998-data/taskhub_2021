@@ -98,7 +98,7 @@ $age = $diff->y;
                         </tr>
                         <tr>
                             <td class= "info-left-column-color ">DOB</td>
-                            <td class="info-right-column-color"><?php echo $contractorDetails->Date_of_Birth; ?></td>
+                            <td class="info-right-column-color"><?php echo $contractorDetails->Date_of_birth; ?></td>
                         </tr>
                         <tr>
                             <td class= "info-left-column-color "> Age</td>
@@ -111,7 +111,7 @@ $age = $diff->y;
                         
                         <tr>
                             <td  class= "info-left-column-color ">Years of experience</td>
-                            <td class="info-right-column-color"><?php echo $contractorDetails->Year_of_experience; ?></td>
+                            <td class="info-right-column-color"><?php echo $contractorDetails->years_of_experience; ?></td>
                         </tr>
                     </table>
                 </div>
@@ -120,24 +120,24 @@ $age = $diff->y;
                 <h3 class="subtopics">Billing Information</h3>
                 <div class="billing-info-content">
                     <table style="width: 40%;">
-                        <tr>
+                        <!-- <tr>
                             <td  class= "info-left-column-color ">Name of the Bank</td>
                             <td class="info-right-column-color"> <?php echo $contractorDetails->Name_of_Bank; ?></td>
+                        </tr> -->
+
+                        <tr>
+                            <td  class= "info-left-column-color ">Account number</td>
+                            <td class="info-right-column-color"> <?php echo $contractorDetails->Account_No; ?></td>
                         </tr>
 
                         <tr>
-                            <td  class= "info-left-column-color ">Account owner</td>
-                            <td class="info-right-column-color"> <?php echo $contractorDetails->Account_owner; ?></td>
+                            <td  class= "info-left-column-color ">Date of Expiry</td>
+                            <td class="info-right-column-color"><?php echo $contractorDetails->Expiry_Date; ?></td>
                         </tr>
 
                         <tr>
-                            <td  class= "info-left-column-color ">Account Number</td>
-                            <td class="info-right-column-color"><?php echo $contractorDetails->Account_Number; ?></td>
-                        </tr>
-
-                        <tr>
-                            <td  class= "info-left-column-color ">Branch</td>
-                            <td class="info-right-column-color"> <?php echo $contractorDetails->Branch; ?></td>
+                            <td  class= "info-left-column-color ">cvv</td>
+                            <td class="info-right-column-color"> <?php echo $contractorDetails->CVN; ?></td>
                         </tr>
 
                     </table>

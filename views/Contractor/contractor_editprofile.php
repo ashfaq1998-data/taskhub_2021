@@ -44,7 +44,7 @@ $contractorDetails = $data['contractor_details'];
                             <input type="text" id="address" name="address" placeholder="Address" value="<?php echo $contractorDetails->Address; ?>">
                             <input type="text" id="ratehrs" name="ratehrs" placeholder="Rate for 2 hours" value="<?php echo $contractorDetails->Payment_for_2hours; ?>">
 
-                            <input type="text" id="experience" name="experience" placeholder="Years of experience" value="<?php echo $contractorDetails->Year_of_experience; ?>">
+                            <input type="text" id="experience" name="experience" placeholder="Years of experience" value="<?php echo $contractorDetails->Years_of_experience; ?>">
                             <input type="text" id="bank" name="bank" placeholder="Name of the bank" value="<?php echo $contractorDetails->Name_of_Bank; ?>">
                             <input type="text" id="accnum" name="accnum" placeholder="Account Number" value="<?php echo $contractorDetails->Account_Number; ?>">
                             <input type="text" id="cvv" name="cvv" placeholder="cvv" value="<?php echo $contractorDetails->cvv; ?>">
