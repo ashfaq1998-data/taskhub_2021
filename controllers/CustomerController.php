@@ -104,7 +104,7 @@ class CustomerController {
     $data['customer_details'] = $customerModel->getCustomerByUserID($userID);
 
     $view = new View("Customer/customer_profileEd",$data);
-       
+
   } 
   
   public function customerProfileEdUp(){

@@ -29,12 +29,12 @@
             </div>
             <div class="row">
             <div class="sub-column01">
-                <img class="image-left" src="<?php echo fullURLfront; ?>/assets/images/twolabors.jpg" alt="image">
+                <img class="image-left" src="<?php echo fullURLfront; ?>/assets/images/cleanman.jpg" alt="image">
             
             </div>
 
             <div class="sub-column02">
-                <div id="topic-area">Enter your Advertisement details below:</div>
+                <div id="topic-area">Edit your advertisement field</div>
 
                 <div class="form-area">
                 <form action="<?php echo fullURLfront; ?>/Contractor/contractor_paymentform" method="POST" autocomplete="off">
