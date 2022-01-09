@@ -85,10 +85,6 @@ class CustomerController {
     $view = new View("Customer/customer_viewmyad");
   }
 
-  public function customerPostad(){
-    $view = new View("Customer/customer_postad");
-  }
-
   public function customerPayment(){
     $view = new View("Customer/customer_payment");
   }
@@ -138,6 +134,46 @@ class CustomerController {
 
 
     $view = new View("Customer/customer_profile");
+  }
+
+
+  public function customerPostad(){
+    $customerModel = new CustomerModel();
+    if(!empty($_POST['customer_postad'] && $_POST['customer_postad'] == 'submitted')){
+      $postad['inputted_data'] = $_POST;
+		  $title = $_POST['title'];
+      $des = $_POST['description'];
+      $loc = $_POST['location'];
+      $email = $_POST['email'];
+
+      $postadError = "";
+
+      if(empty($title) && empty($des) && empty($loc) && empty($email))
+      {
+          $postadError = "Please fill all the empty fields";
+      }
+
+      if($postadError == ""){
+        $userID = $_SESSION['loggedin']['user_id'];
+        $adID = $customerModel->generateCustomerAdID();
+        $customerDetails = $customerModel->getCustomerByUserID($userID);
+
+        $customerPostad = [
+          'AdvertisementID' => $adID,
+          'Title' => $title,
+          'Description' => $des,
+          'City' => $loc,
+          'Email' => $email,
+          'CustomerID' => $customerDetails->CustomerID
+        ];
+
+        $customerModel-> customerPostad($customerPostad);
+        $postadError = "none";
+
+      }
+      $data['postadError'] = $postadError;
+    }
+    $view = new View("Customer/customer_postad", $data);
   }
 
 

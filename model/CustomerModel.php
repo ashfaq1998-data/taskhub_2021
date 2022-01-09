@@ -14,6 +14,7 @@ class CustomerModel extends Database {
     return $data;
   }
 
+
   public function addNewCustomer($customerDetails) {
     $customerId = $customerDetails['CustomerID'];
     $firstName = $customerDetails['FirstName'];
@@ -127,6 +128,47 @@ class CustomerModel extends Database {
 	// 	echo "Minimum length is ".$min_length;
 	// }
 
+  }
+
+
+
+  
+  //post advertisement model
+  public function customerPostad($customerPostad){
+      $adID = $customerPostad['AdvertisementID'];
+      $title = $customerPostad['Title'];
+      $des = $customerPostad['Description'];
+      $loc = $customerPostad['City'];
+      $email = $customerPostad['Email'];
+      $customerID = $customerPostad['CustomerID'];
+  
+      $sql = "INSERT INTO customeradvertisement (Title, Description, City, Email, CustomerID, AdvertisementID) 
+              VALUES ('$title', '$des', '$loc', '$email', '$customerID', '$adID')";
+      
+      if($this->con->query($sql)){
+          return true;
+      }else{
+          return false;
+      }   
+  }
+
+  public function generateCustomerAdID(){
+    $str_part = "ad";
+    $ad_id = "";
+
+    while(true){
+        $num_part = rand(000,999);
+        $ad_id = $str_part.strval($num_part);
+
+        $sql = "SELECT * FROM customeradvertisement WHERE AdvertisementID = '$ad_id'";
+        $query = $this->con->query($sql);
+        $query->execute();
+
+        if($query->rowCount() == 0){
+            break;
+        }
+    }
+    return  $ad_id;
   }
 
 
