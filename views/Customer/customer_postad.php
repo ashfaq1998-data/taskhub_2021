@@ -58,7 +58,7 @@ session_start();
                             <?php if(!empty($data['postadError']) && $data['postadError'] != "none") {?>
                                 <p class="error"><?php echo $data['postadError']; ?></p>
                             <?php }else if($data['postadError'] == "none"){?>
-                                <p class="success">Your advertisement has been posted successfully <i style="color: green;" 
+                                <p style="font-weight: bold; font-size: 18px" class="success">Your advertisement has been posted successfully <i style="color: green;" 
                                 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
                                 style="font-weight: bold;" class="fa fa-check" aria-hidden="true"></i></p>
                             <?php }?>
