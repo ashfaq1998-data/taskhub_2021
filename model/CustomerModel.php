@@ -171,6 +171,22 @@ class CustomerModel extends Database {
     return  $ad_id;
   }
 
+  public function getMyAdByCustomerID($cuID){
+
+    $sql = "SELECT * FROM customeradvertisement WHERE CustomerID = '$cuID'";
+    $query = $this->con->query($sql);
+    $query->execute();
+    for($i=0; $i<$query->rowCount(); $i++){
+      $data[$i] = $query->fetch(PDO::FETCH_OBJ);
+    }
+    // $data = $query->fetch(PDO::FETCH_OBJ);
+
+    if($query->rowCount() == 0){
+        die('No advertisements are posted by yourself');
+    }
+    return  $data;
+  }
+
 
 
 
