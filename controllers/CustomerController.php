@@ -81,10 +81,6 @@ class CustomerController {
     $view = new View("Customer/customer_viewad");
   }
 
-  public function customerViewmyad(){
-    $view = new View("Customer/customer_viewmyad");
-  }
-
   public function customerPayment(){
     $view = new View("Customer/customer_payment");
   }
@@ -172,6 +168,15 @@ class CustomerController {
       $data['postadError'] = $postadError;
     }
     $view = new View("Customer/customer_postad", $data);
+  }
+
+
+  public function customerViewmyad(){
+    $customerModel = new CustomerModel();
+    $userID = $_SESSION['loggedin']['user_id'];
+    $customerDetails = $customerModel->getCustomerByUserID($userID);
+    $data['ad_details'] = $customerModel->getMyAdByCustomerID($customerDetails->CustomerID);
+    $view = new View("Customer/customer_viewmyad",$data);
   }
 
 
