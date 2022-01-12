@@ -34,8 +34,8 @@
             </form> -->
         </div>
        
-        <br><br>
-        
+        <br><br>            
+            
         <?php
             for ($i=0; $i<$arrLength; $i++) { ?>
                 <div class="subrow" id="loop">
@@ -60,12 +60,21 @@
                             <?php echo $ad[$i]->Description; ?></p>
                         </div>
                     </div>
-                    <div class="view">
+                    <!-- <div class="view">
                         <button style="float: right;" type="submit" class="proceed"> <a style="color: black;"
                         href="<?php echo fullURLfront; ?>/Customer/customer_viewmyad">Delete Ad</a></button>
+                    </div> -->
+
+
+                    <!-- newly added... -->
+                    <div class="view">
+                        <form action="<?php echo fullURLfront; ?>/Customer/customer_viewmyad"style="float: right;" method="POST"> 
+                        <button type="submit" class="proceed" name="deleteAD" value="<?php $i; ?>" style="color: black;">Delete Ad</button></form>
                     </div>
                 </div>
+
             <?php } ?>
+
    </div>
 </div>
 <br>
