@@ -182,7 +182,7 @@ class CustomerController {
     $view = new View("Customer/customer_viewmyad",$data);
   }
 
-  
+
 
   //newly added
   public function customerDeletemyad(){
@@ -190,7 +190,7 @@ class CustomerController {
     $userID = $_SESSION['loggedin']['user_id'];
     $customerDetails = $customerModel->getCustomerByUserID($userID);
     echo('hello');
-    if($_POST['deleteAD']) {
+    if(isset( $_POST['deleteAD'])) {
       
       $adID = $_POST['deleteAD']->AdvertisementID;
       

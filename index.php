@@ -43,6 +43,12 @@ $routes = [
     'Customer/customer_history' => 'CustomerController@customerHistory',
     'Customer/customer_viewad' => 'CustomerController@customerViewad',
     'Customer/customer_viewmyad' => 'CustomerController@customerViewmyad',
+  
+    
+    //newly added..
+    'Customer/customer_viewmyad' => 'CustomerController@customerDeletemyad',
+
+
     'Customer/customer_postad' => 'CustomerController@customerPostad',
     'Customer/customer_payment' => 'CustomerController@customerPayment',
     'Customer/customer_profile' => 'CustomerController@customerProfile',
