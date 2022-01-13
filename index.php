@@ -44,9 +44,9 @@ $routes = [
     'Customer/customer_viewad' => 'CustomerController@customerViewad',
     'Customer/customer_viewmyad' => 'CustomerController@customerViewmyad',
   
-    
+
     //newly added..
-    'Customer/customer_viewmyad' => 'CustomerController@customerDeletemyad',
+    'Customer/customer_viewmyadDeleted' => 'CustomerController@customerDeletemyad',
 
 
     'Customer/customer_postad' => 'CustomerController@customerPostad',

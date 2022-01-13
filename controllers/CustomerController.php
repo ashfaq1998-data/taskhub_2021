@@ -189,13 +189,11 @@ class CustomerController {
     $customerModel = new CustomerModel();
     $userID = $_SESSION['loggedin']['user_id'];
     $customerDetails = $customerModel->getCustomerByUserID($userID);
-    echo('hello');
-    if(isset( $_POST['deleteAD'])) {
-      
-      $adID = $_POST['deleteAD']->AdvertisementID;
-      
+
+    if(isset($_POST['submit'])) {
+      $adIDNo = $_POST['submit'];
     }
-    $data['ad_details'] = $customerModel->deleteMyAdID($adID, $customerDetails->CustomerID);
+    $data['ad_details'] = $customerModel->deleteMyAdID($adIDNo, $customerDetails->CustomerID);
     
     $view = new View("Customer/customer_viewmyad",$data);
   }

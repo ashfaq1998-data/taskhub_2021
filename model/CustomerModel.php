@@ -190,16 +190,17 @@ class CustomerModel extends Database {
 
 
   //newly added
-  public function deleteMyAdID($adID, $cuID){
+  public function deleteMyAdID($adIDNo, $cuID){
 
-    $sql = "DELETE FROM customeradvertisement WHERE AdvertisementID = '$adID'";
+    $sql = "DELETE FROM customeradvertisement WHERE AdvertisementID = '$adIDNo'";
     $query = $this->con->query($sql);
+    $err = "";
 
     if($query->rowCount() > 0){
         $query->execute();
     }
     else {
-      die('No advertisements are posted by yourself');
+      $err = 'No advertisements are posted by yourself';
     }
 
 
@@ -212,8 +213,10 @@ class CustomerModel extends Database {
     // $data = $query->fetch(PDO::FETCH_OBJ);
 
     if($query->rowCount() == 0){
-        die('No advertisements are posted by yourself');
+        $err = 'No advertisements are posted by yourself';
     }
+    $data['error'] = $err;
+
     return  $data;
   }
 
