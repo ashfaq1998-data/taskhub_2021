@@ -64,12 +64,12 @@
                         <button style="float: right;" type="submit" class="proceed"> <a style="color: black;"
                         href="<?php echo fullURLfront; ?>/Customer/customer_viewmyad">Delete Ad</a></button>
                     </div> -->
-                    
+
 
                     <!-- newly added... -->
                     <div class="view">
-                        <form action="<?php echo fullURLfront; ?>/Customer/customer_viewmyad"style="float: right;" method="POST"> 
-                        <button type="submit" class="proceed" name="deleteAD" value="<?php $i; ?>" style="color: black;">Delete Ad</button></form>
+                        <form action="<?php echo fullURLfront; ?>/Customer/customer_viewmyadDeleted"style="float: right;" method="POST"> 
+                        <button type="submit" class="proceed" name="submit" value="<?php echo $ad[$i]->AdvertisementID; ?>" style="color: black;">Delete Ad</button></form>
                     </div>
                 </div>
             <?php } ?>

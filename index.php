@@ -67,10 +67,10 @@ $routes = [
 
 
     //newly added..
-    'Customer/customer_viewmyad' => 'CustomerController@customerDeletemyad',
+    'Customer/customer_viewmyadDeleted' => 'CustomerController@customerDeletemyad',
 
 
-    
+
     'Contractor/contractor_myadedit'=>'ContractorController@contractorMyadedit',
     'Contractor/contractor_confirmeditad'=>'ContractorController@contractorConfirmeditad',
     'Contractor/contractor_editprofile'=>'ContractorController@contractorEditprofile',
