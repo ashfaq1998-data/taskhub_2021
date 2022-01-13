@@ -99,6 +99,58 @@ class ContractorController {
   }
 
   public function contractorSearch(){
+    $contractorModel=new ContractorModel();
+    $customerModel=new CustomerModel();
+    $employeeModel=new EmployeeModel();
+    $manpowerModel=new ManpowerModel();
+    $userID=$_SESSION['loggedin']['user_id'];
+    $data['inputted_data']=$_POST;
+    $type = $_REQUEST['type'];
+
+    // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
+    $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+
+    // Number of results to show on each page.
+    $num_results_on_page = 3;
+    $calc_page = ($page - 1) * $num_results_on_page;
+
+    if($type == 1 || empty($type)){
+
+      $total_pages = $customerModel->getCustomerProfiles(0, 0, true);
+      $data['pagination'] = [
+        'page' => $page, 
+        'total_pages' => $total_pages, 
+        'results_count' => $num_results_on_page
+      ];
+
+      $data['profiles'] = $customerModel->getCustomerProfiles($num_results_on_page, $calc_page, false);
+
+    }else if($type == 2){
+
+      $total_pages = $manpowerModel->getManPowerProfiles(0, 0, true);
+      $data['pagination'] = [
+        'page' => $page, 
+        'total_pages' => $total_pages, 
+        'results_count' => $num_results_on_page
+      ];
+
+      $data['profiles'] = $manpowerModel->getManPowerProfiles($num_results_on_page, $calc_page, false);
+
+    }else if($type == 3){
+      
+      $total_pages = $employeeModel->getEmployeeProfiles(0, 0, true);
+      $data['pagination'] = [
+        'page' => $page, 
+        'total_pages' => $total_pages, 
+        'results_count' => $num_results_on_page
+      ];
+
+      $data['profiles'] = $employeeModel->getEmployeeProfiles($num_results_on_page, $calc_page, false);
+
+    }
+
+    $view = new View("Contractor/contractor_search",$data);
+
     // $contractorModel = new ContractorModel();
     // $userID = $_SESSION['loggedin']['user_id'];
     // $contractorDetails=$contractorModel->getContractorByUserID($userID);
@@ -116,7 +168,7 @@ class ContractorController {
     // array_push($allEvents, $event);
     // $data['searchworkers']=$allEvents;
     //$this->view->render("Contractor/contractor_search",$data);
-    $view = new View("Contractor/contractor_search");
+    
   }
 
   public function contractorPostad() {

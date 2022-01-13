@@ -55,7 +55,27 @@ class ManpowerModel extends Database {
     return $manpower_id;
   }
 
+  public function getManPowerProfiles($limit = 0, $start = 0, $count = false, $where = array()){
 
+   
+    
+    if($count == true){
+      $sql = "SELECT MP.* FROM manpower_agency MP ";
+      
+      $query = $this->con->query($sql);
+      $query->execute();
+      return $query->rowCount();
+    }
+
+    $sql = "SELECT MP.*, MP.Manpower_Agency_ID AS IID, MP.Company_Name AS ProfileFullName FROM manpower_agency MP 
+            ORDER by MP.Manpower_Agency_ID ASC
+            LIMIT $start,$limit"; 
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetchAll(PDO::FETCH_OBJ);
+
+    return $data;
+  }
   
 
   
