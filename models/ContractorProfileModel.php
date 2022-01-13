@@ -4,7 +4,7 @@ require_once ROOT . "/Database.php";
 class ContractorProfileModel extends Database {
 
     public function contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$yearsexp,$dataEdit){
-    
+        
         if(!empty($dataEdit) && $dataEdit=='submitted'){
 
             

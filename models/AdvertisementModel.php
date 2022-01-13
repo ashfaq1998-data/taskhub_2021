@@ -29,6 +29,10 @@ class AdvertisementModel extends Database {
         return $data;
     }
 
+    public function getCurrentAdvertisement($conID) {
+
+    }
+
     public function getcontractormyadvertisements($conId,$limit=0, $start = 0, $count = false){
         
         if($count==true){
@@ -48,5 +52,11 @@ class AdvertisementModel extends Database {
     
         return $data;
     }
+
+    // public function contractorEditOwnAd($title,$name,$email,$addr,$zipcode,$image,$district,$description,$adEdit,$conID){
+    //     if(!empty($adEdit) && $adEdit=='submitted') {
+        
+    //     }
+    // }
 }
 ?>

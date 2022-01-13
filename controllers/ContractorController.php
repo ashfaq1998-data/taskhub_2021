@@ -179,7 +179,7 @@ class ContractorController {
 
     $advertisementModel = new AdvertisementModel();
     $userID = $_SESSION['loggedin']['user_id'];
-   
+  
     
     
     // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
@@ -237,7 +237,47 @@ class ContractorController {
     $view = new View("Contractor/contractor_confirmeditad");
   }
 
-  public function contractorMyadedit() {
+  public function contractorMyadedit(){
+    // $AdvertisementModel = new AdvertisementModel();
+    // $userID = $_SESSION['loggedin']['user_id'];
+    // $data['advertisement_details'] = $AdvertisementModel->getContractorByUserID($userID);
+
+    // $view = new View("Contractor/contractor_editprofile",$data);
+    $view= new View("Contractor/contractor_myadedit");
+    
+    
+  } 
+
+  public function contractorMyadeditUp() {
+    // $adEdit = $_POST['contractor_editad'];
+    // $title = $_POST['title'];
+    // $name = $_POST['name'];
+    // $email = $_POST['Email'];
+    // $addr = $_POST['address'];
+    // $zipcode = $_POST['zipcode'];
+    // $image = $_POST['image'];
+    // $district = $_POST['district'];
+    // $description = $_POST['description'];
+    // $contractoradedit = new AdvertisementModel();
+    // $contractormodel=new ContractorModel();
+    // $userID=$_SESSION['loggedin']['user_id'];
+    
+        
+    // $contractorDetails = $contractormodel->getContractorByUserID($userID);
+    // // if ($edit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit)) {
+    // //   $edit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$dataEdit);
+    // //   header('location: ' . fullURLfront . '/Contractor/contractor_profile');
+    // // } 
+    // if($contractoradedit->contractorEditOwnAd($title,$name,$email,$addr,$zipcode,$image,$district,$description,$adEdit,$contractorDetails->Contractor_ID)){
+  
+    //   $contractoradedit->contractorEditOwnAd($title,$name,$email,$addr,$zipcode,$image,$district,$description,$adEdit,$contractorDetails->contractor_ID);
+    //     header('location: ' . fullURLfront . '/Contractor/contractor_viewadmyad');
+    // }
+
+    // else {
+    //   die('Something went wrong dsghjgdsahjdga.');
+    // }
+  
     $view = new View("Contractor/contractor_Myadedit");
   }
 
@@ -359,7 +399,7 @@ class ContractorController {
       $contractoredit->contractorProfileEdUp($fn,$ln,$nic,$addr,$cont,$bio,$dob,$cardno,$cvv,$exp,$yearsexp,$dataEdit);
         header('location: ' . fullURLfront . '/Contractor/contractor_profile');
     }
- 
+
     else {
       die('Something went wrong dsghjgdsahjdga.');
     }

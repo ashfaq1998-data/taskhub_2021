@@ -37,7 +37,7 @@
                 <div id="topic-area">Edit your advertisement field</div>
 
                 <div class="form-area">
-                <form action="<?php echo fullURLfront; ?>/Contractor/contractor_paymentform" method="POST" autocomplete="off">
+                <form action="<?php echo fullURLfront; ?>/Contractor/contractor_myadedit" method="POST" autocomplete="on">
                     <input type="text" placeholder="Title of Advertisement" name="title" class="title">
                     <input type="text" placeholder="Name" name="name" class="name">
                     <input type="E-mail" placeholder="Email" name="Email" class="Email">
@@ -48,7 +48,7 @@
                     <input type="text" placeholder="Add Description" name="description" class="description">
 
                     <button type="reset" class="postad-cancel"><i class="fa fa-ban"></i> Cancel</button>
-                    <button type="submit" name="postad-confirm" value="submitted" class="postad-confirm"><i class="fa fa-frown-o"></i> Confirm</button>
+                    <button type="submit" name="contractor_editad" value="submitted" class="postad-confirm"><i class="fa fa-frown-o"></i> Confirm</button>
                 </form>
                 </div>
 
