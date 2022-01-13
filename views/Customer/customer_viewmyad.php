@@ -1,5 +1,7 @@
 <?php
-session_start();
+    session_start();
+    $ad = $data['ad_details'];
+    $arrLength = count($ad);
 ?>
 
 <!DOCTYPE html>
@@ -34,34 +36,43 @@ session_start();
        
         <br><br>
         
-        <div class="subrow" >
-            <div class="subcolumn1">
-                <div class ="adimage">
-                    <img src="<?php echo fullURLfront; ?>/assets/images/washing.jpg" alt="image1" width="180px" height="180px">
-                </div> 
-            </div>
-            <div class="subcolumn2">
-                <div class="postedby">
-                    <p style="font-family: Poppins; font-style: normal; font-weight: 500; font-size: 18px; line-height: 27px; color:#108882;">Posted By:</p>
-                    <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Name : Dean</p>
-                    <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Email : <?php echo $_SESSION['loggedin']['email']; ?></p>
-                    <!-- <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Start from : LKR 5000</p> -->
-                    <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Location : 2nd cross street, Colombo 10</p>
+        <?php
+            for ($i=0; $i<$arrLength; $i++) { ?>
+                <div class="subrow" id="loop">
+                    <div class="subcolumn1">
+                        <div class ="adimage">
+                            <img src="<?php echo fullURLfront; ?>/assets/images/washing.jpg" alt="image1" width="180px" height="180px">
+                        </div> 
+                    </div>
+                    <div class="subcolumn2">
+                        <div class="postedby">
+                            <p style="font-family: Poppins; font-style: normal; font-weight: 500; font-size: 18px; line-height: 27px; color:#108882;">Posted By:</p>
+                            <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Title : <?php echo $ad[$i]->Title; ?></p>
+                            <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Email : <?php echo $_SESSION['loggedin']['email']; ?></p>
+                            <!-- <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Start from : LKR 5000</p> -->
+                            <p style="font-family: Roboto; font-style: normal; font-weight: 500; font-size: 18px; line-height: 21px; color:#61687F;">Location : <?php echo $ad[$i]->City; ?></p>
+                        </div>
+                    </div>
+                    <div class="subcolumn3">
+                        <div class="details">
+                            <p style="font-family: Poppins; font-style: normal; font-weight: 500; font-size: 18px; line-height: 27px; color:#108882;">Service Description</p>
+                            <p style="color:#61687F; font-family: Roboto; font-style: normal; font-size: 18px; line-height: 21px; ">
+                            <?php echo $ad[$i]->Description; ?></p>
+                        </div>
+                    </div>
+                    <!-- <div class="view">
+                        <button style="float: right;" type="submit" class="proceed"> <a style="color: black;"
+                        href="<?php echo fullURLfront; ?>/Customer/customer_viewmyad">Delete Ad</a></button>
+                    </div> -->
+
+
+                    <!-- newly added... -->
+                    <div class="view">
+                        <form action="<?php echo fullURLfront; ?>/Customer/customer_viewmyadDeleted"style="float: right;" method="POST"> 
+                        <button type="submit" class="proceed" name="submit" value="<?php echo $ad[$i]->AdvertisementID; ?>" style="color: black;">Delete Ad</button></form>
+                    </div>
                 </div>
-            </div>
-            <div class="subcolumn3">
-                <div class="details">
-                    <p style="font-family: Poppins; font-style: normal; font-weight: 500; font-size: 18px; line-height: 27px; color:#108882;">Service Description</p>
-                    <p style="color:#61687F; font-family: Roboto; font-style: normal; font-size: 18px; line-height: 21px; ">
-                    I need to fix my washing machine as soon as possible.. Looking for
-                    an experienced and reliable worker for the service...</p>
-                </div>
-            </div>
-            <div class="view">
-                <button style="float: right;" type="submit" class="proceed"> <a style="color: black;"
-                href="<?php echo fullURLfront; ?>/Customer/customer_viewmyad">Delete Ad</a></button>
-            </div>
-        </div>
+            <?php } ?>
    </div>
 </div>
 <br>

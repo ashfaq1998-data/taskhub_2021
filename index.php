@@ -63,6 +63,14 @@ $routes = [
     'Contractor/contractor_booking' => 'ContractorController@contractorBooking',
     'Contractor/contractor_paymentdone' => 'ContractorController@contractorPaymentdone',
     'Contractor/contractor_viewadmyad'=> 'ContractorController@contractorViewadmyad',
+
+
+
+    //newly added..
+    'Customer/customer_viewmyadDeleted' => 'CustomerController@customerDeletemyad',
+
+
+
     'Contractor/contractor_myadedit'=>'ContractorController@contractorMyadedit',
     'Contractor/contractor_confirmeditad'=>'ContractorController@contractorConfirmeditad',
     'Contractor/contractor_editprofile'=>'ContractorController@contractorEditprofile',

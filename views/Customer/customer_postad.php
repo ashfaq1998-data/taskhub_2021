@@ -35,16 +35,16 @@ session_start();
                         Post advertisement details</p>
                         <input type="text" id="title" name="title" placeholder="Title of the advertisement" style="font-size: 15px;" required>
                         <input type="text" id="email" name="email" placeholder="Email" style="font-size: 15px;" required>
-                        <input type="text" id="address" name="address" placeholder="Address" style="font-size: 15px;" required>
+                        <!-- <input type="text" id="address" name="address" placeholder="Address" style="font-size: 15px;" required> -->
                         <div>
                             <input type="file" accept="image/*" class="custom-file-input" name="upload" placeholder="Upload photos" style="
                             width: 40%; padding: 8px; height: 41px; float: left;">
                             <select name="location" id="location" style="width: 40%; float: right;" required>
                                 <option value="none" selected>Location</option>
-                                <option value="manpower">Matara</option>
-                                <option value="customer">Colombo</option>
-                                <option value="contractor">Galle</option>
-                                <option value="contractor">Kandy</option>
+                                <option value="Matara">Matara</option>
+                                <option value="Colombo">Colombo</option>
+                                <option value="Galle">Galle</option>
+                                <option value="Kandy">Kandy</option>
                             </select><br>
                         </div>
                         <textarea type="text" id="description" name="description" placeholder="Description" style="font-size: 15px; height: 200px" required></textarea><br>              
@@ -53,13 +53,15 @@ session_start();
                             <button type="reset" class="button cancel"> Cancel</button>
                             &nbsp &nbsp
                             <button type="submit" name="customer_postad" value="submitted" class="button submit"> 
-                            <a href="<?php echo fullURLfront; ?>/Customer/customer_postad">Post Advertisement</a></button>
-                            <br>
-                            <!-- <?php if(!empty($data['ComplaintError']) && $data['ComplaintError'] != "none") {?>
-                                <p class="error"><?php echo $data['ComplaintError']; ?></p>
-                            <?php }else if($data['ComplaintError'] == "none"){?>
-                                <p class="success">Your advertisement posted successFully <i style="color: green;" class="fa fa-check" aria-hidden="true"></i></p>
-                            <?php }?> -->
+                            <a >Post Advertisement</a></button>
+                            <br> <br>
+                            <?php if(!empty($data['postadError']) && $data['postadError'] != "none") {?>
+                                <p class="error"><?php echo $data['postadError']; ?></p>
+                            <?php }else if($data['postadError'] == "none"){?>
+                                <p style="font-weight: bold; font-size: 18px" class="success">Your advertisement has been posted successfully <i style="color: green;" 
+                                style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
+                                style="font-weight: bold;" class="fa fa-check" aria-hidden="true"></i></p>
+                            <?php }?>
                         </div>
                     </form> 
                 </div>
