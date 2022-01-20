@@ -2,6 +2,7 @@
     session_start();
 
     $details = $data['customer_search'];
+    $arrLength = count($details);
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +25,9 @@
             <div class="column1">
                 <?php include_once('views/Customer/customer_sidebar.php'); ?>
             </div>
+
+            <?php
+            for ($i=0; $i<$arrLength; $i++) { ?>
             <div id="container">  
   
                 <!-- Start  Product details -->
@@ -101,6 +105,8 @@
             
             
             </div>
+            
+            <?php } ?>
         </div>
         <?php include_once('footer.php'); ?>
     </div>

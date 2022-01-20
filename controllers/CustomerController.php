@@ -195,29 +195,12 @@ class CustomerController {
     $view = new View("Customer/customer_viewmyad",$data);
   }
 
-
-
-  // public function customerSearch(){
-  //   $dataEdit = $_POST['search'];
-  //   $search = new CustomerModel();
-
-  //   if (true) {
-  //     $data['results'] = $search->search($dataEdit);
-  //     $view = new View("Customer/customer_serviceList");
-  //     // header('location: ' . fullURLfront . '/Customer/customer_search' . $search);
-  //   } 
-  //   else {
-  //     die('Something went wrong dsghjgdsahjdga.');
-  //   }
-
-
-
-  // }
+  
 
   public function customerSearch(){
     $customerModel = new CustomerModel();
-    if(isset($_POST['submit'])) {
-      $keyword = $_POST['submit'];
+    if(isset($_POST['search'])) {
+      $keyword = $_POST['search'];
     }
     $data['results'] = $customerModel->searchResults($keyword);
     
