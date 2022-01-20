@@ -73,10 +73,26 @@ class EmployeeModel extends Database {
 
     return $data;
   }
-
-
   
+  public function getEmployeeProfiles($limit = 0, $start = 0, $count = false, $where = array()){
+    
+    if($count == true){
+      $sql = "SELECT E.* FROM memployee E ";
+      
+      $query = $this->con->query($sql);
+      $query->execute();
+      return $query->rowCount();
+    }
 
+    $sql = "SELECT E.*, E.employee_ID AS IID, E.Company_Name AS ProfileFullName FROM employee E
+            ORDER by E.employee_ID ASC
+            LIMIT $start,$limit"; 
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetchAll(PDO::FETCH_OBJ);
+
+    return $data;
+  }
   
 
 
