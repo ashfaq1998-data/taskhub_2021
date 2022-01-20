@@ -201,12 +201,15 @@ class CustomerController {
 
   public function customerSearch(){
     $customerModel = new CustomerModel();
-    if(isset($_POST['search'])) {
+    if(isset($_POST['search']) && ($_POST['search'] != null)) {
       $keyword = $_POST['search'];
+      $data['results'] = $customerModel->searchResults($keyword);
     }
-    $data['results'] = $customerModel->searchResults($keyword);
+    else {
+      die("Type a keyword!!");
+    }
     
-    $view = new View("Customer/customer_search",$data);
+    $view = new View("Customer/customer_serviceList",$data);
   }
 
 

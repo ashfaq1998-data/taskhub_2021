@@ -24,10 +24,11 @@
             <div class="column1">
                 <?php include_once('views/Customer/customer_sidebar.php'); ?>
             </div>
-
+            
+            <div class="column2">
             <?php
             for ($i=0; $i<$arrLength; $i++) { ?>
-            <div id="container">  
+            <div id="container">
   
                 <!-- Start  Product details -->
                 <div class="product-details">
@@ -106,6 +107,7 @@
             </div>
 
             <?php } ?>
+            </div>
         </div>
         <?php include_once('footer.php'); ?>
     </div>
