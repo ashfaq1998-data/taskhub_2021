@@ -199,22 +199,14 @@ class CustomerController {
   }
 
 
-
   public function customerSearch(){
-    $dataEdit = $_POST['search'];
-    $search = new CustomerModel();
-
-    if (true) {
-      $data = $search->search($dataEdit);
-      $view = new View("Customer/customer_search");
-      // header('location: ' . fullURLfront . '/Customer/customer_search' . $search);
-    } 
-    else {
-      die('Something went wrong dsghjgdsahjdga.');
+    $customerModel = new CustomerModel();
+    if(isset($_POST['search'])) {
+      $keyword = $_POST['search'];
     }
-
-
-
+    $data['results'] = $customerModel->searchResults($keyword);
+    
+    $view = new View("Customer/customer_search",$data);
   }
 
 

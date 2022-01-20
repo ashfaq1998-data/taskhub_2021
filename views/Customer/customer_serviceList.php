@@ -1,7 +1,7 @@
 <?php
     session_start();
-
-    $details = $data['customer_search'];
+    $details = $data['results'];
+    $arrLength = count($details);
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +24,16 @@
             <div class="column1">
                 <?php include_once('views/Customer/customer_sidebar.php'); ?>
             </div>
+
+            <?php
+            for ($i=0; $i<$arrLength; $i++) { ?>
             <div id="container">  
   
                 <!-- Start  Product details -->
                 <div class="product-details">
                 
                     <!--  Product Name -->
-                    <h1>Avril</h1>
+                    <h1><?php echo $details[$i]->FirstName; ?> <?php echo $details[$i]->LastName; ?></h1>
                     <!--    <span class="hint new">New</span> -->
                     <!--    <span class="hint free-shipping">Free Shipping</span> -->
                     <!--    the Product rating -->
@@ -90,7 +93,7 @@
                         <h2>The Description</h2>
                         <ul>
                         <li><strong>From </strong>&nbsp&nbsp&nbsp&nbspColombo</li>
-                        <li><strong>Service type </strong>&nbsp&nbsp&nbsp&nbspPlumbing</li>
+                        <li><strong>Service type </strong>&nbsp&nbsp&nbsp&nbsp<?php echo $details[$i]->Specialized_area; ?></li>
                         <li><strong>Employer type </stron>&nbsp&nbsp&nbsp&nbspEmployee</li>
                         <li><strong>Experience </strong>&nbsp&nbsp&nbsp&nbsp2 Years</li>
                         <li><strong>Contact Me </strong>&nbsp&nbsp&nbsp&nbsp0717773445</li>
@@ -101,6 +104,8 @@
             
             
             </div>
+
+            <?php } ?>
         </div>
         <?php include_once('footer.php'); ?>
     </div>
