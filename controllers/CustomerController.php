@@ -197,18 +197,31 @@ class CustomerController {
 
 
 
-  public function customerSearch(){
-    $dataEdit = $_POST['search'];
-    $search = new CustomerModel();
+  // public function customerSearch(){
+  //   $dataEdit = $_POST['search'];
+  //   $search = new CustomerModel();
 
-    if (true) {
-      $data = $search->search($dataEdit);
-      $view = new View("Customer/customer_search");
-      // header('location: ' . fullURLfront . '/Customer/customer_search' . $search);
-    } 
-    else {
-      die('Something went wrong dsghjgdsahjdga.');
+  //   if (true) {
+  //     $data['results'] = $search->search($dataEdit);
+  //     $view = new View("Customer/customer_serviceList");
+  //     // header('location: ' . fullURLfront . '/Customer/customer_search' . $search);
+  //   } 
+  //   else {
+  //     die('Something went wrong dsghjgdsahjdga.');
+  //   }
+
+
+
+  // }
+
+  public function customerSearch(){
+    $customerModel = new CustomerModel();
+    if(isset($_POST['submit'])) {
+      $keyword = $_POST['submit'];
     }
+    $data['results'] = $customerModel->searchResults($keyword);
+    
+    $view = new View("Customer/customer_serviceList",$data);
   }
 
 

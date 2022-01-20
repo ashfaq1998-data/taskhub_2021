@@ -130,6 +130,23 @@ class CustomerModel extends Database {
   }
 
 
+  public function searchResults($keyword) {
+    $sql = "SELECT * FROM employee WHERE ((`FirstName` LIKE '%".$keyword."%') OR (`LastName` LIKE '%".$keyword."%') 
+            OR (`Specialized_area` LIKE '%".$keyword."%'))";
+    $query = $this->con->query($sql);
+    $query->execute();
+    for($i=0; $i<$query->rowCount(); $i++){
+      $data[$i] = $query->fetch(PDO::FETCH_OBJ);
+    }
+    // $data = $query->fetch(PDO::FETCH_OBJ);
+
+    if($query->rowCount() == 0){
+        die('No results found for the keyword!!');
+    }
+    return  $data;
+  }
+
+
   //post advertisement model
   public function customerPostad($customerPostad){
     $adID = $customerPostad['AdvertisementID'];
