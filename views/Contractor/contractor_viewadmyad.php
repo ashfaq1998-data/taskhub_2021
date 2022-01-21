@@ -72,7 +72,7 @@ $total_pages = $data['pagination']['total_pages'];
 
                                 <div class="poster-options-menu">
                                     <a href="<?php echo fullURLfront; ?>/Contractor/contractor_myadedit">
-                                        <button id="editbtn">EDIT</button>
+                                        <button id="editbtn" name="edit_ad">EDIT</button>
                                     </a>
                                     <button id="delbtn">DELETE</button>
                         
@@ -82,7 +82,7 @@ $total_pages = $data['pagination']['total_pages'];
             
                         <?php } ?>
                     <?php } ?>
-      
+    
                 </div>
             </div>
             <?php include_once('footer.php'); ?>   

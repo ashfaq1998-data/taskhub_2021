@@ -63,7 +63,7 @@ $search = $data['filters']['search'];
                 </div>
             <?php } ?>
 
-            <div>
+            <!-- <div>
                 <?php if ($total_pages > $num_results_on_page){ ?>
                 <ul class="pagination">
                     <?php if ($page > 1){ ?>
@@ -93,7 +93,7 @@ $search = $data['filters']['search'];
                     <?php } ?>
                 </ul>
                 <?php } ?>
-            </div>
+            </div> -->
         </div>
     </div>
     <?php include_once('footer.php'); ?>
