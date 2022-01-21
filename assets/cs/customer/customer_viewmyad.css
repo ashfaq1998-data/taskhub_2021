@@ -68,7 +68,7 @@ style="background: #108882; color: white; width: 187px; height: 38px; border-rad
 
 .subrow{
     box-sizing: border-box;
-    margin-top: 5%;
+    margin-bottom: 10px;
     width: 100%;
     background-color: #74cfeb73;
     max-height: 500px;

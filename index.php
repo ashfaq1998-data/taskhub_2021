@@ -85,8 +85,8 @@ $routes = [
      'Customer/customer_viewmyadDeleted' => 'CustomerController@customerDeletemyad',
 
     'Customer/customer_profileEdUp' => 'CustomerController@customerProfileEdUp',
-    // 'Customer/customer_serviceList' => 'CustomerController@customerSearch',
-    'Customer/customer_search' => 'CustomerController@customerSearch',
+    'Customer/customer_serviceList' => 'CustomerController@customerSearch',
+    //'Customer/customer_search' => 'CustomerController@customerSearch',
 
     // 'Customer/customer_profileEdit' => 'CustomerController@customerProfileEdit',
     'Customer/customer_service' => 'CustomerController@customerService',

@@ -26,7 +26,7 @@ session_start();
     </div>
     <div class="column2">
             <div class="search-container">
-                <form action="<?php echo fullURLfront; ?>/Customer/customer_search" method="post">
+                <form action="<?php echo fullURLfront; ?>/Customer/customer_serviceList" method="post">
                     <input type="search" placeholder="Search for services, workers, contractors or manpower agencies" name="search">
                     <button type="submit" name="customer_search" value="submitted"><i class="fa fa-search"></i></button>
                 </form>
