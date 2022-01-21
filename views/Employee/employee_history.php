@@ -1,6 +1,5 @@
 <?php
 session_start();
-$data['work_history'] = $workHistoryDetails;
 $page = $data['pagination']['page'];
 $total_pages = $data['pagination']['total_pages'];
 $num_results_on_page = $data['pagination']['results_count'];
@@ -35,7 +34,7 @@ $num_results_on_page = $data['pagination']['results_count'];
                     <th>Is_Job_Done</th>
                     <th>Description</th>
                 </tr>
-                <?php foreach($workHistoryDetails as $record) { ?>
+                <?php foreach($data['work_history'] as $record) { ?>
                     <tr>
                         <td><?php echo date("Y-m-d",strtotime($record->Date)); ?></td>
                         <td><?php echo $record->CusFullName; ?></td>
@@ -47,7 +46,7 @@ $num_results_on_page = $data['pagination']['results_count'];
                 <?php } ?>
             </table>
             <div>
-                <?php if (ceil($total_pages / $num_results_on_page) > 0){ ?>
+                <?php if (ceil($total_pages / $num_results_on_page) > 0 && $total_pages > $num_results_on_page){ ?>
                 <ul class="pagination">
                     <?php if ($page > 1){ ?>
                     <li class="prev"><a href="<?php echo fullURLfront; ?>/Employee/employee_history?page=<?php echo $page-1 ?>">Prev</a></li>
