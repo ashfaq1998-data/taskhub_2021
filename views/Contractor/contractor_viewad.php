@@ -1,5 +1,6 @@
 <?php
 session_start();
+$type = $data['type'];
 $page = $data['pagination']['page'];
 $total_pages = $data['pagination']['total_pages'];
 // 
@@ -51,10 +52,10 @@ $total_pages = $data['pagination']['total_pages'];
                                 <option value="colombo" <?php echo ($area == "colombo") ? 'selected' : ''; ?>>Colombo</option>
                                 <option value="gampaha" <?php echo ($area == "gampaha") ? 'selected' : ''; ?>>Gampaha</option>
                                 <option value="kaluthara" <?php echo ($area == "kaluthara") ? 'selected' : ''; ?>>Kaluthara</option>
-                                <option value="kaluthara" <?php echo ($area == "Hambanthota") ? 'selected' : ''; ?>>Hambanthota</option>
-                                <option value="kaluthara" <?php echo ($area == "Matara") ? 'selected' : ''; ?>>Matara</option>
-                                <option value="kaluthara" <?php echo ($area == "Rathnapura") ? 'selected' : ''; ?>>Rathnapura</option>
-                                <option value="kaluthara" <?php echo ($area == "kegalle") ? 'selected' : ''; ?>>Kegalle</option>
+                                <option value="Hambanthota" <?php echo ($area == "Hambanthota") ? 'selected' : ''; ?>>Hambanthota</option>
+                                <option value="Matara" <?php echo ($area == "Matara") ? 'selected' : ''; ?>>Matara</option>
+                                <option value="Rathnapura" <?php echo ($area == "Rathnapura") ? 'selected' : ''; ?>>Rathnapura</option>
+                                <option value="kegalle" <?php echo ($area == "kegalle") ? 'selected' : ''; ?>>Kegalle</option>
                                 <option value="galle" <?php echo ($area == "galle") ? 'selected' : ''; ?>>Galle</option>
                             </select>
 
@@ -62,7 +63,7 @@ $total_pages = $data['pagination']['total_pages'];
                             <select name="type" id="type">
                                 <option value="1" <?php echo ($type == 1) ? 'selected' : ''; ?>>Customer</option>
                                 <option value="2" <?php echo ($type == 2) ? 'selected' : ''; ?>>Manpower Agency</option>
-                                <option value="3" <?php echo ($type == 3) ? 'selected' : ''; ?>>Employee</option>
+                            
                             </select>
                         </div>
                 

@@ -29,6 +29,34 @@ class AdvertisementModel extends Database {
         return $data;
     }
 
+    public function getManPowerAd($limit = 0, $start = 0, $count = false){
+
+        $where_cls = "MAPAD.AdvertisementID IS NOT NULL";
+
+        
+
+
+        if($count == true){
+            $sql = "SELECT MAPAD.* FROM manpoweradvertisement MAPAD WHERE $where_cls";
+        
+            $query = $this->con->query($sql);
+            $query->execute();
+            return $query->rowCount();
+        }
+    
+        $sql = "SELECT MAPAD.*, CONCAT(M.FirstName, ' ', M.LastName) AS MapFullName FROM manpoweradvertisement MAPAD
+                INNER JOIN manpower_agency M ON MAPAD.Manpower_Agency_ID=M.Manpower_Agency_ID 
+                WHERE $where_cls 
+                ORDER by MAPAD.Date DESC
+                LIMIT $start,$limit"; 
+        $query = $this->con->query($sql);
+        $query->execute();
+        $data = $query->fetchAll(PDO::FETCH_OBJ);
+    
+        return $data;
+    }
+
+
     public function getCurrentAdvertisement($conID) {
 
     }

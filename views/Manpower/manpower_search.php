@@ -44,7 +44,7 @@ session_start();
                     </div>
                 </div>
                 <div class="subcolumn3">
-                     <a href="" class="view-profile-btn">View Profile</a>
+                    <a href="" class="view-profile-btn">View Profile</a>
                 </div>
             </div>
         </div>

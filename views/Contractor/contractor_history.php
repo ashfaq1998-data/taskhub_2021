@@ -1,9 +1,9 @@
 <?php
 session_start();
-$data['work_history'] = $workHistoryDetails;
-$page = $data['pagination']['page'];
-$total_pages = $data['pagination']['total_pages'];
-$num_results_on_page = $data['pagination']['results_count'];
+// $data['work_history'] = $workHistoryDetails;
+// $page = $data['pagination']['page'];
+// $total_pages = $data['pagination']['total_pages'];
+// $num_results_on_page = $data['pagination']['results_count'];
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +26,7 @@ $num_results_on_page = $data['pagination']['results_count'];
             <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
         </div>
         <div class="column2">
+            
             <table>
                 <tr>
                     <th>Date</th>
@@ -33,15 +34,12 @@ $num_results_on_page = $data['pagination']['results_count'];
                     <th>Location</th>
                     <th>Payment</th>
                     <th>Is_Job_Done</th>
-                    <th>Description</th>
+                    <th>Description</th>  
                 </tr>
-             
-                <?php foreach($workHistoryDetails as $record) { 
-                    ?> -->
+                
+                <?php foreach($data['work_history'] as $record) { ?> 
                     <tr>
-                        
                         <td><?php echo date("Y-m-d",strtotime($record->Date)); ?></td>
-                        
                         <td><?php echo $record->CusFullName; ?></td>
                         <td><?php echo $record->Address; ?></td>
                         <td><?php echo $record->payment; ?></td>
@@ -50,7 +48,7 @@ $num_results_on_page = $data['pagination']['results_count'];
                     </tr>
                 <?php } ?> 
             </table>
-            <div>
+            <!-- <div>
                 <?php if (ceil($total_pages / $num_results_on_page) < 0){ ?>
                 <ul class="pagination">
                     <?php if ($page > 1){ ?>
@@ -77,7 +75,7 @@ $num_results_on_page = $data['pagination']['results_count'];
                     <?php } ?>
                 </ul>
                 <?php } ?>
-            </div>
+            </div> -->
         </div>
     </div>
     <?php include_once('footer.php'); ?>

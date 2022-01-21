@@ -58,18 +58,18 @@ class ContractorModel extends Database {
   
   public function getContractorWorkHistory($conID, $limit = 10, $start = 0, $count = false){
   
-    if($count == true){
-      $sql = "SELECT CB.* FROM contractor_booking CB 
-              WHERE CB.Contractor_ID='$conID' AND CB.Is_work_done='Yes'";
+    // if($count == true){
+    //   $sql = "SELECT CB.* FROM contractor_booking CB 
+    //           WHERE CB.Contractor_ID='$conID' AND CB.Is_work_done='Yes'";
       
-      $query = $this->con->query($sql);
-      $query->execute();
-      return $query->rowCount();
-    }
+    //   $query = $this->con->query($sql);
+    //   $query->execute();
+    //   return $query->rowCount();
+    // }
     
     $sql = "SELECT CB.*, CONCAT(C.FirstName, ' ', C.LastName) AS CusFullName FROM contractor_booking CB
             INNER JOIN customer C ON CB.CustomerID=C.CustomerID 
-            WHERE CB.Contractor_ID='$conID' AND CB.Is_work_done='yes' LIMIT $start,$limit"; 
+            WHERE CB.Contractor_ID='$conID' AND CB.Is_work_done='yes' LIMIT 0,10"; 
     
     $query = $this->con->query($sql);
     
