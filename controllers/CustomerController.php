@@ -3,6 +3,7 @@
 session_start();
 require_once ROOT  . '/View.php';
 require_once ROOT . '/model/HelpRequestModel.php';
+require_once ROOT . '/model/customerHelpModel.php';
 require_once ROOT . '/model/ComplaintModel.php';
 require_once ROOT . '/model/CustomerModel.php';
 require_once ROOT . '/model/BookingModel.php';
@@ -61,12 +62,53 @@ class CustomerController {
     $view = new View("Customer/customer_complaint", $data);
   }
 
-  public function customerDashboard() {
-    $view = new View("Customer/customer_dashboard");
-  }
+
 
   public function customerHelp() {
-    $view = new View("Customer/customer_help");
+    $helpModel = new customerHelpModel();
+    $customerModel = new CustomerModel();
+
+    if(!empty($_POST['submit'] && $_POST['submit'] == 'submitted')){
+      $data['inputted_data'] = $_POST;
+		  $email = $_POST['email'];
+		  $helpmessage = $_POST['message'];
+      $name = $_POST['name'];
+      $HelpError = "";
+
+      if(empty($subject) && empty($helpmessage) && empty($rating))
+      {
+          $HelpError = "Please fill all the empty fields";
+      }
+
+      if($HelpError == ""){
+        $helpID = $helpModel->generateCustomerHelpID();
+        $currentDateTime = date('Y-m-d H:i:s');
+        $userID = $_SESSION['loggedin']['user_id'];
+        $customerDetails = $customerModel->getCustomerByUserID($userID);
+
+
+        $customerHelp = [
+          'RequestID' => $helpID,
+          'Date' => $currentDateTime,
+          'Email' => $email,
+          'Content' => $helpmessage,
+          'Name' => $name,
+          'CustomerID' => $customerDetails->CustomerID
+        ];
+
+        $helpModel-> addNewCustomerHelp($customerHelp);
+        $HelpError = "none";
+
+      }
+
+      $data['HelpError'] = $HelpError;
+    }
+    $view = new View("Customer/customer_help",$data);
+  }
+
+
+  public function customerDashboard() {
+    $view = new View("Customer/customer_dashboard");
   }
 
   public function customerCalender() {
