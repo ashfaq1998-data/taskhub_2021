@@ -48,14 +48,22 @@ session_start();
                     <form action="<?php echo fullURLfront; ?>/Customer/customer_help" method="POST">
                         <input type="text" id="name" name="name" placeholder="Name" required>
 
-                        <input type="text" id="email" name="email" placeholder="Email" required>
+                        <input type="text" id="email" name="email" placeholder="Email" value="<?php echo $_SESSION['loggedin']['email']; ?>" required>
 
                         <textarea id="message" name="message" placeholder="Write something.." style="height:200px"
                         required></textarea>
 
                         <div class = "button_section">
                             <button type="reset" class="cancel">Cancel</button> &nbsp &nbsp
-                            <button type="submit" class="submit">Request Help <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                            <button type="submit" name="submit" class="submit" value="submitted">Request Help 
+                            <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                            <br>
+                            <?php if(!empty($data['HelpError']) && $data['HelpError'] != "none") {?>
+                                <p class="error"><?php echo $data['HelpError']; ?></p>
+                            <?php }else if($data['HelpError'] == "none"){?>
+                                <p class="success">You have successfully requested for a help <i style="color: green;" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
+                                style="font-weight: bold;" class="fa fa-check" aria-hidden="true"></i></p>
+                            <?php }?>
                         </div>
                     </form>
                 </div>
