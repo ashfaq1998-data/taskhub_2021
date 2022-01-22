@@ -1,6 +1,6 @@
 <?php
 session_start();
-$type = $data['type'];
+$type = $data['filters']['type'];
 $page = $data['pagination']['page'];
 $total_pages = $data['pagination']['total_pages'];
 // 
