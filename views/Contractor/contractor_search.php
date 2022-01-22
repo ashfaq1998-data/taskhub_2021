@@ -30,6 +30,7 @@ $search = $data['filters']['search'];
             <form action="<?php echo fullURLfront; ?>/Contractor/contractor_search" method="POST">
                 <input type="text" placeholder="Search" name="search" value="<?php echo (!empty($data['filters'])) ? $search : ''; ?>">
                 <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
         </div>
         <div class="sortinglist">
             <div style="float: right;">
@@ -40,7 +41,7 @@ $search = $data['filters']['search'];
                     <option value="3" <?php echo ($type == 3) ? 'selected' : ''; ?>>Employee</option>
                 </select>
             </div>
-            </form>
+        
         </div>
         <br>
 
