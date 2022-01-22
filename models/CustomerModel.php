@@ -155,7 +155,8 @@ class CustomerModel extends Database {
     }
     // $data = $query->fetch(PDO::FETCH_OBJ);
 
-    if($query->rowCount() == 0){
+    $data['num_rows'] = $query->rowCount();
+    if($data['num_rows'] == 0){
         $err = 'No advertisements are posted by yourself';
     }
     $data['error'] = $err;
