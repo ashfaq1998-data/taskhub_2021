@@ -243,7 +243,7 @@ class ContractorController {
     // Number of results to show on each page.
     $num_results_on_page = 3;
     $calc_page = ($page - 1) * $num_results_on_page;
-    if(empty($type)){print("Notype given");}
+  
     
     if($type == 1 || empty($type)){
       $total_pages = $advertisementModel->getCustomerAd(0, 0, true);
