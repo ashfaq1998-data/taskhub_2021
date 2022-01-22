@@ -42,7 +42,7 @@ $len=sizeof($history);
                         <td name="Location"><?php echo $history[$i]->Address; ?></td>
                         <td name="payment"><?php echo $history[$i]->payment; ?></td>
                         <td name="Is_job_done"><?php echo $history[$i]->Is_work_done; ?></td>
-                        <td name="Description"> <?php echo $history[$i]->Description; ?></td>
+                        <td name="Description"> <?php echo $history[$i]->title; ?></td>
                     </tr>
                 <?php } ?>
             </table>
