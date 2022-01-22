@@ -1,8 +1,8 @@
 <?php
 session_start();
 $history=$data['HistoryEvents'];
-print($history->title);
-// $l=sizeof($history);
+$len=sizeof($history);
+
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +35,7 @@ print($history->title);
                     <th>Description</th>
                 </tr>
             
-                <?php for($i=0;$i<10;$i++) { ?>
+                <?php for($i=0;$i<$len;$i++) { ?>
                     <tr>
                         <td name="Date"><?php echo $history[$i]->Date; ?></td>
                         <td name="Name"><?php echo $history[$i]->CusFullName; ?></td>
