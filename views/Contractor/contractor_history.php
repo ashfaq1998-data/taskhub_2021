@@ -1,9 +1,8 @@
 <?php
 session_start();
-// $data['work_history'] = $workHistoryDetails;
-// $page = $data['pagination']['page'];
-// $total_pages = $data['pagination']['total_pages'];
-// $num_results_on_page = $data['pagination']['results_count'];
+$history=$data['HistoryEvents'];
+print($history->title);
+// $l=sizeof($history);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +25,6 @@ session_start();
             <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
         </div>
         <div class="column2">
-            
             <table>
                 <tr>
                     <th>Date</th>
@@ -34,48 +32,21 @@ session_start();
                     <th>Location</th>
                     <th>Payment</th>
                     <th>Is_Job_Done</th>
-                    <th>Description</th>  
+                    <th>Description</th>
                 </tr>
-                
-                <?php foreach($data['work_history'] as $record) { ?> 
+            
+                <?php for($i=0;$i<10;$i++) { ?>
                     <tr>
-                        <td><?php echo date("Y-m-d",strtotime($record->Date)); ?></td>
-                        <td><?php echo $record->CusFullName; ?></td>
-                        <td><?php echo $record->Address; ?></td>
-                        <td><?php echo $record->payment; ?></td>
-                        <td><?php echo $record->Is_work_done; ?></td>
-                        <td><?php echo $record->Description; ?></td>
+                        <td name="Date"><?php echo $history[$i]->Date; ?></td>
+                        <td name="Name"><?php echo $history[$i]->CusFullName; ?></td>
+                        <td name="Location"><?php echo $history[$i]->Address; ?></td>
+                        <td name="payment"><?php echo $history[$i]->payment; ?></td>
+                        <td name="Is_job_done"><?php echo $history[$i]->Is_work_done; ?></td>
+                        <td name="Description"> <?php echo $history[$i]->Description; ?></td>
                     </tr>
-                <?php } ?> 
-            </table>
-            <!-- <div>
-                <?php if (ceil($total_pages / $num_results_on_page) < 0){ ?>
-                <ul class="pagination">
-                    <?php if ($page > 1){ ?>
-                    <li class="prev"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo $page-1 ?>">Prev</a></li>
-                    <?php } ?>
-
-                    <?php if ($page > 3){ ?>
-                    <li class="start"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=1">1</a></li>
-                    <
-                    <?php } ?>
-
-                    <?php if ($page-2 > 0){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo $page-2 ?>"><?php echo $page-2 ?></a></li><?php } ?>
-
-                    <li class="currentpage"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo $page ?>"><?php echo $page ?></a></li>
-
-                    <?php if ($page+1 < ceil($total_pages / $num_results_on_page)+1){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo $page+1 ?>"><?php echo $page+1 ?></a></li><?php } ?>
-
-                    <?php if ($page < ceil($total_pages / $num_results_on_page)-2){ ?>
-                    <li class="end"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo ceil($total_pages / $num_results_on_page) ?>"><?php echo ceil($total_pages / $num_results_on_page) ?></a></li>
-                    <?php } ?>
-
-                    <?php if ($page < 1){ ?>
-                    <li class="next"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo $page+1 ?>">Next</a></li>
-                    <?php } ?>
-                </ul>
                 <?php } ?>
-            </div> -->
+            </table>
+            
         </div>
     </div>
     <?php include_once('footer.php'); ?>
