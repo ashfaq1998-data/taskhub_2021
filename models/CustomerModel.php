@@ -138,7 +138,8 @@ class CustomerModel extends Database {
     $query = $this->con->query($sql);
     $err = "";
 
-    if($query->rowCount() > 0){
+    $data['num_rows'] = $query->rowCount();
+    if($data['num_rows'] > 0){
         $query->execute();
     }
     else {
