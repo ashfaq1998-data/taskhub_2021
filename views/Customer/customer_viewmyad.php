@@ -1,7 +1,22 @@
 <?php
+    include_once('/Database.php');
     session_start();
+
     $ad = $data['ad_details'];
     $arrLength = count($ad);
+
+    $num_per_page = 03;
+    $num_rows = $ad['num_rows'];
+    $total_pages = ceil($num_rows/$num_per_page);
+
+    if(isset($_GET["page"])){
+        $page = $_GET["page"];
+        $i = $page*$num_per_page - $num_per_page;
+    }
+    else{
+        $page = 1;
+        $i = $page*$num_per_page - $num_per_page;
+    }
 ?>
 
 <!DOCTYPE html>
