@@ -1,7 +1,21 @@
 <?php
     session_start();
+
     $ad = $data['ad_details'];
     $arrLength = count($ad);
+
+    $num_per_page = 03;
+    $num_rows = $ad['num_rows'];
+    $total_pages = ceil($num_rows/$num_per_page);
+
+    if(isset($_GET["page"])){
+        $page = $_GET["page"];
+        $i = $page*$num_per_page - $num_per_page;
+    }
+    else{
+        $page = 1;
+        $i = $page*$num_per_page - $num_per_page;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +51,9 @@
         <br><br>
         
         <?php
-            for ($i=0; $i<$arrLength; $i++) { ?>
+            echo($page);
+            $arrLength = $page*$num_per_page;
+            while ($i<$arrLength && $i<$num_rows) { ?>
                 <div class="subrow" id="loop">
                     <div class="subcolumn1">
                         <div class ="adimage">
@@ -72,6 +88,11 @@
                         <button type="submit" class="proceed" name="submit" value="<?php echo $ad[$i]->AdvertisementID; ?>" style="color: black;">Delete Ad</button></form>
                     </div>
                 </div>
+                <?php $i++;
+            }
+
+            for($i=1; $i<=$total_pages; $i++){ ?>
+                <a href="<?php echo fullURLfront; ?>/Customer/customer_viewmyad?page= <?php echo $i ?>"> <?php echo $i ?> </a>
             <?php } ?>
    </div>
 </div>
