@@ -1,8 +1,9 @@
 <?php
 session_start();
-
-$type = $data['filters']['type'];
-$search = $data['filters']['search'];
+$customerservice=$data['customerSearch'];
+$len=sizeof($customerservice);
+// $type = $data['filters']['type'];
+// $search = $data['filters']['search'];
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +34,7 @@ $search = $data['filters']['search'];
             </form>
         </div>
         <div class="sortinglist">
-            <div style="float: right;">
+            <div>
                 <label for="type">Choose the type:</label>
                 <select name="type" id="type">
                     <option value="1" <?php echo ($type == 1) ? 'selected' : ''; ?>>Customer</option>
@@ -44,12 +45,12 @@ $search = $data['filters']['search'];
         
         </div>
         <br>
-
-            <?php foreach($data['profiles'] as $record) { ?>
+        <div class="mainarea">
+            <?php for($i=0;$i<$len;$i++) { ?>
                 <div class="subrow">
                     <div class="subcolumn1">
                         <div class ="nameone">
-                            <p><?php echo $record->ProfileFullName; ?></p>
+                            <p><?php echo $customerservice[$i]->FirstName; ?></p>
                         </div>
                         <div class ="imageone">
                             <img src="data:image/jpg;base64,<?php echo base64_encode($record->image); ?>" alt="image1" width="100" height="100">
@@ -57,12 +58,15 @@ $search = $data['filters']['search'];
                     </div>
                     <div class="subcolumn2">
                         <div class="Description">
-                            <p>"<?php echo $record->bio; ?>"</p>
+                            <p>"<?php echo $customerservice[$i]->bio; ?>"</p>
                         </div>
                     </div>
                     
                 </div>
             <?php } ?>
+
+        </div>
+        
 
             <!-- <div>
                 <?php if ($total_pages > $num_results_on_page){ ?>

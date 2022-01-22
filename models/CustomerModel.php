@@ -165,25 +165,28 @@ class CustomerModel extends Database {
   }
 
 
-  public function getCustomerProfiles($limit = 0, $start = 0, $count = false, $where = array()){
+  public function getCustomerProfiles(){
 
    
     
-    if($count == true){
-      $sql = "SELECT C.* FROM customer C ";
+    // if($count == true){
+    //   $sql = "SELECT C.* FROM customer C ";
       
-      $query = $this->con->query($sql);
-      $query->execute();
-      return $query->rowCount();
-    }
+    //   $query = $this->con->query($sql);
+    //   $query->execute();
+    //   return $query->rowCount();
+    // }
 
-    $sql = "SELECT C.*, customer_ID AS IID, C.Company_Name AS ProfileFullName FROM customer C 
-            ORDER by C.Customer_ID ASC
-            LIMIT $start,$limit"; 
+    $sql = "SELECT * FROM Customer ORDER BY CustomerID"; 
+
     $query = $this->con->query($sql);
     $query->execute();
-    $data = $query->fetchAll(PDO::FETCH_OBJ);
-
+    
+    for($i=0;$i<$query->rowCount(); $i++){
+      $data[$i] = $query->fetch(PDO::FETCH_OBJ);
+    
+    }
+   
     return $data;
   }
 
