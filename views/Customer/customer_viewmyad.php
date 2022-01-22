@@ -1,5 +1,4 @@
 <?php
-    include_once('/Database.php');
     session_start();
 
     $ad = $data['ad_details'];
