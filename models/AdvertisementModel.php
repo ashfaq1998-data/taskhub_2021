@@ -44,7 +44,7 @@ class AdvertisementModel extends Database {
             return $query->rowCount();
         }
     
-        $sql = "SELECT MAPAD.*, M.Company_Name AS MapFullName FROM manpoweradvertisement MAPAD
+        $sql = "SELECT MAPAD.*, M.Company_Name AS CusFullName FROM manpoweradvertisement MAPAD
         INNER JOIN manpower_agency M ON MAPAD.Manpower_Agency_ID=M.Manpower_Agency_ID 
         LIMIT $start,$limit"; 
         $query = $this->con->query($sql);

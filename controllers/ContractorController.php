@@ -241,8 +241,8 @@ class ContractorController {
       // $calc_page = ($page - 1) * $num_results_on_page;
   
       
-      if($selectvalue == 1){
-     
+      if($selectvalue == 1 || empty($selectvalue)){
+    
         // $total_pages = $advertisementModel->getCustomerAd(0, 0, true);
         // $data['pagination'] = [
         //   'page' => $page, 
@@ -253,7 +253,7 @@ class ContractorController {
         $data['advertisements'] = $advertisementModel->getCustomerAd();
       }
   
-      else if($selectvalue == 2){
+      if($selectvalue == 2 || empty($selectvalue)){
       
         // $total_pages = $advertisementModel->getManPowerAd(0, 0, true);
         // $data['pagination'] = [
@@ -438,7 +438,35 @@ class ContractorController {
   }
 
   public function contractorHelp() {
+    
+    $contractorModel = new ContractorModel();
+    $helpmodel=new HelpRequestModel();
+    $userID=$_SESSION['loggedin']['user_id'];
+    
+    if(!empty($_POST['contractor_help'] && $_POST['contractor_help'] == 'submitted')){
+        $subject=$_POST['subject'];
+        $helpmessage=$_POST['Description'];
+    
+        $helpID=$helpmodel->generateContractorHelpID();
+        $currentDate=date('Y-m-d H:i:s');
+        $contractorDetails=$contractorModel->getContractorByUserID($userID);
+    
+        $contractorHelp = [
+          'RequestID' => $helpID,
+          'Contractor_ID' =>$contractorDetails->Contractor_ID,
+          'Date' =>$currentDate,
+          'subject'=>$subject,
+          'description'=>$helpmessage
+        ];
+    
+        $helpmodel->addNewContractorHelp($contractorHelp);
+    }
+    
+    $data['contractor_details'] = $contractorModel->getContractorByUserID($userID);
     $view = new View("Contractor/contractor_help");
+    
+    
+  
   }
 
   public function contractorEditprofile(){
