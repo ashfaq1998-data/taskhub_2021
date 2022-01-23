@@ -32,7 +32,7 @@
                     <img src="<?php echo fullURLfront; ?>/assets/images/booking.JPG" alt="image">
                 </div>
                 <div class="subcolumn">
-                    <a href="<?php echo fullURLfront; ?>/Customer/customer_profile">x</a>
+                    <a class="close" href="<?php echo fullURLfront; ?>/Customer/customer_profile">x</a>
                     <!-- <form action = "<?php echo fullURLfront; ?>/Customer/customer_profileEdUp" method="post">
                         <button class="button close">x</button>
                     </form> -->
