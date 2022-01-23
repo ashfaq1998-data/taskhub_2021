@@ -56,43 +56,22 @@ class ContractorModel extends Database {
   }
 
   
-  public function getContractorWorkHistory($conID, $limit = 10, $start = 0, $count = false){
+  public function getContractorWorkHistory($conID){
   
-    // if($count == true){
-    //   $sql = "SELECT CB.* FROM contractor_booking CB 
-    //           WHERE CB.Contractor_ID='$conID' AND CB.Is_work_done='Yes'";
-      
-    //   $query = $this->con->query($sql);
-    //   $query->execute();
-    //   return $query->rowCount();
-    // }
     
     $sql = "SELECT CB.*, CONCAT(C.FirstName, ' ', C.LastName) AS CusFullName FROM contractor_booking CB
             INNER JOIN customer C ON CB.CustomerID=C.CustomerID 
-            WHERE CB.Contractor_ID='$conID' AND CB.Is_work_done='yes' LIMIT 0,10"; 
-    
-    $query = $this->con->query($sql);
-    
-    $query->execute();
+            WHERE CB.Contractor_ID='$conID'"; 
   
-    $data = $query->fetch(PDO::FETCH_OBJ);
+    $query = $this->con->query($sql);
+    $query->execute();
+    for($i=0;$i<$query->rowCount(); $i++){
+      $data[$i] = $query->fetch(PDO::FETCH_OBJ);
+    
+    }
     
     return $data;
-    // $sql = "SELECT CB.*, CONCAT(C.FirstName, ' ', C.LastName) AS CusFullName FROM contractor_booking CB
-    // INNER JOIN customer C ON CB.CustomerID=C.CustomerID 
-    // WHERE CB.contractor_ID='$conID' 
-    // LIMIT $start,$limit"; 
-    // $query = $this->con->query($sql);
-    // $query->execute();
-    // $data = $query->fetch(PDO::FETCH_OBJ);
-
-    // return $data;
-
+    
   }
-  
-
-  
-
-
 
 }

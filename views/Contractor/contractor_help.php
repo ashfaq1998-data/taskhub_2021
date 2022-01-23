@@ -51,7 +51,7 @@ session_start();
 
                         <input type="text" id="subject" name="subject" placeholder="Subject">
 
-                        <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
+                        <textarea id="message" name="Description" placeholder="Write something.." style="height:200px"></textarea>
 
                         <div class = "Button-section">
                             <button type="reset" class="clearbutton">Clear</button>

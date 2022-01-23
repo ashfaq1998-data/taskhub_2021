@@ -31,9 +31,20 @@
         cursor: pointer;
     }
     
+    .mainarea {
+        overflow: scroll;
+        height: 700px;
+    }
+    
     .subrow {
+        padding-top: 6px;
+        padding-left: 20px;
         box-sizing: border-box;
         margin-top: 1%;
+        background-color: #B4E1E7;
+        border-radius: 5%;
+        width: 95%;
+        height: 200px;
     }
     
     #formdesign {
@@ -47,9 +58,13 @@
         font-size: 12px;
         font: poppins;
         color: black;
-        margin-top: 10px;
+        margin-top: 90px;
         margin-left: 220px;
         width: 100%;
+    }
+    
+    .subcolumn02 {
+        float: right;
     }
     
     .sortinglist label {

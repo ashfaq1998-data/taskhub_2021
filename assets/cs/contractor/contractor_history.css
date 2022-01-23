@@ -44,9 +44,10 @@ td:last-child {
     border-top-right-radius: 15px;
 }
 
-.column {
+.column2 {
     float: left;
     height: 100vh;
+    overflow: scroll;
     margin-bottom: 30px;
 }
 

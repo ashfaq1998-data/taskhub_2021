@@ -1,6 +1,7 @@
 <?php
 session_start();
 $type = $data['filters']['type'];
+
 $page = $data['pagination']['page'];
 $total_pages = $data['pagination']['total_pages'];
 // 
@@ -58,13 +59,14 @@ $total_pages = $data['pagination']['total_pages'];
                                 <option value="kegalle" <?php echo ($area == "kegalle") ? 'selected' : ''; ?>>Kegalle</option>
                                 <option value="galle" <?php echo ($area == "galle") ? 'selected' : ''; ?>>Galle</option>
                             </select>
-
-                            <label for="type">Choose the type:</label>
-                            <select name="type" id="type">
-                                <option value="1" <?php echo ($type == 1) ? 'selected' : ''; ?>>Customer</option>
-                                <option value="2" <?php echo ($type == 2) ? 'selected' : ''; ?>>Manpower Agency</option>
-                            
-                            </select>
+                            <form action="<?php echo fullURLfront; ?>/Contractor/contractor_viewad" method="POST" style="float: right;">
+                                <label for="type">Choose the type:</label>
+                                <select name="search_value" id="type">
+                                    <option value="1" >Customer</option>
+                                    <option value="2">Manpower Agency</option>
+                                </select>
+                                <button type="submit" value='submitted' name="search_filter" class="sub-btn">search</button>
+                            </form>
                         </div>
                 
                     </div>
