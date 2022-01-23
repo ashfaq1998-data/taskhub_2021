@@ -2,7 +2,6 @@
 session_start();
 $type = $data['filters']['type'];
 
-print($type);
 $page = $data['pagination']['page'];
 $total_pages = $data['pagination']['total_pages'];
 // 
@@ -60,7 +59,7 @@ $total_pages = $data['pagination']['total_pages'];
                                 <option value="kegalle" <?php echo ($area == "kegalle") ? 'selected' : ''; ?>>Kegalle</option>
                                 <option value="galle" <?php echo ($area == "galle") ? 'selected' : ''; ?>>Galle</option>
                             </select>
-                            <form action="<?php echo fullURLfront; ?>/Contractor/contractor_viewad" method="POST">
+                            <form action="<?php echo fullURLfront; ?>/Contractor/contractor_viewad" method="POST" style="float: right;">
                                 <label for="type">Choose the type:</label>
                                 <select name="search_value" id="type">
                                     <option value="1" >Customer</option>
