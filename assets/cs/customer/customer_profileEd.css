@@ -31,7 +31,7 @@ h1 {
   color: rgb(26, 141, 126);
 } */
 
-.close {
+/* .close {
   background-color: #79ccc8;
   transform: translateX(71vh);
   padding: 0px;
@@ -42,7 +42,7 @@ h1 {
   font-weight: lighter;
   color: rgb(26, 141, 126);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+} */
 
 div.subcolumn1 {
   display: flex;
@@ -176,4 +176,29 @@ button:hover {
   padding: 12px 17px 12px 17px;
   text-align: center;
   background: rgb(255, 83, 83);
+}
+
+.close {
+  background-color: #79ccc8;
+  color: #cad8d7;
+  margin-top: 0px;
+  margin-right: 5px;
+  padding: 6px 18px;
+  border: none;
+  position: relative;
+  bottom: 14px;
+  cursor: pointer;
+  width: auto;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.3em;
+  text-align: center;
+  float: right;
+}
+
+.close:hover {
+  background-color: rgb(251, 55, 55);
+  color: black;
+  font-size: 1.45em;
+  transition: 0.15s;
+  cursor: pointer;
 }
