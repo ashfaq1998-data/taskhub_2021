@@ -2,7 +2,7 @@
 
 require_once ROOT . "/Database.php";
 class AdvertisementModel extends Database {
-    public function getCustomerAd($limit = 0, $start = 0, $count = false){
+    public function getCustomerAd($limit = 10, $start = 0, $count = false){
 
         $where_cls = "CUSAD.AdvertisementID IS NOT NULL";
 
@@ -29,7 +29,7 @@ class AdvertisementModel extends Database {
         return $data;
     }
 
-    public function getManPowerAd($limit = 0, $start = 0, $count = false){
+    public function getManPowerAd($limit =10, $start = 0, $count = false){
 
         $where_cls = "MAPAD.AdvertisementID IS NOT NULL";
 
@@ -44,11 +44,9 @@ class AdvertisementModel extends Database {
             return $query->rowCount();
         }
     
-        $sql = "SELECT MAPAD.*, CONCAT(M.FirstName, ' ', M.LastName) AS MapFullName FROM manpoweradvertisement MAPAD
-                INNER JOIN manpower_agency M ON MAPAD.Manpower_Agency_ID=M.Manpower_Agency_ID 
-                WHERE $where_cls 
-                ORDER by MAPAD.Date DESC
-                LIMIT $start,$limit"; 
+        $sql = "SELECT MAPAD.*, M.Company_Name AS MapFullName FROM manpoweradvertisement MAPAD
+        INNER JOIN manpower_agency M ON MAPAD.Manpower_Agency_ID=M.Manpower_Agency_ID 
+        LIMIT $start,$limit"; 
         $query = $this->con->query($sql);
         $query->execute();
         $data = $query->fetchAll(PDO::FETCH_OBJ);

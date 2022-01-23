@@ -102,7 +102,7 @@ class ContractorController {
     $data['inputted_data']=$_POST;
     $type = $_REQUEST['type'];
     $customerdetails=$servicesModel->getCustomerProfiles();
-   
+  
     $data['customerSearch']=$customerdetails;
 
     $view = new View("Contractor/contractor_search",$data);
@@ -224,46 +224,48 @@ class ContractorController {
   }
 
   public function contractorViewad() {
-   
-    $contractorModel = new ContractorModel();
-    $data['inputted_data']=$_POST;
-    $type = $_REQUEST['type'];
 
-    $advertisementModel = new AdvertisementModel();
-    $userID = $_SESSION['loggedin']['user_id'];
+    if(!empty($_POST['search_filter']) &&  $_POST['search_filter'] == 'submitted'){
+      $data['inputted_data']=$_POST;
+      $selectvalue=$_POST['search_value'];
+      // $selectvalue=$_POST['search_value'];
+      
+      $advertisementModel = new AdvertisementModel();
+      $userID = $_SESSION['loggedin']['user_id'];
+      
+      // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
+      // $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
     
-    
-    
-    // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
-    $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+      // // Number of results to show on each page.
+      // $num_results_on_page = 3;
+      // $calc_page = ($page - 1) * $num_results_on_page;
+  
+      
+      if($selectvalue == 1){
+     
+        // $total_pages = $advertisementModel->getCustomerAd(0, 0, true);
+        // $data['pagination'] = [
+        //   'page' => $page, 
+        //   'total_pages' => $total_pages, 
+        //   'results_count' => $num_results_on_page
+        // ];
+  
+        $data['advertisements'] = $advertisementModel->getCustomerAd();
+      }
+  
+      else if($selectvalue == 2){
+      
+        // $total_pages = $advertisementModel->getManPowerAd(0, 0, true);
+        // $data['pagination'] = [
+        //   'page' => $page, 
+        //   'total_pages' => $total_pages, 
+        //   'results_count' => $num_results_on_page
+        // ];
+      
 
-    // Number of results to show on each page.
-    $num_results_on_page = 3;
-    $calc_page = ($page - 1) * $num_results_on_page;
-  
-    
-    if($type == 1 || empty($type)){
-      $total_pages = $advertisementModel->getCustomerAd(0, 0, true);
-      $data['pagination'] = [
-        'page' => $page, 
-        'total_pages' => $total_pages, 
-        'results_count' => $num_results_on_page
-      ];
-  
-      $data['advertisements'] = $advertisementModel->getCustomerAd($num_results_on_page, $calc_page, false);
-    }
-  
-    else if($type == 2 || empty($type)){
-      $total_pages = $advertisementModel->getManPowerAd(0, 0, true);
-      $data['pagination'] = [
-        'page' => $page, 
-        'total_pages' => $total_pages, 
-        'results_count' => $num_results_on_page
-      ];
-      print("Hiii4");
+        $data['advertisements'] = $advertisementModel->getManPowerAd();
+      }
 
-      $data['advertisements'] = $advertisementModel->getManPowerAd($num_results_on_page, $calc_page, false);
-    }
       // $total_pages = $advertisementModel->getCustomerAd(0, 0, true);
       // $data['pagination'] = [
       //   'page' => $page, 
@@ -271,7 +273,11 @@ class ContractorController {
       //   'results_count' => $num_results_on_page
       // ];
 
-      $data['advertisements'] = $advertisementModel->getCustomerAd($num_results_on_page, $calc_page, false);
+      
+      // $type = $_REQUEST['type'];
+    }
+    
+    
     $view = new View("Contractor/contractor_viewad",$data);
   }
 

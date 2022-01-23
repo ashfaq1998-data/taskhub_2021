@@ -16,7 +16,7 @@ class ServicesModel extends Database {
         //   return $query->rowCount();
         // }
     
-        $sql = "SELECT * FROM Customer ORDER BY CustomerID"; 
+        $sql = "SELECT *, CONCAT(FirstName, ' ', LastName) AS CusFullName FROM Customer ORDER BY CustomerID"; 
     
         $query = $this->con->query($sql);
         $query->execute();

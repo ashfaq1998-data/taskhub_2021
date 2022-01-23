@@ -50,10 +50,10 @@ $len=sizeof($customerservice);
                 <div class="subrow">
                     <div class="subcolumn1">
                         <div class ="nameone">
-                            <p><?php echo $customerservice[$i]->FirstName; ?></p>
+                            <p><?php echo $customerservice[$i]->CusFullName; ?></p>
                         </div>
                         <div class ="imageone">
-                            <img src="data:image/jpg;base64,<?php echo base64_encode($record->image); ?>" alt="image1" width="100" height="100">
+                            <img src="data:image/jpg;base64,<?php echo base64_encode($customerservice[$i]->image); ?>" alt="image1" width="100" height="100">
                         </div> 
                     </div>
                     <div class="subcolumn2">
