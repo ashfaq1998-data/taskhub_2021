@@ -31,7 +31,7 @@ h1 {
   color: rgb(26, 141, 126);
 } */
 
-.close {
+/* .close {
   background-color: #79ccc8;
   transform: translateX(71vh);
   padding: 0px;
@@ -42,7 +42,7 @@ h1 {
   font-weight: lighter;
   color: rgb(26, 141, 126);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+} */
 
 div.subcolumn1 {
   display: flex;
