@@ -3,6 +3,7 @@
 
     $details = $data['customer_search'];
     $arrLength = count($details);
+    $err = $details['error'];
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +29,10 @@
 
             <div class="column2">
             <?php
+            if($err){
+                echo($err);
+            }
+            else{
             for ($i=0; $i<$arrLength; $i++) { ?>
             <div id="container">  
   
@@ -107,7 +112,7 @@
             
             </div>
 
-            <?php } ?>
+            <?php } } ?>
 
             </div>
         </div>
