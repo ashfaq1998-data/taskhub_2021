@@ -2,6 +2,7 @@
     session_start();
     $details = $data['results'];
     $arrLength = count($details);
+    $err = $details['error'];
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +28,11 @@
             
             <div class="column2">
             <?php
+            if($err){ ?>
+                <center><div style="position: relative; right: 80px; top: 140px;"><h1><?php echo($err); ?></h1>
+                <img src="<?php echo fullURLfront; ?>/assets/images/sad.jpg" alt="image" style="position: relative; right: 10px;"></div></center>
+            <?php }
+            else{
             for ($i=0; $i<$arrLength; $i++) { ?>
             <div id="container">
   
@@ -106,7 +112,7 @@
             
             </div>
 
-            <?php } ?>
+            <?php } } ?>
             </div>
         </div>
         <?php include_once('footer.php'); ?>

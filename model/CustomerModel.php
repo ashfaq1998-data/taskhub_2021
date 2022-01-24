@@ -66,9 +66,10 @@ class CustomerModel extends Database {
       $data[$i] = $query->fetch(PDO::FETCH_OBJ);
     }
     // $data = $query->fetch(PDO::FETCH_OBJ);
-
+    $data['num_rows'] = $query->rowCount();
     if($query->rowCount() == 0){
-        die('No results found for the keyword!!');
+      $err = ('Sorry!! No results found for the keyword...');
+      $data['error'] = $err;
     }
     return  $data;
   }
