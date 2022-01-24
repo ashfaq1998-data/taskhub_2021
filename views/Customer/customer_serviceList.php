@@ -1,7 +1,7 @@
 <?php
     session_start();
     $details = $data['results'];
-    $arrLength = count($details);
+    $arrLength = count($details)-1;
     $err = $details['error'];
 ?>
 

@@ -243,8 +243,8 @@ class CustomerController {
 
   public function customerSearch(){
     $customerModel = new CustomerModel();
-    if(isset($_POST['search']) && ($_POST['search'] != null)) {
-      $keyword = $_POST['search'];
+    $keyword = $_GET['search'];
+    if(isset($_GET['search']) && ($_GET['search'] != null)) {
       $data['results'] = $customerModel->searchResults($keyword);
     }
     else {
