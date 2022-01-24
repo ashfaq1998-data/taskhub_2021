@@ -2,21 +2,21 @@
     session_start();
 
     $details = $data['customer_search'];
-    $arrLength = count($details);
+    $arrLength = count($details)-1;
     $err = $details['error'];
 
-    $num_per_page = 02;
-    $num_rows = $details['num_rows'];
-    $total_pages = ceil($num_rows/$num_per_page);
+    // $num_per_page = 02;
+    // $num_rows = $details['num_rows'];
+    // $total_pages = ceil($num_rows/$num_per_page);
 
-    if(isset($_GET["page"])){
-        $page = $_GET["page"];
-        $i = $page*$num_per_page - $num_per_page;
-    }
-    else{
-        $page = 1;
-        $i = $page*$num_per_page - $num_per_page;
-    }
+    // if(isset($_GET["page"])){
+    //     $page = $_GET["page"];
+    //     $i = $page*$num_per_page - $num_per_page;
+    // }
+    // else{
+    //     $page = 1;
+    //     $i = $page*$num_per_page - $num_per_page;
+    // }
 ?>
 
 <!DOCTYPE html>
