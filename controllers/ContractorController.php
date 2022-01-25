@@ -94,17 +94,30 @@ class ContractorController {
   }
 
   public function contractorSearch(){
-   
-    $contractorModel=new ContractorModel();
-    $userID=$_SESSION['loggedin']['user_id'];
-    $servicesModel=new ServicesModel();
- 
-    $data['inputted_data']=$_POST;
-    $type = $_REQUEST['type'];
-    $customerdetails=$servicesModel->getCustomerProfiles();
-  
-    $data['customerSearch']=$customerdetails;
-
+    
+    if(!empty($_POST['search_filter']) &&  $_POST['search_filter'] == 'submitted'){
+      $selectvalue=$_POST['search_value'];
+      print($selectvalue);
+      $contractorModel=new ContractorModel();
+      $userID=$_SESSION['loggedin']['user_id'];
+      $servicesModel=new ServicesModel();   
+      $data['inputted_data']=$_POST;
+      $type = $_REQUEST['type'];
+      if($selectvalue==1 || empty($selectvalue)){
+        $customerdetails=$servicesModel->getCustomerProfiles();
+        $data['customerSearch']=$customerdetails;
+      }
+      else if($selectvalue==3){
+        $employeedetails=$servicesModel->getEmployeeProfiles();
+    
+        $data['customerSearch']=$employeedetails;
+      }
+      else if($selectvalue==2){
+        $manpowerdetails=$servicesModel->getManpowerProfiles();
+        
+        $data['customerSearch']=$manpowerdetails;
+      }
+    }
     $view = new View("Contractor/contractor_search",$data);
     // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
     // $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
