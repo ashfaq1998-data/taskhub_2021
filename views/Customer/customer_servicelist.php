@@ -2,7 +2,21 @@
     session_start();
 
     $details = $data['customer_search'];
-    $arrLength = count($details);
+    $arrLength = count($details)-1;
+    $err = $details['error'];
+
+    // $num_per_page = 02;
+    // $num_rows = $details['num_rows'];
+    // $total_pages = ceil($num_rows/$num_per_page);
+
+    // if(isset($_GET["page"])){
+    //     $page = $_GET["page"];
+    //     $i = $page*$num_per_page - $num_per_page;
+    // }
+    // else{
+    //     $page = 1;
+    //     $i = $page*$num_per_page - $num_per_page;
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +42,11 @@
 
             <div class="column2">
             <?php
+            if($err){ ?>
+                <center><div style="position: relative; right: 80px; top: 140px;"><h1><?php echo($err); ?></h1>
+                <img src="<?php echo fullURLfront; ?>/assets/images/sad.jpg" alt="image" style="position: relative; right: 10px;"></div></center>
+            <?php }
+            else{
             for ($i=0; $i<$arrLength; $i++) { ?>
             <div id="container">  
   
@@ -107,7 +126,7 @@
             
             </div>
 
-            <?php } ?>
+            <?php } } ?>
 
             </div>
         </div>
