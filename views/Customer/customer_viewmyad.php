@@ -51,6 +51,11 @@
         <br><br>
         
         <?php
+            if($err){ ?>
+                <center><div style="position: relative; right: 80px; top: 140px;"><h1><?php echo($err); ?></h1>
+                <img src="<?php echo fullURLfront; ?>/assets/images/sad.jpg" alt="image" style="position: relative; right: 10px;"></div></center>
+            <?php }
+            else {
             echo($page);
             $arrLength = $page*$num_per_page;
             while ($i<$arrLength && $i<$num_rows) { ?>
@@ -93,7 +98,7 @@
 
             for($i=1; $i<=$total_pages; $i++){ ?>
                 <a href="<?php echo fullURLfront; ?>/Customer/customer_viewmyad?page= <?php echo $i ?>"> <?php echo $i ?> </a>
-            <?php } ?>
+            <?php } } ?>
    </div>
 </div>
 <br>
