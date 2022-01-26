@@ -1,7 +1,8 @@
 <?php
 session_start();
 $customerservice=$data['customerSearch'];
-$len=sizeof($customerservice);
+// $len=sizeof($customerservice);
+$len=10;
 // $type = $data['filters']['type'];
 // $search = $data['filters']['search'];
 ?>
@@ -27,45 +28,47 @@ $len=sizeof($customerservice);
             <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
         </div>
         <div class="column2">
-        <div class="search-container">
-            <form action="<?php echo fullURLfront; ?>/Contractor/contractor_search" method="POST">
-                <input type="text" placeholder="Search" name="search" value="<?php echo (!empty($data['filters'])) ? $search : ''; ?>">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-        <div class="sortinglist">
-            <div>
-                <label for="type">Choose the type:</label>
-                <select name="type" id="type">
-                    <option value="1" <?php echo ($type == 1) ? 'selected' : ''; ?>>Customer</option>
-                    <option value="2" <?php echo ($type == 2) ? 'selected' : ''; ?>>Manpower Agency</option>
-                    <option value="3" <?php echo ($type == 3) ? 'selected' : ''; ?>>Employee</option>
-                </select>
+            <div class="search-container">
+                <form action="<?php echo fullURLfront; ?>/Contractor/contractor_search" method="POST">
+                    <input type="text" placeholder="Search" name="search" value="<?php echo (!empty($data['filters'])) ? $search : ''; ?>">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
             </div>
-        
-        </div>
-        <br>
-        <div class="mainarea">
-            <?php for($i=0;$i<$len;$i++) { ?>
-                <div class="subrow">
-                    <div class="subcolumn1">
-                        <div class ="nameone">
-                            <p><?php echo $customerservice[$i]->CusFullName; ?></p>
-                        </div>
-                        <div class ="imageone">
-                            <img src="data:image/jpg;base64,<?php echo base64_encode($customerservice[$i]->image); ?>" alt="image1" width="100" height="100">
-                        </div> 
-                    </div>
-                    <div class="subcolumn2">
-                        <div class="Description">
-                            <p>"<?php echo $customerservice[$i]->bio; ?>"</p>
-                        </div>
-                    </div>
-                    
-                </div>
-            <?php } ?>
 
-        </div>
+            <div class="sortinglist"> -->
+                <form  action="<?php echo fullURLfront; ?>/Contractor/contractor_search" method="POST" style="float:center;">
+                    <label for="type">Choose the type:</label>
+                    <select name="search_value" id="type">
+                        <option value='1'>Customer</option>
+                        <option value='2'>Manpower Agency</option>
+                        <option value='3'>Employee</option>
+                    </select>
+                    <button type="submit" value='submitted' name="search_filter" class="sub-btn">search</button>
+                </form>
+            </div> 
+
+            <br>
+            <div class="mainarea">
+                <?php for($i=0;$i<$len;$i++) { ?>
+                    <div class="subrow">
+                        <div class="subcolumn1">
+                            <div class ="nameone">
+                                <p><?php echo $customerservice[$i]->CusFullName; ?></p>
+                            </div>
+                            <div class ="imageone" style="width:40px">
+                                <img src="data:image/jpg;base64,<?php echo base64_encode($customerservice[$i]->image); ?>" alt="image1" width="100" height="100">
+                            </div> 
+                        </div>
+                        <div class="subcolumn2" >
+                            <div class="Description">
+                                <p>"<?php echo $customerservice[$i]->bio; ?>"</p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                <?php } ?>
+
+            </div>
         
 
             <!-- <div>
