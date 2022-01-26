@@ -3,6 +3,7 @@
 
     $ad = $data['ad_details'];
     $arrLength = count($ad);
+    $err = $ad['error'];
 
     $num_per_page = 03;
     $num_rows = $ad['num_rows'];

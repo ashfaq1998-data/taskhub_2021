@@ -125,7 +125,8 @@ class CustomerModel extends Database {
 
     $data['num_rows'] = $query->rowCount();
     if($data['num_rows'] == 0){
-        die('No advertisements are posted by yourself');
+      $err = ('Sorry!! No advertisements are posted by yourself...');
+      $data['error'] = $err;
     }
     return  $data;
   }
