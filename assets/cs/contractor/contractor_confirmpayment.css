@@ -1,37 +1,5 @@
-.row {
-    display: flex;
-    height: 1000px;
-}
-
-.img-left {
-    margin-top: 80px;
-    width: 410px;
-    height: 410px;
-}
-
-.column {
-    float: left;
-    flex: 50%;
-    height: 390px;
-    width: 910px;
-}
-
-.sub-column01 {
-    width: 440px;
-}
-
-.sub-column02 {
-    width: 440px;
-    background-color: rgb(255, 255, 255);
-}
-
-#topic {
-    font-family: 'Lobster', cursive;
-    font-size: 55px;
-    color: rgb(25, 112, 108)
-}
-
 #chatbox {
+    margin-left: 400px;
     margin-top: 80px;
     margin-bottom: 50px;
     width: 365px;
@@ -66,6 +34,7 @@
     background-color: #108882;
     border: 1px solid #000000;
     box-sizing: border-box;
+    border-radius: 20px;
     border-color: #000000;
     font-family: poppins;
     font-style: normal;

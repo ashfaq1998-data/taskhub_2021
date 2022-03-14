@@ -6,10 +6,7 @@ session_start();
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="<?php echo fullURLfront; ?>/assets/cs/contractor/contractor_confirmpayment.css" rel="stylesheet" type="text/css"/>  
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/header.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/footer.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/sidebar.css" rel="stylesheet" type="text/css"/>
@@ -44,7 +41,7 @@ session_start();
                             </div>
                         </fieldset> 
                         <br>
-                        <p style="font-family: poppins; font-style: normal; font-weight: bold; font-size: 16px;">Provide the complain (if necessary)</p>
+                        <p style="font-family: Raleway; font-style: normal; font-weight: bold; font-size: 16px;">Provide the complain (if necessary)</p>
                         
                         <input type="text" id="subject" name="subject" placeholder="Subject" size="80%">
                         <textarea id="complaintmessage" name="complaintmessage" placeholder="Write your complaint message here.." style="height:200px" rows="4" cols="82"></textarea>

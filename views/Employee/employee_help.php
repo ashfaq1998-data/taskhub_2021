@@ -27,19 +27,19 @@ session_start();
             <div class = "faq">
                 <h2>Frequently Asked Questions</h2>
             
-                <button class="accordion">Section 1</button>
+                <button class="accordion">Will I recieve my payment on time <i class="fa fa-exclamation" aria-hidden="true"></i></button>
                     <div class="panel">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Yes, Ofcourse. While you are registering, we request you the Bank name and Account Number. So within 2 hours we shall deposit your amount. If further you didn't recieve in our promise time, you can contact us</p>
                     </div>
 
-                <button class="accordion">Section 2</button>
+                <button class="accordion">Can we apply for the job if we are specialized in many section<i class="fa fa-exclamation" aria-hidden="true"></i></button>
                     <div class="panel">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Yes, but we prefer you to register with the skill that you are more specialized. But under your bio section, you need to put all necessary skills additonally you have so the customers and other parties for you to hire</p>
                     </div>
 
-                <button class="accordion">Section 3</button>
+                <button class="accordion">How do i know whether customers hired me? <i class="fa fa-exclamation" aria-hidden="true"></i></button>
                     <div class="panel">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>In your sidebar, you can see the booking tab.In that calender, you can see details of customers you need to visit. And also you can request for the job under view advertisement tab in sidebar</p>
                     </div>
             </div>
             <div class="contact-section">

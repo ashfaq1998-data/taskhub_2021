@@ -3,7 +3,7 @@ session_start();
 
 $JsonData = json_encode($data['bookingEvents']);
 ?>
-<!-- added backend of booking too -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,10 +39,10 @@ $JsonData = json_encode($data['bookingEvents']);
                         <input type="text" id="customerName" name="customerName" value="" readonly><br>
                         <label for="lname">Time:</label><br>
                         <input type="text" id="time" name="time" value="" readonly><br>
-                        <label for="lname">Payment:</label><br>
-                        <input type="text" id="payment" name="payment" value="" readonly>
                         <label for="lname">Address:</label><br>
                         <input type="text" id="address" name="address" value="" readonly>
+                        <label for="lname">Description:</label><br>
+                        <input type="text" id="description" name="description" value="" readonly>
                     </form>
                 </div>
             </div>

@@ -32,7 +32,7 @@ session_start();
     <div class="bodywrapper">
         <div id ="chatbox">
             <div id ="subdiv1">Transaction completed.Thank you for using Taskhub-payment</div>
-            <div id ="subdiv2"><button class="confirmbutton" ><a class="btn-okay" href="<?php echo fullURLfront; ?>/Contractor/contractor_postad">okay</a></button></div>
+            <div id ="subdiv2"><button class="confirmbutton" ><a href="<?php echo fullURLfront; ?>/Contractor/contractor_postad">okay</a></button></div>
         </div>
     </div>
   </div>

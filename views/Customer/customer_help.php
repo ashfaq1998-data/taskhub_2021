@@ -25,7 +25,7 @@ session_start();
         </div>
         <div class="column2">
             <div class = "faq">
-                <h2>Frequently Asked Questions (FAQ)</h2>
+                <h2>Frequently Asked Questions</h2>
             
                 <button class="accordion">Are these service providers trustworthy?</button>
                     <div class="panel">
@@ -34,10 +34,10 @@ session_start();
 
                 <button class="accordion">How can I book a service provider?</button>
                     <div class="panel">
-                        <p>You can book a service provider by simply <a id="click" href="<?php echo fullURLfront; ?>/Customer/customer_service">clicking here</a></p>
+                        <p>You can book a service provider by simply <a id="click" href="<?php echo fullURLfront; ?>/Customer/customer_bookingform">clicking here</a></p>
                     </div>
 
-                <button class="accordion">Are these service providers well-experienced??</button>
+                <button class="accordion">Are these service providers well-experienced?</button>
                     <div class="panel">
                         <p>Yes, most of them can be probably well-experienced ones. But there might be a few of them that not having much experience in the field.. Anyway, you can check there services, considering their rating & reviews..</p>
                     </div>
@@ -46,26 +46,23 @@ session_start();
                 <img src="<?php echo fullURLfront; ?>/assets/images/callback_image.png" alt="image">
                 <div class="contact-section-form">
                     <form action="<?php echo fullURLfront; ?>/Customer/customer_help" method="POST">
-                        <input type="text" id="name" name="name" placeholder="Name" required>
+                        
 
-                        <input type="text" id="email" name="email" placeholder="Email" value="<?php echo $_SESSION['loggedin']['email']; ?>" required>
+                        <input type="text" id="subject" name="subject" placeholder="Subject">
 
-                        <textarea id="message" name="message" placeholder="Write something.." style="height:200px"
-                        required></textarea>
+                        <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
 
-                        <div class = "button_section">
-                            <button type="reset" class="cancel">Cancel</button> &nbsp &nbsp
-                            <button type="submit" name="submit" class="submit" value="submitted">Request Help 
-                            <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                            <br>
-                            <?php if(!empty($data['HelpError']) && $data['HelpError'] != "none") {?>
-                                <p class="error"><?php echo $data['HelpError']; ?></p>
-                            <?php }else if($data['HelpError'] == "none"){?>
-                                <p class="success">You have successfully requested for a help <i style="color: green;" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-                                style="font-weight: bold;" class="fa fa-check" aria-hidden="true"></i></p>
-                            <?php }?>
+                        <div class = "Button-section">
+                            <button type="reset" class="clearbutton">Clear</button>
+                            <button type="submit" name="customer_help" value="submitted" class="btn-submit">Request Help <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         </div>
                     </form>
+                    <br><br>
+                    <?php if(!empty($data['HelpError']) && $data['HelpError'] != "none") {?>
+                        <p class="error"><?php echo $data['HelpError']; ?></p>
+                    <?php }else if($data['HelpError'] == "none"){?>
+                        <p class="success">Your Help Request Submitted <i class="fa fa-check" aria-hidden="true"></i></p>
+                    <?php }?>
                 </div>
             </div>
         </div>

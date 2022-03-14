@@ -1,8 +1,8 @@
 <?php
 session_start();
-$history=$data['HistoryEvents'];
-$len=sizeof($history);
-
+$page = $data['pagination']['page'];
+$total_pages = $data['pagination']['total_pages'];
+$num_results_on_page = $data['pagination']['results_count'];
 ?>
 
 <!DOCTYPE html>
@@ -34,22 +34,52 @@ $len=sizeof($history);
                     <th>Is_Job_Done</th>
                     <th>Description</th>
                 </tr>
-            
-                <?php for($i=0;$i<$len;$i++) { ?>
+                <?php foreach($data['work_history'] as $record) { ?>
                     <tr>
-                        <td name="Date"><?php echo $history[$i]->Date; ?></td>
-                        <td name="Name"><?php echo $history[$i]->CusFullName; ?></td>
-                        <td name="Location"><?php echo $history[$i]->Address; ?></td>
-                        <td name="payment"><?php echo $history[$i]->payment; ?></td>
-                        <td name="Is_job_done"><?php echo $history[$i]->Is_work_done; ?></td>
-                        <td name="Description"> <?php echo $history[$i]->title; ?></td>
+                        <td><?php echo date("Y-m-d",strtotime($record->Date)); ?></td>
+                        <td><?php echo $record->CusFullName; ?></td>
+                        <td><?php echo $record->Address; ?></td>
+                        <td><?php echo $record->payment; ?></td>
+                        <td><?php echo $record->Is_work_done; ?></td>
+                        <td><?php echo $record->Description; ?></td>
                     </tr>
                 <?php } ?>
             </table>
-            
+            <div>
+                <?php if (ceil($total_pages / $num_results_on_page) > 0 && $total_pages > $num_results_on_page){ ?>
+                <ul class="pagination">
+                    <?php if ($page > 1){ ?>
+                    <li class="prev"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo $page-1 ?>">Prev</a></li>
+                    <?php } ?>
+
+                    <?php if ($page > 3){ ?>
+                    <li class="start"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=1">1</a></li>
+                    <li class="dots">...</li>
+                    <?php } ?>
+
+                    <?php if ($page-2 > 0){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo $page-2 ?>"><?php echo $page-2 ?></a></li><?php } ?>
+                    <?php if ($page-1 > 0){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo $page-1 ?>"><?php echo $page-1 ?></a></li><?php } ?>
+
+                    <li class="currentpage"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo $page ?>"><?php echo $page ?></a></li>
+
+                    <?php if ($page+1 < ceil($total_pages / $num_results_on_page)+1){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo $page+1 ?>"><?php echo $page+1 ?></a></li><?php } ?>
+                    <?php if ($page+2 < ceil($total_pages / $num_results_on_page)+1){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo $page+2 ?>"><?php echo $page+2 ?></a></li><?php } ?>
+
+                    <?php if ($page < ceil($total_pages / $num_results_on_page)-2){ ?>
+                    <li class="dots">...</li>
+                    <li class="end"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo ceil($total_pages / $num_results_on_page) ?>"><?php echo ceil($total_pages / $num_results_on_page) ?></a></li>
+                    <?php } ?>
+
+                    <?php if ($page < ceil($total_pages / $num_results_on_page)){ ?>
+                    <li class="next"><a href="<?php echo fullURLfront; ?>/Contractor/contractor_history?page=<?php echo $page+1 ?>">Next</a></li>
+                    <?php } ?>
+                </ul>
+                <?php } ?>
+            </div>
         </div>
     </div>
     <?php include_once('footer.php'); ?>
 </div>
 </body>
 </html>
+

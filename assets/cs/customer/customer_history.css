@@ -11,25 +11,24 @@ table{
 th, td{
     text-align: center;
     padding: 8px;
-    height: 90px;
+    height: 70px;
     font-family: 'Poppins', sans-serif;
 
 }
 
 tr:nth-child(even) {
-    background-color: rgba(39, 167, 160, 0.404);;
+    background-color: rgba(16, 136, 130, 0.37);;
     
 }
 
 tr:nth-child(odd) {
-    background-color: rgba(28, 173, 166, 0.226);;
+    background-color: rgba(16, 136, 130, 0.37);;
     
 }
 
 th {
-    background-image: linear-gradient(rgb(205, 216, 214), #ffffff);
+    background-color: white;
     color: black;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
 td:first-child {
@@ -42,6 +41,42 @@ td:last-child {
     
     border-bottom-right-radius: 15px; 
     border-top-right-radius: 15px; 
+}
+
+.pagination {
+    list-style-type: none;
+    padding: 10px 0;
+    display: inline-flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.pagination li {
+    box-sizing: border-box;
+    padding-right: 10px;
+}
+.pagination li a {
+    box-sizing: border-box;
+    background-color: #e2e6e6;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: #616872;
+    border-radius: 4px;
+}
+.pagination li a:hover {
+    background-color: #d4dada;
+}
+.pagination .next a, .pagination .prev a {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.pagination .currentpage a {
+    background-color: #518acb;
+    color: #fff;
+}
+.pagination .currentpage a:hover {
+    background-color: #518acb;
 }
 
 

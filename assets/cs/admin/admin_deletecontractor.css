@@ -1,0 +1,21 @@
+.modal{
+    position: relative; /* Stay in place */
+    overflow: auto; /* Enable scroll if needed */
+    width: 100%;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+  
+ 
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+}
+
+.modal-content p{
+    color: green;
+    font-size: 30px;
+}

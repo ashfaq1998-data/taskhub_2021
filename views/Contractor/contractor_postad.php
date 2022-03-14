@@ -38,40 +38,34 @@ session_start();
             <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
           </div>
           <div class="row">
-            <div class="column">
-              <img class="image-left" src="<?php echo fullURLfront; ?>/assets/images/twolabors.jpg" alt="image">
-            
+            <div class="sub-column01">
+              <img class="image-left" src="<?php echo fullURLfront; ?>/assets/images/newpostad.jpg" alt="image">
+             
             </div>
 
-            <div class="column">
+            <div class="sub-column02">
               <div id="topic-area">Enter your Advertisement details below:</div>
 
               <div class="form-area">
-                <form action="<?php echo fullURLfront; ?>/Contractor/contractor_postad" method="POST" autocomplete="off">
-                  <input type="text" placeholder="Title of Advertisement" name="title" class="title" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['title'] : ''; ?>">
-                  
-                  <input type="text" placeholder="Name" name="name" class="name" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['name'] : ''; ?>">
-                  <input type="E-mail" placeholder="Email" name="Email" class="Email" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['email'] : ''; ?>">
-                  <input type="Address" placeholder="Address" name="address" class="address" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['address'] : ''; ?>">
-                  <input type="zipcode" placeholder="zipcode" name="zipcode" class="zipcode" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['zipcode'] : ''; ?>">
-                  <input type="file" placeholder="" name="image" class="image" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['image'] : ''; ?>">
-                  <input type="text" placeholder="District" name="district" class="district" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['district'] : ''; ?>">
-                  <input type="text" placeholder="Add Description" name="description" class="description" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['description'] : ''; ?>">
-                  <div class="buttons">
-                    
-                    <button type="reset" class="postad-cancel"><i class="fa fa-ban"></i> Cancel</button>
-                    <button type="submit" name="contractor_postad" value="submitted" class="postad-confirm"><i class="fa fa-frown-o"></i> Confirm</button>
-                  </div>
-                  
+                <form action="<?php echo fullURLfront; ?>/Contractor/contractor_postad" method="POST" autocomplete="off" enctype="multipart/form-data">
+                  <input type="text" placeholder="Title of Advertisement" name="title" class="title">
+                  <input type="E-mail" placeholder="Email" name="email" class="Email">
+                  <input type="Address" placeholder="Address" name="address" class="address">
+                  <input type="file" placeholder="" id="image" name="image" class="image" value="">
+                  <input type="text" placeholder="District" name="district" class="district">
+                  <input type="text" placeholder="Add Description" name="description" class="description">
+
+                  <button type="reset" class="postad-cancel"><i class="fa fa-ban"></i> Cancel</button>
+                  <button type="submit" name="postad-confirm" value="submitted" class="postad-confirm"><i class="fa fa-frown-o"></i> Confirm</button>
                 </form>
-                <?php if(!empty($data['postadError']) && $data['postadError'] != "none"){?>
-                    <p class="error"><?php echo $data['postadError']; ?></p>
-                <?php }else if($data['postadError'] == "none"){?>
-          
-                  <p class="success">Your Ad Submitted successfully <i class="fa fa-check" aria-hidden="true"></i></p>
-                  <?php }?>
+                <br><br><br><br><br>
+                <?php if(!empty($data['editError']) && $data['editError'] != "none") {?>
+                  <p class="error"><?php echo $data['editError']; ?></p>
+                <?php }else if($data['editError'] == "none"){?>
+                  <p class="success">Your Advertisment has been Posted SuccessFully <i class="fa fa-check" aria-hidden="true"></i></p>
+                <?php }?>
               </div>
-              
+
             </div>
 
             

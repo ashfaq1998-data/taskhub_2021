@@ -1,0 +1,99 @@
+.row {
+    display: flex;
+}
+
+.columnsub1 {
+    float: left;
+    flex: 50%;
+    background-image: linear-gradient(to bottom, rgba(157, 238, 218, 0.918), rgb(232, 233, 219));
+}
+
+.left {
+    width: 50%
+}
+
+.right {
+    width: 50%;
+}
+
+#chatbox {
+    position: absolute;
+    width: 365px;
+    height: 243px;
+    left: 60%;
+    top: 20%;
+    background: linear-gradient(180deg, #108882 0%, rgba(94, 178, 178, 0.99) 100%);
+    border-radius: 20px;
+}
+
+#subdiv1 {
+    padding-top: 40px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    /*identical to box height, or 171% */
+    color: #ffffff;
+}
+
+.confirmbutton {
+    position: relative;
+    margin-top: 36%;
+    margin-left: 12%;
+    padding-left: 15px;
+    padding-right: 20px;
+    background-color: #108882;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border-color: #000000;
+    font-family: poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: aliceblue
+}
+
+.confirmbutton:hover {
+    color: #108882;
+    background-color: aliceblue;
+    cursor: pointer;
+}
+
+.input1 {
+    position: absolute;
+    width: 242px;
+    height: 30px;
+    padding: 10px;
+    margin-top: 5%;
+    margin-left: 10%;
+    background: #ffffff;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    color: #000000;
+    outline: none;
+}
+
+.input2 {
+    position: absolute;
+    width: 242px;
+    height: 30px;
+    padding: 10px;
+    margin-top: 18%;
+    margin-left: 10%;
+    background: #ffffff;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    color: #000000;
+    outline: none;
+}
+
+#bottom {
+    margin-top: 400px;
+}

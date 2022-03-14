@@ -17,10 +17,10 @@
     margin-right: 50px;
 }
 
-.register-section-form input[type=text], input[type=password], input[type=file],input[type=date],textarea, select{
+.register-section-form input[type=text], input[type=number], input[type=password], input[type=file],input[type=date],textarea, select{
     background-color: white;
     color: black;
-    width: 80%; /* Full width */
+    width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
     border: 1px solid #108882; 
     border-radius: 4px; /* Rounded borders */
@@ -33,7 +33,7 @@
 .register-section-form  input[type=file] {
     background-color: white;
     color: black;
-    width: 80%; /* Full width */
+    width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
     border: 0px; 
     margin-left: 29%;
@@ -44,8 +44,12 @@
 }
 
 .gender{
-    float: left;
-    margin-left: 11%;
+    display: block;
+    position: relative;
+    margin-bottom: 30px;
+    padding: 0px;
+    width: 100%;
+    text-align: left;
 }
 
 
@@ -67,6 +71,11 @@
 }
 
 .error{
+    color: red;
+    font-weight: bold;
+}
+
+.warning{
     color: red;
     font-weight: bold;
 }

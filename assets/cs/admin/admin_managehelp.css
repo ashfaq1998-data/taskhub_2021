@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.search-container{
+    width: 100%;
+    position: absolute;
+
+}
+
+.search-container input[type=text] {
+    width: 863px;
+    height: 46px;
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    background-color:  rgba(16, 136, 130, 0.37);
+    border-radius: 30px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;  
+}
+
+.search-container button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.sortinglist{
+    margin-top: 8%;
+    margin-right: 15%;
+    width: 100%;
+}
+
+.sortinglist label{
+    font-family: Poppins; 
+    font-style: normal; 
+    font-size: 18px; 
+    color:#108882;
+}
+
+.sortinglist select{
+    background: #108882; 
+    color: white; 
+    width: 187px; 
+    height: 38px; 
+    border-radius: 5px;
+}
+
+table{
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    width: 100%;
+    margin-top: 30px;
+
+}
+
+.help a{
+    float: left;
+    text-decoration: none;
+    background-color: #ca3a1b;
+    color: white;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+}
+
+th, td{
+    text-align: center;
+    padding: 8px;
+    height: 70px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+tr:nth-child(even) {
+    background-color: rgba(16, 136, 130, 0.37);;
+    
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(16, 136, 130, 0.37);;
+    
+}
+
+th {
+    background-color: white;
+    color: black;
+  }
+
+td:first-child {
+    
+    border-top-left-radius: 15px; 
+    border-bottom-left-radius: 15px;
+}
+
+td:last-child {
+    
+    border-bottom-right-radius: 15px; 
+    border-top-right-radius: 15px; 
+}
+
+.pagination {
+    list-style-type: none;
+    padding: 10px 0;
+    display: inline-flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.pagination li {
+    box-sizing: border-box;
+    padding-right: 10px;
+}
+.pagination li a {
+    box-sizing: border-box;
+    background-color: #e2e6e6;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: #616872;
+    border-radius: 4px;
+}
+.pagination li a:hover {
+    background-color: #d4dada;
+}
+.pagination .next a, .pagination .prev a {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.pagination .currentpage a {
+    background-color: #518acb;
+    color: #fff;
+}
+.pagination .currentpage a:hover {
+    background-color: #518acb;
+}
+
+.help button{
+    margin-left: 10%;
+    text-decoration: none;
+    background-color: #ca3a1b;
+    color: white;
+    font-size: 14px;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.modal{
+    position: relative; /* Stay in place */
+    overflow: auto; /* Enable scroll if needed */
+    width: 100%;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+  
+ 
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+}
+
+.modal-content p{
+    color: green;
+    font-size: 30px;
+}
+
+

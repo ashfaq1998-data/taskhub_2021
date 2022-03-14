@@ -12,8 +12,6 @@ $now = new DateTime();
 $diff = $now->diff($dob);
 $age = $diff->y;
 ?>
-<!-- calculate age done -->
-<!-- blob datatype used for database -->
 
 <!DOCTYPE html>
 <html>
@@ -39,9 +37,9 @@ $age = $diff->y;
         <div class="column2">
             <div class="personal-info-section">
                 <span>Personal Info</span>
-                <a href="">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <a href="<?php echo fullURLfront; ?>/Employee/employee_editprofile">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
                 <div class="personal-info-section-content">
-                    <img src="<?php echo fullURLfront; ?>/assets/images/profile.jpeg" alt="Avatar" class="avatar">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($employeeDetails->image); ?>" alt="Avatar" class="avatar">
                     <div class="details">
                         <table>
                             <tr>
@@ -58,7 +56,7 @@ $age = $diff->y;
                             </tr>
                             <tr>
                                 <td>Specialization</td>
-                                <td class="info-right-column"><?php echo $employeeDetails->specialized_area; ?></td>
+                                <td class="info-right-column"><?php echo $employeeDetails->Specialized_area; ?></td>
                             </tr>
                             <tr>
                                 <td>Contact Number</td>
@@ -108,7 +106,7 @@ $age = $diff->y;
                             <td class="info-right-column-color"><?php echo $employeeDetails->NIC; ?></td>
                         </tr>
                         <tr>
-                            <td>Rate for 2 hours</td>
+                            <td>Visiting Charge</td>
                             <td class="info-right-column-color"><?php echo $employeeDetails->Payment_for_2hours; ?></td>
                         </tr>
                         <tr>

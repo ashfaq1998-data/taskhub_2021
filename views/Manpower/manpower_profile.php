@@ -30,7 +30,7 @@ $manpowerDetails = $data['manpower_details'];
         <div class="column2">
             <div class="personal-info-section">
                 <span>Personal Info</span>
-                <a href="#">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <a href="<?php echo fullURLfront; ?>/Manpower/manpower_editprofile">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
                 <div class="personal-info-section-content">
                     <img src="data:image/jpg;base64,<?php echo base64_encode($manpowerDetails->image); ?>" alt="Avatar" class="avatar">
                     <div class="details">
@@ -89,6 +89,10 @@ $manpowerDetails = $data['manpower_details'];
                         <tr>
                             <td>No of Workers</td>
                             <td class="info-right-column-color"><?php echo $manpowerDetails->No_of_workers; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Visiting Charge</td>
+                            <td class="info-right-column-color"><?php echo $manpowerDetails->Payment_for_2hours; ?></td>
                         </tr>
                         <tr>
                             <td>Years of experience</td>

@@ -35,6 +35,29 @@ class CustomerModel extends Database {
 
   }
 
+  public function getCustomerOwnAd($CusID, $limit = 0, $start = 0, $count = false){
+    if($count == true){
+      $sql = "SELECT CUSAD.* FROM customeradvertisement CUSAD 
+              WHERE CUSAD.CustomerID='$CusID'";
+      
+      $query = $this->con->query($sql);
+      $query->execute();
+      return $query->rowCount();
+    }
+
+    $sql = "SELECT * FROM customeradvertisement CUSAD
+            WHERE CUSAD.CustomerID='$CusID'
+            ORDER BY Date DESC
+            LIMIT $start,$limit"; 
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetchAll(PDO::FETCH_OBJ);
+
+    return $data;
+  }
+
+  
+
   public function generateCustomerID(){
     $str_part = "cust";
     $customer_id = "";
@@ -54,143 +77,218 @@ class CustomerModel extends Database {
     return $customer_id;
   }
 
-
-
-  public function searchResults($keyword) {
-    $sql = "SELECT * FROM employee WHERE ((`FirstName` LIKE '%".$keyword."%') OR (`LastName` LIKE '%".$keyword."%') 
-            OR (`Specialized_area` LIKE '%".$keyword."%'))";
-    $query = $this->con->query($sql);
-    $query->execute();
-    for($i=0; $i<$query->rowCount(); $i++){
-      $data[$i] = $query->fetch(PDO::FETCH_OBJ);
-    }
-    // $data = $query->fetch(PDO::FETCH_OBJ);
-    $data['num_rows'] = $query->rowCount();
-    if($query->rowCount() == 0){
-      $err = ('Sorry!! No results found for the keyword...');
-      $data['error'] = $err;
-    }
-    return  $data;
-  }
-
-
-  //post advertisement model
-  public function customerPostad($customerPostad){
-    $adID = $customerPostad['AdvertisementID'];
-    $title = $customerPostad['Title'];
-    $des = $customerPostad['Description'];
-    $loc = $customerPostad['City'];
-    $email = $customerPostad['Email'];
-    $customerID = $customerPostad['CustomerID'];
-
-    $sql = "INSERT INTO customeradvertisement (Title, Description, City, Email, CustomerID, AdvertisementID) 
-            VALUES ('$title', '$des', '$loc', '$email', '$customerID', '$adID')";
-    
-    if($this->con->query($sql)){
-        return true;
-    }else{
-        return false;
-    }   
-  }
-
-  public function generateCustomerAdID(){
-    $str_part = "ad";
-    $ad_id = "";
-
-    while(true){
-        $num_part = rand(000,999);
-        $ad_id = $str_part.strval($num_part);
-
-        $sql = "SELECT * FROM customeradvertisement WHERE AdvertisementID = '$ad_id'";
-        $query = $this->con->query($sql);
-        $query->execute();
-
-        if($query->rowCount() == 0){
-            break;
-        }
-    }
-    return  $ad_id;
-  }
-
-
-  public function getMyAdByCustomerID($cuID){
-
-    $sql = "SELECT * FROM customeradvertisement WHERE CustomerID = '$cuID'";
-    $query = $this->con->query($sql);
-    $query->execute();
-    for($i=0; $i<$query->rowCount(); $i++){
-      $data[$i] = $query->fetch(PDO::FETCH_OBJ);
-    }
-    // $data = $query->fetch(PDO::FETCH_OBJ);
-
-    $data['num_rows'] = $query->rowCount();
-    if($data['num_rows'] == 0){
-      $err = ('Sorry!! No advertisements are posted by yourself...');
-      $data['error'] = $err;
-    }
-    return  $data;
-  }
-
-
-
-  //newly added
-  public function deleteMyAdID($adIDNo, $cuID){
-
-    $sql = "DELETE FROM customeradvertisement WHERE AdvertisementID = '$adIDNo'";
-    $query = $this->con->query($sql);
-    $err = "";
-
-    $data['num_rows'] = $query->rowCount();
-    if($data['num_rows'] > 0){
-        $query->execute();
-    }
-    else {
-      $err = 'No advertisements are posted by yourself';
-    }
-
-
-    $sql = "SELECT * FROM customeradvertisement WHERE CustomerID = '$cuID'";
-    $query = $this->con->query($sql);
-    $query->execute();
-    for($i=0; $i<$query->rowCount(); $i++){
-      $data[$i] = $query->fetch(PDO::FETCH_OBJ);
-    }
-    // $data = $query->fetch(PDO::FETCH_OBJ);
-
-    $data['num_rows'] = $query->rowCount();
-    if($data['num_rows'] == 0){
-        $err = 'No advertisements are posted by yourself';
-    }
-    $data['error'] = $err;
-
-    return  $data;
-  }
-
-
-  public function getCustomerProfiles(){
-
-   
-    
-    // if($count == true){
-    //   $sql = "SELECT C.* FROM customer C ";
-      
-    //   $query = $this->con->query($sql);
-    //   $query->execute();
-    //   return $query->rowCount();
-    // }
-
-    $sql = "SELECT *, CONCAT(FirstName, ' ', LastName)  AS CusFullName FROM Customer ORDER BY CustomerID"; 
-
-    $query = $this->con->query($sql);
-    $query->execute();
-    
-    for($i=0;$i<$query->rowCount(); $i++){
-      $data[$i] = $query->fetch(PDO::FETCH_OBJ);
-    
-    }
   
+
+  public function getCustomerByID($id) {
+    $sql = "SELECT *, CONCAT(FirstName, ' ', LastName) AS ProfileFullName FROM customer WHERE CustomerID ='$id'"; 
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetch(PDO::FETCH_OBJ);
+
     return $data;
   }
+
+
+  public function getCustomerProfiles($limit = 0, $start = 0, $count = false, $where = array()){
+
+    $where_cls = "C.CustomerID IS NOT NULL";
+
+    if($where['search'] != ""){
+        $search = strtolower($where['search']);
+        $where_cls .= " AND LOWER(C.FirstName) LIKE '%$search%' OR LOWER(C.LastName) LIKE '%$search%'";
+    }
+    
+    if($count == true){
+      $sql = "SELECT C.* FROM customer C WHERE $where_cls";
+      
+      $query = $this->con->query($sql);
+      $query->execute();
+      return $query->rowCount();
+    }
+
+    $sql = "SELECT C.*, C.CustomerID AS IID, CONCAT(C.FirstName, ' ', C.LastName) AS ProfileFullName FROM customer C 
+            WHERE $where_cls 
+            ORDER by C.CustomerID ASC
+            LIMIT $start,$limit"; 
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetchAll(PDO::FETCH_OBJ);
+
+    return $data;
+  }
+
+  public function getCustomerEmployeeWorkHistory($CusID, $limit = 0, $start = 0, $count = false){
+    if($count == true){
+      $sql = "SELECT EB.* FROM employee_booking EB 
+              WHERE EB.CustomerID='$CusID' AND EB.Is_work_done='Yes'";
+      
+      $query = $this->con->query($sql);
+      $query->execute();
+      return $query->rowCount();
+    }
+
+    $sql = "SELECT EB.*, CONCAT(E.FirstName, ' ', E.LastName) AS EmpFullName FROM employee_booking EB
+            INNER JOIN employee E ON EB.EmployeeID=E.EmployeeID 
+            WHERE EB.CustomerID='$CusID' AND EB.Is_work_done='Yes'
+            LIMIT $start,$limit"; 
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetchAll(PDO::FETCH_OBJ);
+
+    return $data;
+  }
+
+  public function getCustomerContractorWorkHistory($CusID, $limit = 0, $start = 0, $count = false){
+    if($count == true){
+      $sql = "SELECT ConB.* FROM contractor_booking ConB 
+              WHERE ConB.CustomerID='$CusID' AND ConB.Is_work_done='Yes'";
+      
+      $query = $this->con->query($sql);
+      $query->execute();
+      return $query->rowCount();
+    }
+
+    $sql = "SELECT ConB.*, CONCAT(Con.FirstName, ' ', Con.LastName) AS EmpFullName FROM contractor_booking ConB
+            INNER JOIN contractors Con ON ConB.Contractor_ID=Con.Contractor_ID 
+            WHERE ConB.CustomerID='$CusID' AND ConB.Is_work_done='Yes'
+            LIMIT $start,$limit"; 
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetchAll(PDO::FETCH_OBJ);
+
+    return $data;
+  }
+
+  public function getCustomerManpowerWorkHistory($CusID, $limit = 0, $start = 0, $count = false){
+    if($count == true){
+      $sql = "SELECT MB.* FROM manpower_booking MB 
+              WHERE MB.CustomerID='$CusID' AND MB.Is_work_done='Yes'";
+      
+      $query = $this->con->query($sql);
+      $query->execute();
+      return $query->rowCount();
+    }
+
+    $sql = "SELECT MB.*, M.Company_Name AS EmpFullName FROM manpower_booking MB
+            INNER JOIN manpower_agency M ON MB.Manpower_Agency_ID=M.Manpower_Agency_ID
+            WHERE MB.CustomerID='$CusID' AND MB.Is_work_done='Yes'
+            LIMIT $start,$limit"; 
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetchAll(PDO::FETCH_OBJ);
+
+    return $data;
+  }
+
+  public function updateCustomer($id, $updateCustomerDetails){
+
+    $firstName = $updateCustomerDetails['FirstName'];
+    $lastName = $updateCustomerDetails['LastName'];
+    $nic = $updateCustomerDetails['NIC'];
+    $phoneNum = $updateCustomerDetails['Contact_No'];
+    $gender = $updateCustomerDetails['Gender'];
+    $dob = $updateCustomerDetails['Date_of_Birth'];
+    $address = $updateCustomerDetails['Address'];
+    $district = $updateCustomerDetails['District'];
+    $accnum = $updateCustomerDetails['Card_Number'];
+    $expdate = $updateCustomerDetails['Expiry_Date'];
+    $bio = $updateCustomerDetails['bio'];
+    $cvn = $updateCustomerDetails['cvn'];
+
+    $sql = "UPDATE customer
+            SET FirstName = '$firstName',
+            LastName = '$lastName',
+            NIC = '$nic',
+            Address = '$address',
+            District = '$district',
+            Gender = '$gender',
+            Date_of_Birth = '$dob',
+            Contact_No = '$phoneNum',
+            Card_Number = '$accnum',
+            Expiry_Date = '$expdate',
+            bio = '$bio',
+            CVN = '$cvn'
+            WHERE CustomerID = '$id'";
+            
+    if($this->con->query($sql)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function updateProfileImage($id, $imgContent){
+    $sql = "UPDATE customer
+            SET image='$imgContent' 
+            WHERE CustomerID='$id'";
+
+    if($this->con->query($sql)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function addAdImage($id, $imgContent){
+    $sql = "UPDATE customer
+            SET image='$imgContent' 
+            WHERE CustomerID='$id'";
+
+    if($this->con->query($sql)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function deleteCustomer($id){
+    $sql = "DELETE FROM customer
+            WHERE CustomerID = '$id'";
+            
+    if($this->con->query($sql)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function deleteCustomerFromUser($id){
+    $sql = "DELETE FROM users
+            WHERE id = '$id'";
+            
+    if($this->con->query($sql)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function getCustomerUserDetailsbyID($id) {
+    $sql = "SELECT U.* FROM users U
+            INNER JOIN customer C ON U.id=C.user_id
+            WHERE C.CustomerID='$id'";
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetch(PDO::FETCH_OBJ);
+
+    return $data;
+  }
+  
+  public function updateRating($user_id, $rating){
+    $sql = "UPDATE customer
+            SET rating= $rating
+            WHERE user_id='$user_id'";
+
+    if($this->con->query($sql)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  
+
+
 
 }
 

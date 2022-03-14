@@ -1,0 +1,154 @@
+.subrow{
+    box-sizing: border-box;
+    margin-top: 5%;
+    width: 100%;
+}
+  
+  /* Create three equal columns that floats next to each other */
+.subcolumn1{
+    float: left;
+    width: 20%;
+    padding: 10px;
+    height: 300px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #B4E1E7; /* Should be removed. Only for demonstration */
+}
+
+.adimage{
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+.subcolumn2{
+    float: left;
+    width: 30%;
+    padding: 10px;
+    height: 300px;
+    background-color: #B4E1E7;  /* Should be removed. Only for demonstration */
+}
+
+.postedby{
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+
+.subcolumn3 {
+    float: left;
+    width: 50%;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    height: 300px;
+    background-color: #B4E1E7;  /* Should be removed. Only for demonstration */
+}
+
+.details{
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+
+.subrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+.field{
+    font-family: Roboto; 
+    font-style: normal; 
+    font-weight: 500; 
+    font-size: 18px; 
+    line-height: 21px; 
+    color:#61687F;
+}
+
+.special-field{
+    font-family: Poppins; 
+    font-style: normal; 
+    font-weight: 500; 
+    font-size: 18px; 
+    line-height: 27px; 
+    color:#108882;
+}
+
+.description{
+    color:#61687F; 
+    font-family: Roboto; 
+    font-style: normal; 
+    font-size: 18px; 
+    line-height: 21px;
+}
+
+.pagination {
+    list-style-type: none;
+    padding: 10px 0;
+    display: inline-flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.pagination li {
+    box-sizing: border-box;
+    padding-right: 10px;
+}
+.pagination li a {
+    box-sizing: border-box;
+    background-color: #e2e6e6;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: #616872;
+    border-radius: 4px;
+}
+.pagination li a:hover {
+    background-color: #d4dada;
+}
+.pagination .next a, .pagination .prev a {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.pagination .currentpage a {
+    background-color: #108882;
+    color: #fff;
+}
+.pagination .currentpage a:hover {
+    background-color: #108882;
+}
+
+.ad-title{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.request-btn{
+    text-decoration: none;
+    background-color: #ca3a1b;
+    color: white;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+}
+
+.viewmyad a{
+    float: right;
+    text-decoration: none;
+    background-color: #ca3a1b;
+    color: white;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    margin-right: 5%;
+
+}
+
+.viewad{
+    color: #108882;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Lobster', cursive; 
+    font-size: 48px;   
+}

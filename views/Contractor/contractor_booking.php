@@ -9,19 +9,6 @@ $JsonData = json_encode($data['bookingEvents']);
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-
-<link href="<?php echo fullURLfront; ?> /assets/cs/contractor/contractor_paymentgateway.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/header.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/footer.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/sidebar.css" rel="stylesheet" type="text/css"/>
@@ -43,7 +30,6 @@ $JsonData = json_encode($data['bookingEvents']);
             <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
         </div>
         <div class="column2">
-        
             <div id='calendar' class="calender-section"></div>
             <div class="booking-details-section">
                 <h3><i class="fa fa-book" aria-hidden="true"></i> Booking Details</h3>
@@ -53,12 +39,9 @@ $JsonData = json_encode($data['bookingEvents']);
                         <input type="text" id="customerName" name="customerName" value="" readonly><br>
                         <label for="lname">Time:</label><br>
                         <input type="text" id="time" name="time" value="" readonly><br>
-                        <label for="lname">Payment:</label><br>
-                        <input type="text" id="payment" name="payment" value="" readonly>
                         <label for="lname">Address:</label><br>
                         <input type="text" id="address" name="address" value="" readonly>
-                        <!-- <label for="lname">Title:</label><br>
-                        <input type="text" id="title" name="title" value="" readonly> -->
+                        
                     </form>
                 </div>
             </div>
@@ -70,5 +53,5 @@ $JsonData = json_encode($data['bookingEvents']);
 <script>
     var data = <?php echo $JsonData; ?>;
 </script>
-<script src="<?php echo fullURLfront; ?>/assets/js/contractor/contractor_bookings.js" type="text/javascript"></script>
+<script src="<?php echo fullURLfront; ?>/assets/js/contractor/contractor_booking.js" type="text/javascript"></script>
 </html>

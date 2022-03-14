@@ -1,84 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-.right {
-    padding-bottom: 50px;
-    margin-bottom: 50px;
-}
 
-table {
+table{
     border-collapse: separate;
     border-spacing: 0 15px;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 30px;
+
 }
 
-th,
-td {
+th, td{
     text-align: center;
     padding: 8px;
     height: 70px;
     font-family: 'Poppins', sans-serif;
+
 }
 
 tr:nth-child(even) {
-    background-color: rgba(16, 136, 130, 0.37);
-    ;
+    background-color: rgba(16, 136, 130, 0.37);;
+    
 }
 
 tr:nth-child(odd) {
-    background-color: rgba(16, 136, 130, 0.37);
-    ;
+    background-color: rgba(16, 136, 130, 0.37);;
+    
 }
 
 th {
     background-color: white;
     color: black;
-}
+  }
 
 td:first-child {
-    border-top-left-radius: 15px;
+    
+    border-top-left-radius: 15px; 
     border-bottom-left-radius: 15px;
 }
 
 td:last-child {
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
+    
+    border-bottom-right-radius: 15px; 
+    border-top-right-radius: 15px; 
 }
 
-.column2 {
-    float: left;
-    height: 100vh;
-    overflow: scroll;
-    margin-bottom: 30px;
-}
-
-.left {
+.pagination {
     list-style-type: none;
+    padding: 10px 0;
+    display: inline-flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.pagination li {
+    box-sizing: border-box;
+    padding-right: 10px;
+}
+.pagination li a {
+    box-sizing: border-box;
+    background-color: #e2e6e6;
+    padding: 8px;
     text-decoration: none;
-    margin-left: 50px;
-    width: 16.5%;
-    padding-left: 00px;
-    padding-right: 40px;
-    background-image: linear-gradient( #108882, #B4e1e7);
-    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #616872;
+    border-radius: 4px;
+}
+.pagination li a:hover {
+    background-color: #d4dada;
+}
+.pagination .next a, .pagination .prev a {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.pagination .currentpage a {
+    background-color: #518acb;
+    color: #fff;
+}
+.pagination .currentpage a:hover {
+    background-color: #518acb;
 }
 
-.left.ul::a {
-    list-style-type: none;
-    text-decoration: none;
-}
 
-.right {
-    padding-left: 30px;
-    width: 70%;
-}
 
-.row {
-    display: flex;
-    position: relative;
-}
 
-row.after {
-    content: "";
-    display: table;
-    clear: both;
-}

@@ -1,201 +1,84 @@
-.search-container{
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+table{
+    border-collapse: separate;
+    border-spacing: 0 15px;
     width: 100%;
-    position: absolute;
-
-}
-
-h1 {
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.search-container input[type=text] {
-    width: 863px;
-    height: 46px;
-    padding: 6px;
-    margin-top: 8px;
-    font-size: 17px;
-    border: none;
-    background-color:  rgba(16, 136, 130, 0.37);
-    border-radius: 30px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 22px;  
-}
-
-.search-container button {
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: white;
-    font-size: 24px;
-    border: none;
-    cursor: pointer;
-}
-
-.sortinglist{
-    margin-top: 8%;
-    margin-right: 15%;
-    width: 100%;
-}
-
-.subrow{
-    box-sizing: border-box;
-    margin-top: 5%;
-    width: 100%;
-}
-  
-  /* Create three equal columns that floats next to each other */
-.subcolumn1{
-    float: left;
-    width: 20%;
-    padding: 10px;
-    height: 250px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    background-color: #B4E1E7; /* Should be removed. Only for demonstration */
-}
-
-.adimage{
     margin-top: 30px;
-    margin-left: 5px;
+
 }
 
-.subcolumn2{
-    float: left;
-    width: 30%;
-    padding: 10px;
-    height: 250px;
-    background-color: #B4E1E7;  /* Should be removed. Only for demonstration */
-}
-
-.postedby{
-    margin-top: 30px;
-    margin-left: 5px;
-}
-
-
-.subcolumn3 {
-    float: left;
-    width: 50%;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 10px;
-    height: 250px;
-    background-color: #B4E1E7;  /* Should be removed. Only for demonstration */
-}
-
-.details{
-    margin-top: 30px;
-    margin-left: 5px;
-}
-
-
-.subrow:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.sortinglist label{
-    font-family: Poppins; 
-    font-style: normal; 
-    font-size: 18px; 
-    color:#108882;
-}
-
-.sortinglist select{
-    background: #108882; 
-    color: white; 
-    width: 187px; 
-    height: 38px; 
-    border-radius: 5px;
-}
-
-.field{
-    font-family: Roboto; 
-    font-style: normal; 
-    font-weight: 500; 
-    font-size: 18px; 
-    line-height: 21px; 
-    color:#61687F;
-}
-
-.special-field{
-    font-family: Poppins; 
-    font-style: normal; 
-    font-weight: 500; 
-    font-size: 18px; 
-    line-height: 27px; 
-    color:#108882;
-}
-
-.description{
-    color:#61687F; 
-    font-family: Roboto; 
-    font-style: normal; 
-    font-size: 18px; 
-    line-height: 21px;
-}
-
-#customers {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    border: 2px solid red;
-    border-collapse:separate;
-    border:solid black 1px;
-    border-radius:6px;
-    -moz-border-radius:6px;
-}
-  #customers td, #customers th {
-    border: 1px solid #ddd;
+th, td{
+    text-align: center;
     padding: 8px;
-  }
-  
-  #customers tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #customers tr:hover {background-color: #ddd;}
-  
-  #customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #108882;
-    color: white;
-  }
+    height: 70px;
+    font-family: 'Poppins', sans-serif;
 
+}
+
+tr:nth-child(even) {
+    background-color: rgba(16, 136, 130, 0.37);;
     
-    /* Center 6th column */
-    table td:nth-child(6) {
-        text-align: center;
-    }
+}
 
-  .ProfileButton {
-    background-color: #f05d27;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
+tr:nth-child(odd) {
+    background-color: rgba(16, 136, 130, 0.37);;
+    
+}
+
+th {
+    background-color: white;
+    color: black;
+  }
+
+td:first-child {
+    
+    border-top-left-radius: 15px; 
+    border-bottom-left-radius: 15px;
+}
+
+td:last-child {
+    
+    border-bottom-right-radius: 15px; 
+    border-top-right-radius: 15px; 
+}
+
+.pagination {
+    list-style-type: none;
+    padding: 10px 0;
+    display: inline-flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.pagination li {
+    box-sizing: border-box;
+    padding-right: 10px;
+}
+.pagination li a {
+    box-sizing: border-box;
+    background-color: #e2e6e6;
+    padding: 8px;
     text-decoration: none;
+    font-size: 12px;
     font-weight: bold;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  .AddNewButton {
-    background-color: #ff0000;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
+    color: #616872;
+    border-radius: 4px;
+}
+.pagination li a:hover {
+    background-color: #d4dada;
+}
+.pagination .next a, .pagination .prev a {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.pagination .currentpage a {
+    background-color: #518acb;
+    color: #fff;
+}
+.pagination .currentpage a:hover {
+    background-color: #518acb;
+}
+
+
+
+

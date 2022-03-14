@@ -34,4 +34,13 @@ class UsersModel extends Database {
             return false;
         }
     }
+
+    public function getUserDetails($user_id) {
+        $sql = "SELECT * FROM users WHERE id='$user_id'"; 
+        $query = $this->con->query($sql);
+        $query->execute();
+        $data = $query->fetch(PDO::FETCH_OBJ);
+    
+        return $data;
+      }
 }

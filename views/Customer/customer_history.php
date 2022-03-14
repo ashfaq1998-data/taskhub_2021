@@ -1,5 +1,9 @@
 <?php
 session_start();
+$page = $data['pagination']['page'];
+$total_pages = $data['pagination']['total_pages'];
+$num_results_on_page = $data['pagination']['results_count'];
+
 ?>
 
 <!DOCTYPE html>
@@ -29,46 +33,70 @@ session_start();
                     <th>Location</th>
                     <th>Payment</th>
                     <th>Is_Job_Done</th>
-                    <th>Job type</th>
-                    <th>Service type</th>
+                    <th>Description</th>
                 </tr>
-                <tr>
-                    <td>22/08/2020</td>
-                    <td>Griffin</td>
-                    <td>Colombo 05</td>
-                    <td>$100</td>
-                    <td>Yes</td>
-                    <td>Plumbing</td>
-                    <td>Employee</td>
-                </tr>
-                <tr>
-                    <td>01/05/2019</td>
-                    <td>Dean</td>
-                    <td>Chilaw</td>
-                    <td>$95</td>
-                    <td>No</td>
-                    <td>Electrical help</td>
-                    <td>Employee</td>
-                </tr>
-                <tr>
-                    <td>16/07/2020</td>
-                    <td>David</td>
-                    <td>Colombo 07</td>
-                    <td>$250</td>
-                    <td>Yes</td>
-                    <td>Carpentry</td>
-                    <td>Contractor</td>
-                </tr>
-                <tr>
-                    <td>12/05/2020</td>
-                    <td>Hailey</td>
-                    <td>Galle</td>
-                    <td>$400</td>
-                    <td>No</td>
-                    <td>Mason</td>
-                    <td>Manpower agency</td>
-                </tr>
+                <?php foreach($data['employee_work_history'] as $record) { ?>
+                    <tr>
+                        <td><?php echo date("Y-m-d",strtotime($record->Date)); ?></td>
+                        <td><?php echo $record->EmpFullName; ?></td>
+                        <td><?php echo $record->Address; ?></td>
+                        <td><?php echo $record->payment; ?></td>
+                        <td><?php echo $record->Is_work_done; ?></td>
+                        <td><?php echo $record->Description; ?></td>
+                    </tr>
+                <?php } ?>
+                <?php foreach($data['contractor_work_history'] as $record) { ?>
+                    <tr>
+                        <td><?php echo date("Y-m-d",strtotime($record->Date)); ?></td>
+                        <td><?php echo $record->EmpFullName; ?></td>
+                        <td><?php echo $record->Address; ?></td>
+                        <td><?php echo $record->payment; ?></td>
+                        <td><?php echo $record->Is_work_done; ?></td>
+                        <td><?php echo $record->Description; ?></td>
+                    </tr>
+                <?php } ?>
+                <?php foreach($data['manpower_work_history'] as $record) { ?>
+                    <tr>
+                        <td><?php echo date("Y-m-d",strtotime($record->Date)); ?></td>
+                        <td><?php echo $record->EmpFullName; ?></td>
+                        <td><?php echo $record->Address; ?></td>
+                        <td><?php echo $record->payment; ?></td>
+                        <td><?php echo $record->Is_work_done; ?></td>
+                        <td><?php echo $record->Description; ?></td>
+                    </tr>
+                <?php } ?>
             </table>
+            <div>
+                <?php if (ceil($total_pages / $num_results_on_page) > 0 && $total_pages > $num_results_on_page){ ?>
+                <ul class="pagination">
+                    <?php if ($page > 1){ ?>
+                    <li class="prev"><a href="<?php echo fullURLfront; ?>/Customer/customer_history?page=<?php echo $page-1 ?>">Prev</a></li>
+                    <?php } ?>
+
+                    <?php if ($page > 3){ ?>
+                    <li class="start"><a href="<?php echo fullURLfront; ?>/Customer/customer_history?page=1">1</a></li>
+                    <li class="dots">...</li>
+                    <?php } ?>
+
+                    <?php if ($page-2 > 0){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Customer/customer_history?page=<?php echo $page-2 ?>"><?php echo $page-2 ?></a></li><?php } ?>
+                    <?php if ($page-1 > 0){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Customer/customer_history?page=<?php echo $page-1 ?>"><?php echo $page-1 ?></a></li><?php } ?>
+
+                    <li class="currentpage"><a href="<?php echo fullURLfront; ?>/Customer/customer_history?page=<?php echo $page ?>"><?php echo $page ?></a></li>
+
+                    <?php if ($page+1 < ceil($total_pages / $num_results_on_page)+1){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Customer/customer_history?page=<?php echo $page+1 ?>"><?php echo $page+1 ?></a></li><?php } ?>
+                    <?php if ($page+2 < ceil($total_pages / $num_results_on_page)+1){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Customer/customer_history?page=<?php echo $page+2 ?>"><?php echo $page+2 ?></a></li><?php } ?>
+
+                    <?php if ($page < ceil($total_pages / $num_results_on_page)-2){ ?>
+                    <li class="dots">...</li>
+                    <li class="end"><a href="<?php echo fullURLfront; ?>/Customer/customer_history?page=<?php echo ceil($total_pages / $num_results_on_page) ?>"><?php echo ceil($total_pages / $num_results_on_page) ?></a></li>
+                    <?php } ?>
+
+                    <?php if ($page < ceil($total_pages / $num_results_on_page)){ ?>
+                    <li class="next"><a href="<?php echo fullURLfront; ?>/Customer/customer_history?page=<?php echo $page+1 ?>">Next</a></li>
+                    <?php } ?>
+                </ul>
+                <?php } ?>
+            </div>
         </div>
     </div>
     <?php include_once('footer.php'); ?>

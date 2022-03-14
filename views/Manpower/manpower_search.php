@@ -1,5 +1,11 @@
 <?php
 session_start();
+$page = $data['pagination']['page'];
+$total_pages = $data['pagination']['total_pages'];
+$num_results_on_page = $data['pagination']['results_count'];
+
+$type = $data['filters']['type'];
+$search = $data['filters']['search'];
 ?>
 
 <!DOCTYPE html>
@@ -10,11 +16,12 @@ session_start();
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/header.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/footer.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/sidebar.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo fullURLfront; ?>/assets/cs/employee/employee_dashboard.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo fullURLfront; ?>/assets/cs/employee/employee_search.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo fullURLfront; ?>/assets/cs/manpower/manpower_dashboard.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo fullURLfront; ?>/assets/cs/manpower/manpower_search.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
 </head>
-<body>
+<body onload="onLoadSubmit()">
 <div class="page-wrapper">
     <?php include_once('header.php'); ?>
     <div class="row">
@@ -22,30 +29,75 @@ session_start();
             <?php include_once('views/Manpower/manpower_sidebar.php'); ?>
         </div>
         <div class="column2">
-            <div class="search-container">
-                <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
+        <div class="search-container">
+            <form action="<?php echo fullURLfront; ?>/Manpower/manpower_search" method="POST" id="filter" name="filter">
+                <input type="text" placeholder="Search" name="search" value="<?php echo (!empty($data['filters'])) ? $search : ''; ?>">
+                <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+        <div class="sortinglist">
+            <div style="float: right;">
+                <label for="type">Choose the type:</label>
+                <select name="type" id="type">
+                    <option value="1" <?php echo ($type == 1) ? 'selected' : ''; ?>>Customer</option>
+                    <option value="2" <?php echo ($type == 2) ? 'selected' : ''; ?>>Employee</option>
+                    <option value="3" <?php echo ($type == 3) ? 'selected' : ''; ?>>Contractor</option>
+                </select>
             </div>
+            </form>
+        </div>
+        <br>
 
-            <div class="subrow">
-                <div class="subcolumn1">
-                    <div class ="nameone">
-                        <p>Harish Kalyaan<p>
+            <?php foreach($data['profiles'] as $record) { ?>
+                <div class="subrow">
+                    <div class="subcolumn1">
+                        <div class ="nameone">
+                            <p><?php echo $record->ProfileFullName; ?></p>
+                        </div>
+                        <div class ="imageone">
+                            <img src="data:image/jpg;base64,<?php echo base64_encode($record->image); ?>" alt="image1" width="100" height="100">
+                        </div> 
                     </div>
-                    <div class ="imageone">
-                        <img src="<?php echo fullURLfront; ?>/assets/images/plumber.png" alt="image1" width="100" height="100">
-                    </div> 
-                </div>
-                <div class="subcolumn2">
-                    <div class="Description">
-                        <p>"An employee is someone who gets paid to work for a person or company. Workers don't need to work full time to be considered employees"</p>
+                    <div class="subcolumn2">
+                        <div class="Description">
+                            <p>"<?php echo $record->bio; ?>"</p>
+                        </div>
+                    </div>
+                    <div class="subcolumn3">
+                        <a href="<?php echo fullURLfront; ?>/Manpower/manpower_view_profile?iid=<?php echo base64_encode($record->IID); ?>&tp=<?php echo $type ?>" class="view-profile-btn">View Profile</a>
                     </div>
                 </div>
-                <div class="subcolumn3">
-                    <a href="" class="view-profile-btn">View Profile</a>
-                </div>
+            <?php } ?>
+
+            <div>
+                <?php if (ceil($total_pages / $num_results_on_page) > 0 && $total_pages > $num_results_on_page){ ?>
+                <ul class="pagination">
+                    <?php if ($page > 1){ ?>
+                    <li class="prev"><a href="<?php echo fullURLfront; ?>/Manpower/manpower_search?page=<?php echo $page-1 ?>&type=<?php echo $type ?>&search=<?php echo $search ?>">Prev</a></li>
+                    <?php } ?>
+
+                    <?php if ($page > 3){ ?>
+                    <li class="start"><a href="<?php echo fullURLfront; ?>/Manpower/manpower_search?page=1&type=<?php echo $type ?>&search=<?php echo $search ?>">1</a></li>
+                    <li class="dots">...</li>
+                    <?php } ?>
+
+                    <?php if ($page-2 > 0){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Manpower/manpower_search?page=<?php echo $page-2 ?>&type=<?php echo $type ?>&search=<?php echo $search ?>"><?php echo $page-2 ?></a></li><?php } ?>
+                    <?php if ($page-1 > 0){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Manpower/manpower_search?page=<?php echo $page-1 ?>&type=<?php echo $type ?>&search=<?php echo $search ?>"><?php echo $page-1 ?></a></li><?php } ?>
+
+                    <li class="currentpage"><a href="<?php echo fullURLfront; ?>/Manpower/manpower_search?page=<?php echo $page ?>&type=<?php echo $type ?>&search=<?php echo $search ?>"><?php echo $page ?></a></li>
+
+                    <?php if ($page+1 < ceil($total_pages / $num_results_on_page)+1){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Manpower/manpower_search?page=<?php echo $page+1 ?>&type=<?php echo $type ?>&search=<?php echo $search ?>"><?php echo $page+1 ?></a></li><?php } ?>
+                    <?php if ($page+2 < ceil($total_pages / $num_results_on_page)+1){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Manpower/manpower_search?page=<?php echo $page+2 ?>&type=<?php echo $type ?>&search=<?php echo $search ?>"><?php echo $page+2 ?></a></li><?php } ?>
+
+                    <?php if ($page < ceil($total_pages / $num_results_on_page)-2){ ?>
+                    <li class="dots">...</li>
+                    <li class="end"><a href="<?php echo fullURLfront; ?>/Manpower/manpower_search?page=<?php echo ceil($total_pages / $num_results_on_page) ?>&type=<?php echo $type ?>&search=<?php echo $search ?>"><?php echo ceil($total_pages / $num_results_on_page) ?></a></li>
+                    <?php } ?>
+
+                    <?php if ($page < ceil($total_pages / $num_results_on_page)){ ?>
+                    <li class="next"><a href="<?php echo fullURLfront; ?>/Manpower/manpower_search?page=<?php echo $page+1 ?>&type=<?php echo $type ?>&search=<?php echo $search ?>">Next</a></li>
+                    <?php } ?>
+                </ul>
+                <?php } ?>
             </div>
         </div>
     </div>

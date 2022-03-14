@@ -30,7 +30,6 @@ session_start();
                                 <?php }?>
                             </select>
 
-
                             <input type="text" id="email" name="email" placeholder="Email" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['email'] : ''; ?>">
                             <input type="password" id="password" name="password" placeholder="Password" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['password'] : ''; ?>">
                             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" value="<?php echo (!empty($data['inputted_data'])) ? $data['inputted_data']['confirm_password'] : ''; ?>"><br>
@@ -39,6 +38,9 @@ session_start();
                         <br>
                         <p class="error"><?php echo $data['registerError']; ?></p>
                         <p>Already a member? <a href="<?php echo fullURLfront; ?>/auth/login">Sign In</a></p>
+                        <div class="youtube">
+                            <p>Don't know how to create a email account? <a href="https://www.youtube.com/watch?v=Ft7gbSV2lsE&t=8s">Click here</a></p>
+                        </div>
                     </div>
                     <img src="<?php echo fullURLfront; ?>/assets/images/reg page image.png" alt="image" height="50%" width="60%" style="margin-top: 50px;">
                 </div>

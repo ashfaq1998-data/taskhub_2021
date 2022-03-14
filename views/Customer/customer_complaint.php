@@ -28,41 +28,37 @@ session_start();
                 <div class="subcolumn1">
                     <img src="<?php echo fullURLfront; ?>/assets/images/complaintimage.JPG" alt="image">
                 </div>
-                <div class="subcolumn2"></div>
-                <div class="subcolumn3">
+                <div class="subcolumn2">
                     <form action="<?php echo fullURLfront; ?>/Customer/customer_complaint" method="POST">
-                        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-style: normal; font-weight: bold; font-size: 17px;">Rate level of complains (Higher the stars, worse the case)</p>
-                        <!-- <fieldset> -->
-                            <!-- <legend>Rate level of complains (Higher the stars, worse the case)</legend> -->
+                        <fieldset>
+                            <legend>Rate level of complains</legend>
                             <div class="rating">
-                                <input type="radio" name="rating" value="1" aria-label="1 star" required>
+                                <input type="radio" name="rating" value="1" aria-label="1 star">
                                 <input type="radio" name="rating" value="2" aria-label="2 star">
                                 <input type="radio" name="rating" value="3" aria-label="3 star">
                                 <input type="radio" name="rating" value="4" aria-label="4 star">
                                 <input type="radio" name="rating" value="5" aria-label="5 star">
                             </div>
-                        <!-- </fieldset>  -->
+                        </fieldset> 
                         <br>
-                        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-style: normal; font-weight: bold; font-size: 17px;">Do you have any complaint?</p>
+                        <p style="font-family: Raleway; font-style: normal; font-weight: bold; font-size: 16px;">Provide the complain (if necessary)</p>
                         
                         <input type="text" id="subject" name="subject" placeholder="Subject" size="80%">
-                        <textarea id="complaintmessage" name="complaintmessage" placeholder="Complaint" style="height:200px" rows="4" cols="82"></textarea>
+                        <textarea id="complaintmessage" name="complaintmessage" placeholder="Write your complaint message here.." style="height:200px" rows="4" cols="82"></textarea>
                         
-                        <p><b>Note: </b> Unworthy complaints may reduce your personal rating so think before you send...</p>
+                        <p><b>Note: </b> Unworthy complaints may reduce your personal rating so <b> think before you send</b></p>
                         
                         <div class ="ratebutton">
-                            <button type="reset" class="button cancel"> Cancel</button>
-                            &nbsp &nbsp
-                            <button type="submit" name="customer_complaint" value="submitted" class="button submit"> Complain</button>
+                            <button type="reset"><i class="fa fa-ban"></i> Cancel</button>
+                            <button type="submit" name="customer_complaint" value="submitted" class="btn-submit"><i class="fa fa-frown-o"></i> Complain</button>
                             <br>
                             <?php if(!empty($data['ComplaintError']) && $data['ComplaintError'] != "none") {?>
                                 <p class="error"><?php echo $data['ComplaintError']; ?></p>
                             <?php }else if($data['ComplaintError'] == "none"){?>
-                                <p class="success">Your Complaint Submitted Successfully <i style="color: green;" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-                                style="font-weight: bold;" class="fa fa-check" aria-hidden="true"></i></p>
+                                <p class="success">Your Complaint Submitted SuccessFully <i class="fa fa-check" aria-hidden="true"></i></p>
                             <?php }?>
                         </div>
-                    </form> 
+                    </form>
                 </div>
             </div>
         </div>

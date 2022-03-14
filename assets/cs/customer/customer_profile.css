@@ -1,10 +1,3 @@
-.column2 {
-    position: relative;
-    float: right;
-    right: 50px;
-    top: 15px;
-}
-
 .personal-info-section{
     position: relative;
     display: block;
@@ -18,25 +11,14 @@
     background-color: #ca3a1b;
     color: white;
     font-size: 14px;
-    border-radius: 6px;
+    border-radius: 10px;
     padding: 10px 20px 10px 20px;
     margin-right: 20%;
-}
-
-.personal-info-section a:hover {
-    /* background-image: linear-gradient(#e66666, #ffffff); */
-    background-image: linear-gradient(rgb(255, 0, 0), rgb(255, 0, 0));
-    text-align: center;
-    padding: 10px 22px 10px 22px;
-    transition: 0.2s;
-    border: 1px solid #6bfff3;
 }
 
 .personal-info-section span{
     font-size: 18px;
     font-weight: bold;
-    position: relative;
-    top: 5px;
 }
 
 .personal-info-section-content{
@@ -45,38 +27,24 @@
     width: 80%;
     height: 250px;
     background-color: #e6e6e6;
-    margin-top: 25px;
+    margin-top: 40px;
     border-radius: 10px;
     padding: 30px 30px 10px 100px;
 }
 
-.personal-info-section-content img {
-    width: 200px;
-    height: 200px;
-    margin-left: 10px;
-    margin-right: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    float: left;
-    position: relative;
-    right: 20px;
-    bottom: 10px;
-}
-
-/* .avatar {
+.avatar {
     vertical-align: middle;
     border-radius: 50%;
+    width: 170px;
+    height: 170px;
     float: left;
-    position: relative;
-    bottom: 5px;
-    object-fit:contain;
-    object-position: top;
-} */
+    
+}
 
 .details{
     float: left;
+    display: block;
     position: relative;
-    vertical-align: middle;
     margin-left: 30px;
 }
 
@@ -84,16 +52,9 @@ table {
     width: 100%;
 }
   
-th, td {
+td, th {
     text-align: left;
-    padding-bottom: 20px;
-    position: relative;
-    top: 5px;
-    
-}
-
-td:last-child {
-    left: 60px;
+    padding-bottom: 15px;
 }
 
 .info-right-column{
@@ -108,54 +69,39 @@ td:last-child {
 .additional-info{
     position: relative;
     display: block;
-    width: 115%;
-    padding-right: 0px;
-    margin-bottom: 10px;
-    margin-right: 40px;
+    width: 100%;
+    margin-bottom: 50px;
 }
 
 .additional-info-content{
-    align-content: center;
     display: block;
     position: relative;
-    width: 100%;
+    width: 80%;
     background-color: #e6e6e6;
     padding: 20px;
-    padding-left: 50px;
     border-radius: 10px;
-    margin-top: 10px;
-    padding-right: 0px;
 }
 
 .billing-info{
     position: relative;
     display: block;
     width: 100%;
-    height: 210px;
-    padding-right: 0px;
-    margin-bottom: 0px;
-    /* bottom: 26.5vh;
-    transform: translateX(52vh); */
+    margin-bottom: 50px;
 }
 
 .billing-info-content{
     display: block;
     position: relative;
-    width: 90%;
+    width: 80%;
     background-color: #e6e6e6;
     padding: 20px;
     border-radius: 10px;
-    padding-left: 50px;
 }
-/* .billing-info-content td:last-child{
-    position: relative;
-    left: 180px;
-} */
 
 .bio-info{
     position: relative;
     display: block;
-    width: 80%;
+    width: 100%;
 }
 
 .bio-info-content{
@@ -165,7 +111,6 @@ td:last-child {
     background-color: #e6e6e6;
     padding: 20px;
     border-radius: 10px;
-    padding-left: 50px;
 }
 
 .checked {

@@ -13,8 +13,6 @@ session_start();
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <!-- END HEAD -->
-    <!-- Homepage done by me alone -->
-    <!-- made link to all -->
         <body>
             <div class="page-wrapper">
                 <?php include_once('header.php'); ?>
@@ -137,14 +135,21 @@ session_start();
                     </div>
                     <img src="<?php echo fullURLfront; ?>/assets/images/callback_image.png" alt="image">
                     <div class="contact-section-form">
-                        <form action="action_page.php">
+                        <form action="<?php echo fullURLfront; ?>/main/contactus" method="POST">
                             <input type="text" id="name" name="name" placeholder="Name">
 
                             <input type="text" id="email" name="email" placeholder="Email">
 
                             <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
 
-                            <button type="submit">Send Message <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                            <button type="submit" name="contactus" value="submitted" class="btn-submit">Send Message <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                        </form>
+                        <br><br>
+                        <?php if(!empty($data['ContactError']) && $data['ContactError'] != "none") {?>
+                            <p class="error"><?php echo $data['ContactError']; ?></p>
+                        <?php }else if($data['ContactError'] == "none"){?>
+                            <p class="success">Your inquiry has been Submitted <i class="fa fa-check" aria-hidden="true"></i></p>
+                        <?php }?>
                     </div>
                 </div>
                 <?php include_once('footer.php'); ?>
