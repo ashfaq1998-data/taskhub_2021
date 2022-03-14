@@ -97,6 +97,7 @@ $routes = [
     'Manpower/manpower_view_profile' => 'ManpowerController@showSearchProfile',
     'Manpower/manpower_requestjob' => 'ManpowerController@manpowerRequest',
     'Manpower/manpower_job_apply' => 'ManpowerController@manpowerJobApply',
+    'Manpower/manpower_manageworkers' => 'ManpowerController@manpowerManageWorkers',
 
 
 

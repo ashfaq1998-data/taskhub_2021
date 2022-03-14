@@ -607,5 +607,35 @@ class ManpowerController {
 
     
   }
+
+
+  public function manpowerManageWorkers() {
+    $manpowerModel = new ManpowerModel();
+    $userID = $_SESSION['loggedin']['user_id'];
+    $where['search'] = $_REQUEST['search'];
+    // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
+    $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+
+    // Number of results to show on each page.
+    $num_results_on_page = 10;
+    $calc_page = ($page - 1) * $num_results_on_page;
+
+
+    $total_pages = $manpowerModel->getEmployeeDetails(0, 0, true, $where);
+    $data['pagination'] = [
+      'page' => $page, 
+      'total_pages' => $total_pages, 
+      'results_count' => $num_results_on_page
+    ];
+
+    $data['employees'] = $manpowerModel->getEmployeeDetails($num_results_on_page, $calc_page, false, $where);
+
+    $data['filters'] = [ 
+      'search' => $where['search']
+    ];
+
+    
+    $view = new View("Manpower/manpower_manageworkers",$data);
+  }
  
 }

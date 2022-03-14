@@ -1,0 +1,170 @@
+.search-container{
+    width: 100%;
+    position: absolute;
+
+} 
+.search-container input[type=text] {
+    width: 863px;
+    height: 46px;
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    background-color:  rgba(16, 136, 130, 0.37);
+    border-radius: 30px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    
+    
+}
+
+.search-container button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.sortinglist{
+    margin-top: 8%;
+    margin-right: 15%;
+    width: 100%;
+}
+
+.sortinglist label{
+    font-family: Poppins; 
+    font-style: normal; 
+    font-size: 18px; 
+    color:#108882;
+}
+
+.sortinglist select{
+    background: #108882; 
+    color: white; 
+    width: 187px; 
+    height: 38px; 
+    border-radius: 5px;
+}
+
+.editemployee a{
+    float: left;
+    margin-top: 10%;
+    text-decoration: none;
+    background-color: #ca3a1b;
+    color: white;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    margin-right: 20%;
+}
+
+.employee {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.employee td, .employee th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.employee tr:nth-child(even){background-color: #f2f2f2;}
+
+.employee tr:hover {background-color: #ddd;}
+
+.employee th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #108882;
+  color: white;
+}
+
+.employee a{
+    float: left;
+    text-decoration: none;
+    background-color: #ca3a1b;
+    color: white;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+}
+
+.employee button{
+    margin-left: 10%;
+    text-decoration: none;
+    background-color: #ca3a1b;
+    color: white;
+    font-size: 14px;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.pagination {
+    list-style-type: none;
+    padding: 10px 0;
+    display: inline-flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.pagination li {
+    box-sizing: border-box;
+    padding-right: 10px;
+}
+.pagination li a {
+    box-sizing: border-box;
+    background-color: #e2e6e6;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: #616872;
+    border-radius: 4px;
+}
+.pagination li a:hover {
+    background-color: #d4dada;
+}
+.pagination .next a, .pagination .prev a {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.pagination .currentpage a {
+    background-color: #518acb;
+    color: #fff;
+}
+.pagination .currentpage a:hover {
+    background-color: #518acb;
+}
+
+.modal{
+    position: relative; /* Stay in place */
+    overflow: auto; /* Enable scroll if needed */
+    width: 100%;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+  
+ 
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+}
+
+.modal-content p{
+    color: green;
+    font-size: 30px;
+}

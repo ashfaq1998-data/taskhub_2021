@@ -34,6 +34,33 @@ class ManpowerModel extends Database {
 
   }
 
+  public function getEmployeeDetails($limit = 0, $start = 0, $count = false, $where = array()){
+    $where_cls = "MW.Manpower_Worker_ID IS NOT NULL";
+
+    if($where['search'] != ""){
+      $search = strtolower($where['search']);
+      $where_cls .= " AND LOWER(MW.Job_Type) LIKE '%" . $search . "%'";
+    }
+
+    if($count == true){
+      $sql = "SELECT * FROM manpower_agency_workers MW WHERE $where_cls";
+      
+      
+      $query = $this->con->query($sql);
+      $query->execute();
+      return $query->rowCount();
+    }
+
+    $sql = "SELECT MW.*, MW.Manpower_Worker_ID AS IID FROM manpower_agency_workers MW
+            WHERE $where_cls 
+            LIMIT $start,$limit"; 
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetchAll(PDO::FETCH_OBJ);
+
+    return $data;
+  }
+
   public function getManpowerOwnAd($ManID, $limit = 0, $start = 0, $count = false){
     if($count == true){
       $sql = "SELECT MANAD.* FROM manpoweradvertisement MANAD 
@@ -74,6 +101,25 @@ class ManpowerModel extends Database {
       }
     }
     return $manpower_id;
+  }
+
+  public function generateManpowerWorkerID(){
+    $str_part = "manwork";
+    $manpower_worker_id = "";
+    
+    while(true){
+      $num_part = rand(100, 999);
+      $manpower_id = $str_part . strval($num_part);
+
+      $sql = "SELECT * FROM manpower_agency_workers WHERE Manpower_Worker_ID='$manpower_worker_id'";
+      $query = $this->con->query($sql);
+      $query->execute();
+
+      if ($query->rowCount() == 0){
+        break;
+      }
+    }
+    return $manpower_worker_id;
   }
 
 
