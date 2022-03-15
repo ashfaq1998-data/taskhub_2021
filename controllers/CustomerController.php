@@ -402,6 +402,16 @@ class CustomerController {
     $iid = base64_decode($_REQUEST['iid']);
     $type = $_REQUEST['tp'];
 
+    if($type == 1){
+      $data['actordetails'] = $employeeModel->getEmployeeByID($iid);
+    }
+    else if($type == 2){
+      $data['actordetails'] = $ManpowerModel->getManpowerByID($iid);
+    }
+    else if($type == 3){
+      $data['actordetails'] = $contractorModel->getContractorByID($iid);
+    }
+
     $data['bookingFormDetails'] = [
       'customerUserId' => $_SESSION['loggedin']['user_id'],
       'type' => $type,

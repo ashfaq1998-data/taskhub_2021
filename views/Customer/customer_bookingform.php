@@ -1,5 +1,6 @@
 <?php
 // session_start();
+$actorDetails = $data['actordetails'];
 ?>
 
 <!DOCTYPE html>
@@ -69,8 +70,7 @@
                             <input type="tel" id="phone" name="phone" placeholder="0713483872" required>
                         </div>
                         <div class="elem-group">
-                            <label for="amount">Amount</label>
-                            <input type="number" id="amount" name="amount" placeholder="500" required>
+                            <input type="hidden"  id="amount" name="amount" value="<?php echo $actorDetails->Payment_for_2hours + 200; ?>">
                         </div>
                         <hr>
                         <button type="submit" id="submitButton">Submit</button>
