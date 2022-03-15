@@ -1317,13 +1317,14 @@ class AdminController {
       $deleteError = "";
 
       if($type == 1){
+
         $response = $AdvertisementModel->deleteCustomerAds($adid);
         if($response){
           $data['response'] = 'Record has been deleted sucessfully';
         }
 
         
-        
+
       }
       if($type == 2){
 
