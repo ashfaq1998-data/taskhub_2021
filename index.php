@@ -135,6 +135,7 @@ $routes = [
     'Booking/booking_handle' => 'BookingController@bookingHandle',
     'Booking/booking_submit' => 'BookingController@bookingSubmit',
     'Booking/booking_success' => 'BookingController@bookingSuccess',
+    'Booking/booking_cancel' => 'BookingController@bookingCancel',
 
     //rate
     'Rate/rate_submit' => 'RateController@RateSubmit',

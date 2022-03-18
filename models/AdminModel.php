@@ -84,6 +84,46 @@ class AdminModel extends Database {
     return $data;
   }
 
+  public function totalcustomerads(){
+    $sql = "SELECT * FROM customeradvertisement";
+      
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->rowCount();
+    
+    return $data;
+  }
+
+  public function totalcontractorads(){
+    $sql = "SELECT * FROM contractoradvertisement";
+      
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->rowCount();
+    
+    return $data;
+  }
+
+  public function totalmanpowerads(){
+    $sql = "SELECT * FROM manpoweradvertisement";
+      
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->rowCount();
+    
+    return $data;
+  }
+
+  public function totalprofit(){
+    $sql = "SELECT * FROM customer_paymentgatway";
+      
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->rowCount();
+    
+    return $data;
+  }
+
   public function totalemployeecomplaint(){
     $sql = "SELECT * FROM employee_complaint";
       

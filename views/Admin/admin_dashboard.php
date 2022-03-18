@@ -71,25 +71,10 @@ $totalcount = $data['totalcount'];
         <div class="icon-part">
           <i class="fa fa-money" aria-hidden="true"></i><br>
           <small>Total Income</small>
-          <p>$ 452</p>
+          <p><?php echo 'LKR '. $totalcount['totalprofit']; ?></p>
         </div>
       </div><br>
 
-      <div class="cpanel cpanel-green">
-        <div class="icon-part">
-          <i class="fa fa-money" aria-hidden="true"></i><br>
-          <small>Total Advertisement Income</small>
-          <p>$ 452</p>
-        </div>
-      </div>
-
-      <div class="cpanel cpanel-green">
-        <div class="icon-part">
-          <i class="fa fa-money" aria-hidden="true"></i><br>
-          <small>Total Booking Income</small>
-          <p>$ 452</p>
-        </div>
-      </div><br>
 
       <div class="cpanel cpanel-orange">
         <div class="icon-part">
@@ -118,7 +103,7 @@ $totalcount = $data['totalcount'];
         <div class="icon-part">
           <i class="fa fa-envelope-o" aria-hidden="true"></i><br>
           <small>Total Advertisement Posted</small>
-          <p>$ 45</p>
+          <p><?php echo $totalcount['totaladvertisement']; ?></p>
         </div>
       </div>
       

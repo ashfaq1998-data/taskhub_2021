@@ -24,36 +24,23 @@ class ManpowerController {
     $view = new View("Manpower/manpower_dashboard");
   }
 
-  
-
-  public function manpowerPostAd(){
-    $manpowerModel = new ManpowerModel();
-    $validation = new Validation();
+  public function manpowerPostAd() {
     $advertisementModel = new AdvertisementModel();
-    $usersModel = new UsersModel();
-    $authModel = new AuthModel();
+    $manpowerModel = new ManpowerModel();
 
-    $userID = $_SESSION['loggedin']['user_id'];
-    $typeid = $_SESSION['loggedin']['typeid'];
-    $email = $_SESSION['loggedin']['email'];
-    $data['manpower_details'] = $manpowerModel->getManpowerByUserID($userID);
-
-    if(!empty($_POST['postad-confirm']) && $_POST['postad-confirm'] == 'submitted' ){
+    if(!empty($_POST['postad-confirm'] && $_POST['postad-confirm'] == 'submitted')){
       $data['inputted_data'] = $_POST;
-      $title = $_POST['title'];
-      $email = $_POST['email'];
+		  $title = $_POST['title'];
+		  $email = $_POST['email'];
       $address = $_POST['address'];
       $district = $_POST['district'];
       $description = $_POST['description'];
+      $AdError = "";
 
-      $editError = "";
-
-      if(empty($title) || empty($email) || empty($address) || empty($district) || empty($description))
+      if(empty($title) || empty($email) || empty($address) || empty($district) || empty($district) || empty($description))
       {
-          $editError = "Please fill all the empty fields";
+          $AdError = "Please fill all the empty fields";
       }
-
-      
 
       if(!empty($_FILES["image"]["name"])) { 
         // Get file info 
@@ -69,42 +56,33 @@ class ManpowerController {
         }
       }
 
-      if($editError == ""){
-        $advertisementID = $advertisementModel->generateCustomerAdvertisementID();
+      if($AdError == ""){
+        $advertisementID = $advertisementModel->generateManPowerAdvertisementID();
         $currentDateTime = date('Y-m-d H:i:s');
         $userID = $_SESSION['loggedin']['user_id'];
         $manpowerDetails = $manpowerModel->getManpowerByUserID($userID);
 
 
-        $manpowerAdvertisement = [
+        $manpowerad = [
           'AdvertisementID' => $advertisementID,
           'Date' => $currentDateTime,
           'Title' => $title,
-          'Description' => $description,
           'Email' => $email,
           'images' => $imgContent,
+          'Description' => $description,
           'Address' => $address,
           'District' => $district,
-          'Manpower_Agency_ID' => $manpowerDetails->Manpower_Agency_ID
+          'Manpower_Agency_ID' => $manpowerDetails ->Manpower_Agency_ID
         ];
 
-        $advertisementModel-> addNewManpowerAdvertisement($manpowerAdvertisement);
-        $editError = "none";
-        
+        $advertisementModel-> addNewManpowerAdvertisement($manpowerad);
+        $AdError = "none";
+
       }
 
-      $data['editError'] = $editError;
-  
-      
-      
-
+      $data['AdError'] = $AdError;
     }
-
-    
-    
-
-
-    $view = new View("Manpower/manpower_postad", $data);
+    $view = new View("Manpower/manpower_postad",$data);
   }
 
   public function manpowerProfile(){

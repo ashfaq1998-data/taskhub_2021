@@ -46,7 +46,6 @@ class AuthController {
 					'user_type' => 'ADMIN', 
 					'user_id' => $loggedInUser->id, 
 					'username' => $username, 
-					'typeid' => $loggedInUser->user_type_id,
 					'email' => $loggedInUser->email,
 					'dashboard_link' => fullURLfront . '/Admin/admin_dashboard'
 					];
@@ -59,7 +58,6 @@ class AuthController {
 					'user_type' => 'CUSTOMER', 
 					'user_id' => $loggedInUser->id, 
 					'username' => $loggedInCustomer->FirstName." ".$loggedInCustomer->LastName, 
-					'typeid' => $loggedInUser->user_type_id,
 					'email' => $loggedInUser->email,
 					'dashboard_link' => fullURLfront . '/Customer/customer_profile'
 					];
@@ -74,7 +72,6 @@ class AuthController {
 					'user_id' => $loggedInUser->id, 
 					'username' => $loggedInEmployee->FirstName. " ".$loggedInEmployee->LastName, 
 					'email' => $loggedInUser->email,
-					'typeid' => $loggedInUser->user_type_id,
 					'dashboard_link' => fullURLfront . '/Employee/employee_profile'
 					];
 					$loginError = "none";
@@ -87,7 +84,6 @@ class AuthController {
 					'user_id' => $loggedInUser->id, 
 					'username' => $loggedInManpower->Company_Name,  
 					'email' => $loggedInUser->email,
-					'typeid' => $loggedInUser->user_type_id,
 					'dashboard_link' => fullURLfront . '/Manpower/manpower_profile'
 					];
 					$loginError = "none";
@@ -100,7 +96,6 @@ class AuthController {
 					'user_id' => $loggedInUser->id, 
 					'username' => $loggedInContractor->FirstName. " ".$loggedInContractor->LastName, 
 					'email' => $loggedInUser->email,
-					'typeid' => $loggedInUser->user_type_id,
 					'dashboard_link' => fullURLfront . '/Contractor/contractor_profile'
 					];
 					$loginError = "none";

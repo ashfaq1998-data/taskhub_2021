@@ -25,6 +25,67 @@ class ContractorController {
     $view = new View("Contractor/contractor_dashboard");
   }
 
+  public function contractorPostAd() {
+    $advertisementModel = new AdvertisementModel();
+    $contractorModel = new ContractorModel();
+
+    if(!empty($_POST['postad-confirm'] && $_POST['postad-confirm'] == 'submitted')){
+      $data['inputted_data'] = $_POST;
+		  $title = $_POST['title'];
+		  $email = $_POST['email'];
+      $address = $_POST['address'];
+      $district = $_POST['district'];
+      $description = $_POST['description'];
+      $AdError = "";
+
+      if(empty($title) || empty($email) || empty($address) || empty($district) || empty($district) || empty($description))
+      {
+          $AdError = "Please fill all the empty fields";
+      }
+
+      if(!empty($_FILES["image"]["name"])) { 
+        // Get file info 
+        $fileName = basename($_FILES["image"]["name"]); 
+        $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+         
+        //Allow certain file formats 
+        $allowTypes = array('jpg','png','jpeg','gif'); 
+        if(in_array($fileType, $allowTypes)){ 
+            $image = $_FILES['image']['tmp_name']; 
+            $imgContent = addslashes(file_get_contents($image));
+            //$imgContent = base64_encode(file_get_contents(addslashes($image)));
+        }
+      }
+
+      if($AdError == ""){
+        $advertisementID = $advertisementModel->generateContractorAdvertisementID();
+        $currentDateTime = date('Y-m-d H:i:s');
+        $userID = $_SESSION['loggedin']['user_id'];
+        $contractorDetails = $contractorModel->getContractorByUserID($userID);
+
+
+        $contractorad = [
+          'AdvertisementID' => $advertisementID,
+          'Date' => $currentDateTime,
+          'Title' => $title,
+          'Email' => $email,
+          'images' => $imgContent,
+          'Description' => $description,
+          'Address' => $address,
+          'District' => $district,
+          'Contractor_ID' => $contractorDetails ->Contractor_ID
+        ];
+
+        $advertisementModel->addNewContractorAdvertisement($contractorad);
+        $AdError = "none";
+
+      }
+
+      $data['AdError'] = $AdError;
+    }
+    $view = new View("Contractor/contractor_postad",$data);
+  }
+
   public function contractorRequest() {
     $contractorModel = new ContractorModel();
     $jobRequestModel = new JobRequestModel();
@@ -69,84 +130,6 @@ class ContractorController {
   }
 
   
-
-  public function contractorPostad(){
-    $contractorModel = new ContractorModel();
-    $validation = new Validation();
-    $advertisementModel = new AdvertisementModel();
-    $usersModel = new UsersModel();
-    $authModel = new AuthModel();
-
-    $userID = $_SESSION['loggedin']['user_id'];
-    $typeid = $_SESSION['loggedin']['typeid'];
-    $email = $_SESSION['loggedin']['email'];
-    $data['contractor_details'] = $contractorModel->getContractorByUserID($userID);
-
-    if(!empty($_POST['postad-confirm']) && $_POST['postad-confirm'] == 'submitted' ){
-      $data['inputted_data'] = $_POST;
-      $title = $_POST['title'];
-      $email = $_POST['email'];
-      $address = $_POST['address'];
-      $district = $_POST['district'];
-      $description = $_POST['description'];
-
-      $editError = "";
-
-      if(empty($title) || empty($email) || empty($address) || empty($district) || empty($description))
-      {
-          $editError = "Please fill all the empty fields";
-      }
-
-      
-
-      if(!empty($_FILES["image"]["name"])) { 
-        // Get file info 
-        $fileName = basename($_FILES["image"]["name"]); 
-        $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
-         
-        //Allow certain file formats 
-        $allowTypes = array('jpg','png','jpeg','gif'); 
-        if(in_array($fileType, $allowTypes)){ 
-            $image = $_FILES['image']['tmp_name']; 
-            $imgContent = addslashes(file_get_contents($image));
-            //$imgContent = base64_encode(file_get_contents(addslashes($image)));
-        }
-      }
-
-      if($editError == ""){
-        $advertisementID = $advertisementModel->generateContractorAdvertisementID();
-        $currentDateTime = date('Y-m-d H:i:s');
-        $userID = $_SESSION['loggedin']['user_id'];
-        $contractorDetails = $contractorModel->getContractorByUserID($userID);
-
-
-        $contractorAdvertisement = [
-          'AdvertisementID' => $advertisementID,
-          'Date' => $currentDateTime,
-          'Title' => $title,
-          'Description' => $description,
-          'Email' => $email,
-          'images' => $imgContent,
-          'Address' => $address,
-          'District' => $district,
-          'Contractor_ID' => $contractorDetails->Contractor_ID
-        ];
-
-        $advertisementModel-> addNewContractorAdvertisement($contractorAdvertisement);
-        $editError = "none";
-        
-      }
-
-      $data['editError'] = $editError;
-  
-      
-      
-
-    }
-
-
-    $view = new View("Contractor/contractor_postad", $data);
-  }
 
 
   public function contractorSearch(){

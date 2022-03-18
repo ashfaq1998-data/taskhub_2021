@@ -146,6 +146,38 @@ td:last-child {
     cursor: pointer;
 }
 
+.payment th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #108882;
+    color: white;
+  }
+  
+  .payment a{
+      float: left;
+      text-decoration: none;
+      background-color: #ca3a1b;
+      color: white;
+      font-size: 14px;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+  }
+  
+  .payment button{
+      margin-left: 10%;
+      text-decoration: none;
+      background-color: #ca3a1b;
+      color: white;
+      font-size: 14px;
+      border-radius: 10px;
+      padding-top: 10px;
+      padding-bottom: 5px;
+      padding-left: 15px;
+      padding-right: 15px;
+      cursor: pointer;
+  }
+
 
 
 

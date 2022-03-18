@@ -23,6 +23,75 @@ class AdvertisementModel extends Database {
         return  $advertisement_id;
     }
 
+    public function addNewManpowerAdvertisement($manpowerad){
+        $AdId = $manpowerad['AdvertisementID'];
+        $date = $manpowerad['Date'];
+        $title = $manpowerad['Title'];
+        $email = $manpowerad['Email'];
+        $image = $manpowerad['images'];
+        $description = $manpowerad['Description'];
+        $address = $manpowerad['Address'];
+        $district = $manpowerad['District'];
+        $manID = $manpowerad['Manpower_Agency_ID'];
+
+        $sql = " INSERT INTO manpoweradvertisement (AdvertisementID, Date, Title , Description, Address, Email, images, District, Manpower_Agency_ID) 
+            VALUES ('$AdId', '$date', '$title', '$description','$address', '$email', '$image', '$district', '$manID' )";
+
+        if($this->con->query($sql)){
+            return true;
+        }else{
+            return false;
+        }
+
+
+    }
+
+    public function addNewCustomerAdvertisement($customerad){
+        $AdId = $customerad['AdvertisementID'];
+        $date = $customerad['Date'];
+        $title = $customerad['Title'];
+        $email = $customerad['Email'];
+        $image = $customerad['images'];
+        $description = $customerad['Description'];
+        $address = $customerad['Address'];
+        $district = $customerad['District'];
+        $cusID = $customerad['CustomerID'];
+
+        $sql = " INSERT INTO customeradvertisement (AdvertisementID, Date, Title , Description, Address, Email, images, District, CustomerID) 
+            VALUES ('$AdId', '$date', '$title', '$description','$address', '$email', '$image', '$district', '$cusID' )";
+
+        if($this->con->query($sql)){
+            return true;
+        }else{
+            return false;
+        }
+
+
+    }
+
+    public function addNewContractorAdvertisement($contractorad){
+        $AdId = $contractorad['AdvertisementID'];
+        $date = $contractorad['Date'];
+        $title = $contractorad['Title'];
+        $email = $contractorad['Email'];
+        $image = $contractorad['images'];
+        $description = $contractorad['Description'];
+        $address = $contractorad['Address'];
+        $district = $contractorad['District'];
+        $conID = $contractorad['Contractor_ID'];
+
+        $sql = " INSERT INTO contractoradvertisement (AdvertisementID, Date, Title , Description, Address, Email, images, District, Contractor_ID) 
+            VALUES ('$AdId', '$date', '$title', '$description','$address', '$email', '$image', '$district', '$conID' )";
+
+        if($this->con->query($sql)){
+            return true;
+        }else{
+            return false;
+        }
+
+
+    }
+
     public function generateContractorAdvertisementID(){
         $str_part = "conad";
         $advertisement_id = "";
@@ -50,7 +119,7 @@ class AdvertisementModel extends Database {
             $num_part = rand(100,999);
             $advertisement_id = $str_part.strval($num_part);
 
-            $sql = "SELECT * FROM manpoweradvertisement WHERE Advertisement_ID='$advertisement_id'";
+            $sql = "SELECT * FROM manpoweradvertisement WHERE AdvertisementID='$advertisement_id'";
             $query = $this->con->query($sql);
             $query->execute();
 
@@ -196,76 +265,6 @@ class AdvertisementModel extends Database {
         }else{
           return false;
         }
-    }
-
-    public function addNewCustomerAdvertisement($customerAdvertisement){
-        $AdvertisementId = $customerAdvertisement['AdvertisementID'];
-        $Date = $customerAdvertisement['Date'];
-        $Title = $customerAdvertisement['Title'];
-        $Description = $customerAdvertisement['Description'];
-        $Email = $customerAdvertisement['Email'];
-        $images = $customerAdvertisement['images'];
-        $Address = $customerAdvertisement['Address'];
-        $District = $customerAdvertisement['District'];
-        $CustomerID = $customerAdvertisement['CustomerID'];
-
-        $sql = " INSERT INTO customeradvertisement (AdvertisementId, Date, Title , Description, Email, images, Address, District, CustomerID) 
-            VALUES ('$AdvertisementId', '$Date', '$Title', '$Description','$Email', '$images','$Address','$District', '$CustomerID' )";
-
-        if($this->con->query($sql)){
-            return true;
-        }else{
-            return false;
-        }
-
-
-    }
-
-    public function addNewManpowerAdvertisement($manpowerAdvertisement){
-        $AdvertisementId = $manpowerAdvertisement['AdvertisementID'];
-        $Date = $manpowerAdvertisement['Date'];
-        $Title = $manpowerAdvertisement['Title'];
-        $Description = $manpowerAdvertisement['Description'];
-        $Email = $manpowerAdvertisement['Email'];
-        $images = $manpowerAdvertisement['images'];
-        $Address = $manpowerAdvertisement['Address'];
-        $District = $manpowerAdvertisement['District'];
-        $Manpower_Agency_ID = $manpowerAdvertisement['Manpower_Agency_ID'];
-
-        $sql = " INSERT INTO manpoweradvertisement (AdvertisementId, Date, Title , Description, Email, images, Address, District, Manpower_Agency_ID) 
-            VALUES ('$AdvertisementId', '$Date', '$Title', '$Description','$Email', '$images','$Address','$District', '$Manpower_Agency_ID' )";
-
-        if($this->con->query($sql)){
-            return true;
-        }else{
-            return false;
-        }
-
-
-    }
-
-
-    public function addNewContractorAdvertisement($contractorAdvertisement){
-        $AdvertisementId = $contractorAdvertisement['AdvertisementID'];
-        $Date = $contractorAdvertisement['Date'];
-        $Title = $contractorAdvertisement['Title'];
-        $Description = $contractorAdvertisement['Description'];
-        $Email = $contractorAdvertisement['Email'];
-        $images = $contractorAdvertisement['images'];
-        $Address = $contractorAdvertisement['Address'];
-        $District = $contractorAdvertisement['District'];
-        $Contractor_ID = $contractorAdvertisement['Contractor_ID'];
-
-        $sql = " INSERT INTO contractoradvertisement (AdvertisementId, Date, Title , Description, Email, images, Address, District, Contractor_ID) 
-            VALUES ('$AdvertisementId', '$Date', '$Title', '$Description','$Email', '$images','$Address','$District', '$Contractor_ID' )";
-
-        if($this->con->query($sql)){
-            return true;
-        }else{
-            return false;
-        }
-
-
     }
 
    

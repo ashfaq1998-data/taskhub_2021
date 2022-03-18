@@ -1,5 +1,11 @@
 <?php
 session_start();
+$page = $data['pagination']['page'];
+$total_pages = $data['pagination']['total_pages'];
+$num_results_on_page = $data['pagination']['results_count'];
+
+$type = $data['filters']['type'];
+$search = $data['filters']['search'];
 
 ?>
 
@@ -13,6 +19,7 @@ session_start();
 <link href="<?php echo fullURLfront; ?>/assets/cs/common/sidebar.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/admin/admin_dashboard.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo fullURLfront; ?>/assets/cs/admin/admin_managepayment.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo fullURLfront; ?>/assets/cs/admin/admin_managemanpower.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -33,14 +40,24 @@ session_start();
                 <div style="float: right;">
                     <label for="type">Choose the type:</label>
                     <select name="type" id="type">
-                        <option value="1">Customer</option>
-                        <option value="2">Manpower Agency</option>
-                        <option value="3">Contractor</option>
+                        <option value="1" <?php echo ($type == 1) ? 'selected' : ''; ?>>Customer</option>
+                        <option value="2" <?php echo ($type == 2) ? 'selected' : ''; ?>>Manpower Agency</option>
+                        <option value="3" <?php echo ($type == 3) ? 'selected' : ''; ?>>Contractor</option>
                     </select>
                 </div>
                 </form>
             </div>
         <br><br>
+
+            <?php if(!empty($data['response'])) {?>
+                <!-- The Modal -->
+                <div class="modal">
+                <!-- Modal content -->
+                    <div class="modal-content">
+                        <p><?php echo $data['response']; ?> <i class="fa fa-check" aria-hidden="true"></i></p>
+                    </div>
+                </div>
+            <?php } ?>
             
 
 
@@ -49,24 +66,57 @@ session_start();
                 <tr>
                     <th>Date</th>
                     <th>Name of Payer</th>
-                    <th>Name of Payee</th>
-                    <th>Reason of payment</th>
+                    <th>Payer Contact</th>
+                    <th>Type of payment</th>
                     <th>Amount paid</th>
-                    <th>Action</th>
+                    <th>Payee Name</th>
 
                 </tr>
                 
-                <tr>
-                    <td>29/9/2020</td>
-                    <td>Umar</td>
-                    <td>Ammar</td>
-                    <td>Posted advertisement</td>
-                    <td>Rs 1000</td>
-                    <td><a href="#">Delete <i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
-
-                </tr>
+                <?php foreach($data['payment'] as $record) { ?>
+                    <tr>
+                        <td><?php echo $record->Date; ?></td>
+                        <td><?php echo $record->CusFullName; ?></td>
+                        <td><?php echo $record->phone; ?></td>
+                        <td><?php echo $record->PaymentMethod; ?></td>
+                        <td><?php echo $record->payment; ?></td>
+                        <td><?php echo $record->payee; ?></td>
+                    </tr>
+                <?php } ?>
                 
             </table>
+
+            <div>
+                <?php if (ceil($total_pages / $num_results_on_page) > 0 && $total_pages > $num_results_on_page){ ?>
+                    <ul class="pagination">
+                        <?php if ($page > 1){ ?>
+                        <li class="prev"><a href="<?php echo fullURLfront; ?>/Admin/admin_managepayment?page=<?php echo $page-1 ?>&type=<?php echo $type; ?>&search=<?php echo $search; ?>">Prev</a></li>
+                        <?php } ?>
+
+                        <?php if ($page > 3){ ?>
+                        <li class="start"><a href="<?php echo fullURLfront; ?>/Admin/admin_managepayment?page=1&type=<?php echo $type; ?>&search=<?php echo $search; ?>">1</a></li>
+                        <li class="dots">...</li>
+                        <?php } ?>
+
+                        <?php if ($page-2 > 0){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Admin/admin_managepayment?page=<?php echo $page-2 ?>&type=<?php echo $type; ?>&search=<?php echo $search; ?>"><?php echo $page-2 ?></a></li><?php } ?>
+                        <?php if ($page-1 > 0){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Admin/admin_managepayment?page=<?php echo $page-1 ?>&type=<?php echo $type; ?>&search=<?php echo $search; ?>"><?php echo $page-1 ?></a></li><?php } ?>
+
+                        <li class="currentpage"><a href="<?php echo fullURLfront; ?>/Admin/admin_managepayment?page=<?php echo $page ?>&type=<?php echo $type; ?>&search=<?php echo $search; ?>"><?php echo $page ?></a></li>
+
+                        <?php if ($page+1 < ceil($total_pages / $num_results_on_page)+1){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Admin/admin_managepayment?page=<?php echo $page+1 ?>&type=<?php echo $type; ?>&search=<?php echo $search; ?>"><?php echo $page+1 ?></a></li><?php } ?>
+                        <?php if ($page+2 < ceil($total_pages / $num_results_on_page)+1){ ?><li class="page"><a href="<?php echo fullURLfront; ?>/Admin/admin_managepayment?page=<?php echo $page+2 ?>&type=<?php echo $type; ?>&search=<?php echo $search; ?>"><?php echo $page+2 ?></a></li><?php } ?>
+
+                        <?php if ($page < ceil($total_pages / $num_results_on_page)-2){ ?>
+                        <li class="dots">...</li>
+                        <li class="end"><a href="<?php echo fullURLfront; ?>/Admin/admin_managepayment?page=<?php echo ceil($total_pages / $num_results_on_page) ?>&type=<?php echo $type; ?>&search=<?php echo $search; ?>"><?php echo ceil($total_pages / $num_results_on_page) ?></a></li>
+                        <?php } ?>
+
+                        <?php if ($page < ceil($total_pages / $num_results_on_page)){ ?>
+                        <li class="next"><a href="<?php echo fullURLfront; ?>/Admin/admin_managepayment?page=<?php echo $page+1 ?>&type=<?php echo $type; ?>&search=<?php echo $search; ?>">Next</a></li>
+                        <?php } ?>
+                    </ul>
+                <?php } ?>
+            </div>
             
         </div>
     </div>

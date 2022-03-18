@@ -36,7 +36,7 @@ $actorDetails = $data['actordetails'];
                         <h1>Booking Form</h1>
                         <input type="hidden" name="merchant_id" value="1219502">    <!-- Replace your Merchant ID -->
                         <input type="hidden" name="return_url" value="https://<?php echo $_SERVER["HTTP_HOST"].dirname($_SERVER["PHP_SELF"]);?>/Booking/booking_success">
-                        <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
+                        <input type="hidden" name="cancel_url" value="https://<?php echo $_SERVER["HTTP_HOST"].dirname($_SERVER["PHP_SELF"]);?>/Booking/booking_cancel">
                         <input type="hidden" name="notify_url" value="https://<?php echo $_SERVER["HTTP_HOST"].dirname($_SERVER["PHP_SELF"]);?>/Booking/booking_handle">
                         <input type="hidden" name="currency" value="LKR">
                         <input type="hidden" name="country" value="Sri Lanka">

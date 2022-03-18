@@ -10,6 +10,7 @@ require_once ROOT . '/models/ContractorModel.php';
 require_once ROOT . '/models/CustomerModel.php';
 require_once ROOT . '/models/ComplaintModel.php';
 require_once ROOT . '/models/ManpowerModel.php';
+require_once ROOT . '/models/PaymentModel.php';
 require_once ROOT . '/models/ContactUsModel.php';
 require_once ROOT . '/models/HelpRequestModel.php';
 require_once ROOT . '/classes/Validation.php';
@@ -25,7 +26,9 @@ class AdminController {
     $adminModel = new AdminModel();
     $data['totalcount'] =[
       'totalusers' => $adminModel->totalusers(),
+      'totalprofit' => $adminModel->totalprofit() * 200,
       'totalcustomers' => $adminModel->totalcustomers(),
+      'totaladvertisement' => $adminModel->totalcustomerads()+$adminModel->totalcontractorads()+$adminModel->totalmanpowerads(),
       'totalemployees' => $adminModel->totalemployees(),
       'totalmanpowers' => $adminModel->totalmanpowers(),
       'totalcontractors' => $adminModel->totalcontractors(),
@@ -38,7 +41,62 @@ class AdminController {
   }
 
   public function adminManagePayment() {
-    $view = new View("Admin/admin_managepayment");
+    $adminModel = new AdminModel();
+    $paymentModel = new PaymentModel();
+    $userID = $_SESSION['loggedin']['user_id'];
+
+    $where['search'] = $_REQUEST['search'];
+    $type = $_REQUEST['type'];
+    
+    // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
+    $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+
+    // Number of results to show on each page.
+    $num_results_on_page = 10;
+    $calc_page = ($page - 1) * $num_results_on_page;
+
+    if($type == 1 || empty($type)){
+
+      $total_pages = $paymentModel->getCustomerPayment(0, 0, true, $where);
+      $data['pagination'] = [
+        'page' => $page, 
+        'total_pages' => $total_pages, 
+        'results_count' => $num_results_on_page
+      ];
+
+      $data['payment'] = $paymentModel->getCustomerPayment($num_results_on_page, $calc_page, false, $where);
+
+    }else if($type == 2){
+
+      $total_pages = $paymentModel->getManpowerPayment(0, 0, true, $where);
+      $data['pagination'] = [
+        'page' => $page, 
+        'total_pages' => $total_pages, 
+        'results_count' => $num_results_on_page
+      ];
+
+      $data['payment'] = $paymentModel->getManpowerPayment($num_results_on_page, $calc_page, false, $where);
+
+    }else if($type == 3){
+      
+      $total_pages = $paymentModel->getContractorPayment(0, 0, true, $where);
+      $data['pagination'] = [
+        'page' => $page, 
+        'total_pages' => $total_pages, 
+        'results_count' => $num_results_on_page
+      ];
+
+      $data['payment'] = $paymentModel->getContractorPayment($num_results_on_page, $calc_page, false, $where);
+
+    }
+
+    $data['filters'] = [
+      'type' => $type, 
+      'search' => $where['search']
+      
+    ];
+    
+    $view = new View("Admin/admin_managepayment",$data);
   }
 
   public function adminManageInquiry() {

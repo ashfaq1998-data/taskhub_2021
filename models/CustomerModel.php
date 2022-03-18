@@ -229,18 +229,6 @@ class CustomerModel extends Database {
     }
   }
 
-  public function addAdImage($id, $imgContent){
-    $sql = "UPDATE customer
-            SET image='$imgContent' 
-            WHERE CustomerID='$id'";
-
-    if($this->con->query($sql)){
-      return true;
-    }else{
-      return false;
-    }
-  }
-
   public function deleteCustomer($id){
     $sql = "DELETE FROM customer
             WHERE CustomerID = '$id'";

@@ -45,7 +45,7 @@ class RateController {
                 $customerDetails = $customerModel->getCustomerByUserID($actorUserId);
                 if ($customerDetails->rating < 5) {
                     $newRating = $customerDetails->rating + (intVal($rating) / 5);
-                    $response = $customerModel->updateRating($actorUserId, ($newRating < 5 ? round($newRating) : 5));
+                    $response = $customerModel->updateRating($actorUserId, ($newRating < 5 ? $newRating : 5));
                 }
                 
             } else if ($type == 1) {
@@ -53,7 +53,7 @@ class RateController {
                 $employeeDetails = $employeeModel->getEmployeeByUserID($actorUserId);
                 if ($employeeDetails->rating < 5) {
                     $newRating = $employeeDetails->rating + (intVal($rating) / 5);
-                    $response = $employeeModel->updateRating($actorUserId, ($newRating < 5 ? round($newRating) : 5));
+                    $response = $employeeModel->updateRating($actorUserId, ($newRating < 5 ? $newRating : 5));
                 }
 
             } else if($type == 2) {
@@ -61,7 +61,7 @@ class RateController {
                 $manpowerDetails = $manpowerModel->getManpowerByUserID($actorUserId);
                 if ($manpowerDetails->rating < 5) {
                     $newRating = $manpowerDetails->rating + (intVal($rating) / 5);
-                    $response = $manpowerModel->updateRating($actorUserId, ($newRating < 5 ? round($newRating) : 5));
+                    $response = $manpowerModel->updateRating($actorUserId, ($newRating < 5 ? $newRating : 5));
                 }
 
             } else if($type == 3) {
@@ -69,14 +69,14 @@ class RateController {
                 $contractorDetails = $contractorModel->getContractorByUserID($actorUserId);
                 if ($contractorDetails->rating < 5) {
                     $newRating = $contractorDetails->rating + (intVal($rating) / 5);
-                    $response = $contractorModel->updateRating($actorUserId, ($newRating < 5 ? round($newRating) : 5));
+                    $response = $contractorModel->updateRating($actorUserId, ($newRating < 5 ? $newRating : 5));
                 }
 
             }    
 
-            if ($response) {
+            
                 header('location: ' . fullURLfront . '/main/index');
-            }
+            
         }
 
         $data['ratingFormDetails'] = [

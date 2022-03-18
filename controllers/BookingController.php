@@ -26,9 +26,10 @@ use PHPMailer\PHPMailer\Exception;
 class BookingController {
 
   public function bookingHandle() {
-    
+    $merchantId = $_POST['merchant_id'];
     $customerUserId = base64_decode($_POST['order_id']);
     $payhereAmount = $_POST['payhere_amount'];
+    $payhereCurrency = $_POST['payhere_currency'];
     $statusCode = $_POST['status_code'];
     $paymentMethod = $_POST['method'];
     $type = $_POST['custom_1'];
@@ -102,51 +103,76 @@ class BookingController {
       
       if($bookingAdded){
 
-        $paymentDetails = [
-          'paymentId' => $paymentId,
-          'cardNo' => $cardNo,
-          'expiryDate' => $cardExpiry,
-          'cardHolderName' => $cardHolderName,
-          'customerId' => $customerDetails->CustomerID,
-          'paymentMethod' => $paymentMethod,
-          'payment' => $payhereAmount
-        ];
+        if($type == 1){
 
-        $paymentDone = $paymentModel->addNewCustomerPayment($paymentDetails);
+          $payeeDetails = $employeeModel->getEmployeeByID($actorId);
+  
+          $paymentDetails = [
+            'paymentId' => $paymentId,
+            'payee' => $payeeDetails->FirstName . ' '.$payeeDetails->LastName,
+            'cardNo' => $cardNo,
+            'expiryDate' => $cardExpiry,
+            'cardHolderName' => $cardHolderName,
+            'customerId' => $customerDetails->CustomerID,
+            'paymentMethod' => $paymentMethod,
+            'payment' => $payhereAmount
+          ];
+  
+          $paymentDone = $paymentModel->addNewCustomerPayment($paymentDetails);
+  
+        }else if($type == 2){
+
+          $payeeDetails = $manpowerModel->getManpowerByID($actorId);
+          
+          $paymentDetails = [
+            'paymentId' => $paymentId,
+            'payee' => $payeeDetails->Company_Name,
+            'cardNo' => $cardNo,
+            'expiryDate' => $cardExpiry,
+            'cardHolderName' => $cardHolderName,
+            'customerId' => $customerDetails->CustomerID,
+            'paymentMethod' => $paymentMethod,
+            'payment' => $payhereAmount
+          ];
+  
+          $paymentDone = $paymentModel->addNewCustomerPayment($paymentDetails);
+  
+        }else if($type == 3){
+
+          $payeeDetails = $contractorModel->getContractorByID($actorId);
+          
+          $paymentDetails = [
+            'paymentId' => $paymentId,
+            'payee' => $payeeDetails->FirstName.' '.$payeeDetails->LastName,
+            'cardNo' => $cardNo,
+            'expiryDate' => $cardExpiry,
+            'cardHolderName' => $cardHolderName,
+            'customerId' => $customerDetails->CustomerID,
+            'paymentMethod' => $paymentMethod,
+            'payment' => $payhereAmount
+          ];
+  
+          $paymentDone = $paymentModel->addNewCustomerPayment($paymentDetails);
+  
+        }
+
+        
 
         if ($paymentDone) {
           //mail for customer
           $customerUserDetails = $usersModel->getUserDetails($customerUserId);
           $this->sendRatingMail($customerUserDetails->email, $payeeDetails->ProfileFullName, $type, base64_encode($payeeDetails->user_id));
-          //$this->sendRatingMail('fahd@xgengroup.com.au', $payeeDetails->ProfileFullName, $type, base64_encode($payeeDetails->user_id));
 
           //mail for payee
           $payeeUserDetails = $usersModel->getUserDetails($payeeDetails->user_id);
           $this->sendRatingMail($payeeUserDetails->email, ($customerDetails->FirstName . ' ' . $customerDetails->LastName), 0, base64_encode($customerUserId));
-          //$this->sendRatingMail('fahad.2019656@iit.ac.lk', ($customerDetails->FirstName . ' ' . $customerDetails->LastName), 0, base64_encode($customerUserId));
+          
         }
       }
     }
   }
 
-  public function bookingSubmit() {
-    $merchantId = $_POST['merchant_id'];
-    $orderId = $_POST['order_id'];
-    $payhereAmount = $_POST['payhere_amount'];
-    $payhereCurrency = $_POST['payhere_currency'];
-    $statusCode = $_POST['status_code'];
-    $paymentMethod = $_POST['status_code'];
-
-
-    $bookingModel = new BookingModel();
-    $result = $bookingModel->addNewEmployeeBooking('ebook351', 'no');
-
-    if($result){
-      echo "success";
-    }else{
-      echo "failed";
-    }
-  }
+  
 
   public function bookingSuccess() {
     $customerUserId = base64_decode($_REQUEST['order_id']);
@@ -168,6 +194,29 @@ class BookingController {
     ];
 
     $view = new View("Customer/customer_services", $data);
+
+  }
+
+  public function bookingCancel() {
+    $customerUserId = base64_decode($_REQUEST['order_id']);
+    $customerModel = new CustomerModel();
+    $paymentModel = new PaymentModel();
+
+    $customerDetails = $customerModel->getCustomerByUserID($customerUserId);
+    $paymentConfirmation = $paymentModel->getCustomerLastPayment($customerDetails->CustomerID);
+
+    if(!($paymentConfirmation)){
+      $data['response'] = 'Your Booking has been Cancelled';
+    }
+
+    $data['filters'] = [
+      'type' => 1,
+      'role' => '',
+      'area' => '',
+      'search' => ''
+    ];
+
+    $view = new View("Customer/customer_bookingform", $data);
 
   }
 
