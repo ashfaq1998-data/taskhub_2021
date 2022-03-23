@@ -377,6 +377,7 @@ class CustomerController {
 
   public function customerBookingform(){
     $employeeModel = new EmployeeModel();
+    $customerModel = new CustomerModel();
     $contractorModel = new ContractorModel();
     $ManpowerModel = new ManpowerModel();
     $bookingModel = new BookingModel();
@@ -400,6 +401,9 @@ class CustomerController {
       'type' => $type,
       'actorId' => $iid
     ];
+
+    $data['customerdetails'] = $customerModel->getCustomerByUserID($userID);
+
 
 
 
@@ -456,6 +460,8 @@ class CustomerController {
     $customerDetails = $customerModel->getCustomerByUserID($userID);
     $bookingsDetailsEmployee = $bookingModel->getCustomerBookingEmployee($customerDetails->CustomerID);
     $bookingsDetailsContractor = $bookingModel->getCustomerBookingContractor($customerDetails->CustomerID);
+    $bookingsDetailsManpower = $bookingModel->getCustomerBookingManpower($customerDetails->CustomerID);
+
 
     $allEvents = array();
     foreach($bookingsDetailsEmployee as $booking){
@@ -468,6 +474,21 @@ class CustomerController {
         'time' => $booking->EventTime,
         'payment' => $booking->payment,
         'description' => $booking->Description
+      ];
+      array_push($allEvents, $event);
+    }
+
+    foreach($bookingsDetailsManpower as $booking){
+      $event = [
+        'topic' => 'Manpower Agency',
+        'title'  => $booking->title,
+        'start'  => $booking->EventDate,
+        'fullname' => $booking->Company_Name,
+        'address' => $booking->Address,
+        'time' => $booking->EventTime,
+        'payment' => $booking->payment,
+        'description' => $booking->Description,
+
       ];
       array_push($allEvents, $event);
     }

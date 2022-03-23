@@ -28,16 +28,19 @@ class RateController {
         $employeeModel = new EmployeeModel();
         $contractorModel = new ContractorModel();
         $manpowerModel = new ManpowerModel();
+        $bookingModel = new BookingModel();
 
         $actorUserId = base64_decode($_REQUEST['iid']);
         $type = $_REQUEST['type'];
         $rateFor = $_REQUEST['rateFor'];
+        $bookingId = base64_decode($_REQUEST['bid']);
 
         if(!empty($_POST['confirm_rating']) && $_POST['confirm_rating'] == 'submitted') {
             
             $rating = $_POST['rating'];
             $type = $_POST['type'];
             $actorUserId = $_POST['actorUserId'];
+            $bookingId = $_POST['bookingId'];  
 
             $response = false;
             if($type == 0){
@@ -50,6 +53,7 @@ class RateController {
                 
             } else if ($type == 1) {
 
+                $bookingModel->updateEmployeeBooking($bookingId);
                 $employeeDetails = $employeeModel->getEmployeeByUserID($actorUserId);
                 if ($employeeDetails->rating < 5) {
                     $newRating = $employeeDetails->rating + (intVal($rating) / 5);
@@ -58,6 +62,7 @@ class RateController {
 
             } else if($type == 2) {
 
+                $bookingModel->updateManpowerBooking($bookingId);
                 $manpowerDetails = $manpowerModel->getManpowerByUserID($actorUserId);
                 if ($manpowerDetails->rating < 5) {
                     $newRating = $manpowerDetails->rating + (intVal($rating) / 5);
@@ -66,6 +71,7 @@ class RateController {
 
             } else if($type == 3) {
     
+                $bookingModel->updateContractorBooking($bookingId);
                 $contractorDetails = $contractorModel->getContractorByUserID($actorUserId);
                 if ($contractorDetails->rating < 5) {
                     $newRating = $contractorDetails->rating + (intVal($rating) / 5);
@@ -75,14 +81,15 @@ class RateController {
             }    
 
             
-                header('location: ' . fullURLfront . '/main/index');
+            header('location: ' . fullURLfront . '/main/index');
             
         }
 
         $data['ratingFormDetails'] = [
             'actorUserId' => $actorUserId,
             'type' => $type,
-            'rateFor' => $rateFor
+            'rateFor' => $rateFor,
+            'bookingId' => $bookingId
         ];
 
         $view = new View("Rate/rate", $data);
