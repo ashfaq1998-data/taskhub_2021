@@ -12,6 +12,7 @@ require_once ROOT . '/models/EmployeeModel.php';
 require_once ROOT . '/models/UsersModel.php';
 require_once ROOT . '/models/AuthModel.php';
 require_once ROOT . '/models/JobRequestModel.php';
+require_once ROOT . '/models/MyrequestModel.php';
 require_once ROOT . '/classes/Validation.php';
 
 
@@ -143,6 +144,7 @@ class ContractorController {
 
     $where['search'] = $_REQUEST['search'];
     $type = $_REQUEST['type'];
+    $where['area']= $_REQUEST['area'];
 
     // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
     $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
@@ -188,7 +190,8 @@ class ContractorController {
 
     $data['filters'] = [
       'type' => $type, 
-      'search' => $where['search'] 
+      'search' => $where['search'],
+      'area'  =>$where['area']
     ];
 
     $view = new View("Contractor/contractor_search", $data);
@@ -257,7 +260,7 @@ class ContractorController {
         // Get file info 
         $fileName = basename($_FILES["image"]["name"]); 
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
-         
+        
         //Allow certain file formats 
         $allowTypes = array('jpg','png','jpeg','gif'); 
         if(in_array($fileType, $allowTypes)){ 
@@ -287,7 +290,7 @@ class ContractorController {
           'Account_Number' => $accnum,
           'bio' => $bio,
         ];
-
+    
         $response = $contractorModel->updateContractor($data['contractor_details']->Contractor_ID, $updateContractorDetails);
         if($response){
           if(!empty($imgContent)){
@@ -338,6 +341,54 @@ class ContractorController {
     $view = new View("Contractor/contractor_paymentdone");
   }
 
+  public function contractorMyrequests() {
+    $userID=$_SESSION['loggedin']['user_id'];
+    $data['inputted_data'] = $_POST;
+    $where['search'] = $_REQUEST['search'];
+    $type = $_REQUEST['type'];
+    $where['area']= $_REQUEST['area'];
+
+    $MyrequestModel=new MyrequestModel();
+  
+
+    $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+
+    // Number of results to show on each page.
+    $num_results_on_page = 6;
+    $calc_page = ($page - 1) * $num_results_on_page;
+    
+
+
+    if($type == 1 || empty($type)){
+
+      $total_pages = $MyrequestModel->getmyCustomerRequestDetails(0, 0, true, $userID);
+        $data['pagination'] = [
+        'page' => $page, 
+        'total_pages' => $total_pages, 
+        'results_count' => $num_results_on_page
+      ];
+
+      $data['my_requests'] = $MyrequestModel->getmyCustomerRequestdetails($num_results_on_page,$calc_page,false,$userID);
+
+    }else if($type == 2){
+
+      $total_pages = $MyrequestModel->getmyManpowerRequestdetails(0, 0, true, $userID);
+      $data['pagination'] = [
+        'page' => $page, 
+        'total_pages' => $total_pages, 
+        'results_count' => $num_results_on_page
+      ];
+
+      $data['my_requests'] = $MyrequestModel->getmyManpowerRequestdetails($num_results_on_page, $calc_page, false,$userID);
+    }
+  
+    
+  
+    
+
+    $view=new View("Contractor/contractor_myrequests",$data);
+  }
+
   public function contractorHelp() {
     
     $helpRequestModel = new HelpRequestModel();
@@ -346,6 +397,7 @@ class ContractorController {
       $data['inputted_data'] = $_POST;
 		  $subject = $_POST['subject'];
 		  $message = $_POST['message'];
+      $fullname=$_POST['fullname'];
       $HelpError = "";
 
       if(empty($subject) || empty($message))
@@ -364,7 +416,8 @@ class ContractorController {
           'Date' => $currentDateTime,
           'Subject' => $subject,
           'Content' => $message,
-          'Contractor_ID' => $contractorDetails->Contractor_ID
+          'Contractor_ID' => $contractorDetails->Contractor_ID,
+          'fullname'=>$fullname
           
         ];
 
@@ -443,13 +496,15 @@ class ContractorController {
     $allEvents = array();
     foreach($bookingsDetails as $booking){
       $event = [
+        
         'title'  => $booking->title,
+        'Description'=> $booking->Description,
         'start'  => $booking->EventDate,
         'customerName' => $booking->CusFullName,
         'address' => $booking->Address,
         'time' => $booking->EventTime,
         'payment' => $booking->payment,
-        
+
       ];
       array_push($allEvents, $event);
     }

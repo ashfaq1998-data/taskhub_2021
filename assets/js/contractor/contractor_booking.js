@@ -3,16 +3,17 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         eventDidMount: function(info) {
-            $(info.el).click(function(){
+            $(info.el).click(function() {
+
                 $('#customerName').val(info.event.extendedProps.customerName);
                 $('#time').val(info.event.extendedProps.time);
                 $('#payment').val(info.event.extendedProps.payment);
                 $('#address').val(info.event.extendedProps.address);
-                
+                $('#Description').val(info.event.extendedProps.Description);
             });
         },
         eventSources: [{
-               events: data,
+            events: data,
             // events: [ // put the array in the `events` property
             //     {
             //         title  : 'event1',
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             //         payment: 'Rs. 10,000'
             //     }
             // ],
-            color: '#108882',     // an option!
+            color: '#108882', // an option!
             textColor: 'white' // an option!
         }]
     });

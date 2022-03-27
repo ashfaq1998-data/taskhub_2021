@@ -98,6 +98,11 @@ class CustomerModel extends Database {
         $where_cls .= " AND LOWER(C.FirstName) LIKE '%$search%' OR LOWER(C.LastName) LIKE '%$search%'";
     }
     
+    if($where['area'] != ""){
+      $area = strtolower($where['area']);
+      $where_cls .= " AND LOWER(C.District) = '" . $area . "'";
+    }
+
     if($count == true){
       $sql = "SELECT C.* FROM customer C WHERE $where_cls";
       

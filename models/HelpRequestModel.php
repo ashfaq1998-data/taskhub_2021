@@ -6,22 +6,22 @@ class HelpRequestModel extends Database {
 
   //for now for profile section
   public function generateEmployeeHelpID() {
-   $str_part = "emreq";
-   $request_id = "";
+    $str_part = "emreq";
+    $request_id = "";
 
-   while(true){
-       $num_part = rand(100,999);
-       $request_id = $str_part.strval($num_part);
+    while(true){
+      $num_part = rand(100,999);
+      $request_id = $str_part.strval($num_part);
 
-       $sql = "SELECT * FROM employee_help_request WHERE RequestID='$request_id'";
-       $query = $this->con->query($sql);
-       $query->execute();
+      $sql = "SELECT * FROM employee_help_request WHERE RequestID='$request_id'";
+      $query = $this->con->query($sql);
+      $query->execute();
 
-       if ($query->rowCount() == 0){
-         break;
+      if ($query->rowCount() == 0){
+        break;
       }
-   }
-   return $request_id;
+  }
+  return $request_id;
   }
 
 
@@ -91,36 +91,36 @@ class HelpRequestModel extends Database {
     while(true){
         $num_part = rand(100,999);
         $request_id = $str_part.strval($num_part);
- 
+
         $sql = "SELECT * FROM contractor_help_request WHERE RequestID='$request_id'";
         $query = $this->con->query($sql);
         $query->execute();
- 
+
         if ($query->rowCount() == 0){
           break;
-       }
+      }
     }
     return $request_id;
   }
- 
- 
+
+
   public function addNewContractorHelp($contractorHelp) {
-     $RequestId = $contractorHelp['RequestID'];
-     $date = $contractorHelp['Date'];
-     $subject = $contractorHelp['Subject'];
-     $message = $contractorHelp['Content'];
-     $contractorID = $contractorHelp['Contractor_ID'];
-     
-     
-     $sql = " INSERT INTO contractor_help_request (RequestID, Date, Subject , Content, Contractor_ID) 
-             VALUES ('$RequestId', '$date', '$subject', '$message', '$contractorID')";
- 
-     if($this->con->query($sql)){
-         return true;
-     }else{
-         return false;
-     }
- 
+    $RequestId = $contractorHelp['RequestID'];
+    $date = $contractorHelp['Date'];
+    $subject = $contractorHelp['Subject'];
+    $message = $contractorHelp['Content'];
+    $contractorID = $contractorHelp['Contractor_ID'];
+    
+    
+    $sql = " INSERT INTO contractor_help_request (RequestID, Date, Subject , Content, Contractor_ID) 
+            VALUES ('$RequestId', '$date', '$subject', '$message', '$contractorID')";
+
+    if($this->con->query($sql)){
+        return true;
+    }else{
+        return false;
+    }
+
   }
 
   public function generateManpowerHelpID() {

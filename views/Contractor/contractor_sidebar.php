@@ -10,6 +10,6 @@
         <li><a href="<?php echo fullURLfront; ?>/Contractor/contractor_viewad"><i class="fa fa-audio-description"></i> View Advertsiment</a></li>
         <li><a href="<?php echo fullURLfront; ?>/Contractor/contractor_postad"><i class="fa fa-envelope-o"></i> Post Advertsiment</a></li>
         <li><a href="<?php echo fullURLfront; ?>/Contractor/contractor_requestjob"><i class="fa fa-telegram" aria-hidden="true"></i> Requests</a></li>
-
+        <li><a href="<?php echo fullURLfront; ?>/Contractor/contractor_myrequests"><i class="fa fa-telegram" aria-hidden="true"></i> My Requests</a></li>
     </ul>
 </div>

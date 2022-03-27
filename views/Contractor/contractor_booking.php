@@ -35,12 +35,15 @@ $JsonData = json_encode($data['bookingEvents']);
                 <h3><i class="fa fa-book" aria-hidden="true"></i> Booking Details</h3>
                 <div class="booking-details-section-content">
                     <form>
+                        
                         <label for="fname">Customer:</label><br>
                         <input type="text" id="customerName" name="customerName" value="" readonly><br>
                         <label for="lname">Time:</label><br>
                         <input type="text" id="time" name="time" value="" readonly><br>
                         <label for="lname">Address:</label><br>
                         <input type="text" id="address" name="address" value="" readonly>
+                        <label for="fname">Description</label>
+                        <input type="text" id="Description" name="Description" value="" readonly><br>
                         
                     </form>
                 </div>

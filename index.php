@@ -64,7 +64,7 @@ $routes = [
     'Contractor/contractor_requestjob' => 'ContractorController@contractorRequest',
     'Contractor/contractor_requestjob' => 'ContractorController@contractorRequest',
     'Contractor/contractor_job_apply' => 'ContractorController@contractorJobApply',
-
+    'Contractor/contractor_myrequests'=> 'ContractorController@contractorMyRequests',
   //customer section
 
     'Customer/customer_profile' => 'CustomerController@customerProfile',

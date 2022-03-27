@@ -29,23 +29,33 @@ $search = $data['filters']['search'];
             <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
         </div>
         <div class="column2">
-        <div class="search-container">
-            <form action="<?php echo fullURLfront; ?>/Contractor/contractor_search" method="POST" id="filter" name="filter">
-                <input type="text" placeholder="Search" name="search" value="<?php echo (!empty($data['filters'])) ? $search : ''; ?>">
-                <button type="submit"><i class="fa fa-search"></i></button>
-        </div>
-        <div class="sortinglist">
-            <div style="float: right;">
-                <label for="type">Choose the type:</label>
-                <select name="type" id="type">
-                    <option value="1" <?php echo ($type == 1) ? 'selected' : ''; ?>>Customer</option>
-                    <option value="2" <?php echo ($type == 2) ? 'selected' : ''; ?>>Employee</option>
-                    <option value="3" <?php echo ($type == 3) ? 'selected' : ''; ?>>Manpower</option>
-                </select>
+            <div class="search-container">
+                <form action="<?php echo fullURLfront; ?>/Contractor/contractor_search" method="POST" id="filter" name="filter">
+                    <input type="text" placeholder="Search" name="search" value="<?php echo (!empty($data['filters'])) ? $search : ''; ?>">
+                    <button type="submit"><i class="fa fa-search"></i></button>
             </div>
-            </form>
-        </div>
-        <br>
+            <div class="sortinglist">
+                <div style="float: right;">
+
+                    <label for="area">Choose the area:</label>
+                    <select name="area" id="area" >
+                        <option value="" <?php echo ($area == "") ? 'selected' : ''; ?>>Any</option>
+                        <option value="colombo" <?php echo ($area == "colombo") ? 'selected' : ''; ?>>Colombo</option>
+                        <option value="gampaha" <?php echo ($area == "gampaha") ? 'selected' : ''; ?>>Gampaha</option>
+                        <option value="kaluthara" <?php echo ($area == "kaluthara") ? 'selected' : ''; ?>>Kaluthara</option>
+                        <option value="galle" <?php echo ($area == "galle") ? 'selected' : ''; ?>>Galle</option>
+                    </select>
+                
+                    <label for="type">Choose the type:</label>
+                    <select name="type" id="type">
+                        <option value="1" <?php echo ($type == 1) ? 'selected' : ''; ?>>Customer</option>
+                        <option value="2" <?php echo ($type == 2) ? 'selected' : ''; ?>>Employee</option>
+                        <option value="3" <?php echo ($type == 3) ? 'selected' : ''; ?>>Manpower</option>
+                    </select>
+                </div>
+                </form>
+            </div>
+            <br>
 
             <?php foreach($data['profiles'] as $record) { ?>
                 <div class="subrow">

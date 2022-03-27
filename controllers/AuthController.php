@@ -311,7 +311,8 @@ class AuthController {
 				'NIC' => $nic,
 				'Contact_No' => $phoneNum,
 				'Specialized_area' => $specialization,
-				'user_id' => $userId
+				'user_id' => $userId,
+				
 			];
 
             if ($authModel->register($userDetails)) {
