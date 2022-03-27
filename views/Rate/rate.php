@@ -35,6 +35,8 @@ session_start();
                 <h2>Rate For <?php echo $data['ratingFormDetails']['rateFor']; ?></h2>
                 <input type="hidden" name="type" value="<?php echo $data['ratingFormDetails']['type']; ?>">
                 <input type="hidden" name="actorUserId" value="<?php echo $data['ratingFormDetails']['actorUserId']; ?>">
+                <input type="hidden" name="bookingId" value="<?php echo $data['ratingFormDetails']['bookingId']; ?>">
+
                 <input type="radio" name="rating" value="1" aria-label="1 star">
                 <input type="radio" name="rating" value="2" aria-label="2 star">
                 <input type="radio" name="rating" value="3" aria-label="3 star">

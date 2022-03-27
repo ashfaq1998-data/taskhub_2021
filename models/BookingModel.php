@@ -139,6 +139,19 @@ class BookingModel extends Database {
         return $data;
     }
 
+    public function getCustomerBookingManpower($customer_id) {
+        $sql = "SELECT MANB.*, MAN.Company_Name , DATE(MANB.Date) AS EventDate, TIME(MANB.Date) AS EventTime, Description 
+                FROM manpower_booking MANB
+                INNER JOIN manpower_agency MAN ON MANB.Manpower_Agency_ID=MAN.Manpower_Agency_ID 
+                WHERE MANB.CustomerID='$customer_id' AND MANB.Is_work_done='No'";
+         
+        $query = $this->con->query($sql);
+        $query->execute();
+        $data = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $data;
+    }
+
     public function addNewEmployeeBooking($bookingDetails){
         $bookingId = $bookingDetails['bookingId'];
         $address = $bookingDetails['address'];
@@ -193,6 +206,42 @@ class BookingModel extends Database {
             return true;
         }else{
             return false;
+        }
+    }
+
+    public function updateEmployeeBooking($id){
+        $sql = "UPDATE employee_booking 
+                SET Is_work_done='Yes' 
+                WHERE BookingID='$id'";
+    
+        if($this->con->query($sql)){
+          return true;
+        }else{
+          return false;
+        }
+    }
+
+    public function updateManpowerBooking($id){
+        $sql = "UPDATE manpower_booking 
+                SET Is_work_done='Yes' 
+                WHERE BookingID='$id'";
+    
+        if($this->con->query($sql)){
+          return true;
+        }else{
+          return false;
+        }
+    }
+
+    public function updateContractorBooking($id){
+        $sql = "UPDATE contractor_booking 
+                SET Is_work_done='Yes' 
+                WHERE BookingID='$id'";
+    
+        if($this->con->query($sql)){
+          return true;
+        }else{
+          return false;
         }
     }
 }

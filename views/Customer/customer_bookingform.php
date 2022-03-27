@@ -1,6 +1,7 @@
 <?php
 // session_start();
 $actorDetails = $data['actordetails'];
+$customerDetails =  $data['customerdetails'];
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +35,7 @@ $actorDetails = $data['actordetails'];
                 <div class="subcolumn">
                     <form action="https://sandbox.payhere.lk/pay/checkout" method="POST" id="bookingForm"> 
                         <h1>Booking Form</h1>
-                        <input type="hidden" name="merchant_id" value="1219502">    <!-- Replace your Merchant ID -->
+                        <input type="hidden" name="merchant_id" value="1219963">    <!-- Replace your Merchant ID -->
                         <input type="hidden" name="return_url" value="https://<?php echo $_SERVER["HTTP_HOST"].dirname($_SERVER["PHP_SELF"]);?>/Booking/booking_success">
                         <input type="hidden" name="cancel_url" value="https://<?php echo $_SERVER["HTTP_HOST"].dirname($_SERVER["PHP_SELF"]);?>/Booking/booking_cancel">
                         <input type="hidden" name="notify_url" value="https://<?php echo $_SERVER["HTTP_HOST"].dirname($_SERVER["PHP_SELF"]);?>/Booking/booking_handle">
@@ -47,19 +48,19 @@ $actorDetails = $data['actordetails'];
                         <input type="hidden" name="custom_2" value="<?php echo $data['bookingFormDetails']['actorId']; ?>">
                         <div class="elem-group">
                             <label for="first_name">First Name</label>
-                            <input type="text" id="first_name" name="first_name" placeholder="Jensen" required>
+                            <input type="text" id="first_name" name="first_name" value="<?php echo $customerDetails->FirstName; ?>" readonly>
                         </div>
                         <div class="elem-group">
                             <label for="last_name">Last Name</label>
-                            <input type="text" id="last_name" name="last_name" placeholder="Ackles" required>
+                            <input type="text" id="last_name" name="last_name" value="<?php echo $customerDetails->LastName; ?>" readonly>
                         </div>
                         <div class="elem-group">
                             <label for="address">Permenant Address</label>
-                            <input type="text" id="address" name="address" placeholder="No 36, Reid Avenue, Colombo 10" required>
+                            <input type="text" id="address" name="address" value="<?php echo $customerDetails->Address; ?>" readonly>
                         </div>
                         <div class="elem-group">
                             <label for="city">City</label>
-                            <input type="text" id="city" name="city" placeholder="Colombo" required>
+                            <input type="text" id="city" name="city" value="<?php echo $customerDetails->District; ?>" readonly>
                         </div>
                         <div class="elem-group">
                             <label for="email">Your E-mail</label>
@@ -67,7 +68,7 @@ $actorDetails = $data['actordetails'];
                         </div>
                         <div class="elem-group">
                             <label for="phone">Your Contact Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="0713483872" required>
+                            <input type="tel" id="phone" name="phone" value="<?php echo $customerDetails->Contact_No; ?>" readonly>
                         </div>
                         <div class="elem-group">
                             <input type="hidden"  id="amount" name="amount" value="<?php echo $actorDetails->Payment_for_2hours + 200; ?>">

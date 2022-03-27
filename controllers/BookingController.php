@@ -50,6 +50,7 @@ class BookingController {
 
     $customerDetails = $customerModel->getCustomerByUserID($customerUserId);
     $payeeDetails = [];
+    $bookingDetails = [];
     
     if ($statusCode == 2){
       //TODO: Update your database as payment success
@@ -103,69 +104,27 @@ class BookingController {
       
       if($bookingAdded){
 
-        if($type == 1){
+        $paymentDetails = [
+          'paymentId' => $paymentId,
+          'payee' => $payeeDetails->ProfileFullName,
+          'cardNo' => $cardNo,
+          'expiryDate' => $cardExpiry,
+          'cardHolderName' => $cardHolderName,
+          'customerId' => $customerDetails->CustomerID,
+          'paymentMethod' => $paymentMethod,
+          'payment' => $payhereAmount
+        ];
 
-          $payeeDetails = $employeeModel->getEmployeeByID($actorId);
-  
-          $paymentDetails = [
-            'paymentId' => $paymentId,
-            'payee' => $payeeDetails->FirstName . ' '.$payeeDetails->LastName,
-            'cardNo' => $cardNo,
-            'expiryDate' => $cardExpiry,
-            'cardHolderName' => $cardHolderName,
-            'customerId' => $customerDetails->CustomerID,
-            'paymentMethod' => $paymentMethod,
-            'payment' => $payhereAmount
-          ];
-  
-          $paymentDone = $paymentModel->addNewCustomerPayment($paymentDetails);
-  
-        }else if($type == 2){
-
-          $payeeDetails = $manpowerModel->getManpowerByID($actorId);
-          
-          $paymentDetails = [
-            'paymentId' => $paymentId,
-            'payee' => $payeeDetails->Company_Name,
-            'cardNo' => $cardNo,
-            'expiryDate' => $cardExpiry,
-            'cardHolderName' => $cardHolderName,
-            'customerId' => $customerDetails->CustomerID,
-            'paymentMethod' => $paymentMethod,
-            'payment' => $payhereAmount
-          ];
-  
-          $paymentDone = $paymentModel->addNewCustomerPayment($paymentDetails);
-  
-        }else if($type == 3){
-
-          $payeeDetails = $contractorModel->getContractorByID($actorId);
-          
-          $paymentDetails = [
-            'paymentId' => $paymentId,
-            'payee' => $payeeDetails->FirstName.' '.$payeeDetails->LastName,
-            'cardNo' => $cardNo,
-            'expiryDate' => $cardExpiry,
-            'cardHolderName' => $cardHolderName,
-            'customerId' => $customerDetails->CustomerID,
-            'paymentMethod' => $paymentMethod,
-            'payment' => $payhereAmount
-          ];
-  
-          $paymentDone = $paymentModel->addNewCustomerPayment($paymentDetails);
-  
-        }
-
-        
+        $paymentDone = $paymentModel->addNewCustomerPayment($paymentDetails);
 
         if ($paymentDone) {
           //mail for customer
           $customerUserDetails = $usersModel->getUserDetails($customerUserId);
-          $this->sendRatingMail($customerUserDetails->email, $payeeDetails->ProfileFullName, $type, base64_encode($payeeDetails->user_id));
+          $this->sendRatingMail($customerUserDetails->email, $payeeDetails->ProfileFullName, $type, base64_encode($payeeDetails->user_id), base64_encode($bookingDetails['bookingId']));
 
           //mail for payee
           $payeeUserDetails = $usersModel->getUserDetails($payeeDetails->user_id);
-          $this->sendRatingMail($payeeUserDetails->email, ($customerDetails->FirstName . ' ' . $customerDetails->LastName), 0, base64_encode($customerUserId));
+          $this->sendRatingMail($payeeUserDetails->email, ($customerDetails->FirstName . ' ' . $customerDetails->LastName), 0, base64_encode($customerUserId), base64_encode($bookingDetails['bookingId']));
           
         }
       }
@@ -197,6 +156,8 @@ class BookingController {
 
   }
 
+  
+
   public function bookingCancel() {
     $customerUserId = base64_decode($_REQUEST['order_id']);
     $customerModel = new CustomerModel();
@@ -220,7 +181,7 @@ class BookingController {
 
   }
 
-  public function sendRatingMail($email, $name, $type, $userId){
+  public function sendRatingMail($email, $name, $type, $userId, $bookingId){
 
     $mail = new PHPMailer(true);
     try{
@@ -242,7 +203,7 @@ class BookingController {
       $mail->setFrom('taskhub21@gmail.com', 'Taskhub');
       $mail->addAddress("$email");
 
-      $url = "https://".$_SERVER["HTTP_HOST"].dirname($_SERVER["PHP_SELF"])."/Rate/rate_submit?type=$type&iid=$userId&rateFor=$name";
+      $url = "https://".$_SERVER["HTTP_HOST"].dirname($_SERVER["PHP_SELF"])."/Rate/rate_submit?type=$type&bid=$bookingId&iid=$userId&rateFor=$name";
       $mail->isHTML(true);                                  //Set email format to HTML
       $mail->Subject = 'Rating Work';
       $mail->Body    = "<h1>Rate for $name</h1>
