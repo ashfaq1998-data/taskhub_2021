@@ -28,7 +28,7 @@ $area = $data['filters']['area'];
 <?php include_once('header.php'); ?>
 
 <div class="row">
-  <div class="column1">
+   <div class="column1">
     <?php include_once('views/Contractor/contractor_sidebar.php'); ?>
   </div>
   <div class="column2">
@@ -146,7 +146,7 @@ $area = $data['filters']['area'];
     if(data){
         setTimeout(function(){
             window.location.href = "<?php echo fullURLfront; ?>/Contractor/contractor_viewad";
-         }, 2000);
+        }, 2000);
     }
 </script>
 </html>
