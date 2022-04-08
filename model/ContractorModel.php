@@ -23,7 +23,7 @@ class ContractorModel extends Database {
     $specialization = $contractorDetails['Specialized_area'];
     $userId = $contractorDetails['user_id'];
 
-    $sql = "INSERT INTO contractors (Contractor_ID, FirstName, LastName, NIC, phone, specialization, user_id) 
+    $sql = "INSERT INTO contractors (Contractor_ID, FirstName, LastName, NIC, Contact_No, Specialized_area, user_id) 
             VALUES ('$contractorId', '$firstName', '$lastName', '$nic', '$phoneNum', '$specialization', '$userId')";
 
     if($this->con->query($sql)){

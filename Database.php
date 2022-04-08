@@ -5,7 +5,7 @@ class Database {
 
   public function __construct() {
     $host = "localhost:3306";
-    $dbname = "taskhub";
+    $dbname = "taskhub_new";
     $username = "root";
     $password = "";
 

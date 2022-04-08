@@ -372,7 +372,7 @@ class AuthController {
 	$authModel = new AuthModel();
 	$customerModel = new CustomerModel();
 	$usersModel = new UsersModel();
-	$data['gender'] = ['Male','Female'];
+	$data['gender'] = ['Male','Female','Other'];
 
 	if(!empty($_POST['customer_register'] && $_POST['customer_register'] == 'submitted') ){
 		$data['inputted_data'] = $_POST;
@@ -388,7 +388,7 @@ class AuthController {
 		$registerError = "";
 
 		//validate input fields
-		if(empty($firstName) || empty($lastName) || empty($nic) || empty($phoneNum) || empty($gender) || empty($address)
+		if(empty($firstName) || empty($lastName) || empty($nic) || empty($phoneNum) || empty($gender)
 			|| empty($email) || empty($password) || empty($confirmPassword))
 		{
 			$registerError = "Please fill all the empty fields";

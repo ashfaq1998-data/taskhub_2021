@@ -57,9 +57,50 @@ class CustomerModel extends Database {
 
   
 
-  public function searchResults($keyword) {
-    $sql = "SELECT * FROM employee WHERE ((`FirstName` LIKE '%".$keyword."%') OR (`LastName` LIKE '%".$keyword."%') 
-            OR (`Specialized_area` LIKE '%".$keyword."%'))";
+  public function searchResults($keyword, $ser_type, $area, $emp_type) {
+    // if($emp_type == '' || $keyword) {
+    //   $sql = "SELECT * FROM employee WHERE ((`FirstName` LIKE '%".$keyword."%') OR (`LastName` LIKE '%".$keyword."%') 
+    //         OR (`Specialized_area` LIKE '%".$keyword."%'))"; 
+    // }
+    if($emp_type == !null) {
+      if($emp_type == 'employee') {
+        if($keyword!=null) {
+          $sql = "SELECT * FROM employee WHERE ((`FirstName` LIKE '%".$keyword."%') OR (`LastName` LIKE '%".$keyword."%') 
+              OR (`Specialized_area` LIKE '%".$keyword."%'))"; 
+        }
+        if($keyword==null) {
+          $sql = "SELECT * FROM employee";
+        }
+      }
+      else if($emp_type == 'contractor') {
+        if($keyword!=null){
+          $sql = "SELECT * FROM contractors WHERE ((`FirstName` LIKE '%".$keyword."%') OR (`LastName` LIKE '%".$keyword."%') 
+              OR (`Specialized_area` LIKE '%".$keyword."%'))";
+        }
+        if($keyword==null) {
+          $sql = "SELECT * FROM contractors";
+        }
+      }
+      else if($emp_type == 'manpower') {
+        if($keyword!=null) {
+          $sql = "SELECT * FROM manpower_agency WHERE (`Company_Name` LIKE '%".$keyword."%')";
+        }
+        if($keyword==null) {
+          $sql = "SELECT * FROM manpower_agency";
+        }
+      }
+    }
+
+    // else {
+    //   $sql = "SELECT employee.FirstName,employee.LastName,employee.Specialized_area FROM employee 
+    //           WHERE ((`FirstName` LIKE '%".$keyword."%') OR (`LastName` LIKE '%".$keyword."%') 
+    //           OR (`Specialized_area` LIKE '%".$keyword."%')) UNION
+              
+    //           SELECT contractors.FirstName,contractors.LastName,contractors.Specialized_area FROM contractors
+    //           WHERE ((`FirstName` LIKE '%".$keyword."%') OR (`LastName` LIKE '%".$keyword."%') 
+    //           OR (`Specialized_area` LIKE '%".$keyword."%'))";
+    // }
+
     $query = $this->con->query($sql);
     $query->execute();
     for($i=0; $i<$query->rowCount(); $i++){
@@ -95,6 +136,17 @@ class CustomerModel extends Database {
           return false;
       }   
   }
+
+  //post advertisement image model
+  public function customerPostadImage($imgContent, $adID){
+    $sql = "UPDATE customeradvertisement SET images = '$imgContent' where AdvertisementID = '$adID'";
+    
+    if($this->con->query($sql)){
+        return true;
+    }else{
+        return false;
+    }   
+}
 
   public function generateCustomerAdID(){
     $str_part = "ad";

@@ -1,8 +1,14 @@
 <?php
     session_start();
+    $keyword = $data['filters']['keyword'];
+    $ser_type = $data['filters']['ser_type'];
+    $area = $data['filters']['area'];
+    $emp_type = $data['filters']['emp_type'];
+
     $details = $data['results'];
-    $arrLength = count($details)-1;
+    // $arrLength = count($details)-1;
     $err = $details['error'];
+    echo $emp_type;
 ?>
 
 <!DOCTYPE html>
@@ -27,12 +33,59 @@
             </div>
             
             <div class="column2">
+
+                <div>
+                    <div class="search-container">
+                        <form action="<?php echo fullURLfront; ?>/Customer/customer_serviceList" method="get">
+                            <input type="search" placeholder="Search for services, workers, contractors or manpower agencies" name="search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        <!-- </form> -->
+                    </div>
+                
+                    <div class="sortinglist">
+                        <div class="boxes">
+                            <label for="ser" id="ser">Service type:</label>
+                            <select name="service_type" id="service_type">
+                                <option value="" value disabled selected>Service type</option>
+                                <option value="plumb">Plumbing</option>
+                                <option value="carpen">Carpentry</option>
+                                <option value="elec">Electrical help</option>
+                                <option value="mason">Mason</option>
+                                <option value="paint">Painting</option>
+                                <option value="gard">Gardening</option>
+                            </select><br><br>
+
+                            <label for="emp" id="emp">Employee type:</label>        
+                            <select name="employee_type" id="employee_type" onchange="getSelectValue(this.value);" required>
+                                <option value="" value disabled selected <?php echo ($emp_type=='') ? 'selected' : ''?> >Employee type</option>
+                                <option value="manpower" <?php echo ($emp_type=='manpower') ? 'selected' : ''?> >Manpower Agency</option>
+                                <option value="employee" <?php echo ($emp_type=='employee') ? 'selected' : ''?> >Employee</option>
+                                <option value="contractor" <?php echo ($emp_type=='contractor') ? 'selected' : ''?> >Contractor</option>
+                            </select><br><br>
+
+                            <label for="area" id="area">Living area:</label>
+                            <select name="location" id="location">
+                                <option value="" value disabled selected>Location</option>
+                                <option value="matara">Matara</option>
+                                <option value="colombo">Colombo</option>
+                                <option value="galle">Galle</option>
+                                <option value="kandy">Kandy</option>
+                            </select><br><br><br><br>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
             <?php
             if($err){ ?>
                 <center><div style="position: relative; right: 80px; top: 140px;"><h1><?php echo($err); ?></h1>
                 <img src="<?php echo fullURLfront; ?>/assets/images/sad.jpg" alt="image" style="position: relative; right: 10px;"></div></center>
             <?php }
             else{
+                $count = 0;
+                foreach($details as $i) { $count++; }
+                $arrLength = $count-1;
+            // foreach($details as $record) {   
             for ($i=0; $i<$arrLength; $i++) { ?>
             <div id="container">
   
@@ -60,9 +113,7 @@
                     </div>                
                 
                     <!-- The most important information about the product -->
-                    <p class="information">" I have experience in plumbing for nearly 10 years.
-                    Replacing washing machine and dryer machine Hoses, and pipe lines minimum charge 2 hours
-                    Willing to give the best service. Best regards!! " <br>
+                    <p class="information"><?php echo $details[$i]->bio; ?> <br>
                     </p>
             
                 
@@ -73,7 +124,7 @@
                     <!-- Start Button buying -->
                         <button class="btn"><a id="close" href="<?php echo fullURLfront; ?>/Customer/customer_booking">
                     <!--    the Price -->
-                        <span class="price">LKR 6000</span>
+                        <span class="price"><?php echo $details[$i]->Payment_for_2hours; ?></span>
                     <!--    shopping cart icon-->
                         <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
                     <!--    Buy Now / ADD to Cart-->
@@ -93,17 +144,19 @@
                 
                 <div class="product-image">
                     
-                    <img src="<?php echo fullURLfront; ?>/assets/images/avril.jpeg" alt="image">
+                    <!-- <img src="<?php echo fullURLfront; ?>/assets/images/avril.jpeg" alt="image"> -->
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($details[$i]->image); ?>" alt="image" style="object-fit: contain;">
                     
                     <!--  product Information-->
                     <div class="info">
                         <h2>The Description</h2>
                         <ul>
-                        <li><strong>From </strong>&nbsp&nbsp&nbsp&nbspColombo</li>
+                        <li><strong>From </strong>&nbsp&nbsp&nbsp&nbsp<?php echo $details[$i]->District; ?></li>
                         <li><strong>Service type </strong>&nbsp&nbsp&nbsp&nbsp<?php echo $details[$i]->Specialized_area; ?></li>
-                        <li><strong>Employer type </stron>&nbsp&nbsp&nbsp&nbspEmployee</li>
-                        <li><strong>Experience </strong>&nbsp&nbsp&nbsp&nbsp2 Years</li>
-                        <li><strong>Contact Me </strong>&nbsp&nbsp&nbsp&nbsp0717773445</li>
+                        <li><strong>Employer type </stron>&nbsp&nbsp&nbsp&nbsp<?php echo ($emp_type=='manpower') ? 'Man-power' : ''?>
+                        <?php echo ($emp_type=='employee') ? 'Employee' : ''?> <?php echo ($emp_type=='contractor') ? 'Contractor' : ''?></li>
+                        <li><strong>Experience </strong>&nbsp&nbsp&nbsp&nbsp<?php echo $details[$i]->years_of_experience; ?> Years</li>
+                        <li><strong>Contact Me </strong>&nbsp&nbsp&nbsp&nbsp<?php echo $details[$i]->Contact_No; ?></li>
                         </ul>
                     </div>
                 </div>
@@ -117,5 +170,26 @@
         </div>
         <?php include_once('footer.php'); ?>
     </div>
+    
+    <!-- <script type="text/javascript">
+        var actorType = <?php echo $emp_type; ?>;
+        if(actorType == 'manpower'){
+            $("#ser").hide();
+            $("#service_type").hide();
+        }else{
+            $("#ser").show();
+            $("#service_type").show();
+        }
+
+        function getSelectValue(type){
+        if(type == 'manpower'){
+            $("#ser").hide();
+            $("#service_type").hide();
+        }else{
+            $("#ser").show();
+            $("#service_type").show();
+        }
+    }
+    </script> -->
 </body>
 </html>

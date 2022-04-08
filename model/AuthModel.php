@@ -17,6 +17,20 @@ class AuthModel extends Database {
     }
   } 
 
+  public function login2($email, $password) {
+    $sql = "SELECT * FROM users WHERE email='$email'";
+    $query = $this->con->query($sql);
+    $query->execute();
+    $data = $query->fetch(PDO::FETCH_OBJ);
+    
+
+    if (password_verify($password, $data->password)) {
+        return true;
+    }else {
+        return false;
+    }
+  } 
+
   public function register($userDetails) {
     $id = $userDetails['id'];
     $email = $userDetails['email'];
@@ -25,6 +39,19 @@ class AuthModel extends Database {
 
     $sql = "INSERT INTO users (id, email, password, user_type_id) 
             VALUES ('$id', '$email', '$password', $user_type_id)";
+
+    if($this->con->query($sql)){
+        return true;
+    }else{
+        return false;
+    }
+  }
+
+  public function user_update($password) {
+    $pw_hash = $password;
+    $userID = $_SESSION['loggedin']['user_id'];
+
+    $sql = "UPDATE users SET password = '$pw_hash' WHERE id = '$userID'";
 
     if($this->con->query($sql)){
         return true;

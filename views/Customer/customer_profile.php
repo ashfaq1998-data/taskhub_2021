@@ -40,7 +40,7 @@
                 <span>Personal Info</span>
                 <a href="<?php echo fullURLfront; ?>/Customer/customer_profileEd">Edit Info <i class="fa fa-pencil" aria-hidden="true"></i></a>
                 <div class="personal-info-section-content">
-                    <img src="<?php echo fullURLfront; ?>/assets/images/david.jpg">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($customerDetails->image); ?>" alt="Avatar" class="avatar">
                     <div class="details">
                         <table>
                             <tr>
@@ -60,6 +60,10 @@
                                 <td class="info-right-column"><?php echo $customerDetails->Contact_No; ?></td>
                             </tr>
                             <tr>
+                                <td>Gender</td>
+                                <td class="info-right-column"><?php echo $customerDetails->Gender; ?></td>
+                            </tr>
+                            <!-- <tr>
                                 <td>Rating</td>
                                 <td class="info-right-column">
                                     <?php for($i = 1; $i <= $customerDetails->rating; $i++) {?>
@@ -67,13 +71,13 @@
                                     <?php }?>
                                     <?php for($i = 1; $i <= (5-$customerDetails->rating); $i++) {?>
                                         <span class="fa fa-star"></span>
-                                    <?php }?>
+                                    <?php }?> -->
                                     <!-- <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span> -->
-                                </td>
+                                <!-- </td> -->
                             </tr>
                         </table>
                     </div>

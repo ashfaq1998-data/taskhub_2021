@@ -20,6 +20,18 @@ class CustomerProfileModel extends Database {
             }else{
                 return false;
             } 
-        }    
-    } 
+        }
+    }
+
+    public function UpdateImage($imgContent, $userID){
+    
+        $sql = "UPDATE customer SET image = '$imgContent' WHERE user_id = '$userID'";
+        
+        if($this->con->query($sql)){
+
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

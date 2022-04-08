@@ -34,7 +34,7 @@ class customerHelpModel extends Database {
     $cuID = $customerHelp['CustomerID'];
     
     
-    $sql = "INSERT INTO customer_help_request (RequestID, Date, Email , Content, Name, CustomerID) 
+    $sql = "INSERT INTO customer_help_request (RequestID, Date, Email , Content, Subject, CustomerID) 
             VALUES ('$RequestId', '$date', '$email', '$message', '$name', '$cuID')";
 
     if($this->con->query($sql)){

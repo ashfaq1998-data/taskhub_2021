@@ -62,6 +62,7 @@ $routes = [
     // 'Customer/customer_profileEdit' => 'CustomerController@customerProfileEdit',
     'Customer/customer_service' => 'CustomerController@customerService',
     'Customer/customer_serviceLocation' => 'CustomerController@customerServiceLocation',
+    'Customer/customer_test' => 'TestController@customerTest'
 
 ];
 

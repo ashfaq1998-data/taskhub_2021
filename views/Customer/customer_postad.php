@@ -30,11 +30,11 @@ session_start();
                 </div>
                 <div class="subcolumn2"></div>
                 <div class="subcolumn3">
-                    <form action="<?php echo fullURLfront; ?>/Customer/customer_postad" method="POST">
+                    <form action="<?php echo fullURLfront; ?>/Customer/customer_postad" method="POST" enctype="multipart/form-data">
                         <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-style: normal; font-weight: bold; font-size: 20px;">
                         Post advertisement details</p>
                         <input type="text" id="title" name="title" placeholder="Title of the advertisement" style="font-size: 15px;" required>
-                        <input type="text" id="email" name="email" placeholder="Email" style="font-size: 15px;" required>
+                        <input type="text" id="email" name="email" placeholder="Email" style="font-size: 15px;" value ="<?php echo $_SESSION['loggedin']['email']; ?>" required>
                         <!-- <input type="text" id="address" name="address" placeholder="Address" style="font-size: 15px;" required> -->
                         <div>
                             <input type="file" accept="image/*" class="custom-file-input" name="upload" placeholder="Upload photos" style="
